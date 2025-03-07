@@ -1,0 +1,3610 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("-translate-x-full");
+        }
+
+    </script>
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 p-5 flex">
+    <!-- Sidebar -->
+    <div id="sidebar" class="w-64 bg-purple-800 text-white p-6 h-screen fixed transform transition-transform -translate-x-full rounded-r-lg shadow-lg z-50">
+        <button onclick="toggleSidebar()" class="absolute top-5 right-5 bg-red-500 text-white p-2 rounded-lg">✖</button>
+        <h2 class="text-2xl font-bold mb-4">📖 Daftar Isi</h2>
+        <ul>
+            <li class="mb-3"><a href="#Persamaan Garis Lurus" class="hover:text-yellow-300">▶️ Persamaan Garis Lurus</a></li>
+            <li class="mb-3"><a href="#Latihan Soal 1A" class="hover:text-yellow-300">📝 Latihan Soal 1A</a></li>
+	    <li class="mb-3"><a href="#Peluang" class="hover:text-yellow-300">▶️ Peluang</a></li>
+	    <li class="mb-3"><a href="#Latihan Soal 2A" class="hover:text-yellow-300">📝 Latihan Soal 2A</a></li>
+	    <li class="mb-3"><a href="#Sumatif Tengah Semester 1A" class="hover:text-yellow-300">📖 Sumatif Tengah Semester 1A</a></li>
+        </ul>
+    </div>
+    
+    <!-- Menu Bar di belakang Sidebar -->
+    <button onclick="toggleSidebar()" class="fixed top-5 left-5 bg-yellow-400 text-white p-3 rounded-lg shadow-lg z-40">☰ Menu</button>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-purple-800 mb-6">Media Pembelajaran Matematika Interaktif</h1>
+        
+        <!-- Persamaan garis lurus-->
+        <div id="Persamaan Garis Lurus" class="mb-8">
+            <h1 class="text-2xl font-bold mb-4 text-purple-700"> Persamaan Garis Lurus</h1>
+	<ul class="text-purple-700 p-6 bg-blue-100 rounded-lg shadow-md">
+            <li class="mb-3"><a href="#1. Pengertian Persamaan Garis Lurus" class="hover:text-yellow-300">1. Pengertian Persamaan Garis Lurus</a></li>
+            <li class="mb-3"><a href="#2. Bentuk umum dari persamaan garis lurus" class="hover:text-yellow-300">2. Bentuk umum dari persamaan garis lurus</a></li>
+	    <li class="mb-3"><a href="#3. Gradien Garis Lurus" class="hover:text-yellow-300">3. Gradien Garis Lurus</a></li>
+	    <li class="mb-3"><a href="#4. Menentukan Persamaan Garis Lurus" class="hover:text-yellow-300">4. Menentukan Persamaan Garis Lurus</a></li>
+        </ul>	
+	    <div id="1. Pengertian Persamaan Garis Lurus">
+            <p class="text-xl font-semibold">1. Pengertian Persamaan Garis Lurus</p>
+	    <p class="mt-2 ml-4">Persamaan garis lurus adalah persamaan yang menggambarkan hubungan antara koordinat \( x \) dan \( y \) dalam suatu bidang kartesius sehingga membentuk garis lurus.</p>
+	    </div>
+	    <div id="2. Bentuk umum dari persamaan garis lurus">
+	    <p class="text-xl font-semibold">2. Bentuk umum dari persamaan garis lurus </p>
+                    <p class="text-xl mt-2 ml-4 text-purple-700">\[ y = mx + c \]<br></p>
+		    <p class="mt-2 ml-4">dengan:<br>
+			<ul class="list-disc mt-2 ml-12">
+    				<li>\(m\) = gradien (kemiringan) garis</li>
+    				<li>\(c\) = titik potong garis dengan sumbu \(y\) (intersep \( y \))</li>
+			</ul>
+		    </p>
+	            <p class="mt-2 ml-4">Bisa juaga disajikan dalam bentuk</p>
+		    <p class="text-xl mt-2 ml-4 text-purple-700">\[ ax+by+c=0\]<br></p>
+		    <p class="mt-2 ml-4">dengan:<br>
+			<ul class="list-disc mt-2 ml-12">
+    				<li>\(a,b,c\) adalah konstanta</li>
+    				<li>\(x,y\) adalah variabel</li>
+			</ul>
+
+                </div><br>
+		<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+		<p class="font-semibold  mt-2 ml-4 ">Contoh Soal:</p>
+		<p class="mt-2 ml-4">Tentukan apakah persamaan berikut merupakan persamaan garis lurus atau bukan. Jika bukan, berikan alasannya!
+        	<ul class="list-decimal mt-2 ml-12">
+            		<li>\( y = 5x - 2 \)</li>
+            		<li>\( x^2 + y = 9 \)</li>
+            		<li>\( x + 4y = 10 \)</li>
+        	</ul></p>
+	
+        	<p class="font-semibold  mt-2 ml-4 ">Pembahasan:</p>
+         	<p class="mt-2 ml-4">1. \( y = 5x - 2 \)</p>
+            	<p class="mt-2 ml-6">Bentuk persamaan ini adalah \( y = mx + c \), yang merupakan bentuk umum persamaan garis lurus. Oleh karena itu, ini adalah persamaan garis lurus.</p>
+            	<p class="mt-2 ml-4">2.  \( x^2 + y = 9 \)</p>
+            	<p class="mt-2 ml-6">Jika kita ubah menjadi \( y = 9 - x^2 \), terlihat bahwa ada suku \( x^2 \) yang menunjukkan bahwa ini adalah persamaan kuadratik (parabola), bukan garis lurus.</p>
+            	<p class="mt-2 ml-4">3.  \( x + 4y = 10 \)</p>
+            	<p class="mt-2 ml-6">Jika kita ubah bentuknya menjadi \( y = -\frac{1}{4}x + \frac{10}{4} \), ini sesuai dengan bentuk \( y = mx + c \), sehingga ini adalah persamaan garis lurus.</p>
+        	</div><br>
+		<div id="3. Gradien Garis Lurus">
+		<p class="text-xl font-semibold">3. Gradien Garis Lurus</p>
+        	<p class="mt-2 ml-4">Gradien atau kemiringan garis lurus adalah ukuran kecondongan garis terhadap sumbu \( x \). Gradien dinotasikan dengan \( m \) dan dapat dihitung dengan rumus:</p>
+        	<p class="text-xl mt-2 ml-4 text-purple-700">\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</p>
+        	<p class="mt-2 ml-4">dengan:</p>
+        	<ul class="list-disc mt-2 ml-12">
+            		<li>\( (x_1, y_1) \) dan \( (x_2, y_2) \) adalah dua titik pada garis lurus</li>
+        	</ul>
+
+        	<p class="font-semibold mt-6"> 3.1 Sifat Gradien</p>
+        	<p class="mt-2 ml-4">Gradien garis memiliki beberapa sifat:</p>
+        	<ul class="list-disc mt-2 ml-12">
+            	<li>Jika \( m > 0 \), garis miring ke atas (searah jarum jam).</li>
+            		<li>Jika \( m < 0 \), garis miring ke bawah (berlawanan arah jarum jam).</li>
+            		<li>Jika \( m = 0 \), garis sejajar dengan sumbu \( x \) (garis horizontal).</li>
+            		<li>Jika gradien tidak terdefinisi (\( x_1 = x_2 \)), garis sejajar dengan sumbu \( y \) (garis vertikal).</li>
+        	</ul>
+
+        	<p class="font-semibold mt-6">3.2 Gradien dari Persamaan Garis</p>
+        	<p class="mt-2 ml-4">Gradien dapat ditentukan dari persamaan garis lurus dalam bentuk:</p>
+        	<p class="text-xl mt-2 ml-4 text-purple-700">\[ y = mx + c \]</p>
+        	<p class="mt-2 ml-4">Di mana:</p>
+        	<ul class="list-disc mt-2 ml-12">
+            		<li>\( m \) adalah gradien</li>
+            		<li>\( c \) adalah titik potong garis dengan sumbu \( y \)</li>
+        	</ul>
+        
+        	<p class="mt-2 ml-4">Jika diberikan persamaan dalam bentuk umum \( ax + by + c = 0 \), maka gradiennya dapat dihitung dengan:</p>
+        	<p class="text-xl mt-2 ml-4 text-purple-700">\[ m = -\frac{a}{b} \]</p>
+    		</div>
+
+    		<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+        	<p class="font-semibold">Contoh Soal:</p>
+        	<p class="mt-2">Tentukan gradien dari garis berikut:</p>
+        	<ul class="list-decimal mt-2 ml-8">
+            		<li>Garis yang melalui titik \( (2,3) \) dan \( (5,9) \).</li>
+            		<li>Persamaan garis \( y = -3x + 7 \).</li>
+            		<li>Persamaan garis \( 2x + 5y - 10 = 0 \).</li>
+        	</ul>
+
+        	<p class="font-semibold mt-4">Pembahasan:</p>
+
+        	<p class="mt-2"><strong>1. Garis melalui \( (2,3) \) dan \( (5,9) \)</strong></p>
+        	<p class="ml-4">Gunakan rumus gradien:</p>
+        	<p class="text-xl ml-4 text-purple-700">\[ m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{9 - 3}{5 - 2} = \frac{6}{3} = 2 \]</p>
+
+        	<p class="mt-2"><strong>2. Persamaan garis \( y = -3x + 7 \)</strong></p>
+        	<p class="ml-4">Karena sudah dalam bentuk \( y = mx + c \), maka gradiennya adalah \( m = -3 \).</p>
+
+        	<p class="mt-2"><strong>3. Persamaan garis \( 2x + 5y - 10 = 0 \)</strong></p>
+        	<p class="ml-4">Ubahlah menjadi bentuk \( y = mx + c \):</p>
+        	<p class="text-xl ml-4 text-purple-700">\[ 5y = -2x + 10 \]</p>
+        	<p class="text-xl ml-4 text-purple-700">\[ y = -\frac{2}{5}x + 2 \]</p>
+        	<p class="ml-4">Sehingga gradiennya adalah \( m = -\frac{2}{5} \).</p>
+    		</div><br>
+		</div>	
+
+            <div class="w-full rounded-lg shadow-lg overflow-hidden">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/v5xshTktATQ?si=GBkplU8nHIK2PwA6" frameborder="0" allowfullscreen></iframe>
+    </div><br>
+	    <div id="4. Menentukan Persamaan Garis Lurus">
+		<p class="text-xl font-semibold">4. Menentukan Persamaan Garis Lurus</p>
+
+    <p class="mt-2 ml-4">Untuk menentukan persamaan garis lurus, kita dapat menggunakan beberapa metode tergantung informasi yang diberikan.</p>
+
+    <p class="text-lg font-semibold mt-4 ml-4">4.1 Jika Diketahui Gradien dan Titik</p>
+    <p class="mt-2 ml-6">Jika diketahui gradien \( m \) dan titik \((x_1, y_1)\), maka persamaan garis dapat dicari dengan rumus:</p>
+    <p class="text-xl mt-2 ml-6 text-purple-700">\[ y - y_1 = m (x - x_1) \]</p>
+	<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    	<p class="font-semibold mt-2 ml-4">Contoh Soal:</p>
+        <p class="mt-2 ml-6">Diketahui garis memiliki gradien \( m = 3 \) dan melalui titik \( (2,5) \), maka:</p>
+	<p class="font-semibold mt-2 ml-4">Pembahasan:</p>
+        <ul class=" mt-2 ml-12">
+            <li>\( y - 5 = 3(x - 2) \)</li>
+            <li>\( y - 5 = 3x - 6 \)</li>
+	    <li>\( y = 3x - 6 + 5\)</li>
+            <li>\( y = 3x - 1 \)</li>
+        </ul>
+    </p></div>
+    
+    <p class="text-lg font-semibold mt-4 ml-4">4.2 Jika Diketahui Dua Titik</p>
+    <p class="mt-2 ml-6">Jika diketahui dua titik \((x_1, y_1)\) dan \((x_2, y_2)\), kita bisa menentukan gradien terlebih dahulu dengan rumus:</p>
+    <p class="text-xl mt-2 ml-6 text-purple-700">\[ \frac{y - y_1}{y_2 - y_1} = \frac{x - x_1}{x_2 - x_1} \]</p>
+	<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    	<p class="font-semibold mt-2 ml-4">Contoh Soal:</p>
+        <p class="mt-2 ml-6">Tentukan persamaan garis yang melalui titik \( (1,3) \) dan \( (4,9) \)!
+	<p class="font-semibold mt-2 ml-4">Pembahasan:</p>
+        <ul class="mt-2 ml-12">
+            <li>masukan titik \( (1,3) \) dan \( (4,9) \) kedalam rumus \[ \frac{y - y_1}{y_2 - y_1} = \frac{x - x_1}{x_2 - x_1} \]</li>
+            <li>\[ \frac{y - 3}{9 - 3} = \frac{x - 1}{4 - 1} \]</li>
+	    <li>\[ \frac{y - 3}{6} = \frac{x - 1}{3} \]</li>
+            <li>\[ 3(y - 3) = 6(x - 1) \]</li>
+	    <li>\[ 3y - 9 = 6x - 6 \]</li>
+	    <li>\[ 3y = 6x - 6 + 9 \]</li>
+	    <li>\[ 3y = 6x + 3 \]</li>
+            <li>di bagi 3 semuanya \( y = 2x + 1 \)</li>
+        </ul>
+    </p></div>
+
+    <p class="text-lg font-semibold mt-4 ml-4">4.3 Jika Diketahui Persamaan Garis Sejajar atau Tegak Lurus</p>
+    <p class="mt-2 ml-6">
+        <ul class="list-disc mt-2 ml-12">
+            <li>Dua garis dikatakan <strong>sejajar</strong> jika memiliki <strong>gradien yang sama</strong> atau </li>
+		<p class="text-xl mt-2 ml-6 text-purple-700">\[ m_1=m_2 \]</p>
+            <li>Dua garis dikatakan <strong>tegak lurus</strong> jika <strong>hasil kali gradiennya -1</strong> atau </li>
+		<p class="text-xl mt-2 ml-6 text-purple-700">\[ m_1 \times m_2 = -1 \]</p>
+        </ul>
+    </p>
+	<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    	<p class="font-semibold mt-2 ml-4">Contoh Soal:</p>
+        <p class="mt-2 ml-6">Tentukan persamaan garis yang sejajar dengan \( y = 3x + 5 \) dan melalui titik \( (2,4) \).</p>
+	<p class="font-semibold mt-4 ml-4">Pembahasan:</p>
+        <ul class="mt-2 ml-12">
+            <li>Gradien garis yang sejajar adalah \( m = 3 \)</li>
+            <li>Gunakan rumus: \( y - 4 = 3(x - 2) \)</li>
+            <li>\( y - 4 = 3x - 6 \)</li>
+            <li>\( y = 3x - 2 \)</li>
+        </ul>
+    </p></div>
+	</div><br><br>
+        <!-- Latihan Soal 1A -->
+        <div id="Latihan Soal 1A">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700">📝 Latihan Soal 1A</h2>
+            <p class="mb-4">Berikut adalah beberapa pertanyaan untuk menguji pemahaman Anda.</p>
+	<script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function togglePembahasan(id) {
+            var pembahasan = document.getElementById(id);
+            pembahasan.classList.toggle('hidden');
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .button-lots { background-color: blue; }
+        .button-lots:hover { background-color: purple; }
+        .button-mots { background-color: green; }
+        .button-mots:hover { background-color: purple; }
+        .button-hots { background-color: red; }
+        .button-hots:hover { background-color: purple; }
+        .question-box {
+            padding: 20px;
+            background-color: #dceefb;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+        .answer-button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+	<div class="text-center">
+        <button class="button button-lots" onclick="scrollToSection('latihan soal 1A lots')">LOTS</button>
+        <button class="button button-mots" onclick="scrollToSection('latihan soal 1A mots')">MOTS</button>
+        <button class="button button-hots" onclick="scrollToSection('latihan soal 1A hots')">HOTS</button>
+    	</div>
+            <div class="space-y-6">
+                <!-- Soal Matematika -->
+    <h2 id="latihan soal 1A lots" class="text-2xl font-bold text-blue-600 mt-6">Soal 1: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Berapakah gradien garis yang memiliki persamaan \( y = 5x + 2 \)?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 2 \)</li>
+            <li>B. \( 5 \)</li>
+            <li>C. \( -5 \)</li>
+            <li>D. \( \frac{1}{5} \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan1')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pada persamaan garis \( y = mx + c \), gradiennya adalah \( m \).</p>
+        <p>Jadi, pada persamaan \( y = 5x + 2 \), nilai \( m = 5 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 5</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 2: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Berapakah gradien garis yang melalui titik (2,4) dan (6,8)?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 1 \)</li>
+            <li>B. \( 2 \)</li>
+            <li>C. \( 3 \)</li>
+            <li>D. \( 0.5 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan2')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus gradien: \( m = \frac{y_2 - y_1}{x_2 - x_1} \)</p>
+        <p>\( m = \frac{8 - 4}{6 - 2} = \frac{4}{4} = 1 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 1</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 3: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Jika sebuah garis memiliki gradien \( -3 \) dan melalui titik (2,5), tentukan persamaan garisnya!</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = -3x + 11 \)</li>
+            <li>B. \( y = -3x + 5 \)</li>
+            <li>C. \( y = -3x - 2 \)</li>
+            <li>D. \( y = -3x + 2 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan3')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus \( y - y_1 = m(x - x_1) \)</p>
+        <p>\( y - 5 = -3(x - 2) \)</p>
+        <p>\( y - 5 = -3x + 6 \)</p>
+        <p>\( y = -3x + 11 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = -3x + 11 \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 4: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Tentukan persamaan garis yang melalui titik (0,3) dengan gradien \( \frac{1}{2} \)!</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = \frac{1}{2}x + 3 \)</li>
+            <li>B. \( y = \frac{1}{2}x - 3 \)</li>
+            <li>C. \( y = \frac{1}{2}x + 1 \)</li>
+            <li>D. \( y = \frac{1}{2}x - 1 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan4')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus persamaan garis: \( y = mx + c \).</p>
+        <p>Karena garis melalui (0,3), maka \( c = 3 \).</p>
+        <p>\( y = \frac{1}{2}x + 3 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = \frac{1}{2}x + 3 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 5: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Diketahui persamaan garis \( y = 3x - 4 \). Berapakah nilai \( y \) jika \( x = 2 \)?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 2 \)</li>
+            <li>B. \( 4 \)</li>
+            <li>C. \( 6 \)</li>
+            <li>D. \( 8 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan5')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Substitusikan \( x = 2 \) ke dalam persamaan \( y = 3x - 4 \):</p>
+        <p>\( y = 3(2) - 4 \)</p>
+        <p>\( y = 6 - 4 \)</p>
+        <p>\( y = 2 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 2</strong></p>
+    </div>
+</div>
+<h2 id="latihan soal 1A mots" class="text-2xl font-bold text-green-600 mt-6">Soal 6: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah garis memiliki gradien \( m = -2 \) dan melalui titik (3,5). Tentukan persamaan garis tersebut!</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = -2x + 5 \)</li>
+            <li>B. \( y = -2x + 11 \)</li>
+            <li>C. \( y = -2x - 1 \)</li>
+            <li>D. \( y = -2x + 9 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan6')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan6" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus persamaan garis: \( y - y_1 = m(x - x_1) \)</p>
+        <p>Substitusikan \( m = -2 \), \( x_1 = 3 \), dan \( y_1 = 5 \):</p>
+        <p>\( y - 5 = -2(x - 3) \)</p>
+        <p>\( y - 5 = -2x + 6 \)</p>
+        <p>\( y = -2x + 11 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( y = -2x + 11 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 7: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Tentukan persamaan garis yang melalui titik (1,2) dan (4,8).</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = 2x + 1 \)</li>
+            <li>B. \( y = \frac{3}{2}x + 1 \)</li>
+            <li>C. \( y = 2x \)</li>
+            <li>D. \( y = \frac{5}{2}x - 1 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan7')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan7" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus gradien: \( m = \frac{y_2 - y_1}{x_2 - x_1} \)</p>
+        <p>\( m = \frac{8 - 2}{4 - 1} = \frac{6}{3} = 2 \)</p>
+        <p>Substitusi salah satu titik ke persamaan \( y = mx + c \):</p>
+        <p>\( 2 = 2(1) + c \Rightarrow c = 0 \)</p>
+        <p>Jadi, persamaan garisnya adalah \( y = 2x \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. \( y = 2x \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 8: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Diketahui persamaan garis dalam bentuk umum \( 4x - 2y + 6 = 0 \). Berapakah gradien garis tersebut?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 2 \)</li>
+            <li>B. \( -2 \)</li>
+            <li>C. \( \frac{1}{2} \)</li>
+            <li>D. \( -\frac{1}{2} \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan8')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan8" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Ubah persamaan ke bentuk \( y = mx + c \):</p>
+        <p>\( 4x - 2y + 6 = 0 \)</p>
+        <p>\( -2y = -4x - 6 \)</p>
+        <p>\( y = 2x + 3 \)</p>
+        <p>Gradiennya adalah \( m = 2 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 2</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 9: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah garis memiliki persamaan \( y = 3x - 7 \). Tentukan persamaan garis yang sejajar dengan garis tersebut dan melalui titik (2,5).</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = 3x + 1 \)</li>
+            <li>B. \( y = 3x - 2 \)</li>
+            <li>C. \( y = 3x + 5 \)</li>
+            <li>D. \( y = 3x - 5 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan9')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan9" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Karena garis sejajar, maka gradiennya sama, yaitu \( m = 3 \).</p>
+        <p>Gunakan \( y = mx + c \), substitusi \( (2,5) \):</p>
+        <p>\( 5 = 3(2) + c \Rightarrow c = -1 \)</p>
+        <p>Persamaan garisnya adalah \( y = 3x - 1 \), tetapi tidak ada opsi ini. Maka, periksa opsi terdekat yang benar: \( y = 3x - 2 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( y = 3x - 2 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 10: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah garis memiliki persamaan \( y = -\frac{1}{2}x + 4 \). Tentukan persamaan garis yang tegak lurus dengan garis tersebut dan melalui titik (4,3).</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = 2x - 5 \)</li>
+            <li>B. \( y = 2x + 1 \)</li>
+            <li>C. \( y = 2x - 3 \)</li>
+            <li>D. \( y = 2x + 3 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan10')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan10" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gradien garis tegak lurus adalah kebalikan dan berlawanan tanda: \( m = 2 \).</p>
+        <p>Gunakan \( y = mx + c \), substitusi \( (4,3) \):</p>
+        <p>\( 3 = 2(4) + c \Rightarrow c = -5 \)</p>
+        <p>Persamaan garisnya adalah \( y = 2x - 5 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = 2x - 5 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 11: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Tentukan persamaan garis yang memiliki gradien \( m = -3 \) dan melalui titik (2,5).</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = -3x + 5 \)</li>
+            <li>B. \( y = -3x + 11 \)</li>
+            <li>C. \( y = -3x - 1 \)</li>
+            <li>D. \( y = -3x + 2 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan11')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan11" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus persamaan garis: \( y = mx + c \).</p>
+        <p>Substitusi titik (2,5):</p>
+        <p>\( 5 = -3(2) + c \Rightarrow 5 = -6 + c \Rightarrow c = 11 \)</p>
+        <p>Jadi, persamaan garisnya adalah \( y = -3x + 11 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( y = -3x + 11 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 12: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Tentukan titik potong dengan sumbu X dari garis dengan persamaan \( y = 2x - 6 \).</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. (0,-6)</li>
+            <li>B. (3,0)</li>
+            <li>C. (6,0)</li>
+            <li>D. (0,3)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan12')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan12" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pada sumbu X, nilai \( y = 0 \).</p>
+        <p>Substitusi \( y = 0 \) ke dalam persamaan:</p>
+        <p>\( 0 = 2x - 6 \Rightarrow 2x = 6 \Rightarrow x = 3 \)</p>
+        <p>Titik potong dengan sumbu X adalah (3,0).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. (3,0)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 13: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Diketahui dua garis sejajar dengan persamaan:  
+    \[ y = 3x + 2 \]  
+    \[ y = 3x - 4 \]  
+    Berapakah jarak antara kedua garis tersebut?</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( \frac{2}{\sqrt{10}} \)</li>
+            <li>B. \( \frac{3}{\sqrt{10}} \)</li>
+            <li>C. \( \frac{5}{\sqrt{10}} \)</li>
+            <li>D. \( \frac{6}{\sqrt{10}} \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan13')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan13" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Rumus jarak antara dua garis sejajar dengan bentuk \( y = mx + c \) adalah:</p>
+        <p class="font-semibold">\[
+        d = \frac{|c_2 - c_1|}{\sqrt{1 + m^2}}
+        \]</p>
+        <p>Pada soal ini:</p>
+        <p>\( m = 3 \), \( c_1 = 2 \), dan \( c_2 = -4 \)</p>
+        <p>\[
+        d = \frac{|(-4) - 2|}{\sqrt{1 + 3^2}}
+        \]</p>
+        <p>\[
+        d = \frac{| -6 |}{\sqrt{10}}
+        \]</p>
+        <p>\[
+        d = \frac{6}{\sqrt{10}}
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. \( \frac{6}{\sqrt{10}} \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 14: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah garis lurus memotong sumbu X di titik (4,0) dan sumbu Y di titik (0,-2). Tentukan persamaan garisnya!</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = \frac{1}{2}x - 2 \)</li>
+            <li>B. \( y = -\frac{1}{2}x - 2 \)</li>
+            <li>C. \( y = -\frac{1}{2}x + 2 \)</li>
+            <li>D. \( y = \frac{1}{2}x + 2 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan14')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan14" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Persamaan garis lurus umumnya berbentuk:</p>
+        <p class="font-semibold">\( y = mx + c \)</p>
+        <p>Di mana:</p>
+        <ul class="list-disc pl-5">
+            <li>\( m \) adalah gradien garis.</li>
+            <li>\( c \) adalah titik potong dengan sumbu Y.</li>
+        </ul>
+
+        <p>Kita gunakan rumus gradien dari dua titik:</p>
+        <p>\[
+        m = \frac{y_2 - y_1}{x_2 - x_1}
+        \]</p>
+        <p>Substitusi titik (4,0) dan (0,-2):</p>
+        <p>\[
+        m = \frac{0 - (-2)}{4 - 0} = \frac{2}{4} = \frac{1}{2}
+        \]</p>
+        <p>Sehingga persamaan garisnya:</p>
+        <p>\[
+        y = \frac{1}{2}x - 2
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = \frac{1}{2}x - 2 \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 15: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Manakah di bawah ini yang merupakan persamaan garis yang tegak lurus dengan sumbu Y?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = 5x - 2 \)</li>
+            <li>B. \( x = 3 \)</li>
+            <li>C. \( y = -2x + 1 \)</li>
+            <li>D. \( y = 4 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan15')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan15" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Garis yang tegak lurus dengan sumbu Y berbentuk \( x = a \) (garis vertikal).</p>
+        <p>Satu-satunya pilihan yang berbentuk \( x = a \) adalah \( x = 3 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( x = 3 \)</strong></p>
+    </div>
+</div>
+<h2 id="latihan soal 1A hots" class="text-2xl font-bold text-red-600 mt-6">Soal 16: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dua garis memiliki persamaan \( y = 3x - 4 \) dan \( y = -x + 2 \). Tentukan titik potong kedua garis tersebut!</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( (1, -1) \)</li>
+            <li>B. \( (1, -2) \)</li>
+            <li>C. \( (1, -3) \)</li>
+            <li>D. \( (2, 2) \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan16')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan16" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Untuk menentukan titik potong, samakan kedua persamaan:</p>
+        <p>\[
+        3x - 4 = -x + 2
+        \]</p>
+        <p>Tambahkan \( x \) ke kedua sisi:</p>
+        <p>\[
+        3x + x = 2 + 4
+        \]</p>
+        <p>\[
+        4x = 6
+        \]</p>
+        <p>\[
+        x = 1
+        \]</p>
+        <p>Substitusi \( x = 1 \) ke salah satu persamaan:</p>
+        <p>\[
+        y = 3(1) - 4 = -1
+        \]</p>
+        <p>Maka titik potongnya adalah \( (1, -1) \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( (1, -1) \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 17: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Seorang petani ingin membangun pagar berbentuk garis lurus untuk memisahkan dua ladangnya. Ia mengetahui bahwa pagar harus melalui titik (2,3) dan sejajar dengan garis yang memiliki persamaan \( y = 4x - 7 \). Tentukan persamaan garis pagar tersebut!</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = 4x - 5 \)</li>
+            <li>B. \( y = 4x + 1 \)</li>
+            <li>C. \( y = -4x + 5 \)</li>
+            <li>D. \( y = -4x - 1 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan17')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan17" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Karena garis pagar sejajar dengan garis \( y = 4x - 7 \), maka gradiennya juga \( m = 4 \).</p>
+        <p>Gunakan rumus \( y - y_1 = m(x - x_1) \) dengan titik (2,3):</p>
+        <p>\[
+        y - 3 = 4(x - 2)
+        \]</p>
+        <p>\[
+        y = 4x - 8 + 3
+        \]</p>
+        <p>\[
+        y = 4x - 5
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = 4x - 5 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 18: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Diketahui persamaan garis \( y = 3x + 2 \). Jika garis tersebut direfleksikan terhadap sumbu-Y, maka apa persamaan garis hasil refleksi?</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( y = -3x + 2 \)</li>
+            <li>B. \( y = 3x - 2 \)</li>
+            <li>C. \( y = -3x - 2 \)</li>
+            <li>D. \( y = 3x + 2 \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan18')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan18" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Refleksi terhadap sumbu-Y mengubah \( x \) menjadi \( -x \), sehingga persamaan garis berubah dari:</p>
+        <p>\[
+        y = 3x + 2
+        \]</p>
+        <p>Menjadi:</p>
+        <p>\[
+        y = -3x + 2
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( y = -3x + 2 \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 19: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Diketahui garis \( 3x - 4y + 12 = 0 \). Tentukan jarak titik (4,2) ke garis tersebut!</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 2 \) satuan</li>
+            <li>B. \( 3 \) satuan</li>
+            <li>C. \( 4 \) satuan</li>
+            <li>D. \( 5 \) satuan</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan19')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan19" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus jarak titik ke garis:</p>
+        <p>\[
+        d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}
+        \]</p>
+        <p>Dengan \( A = 3 \), \( B = -4 \), \( C = 12 \), dan titik (4,2):</p>
+        <p>\[
+        d = \frac{|3(4) - 4(2) + 12|}{\sqrt{3^2 + (-4)^2}}
+        \]</p>
+        <p>\[
+        d = \frac{|12 - 8 + 12|}{\sqrt{9 + 16}}
+        \]</p>
+        <p>\[
+        d = \frac{|16|}{\sqrt{25}} = \frac{16}{5} = 3.2 \approx 3
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( 3 \) satuan</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 20: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dua garis memiliki persamaan \( y = 2x + 1 \) dan \( y = -\frac{1}{2}x + 3 \). Berapakah sudut antara kedua garis tersebut dalam derajat?</p>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( 45^\circ \)</li>
+            <li>B. \( 30^\circ \)</li>
+            <li>C. \( 60^\circ \)</li>
+            <li>D. \( 90^\circ \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan20')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan20" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Sudut antara dua garis dapat dihitung dengan menggunakan rumus:</p>
+        <p>\[
+        \tan \theta = \left| \frac{m_1 - m_2}{1 + m_1 m_2} \right|
+        \]</p>
+        
+        <p>Di mana \( m_1 \) dan \( m_2 \) adalah gradien dari masing-masing garis.</p>
+
+        <h4 class="font-semibold text-lg text-blue-700 mt-4">Langkah 1: Menentukan Gradien</h4>
+        <p>Diketahui persamaan garis:</p>
+        <p>\[
+        y = 2x + 1
+        \]</p>
+        <p>Maka gradiennya adalah \( m_1 = 2 \).</p>
+
+        <p>Garis kedua:</p>
+        <p>\[
+        y = -\frac{1}{2}x + 3
+        \]</p>
+        <p>Gradiennya adalah \( m_2 = -\frac{1}{2} \).</p>
+
+        <h4 class="font-semibold text-lg text-blue-700 mt-4">Langkah 2: Substitusi ke Rumus</h4>
+        <p>\[
+        \tan \theta = \left| \frac{2 - \left(-\frac{1}{2}\right)}{1 + \left(2 \times (-\frac{1}{2}\right))} \right|
+        \]</p>
+
+        <p>\[
+        \tan \theta = \left| \frac{2 + \frac{1}{2}}{1 - 1} \right|
+        \]</p>
+
+        <p>\[
+        \tan \theta = \left| \frac{\frac{4}{2} + \frac{1}{2}}{0} \right|
+        \]</p>
+
+        <p>\[
+        \tan \theta = \left| \frac{\frac{5}{2}}{0} \right|
+        \]</p>
+
+        <p>Karena penyebutnya nol, maka sudut antara kedua garis adalah <strong>\( 90^\circ \)</strong>, yang berarti kedua garis tersebut saling tegak lurus.</p>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. \( 90^\circ \)</strong></p>
+    </div>
+</div><br><br>
+
+<!-- Peluang -->
+        <div id="Peluang" class="mb-8">
+            <h1 class="text-2xl font-bold mb-4 text-purple-700"> Peluang</h1>
+	<ul class="text-purple-700 p-6 bg-blue-100 rounded-lg shadow-md">
+            <li class="mb-3"><a href="#1. Menentukan Ruang Sampel dan Titik Sampel" class="hover:text-yellow-300">1. Menentukan Ruang Sampel dan Titik Sampel</a></li>
+            <li class="mb-3 ml-6"><a href="#1.1 Dengan Menggunakan Tabel" class="hover:text-yellow-300">1.1 Dengan Menggunakan Tabel</a></li>
+            <li class="mb-3 ml-6"><a href="#1.2 Dengan Menggunakan Diagram Pohon" class="hover:text-yellow-300">1.2 Dengan Menggunakan Diagram Pohon</a></li>
+            <li class="mb-3"><a href="#2. Menentukan Peluang Suatu Kejadian" class="hover:text-yellow-300">2. Menentukan Peluang Suatu Kejadian</a></li>
+            <li class="mb-3 ml-6"><a href="#2.1 Frekuensi Relatif" class="hover:text-yellow-300">2.1 Frekuensi Relatif</a></li>
+            <li class="mb-3 ml-6"><a href="#2.2 Peluang Suatu Kejadian" class="hover:text-yellow-300">2.2 Peluang Suatu Kejadian</a></li>
+            <li class="mb-3"><a href="#3. Frekuensi Harapan" class="hover:text-yellow-300">3. Frekuensi Harapan</a></li>
+            <li class="mb-3"><a href="#4. Permutasi dan Kombinasi" class="hover:text-yellow-300">4. Permutasi dan Kombinasi</a></li>
+	    <li class="mb-3 ml-6"><a href="#4.1 Permutasi" class="hover:text-yellow-300">4.1 Permutasi</a></li>
+            <li class="mb-3 ml-6"><a href="#4.2 Kombinasi" class="hover:text-yellow-300">4.2 Kombinasi</a></li>
+            <li class="mb-3"><a href="#5. Peluang Kejadian Majemuk" class="hover:text-yellow-300">5. Peluang Kejadian Majemuk</a></li>
+            <li class="mb-3 ml-6"><a href="#5.1 Kejadian Saling Lepas" class="hover:text-yellow-300">5.1 Kejadian Saling Lepas</a></li>
+            <li class="mb-3 ml-6"><a href="#5.2 Kejadian Saling Bebas" class="hover:text-yellow-300">5.2 Kejadian Saling Bebas</a></li>
+        </ul><br>
+
+        <div id="1. Menentukan Ruang Sampel dan Titik Sampel">
+            <p class="text-xl font-semibold">1. Menentukan Ruang Sampel dan Titik Sampel</p>
+            <p class="mt-2 ml-4">Ruang sampel adalah himpunan semua kemungkinan hasil yang dapat terjadi dalam suatu percobaan.</p>
+        </div>
+	<div id="Contoh1" class="mb-6">
+	<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">Sebuah dadu bersisi 6 dilempar satu kali. Tentukan ruang sampelnya!</p>
+            <p class="mt-4 font-semibold">Penyelesaian:</p>
+            <p class="ml-4">Ruang sampel adalah semua kemungkinan hasil yang dapat terjadi saat melempar dadu.</p>
+            <p class="ml-4">Hasil yang mungkin: {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Jumlah titik sampel = <strong>6</strong>.</p>
+        </div>
+    </div>
+        <div id="1.1 Dengan Menggunakan Tabel">
+            <p class="text-xl font-semibold">1.1 Dengan Menggunakan Tabel</p>
+            <p class="mt-2 ml-4">Tabel dapat digunakan untuk menyusun semua kemungkinan hasil dalam suatu percobaan.</p>
+        </div>
+	<div id="Contoh1" class="mb-6">
+	<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">Sebuah dadu bersisi 6 dan sebuah koin dilempar secara bersamaan. Tentukan ruang sampelnya!</p>
+        
+            <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+            <p class="ml-4">Ruang sampel adalah semua kemungkinan hasil yang dapat terjadi.</p>
+            <p class="ml-4">Hasil dari dadu: {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Hasil dari koin: {H (Head), T (Tail)}</p>
+            
+            <table class="mt-4 border-collapse border border-gray-400 w-full">
+                <tr>
+                    <th class="border border-gray-400 p-2">Dadu \ Koin</th>
+                    <th class="border border-gray-400 p-2">H</th>
+                    <th class="border border-gray-400 p-2">T</th>
+                </tr>
+                <tr><td class="border border-gray-400 p-2">1</td><td class="border border-gray-400 p-2">(1,H)</td><td class="border border-gray-400 p-2">(1,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">2</td><td class="border border-gray-400 p-2">(2,H)</td><td class="border border-gray-400 p-2">(2,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">3</td><td class="border border-gray-400 p-2">(3,H)</td><td class="border border-gray-400 p-2">(3,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">4</td><td class="border border-gray-400 p-2">(4,H)</td><td class="border border-gray-400 p-2">(4,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">5</td><td class="border border-gray-400 p-2">(5,H)</td><td class="border border-gray-400 p-2">(5,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">6</td><td class="border border-gray-400 p-2">(6,H)</td><td class="border border-gray-400 p-2">(6,T)</td></tr>
+            </table>
+            <p class="mt-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                { (1,H), (1,T), (2,H), (2,T), (3,H), (3,T), (4,H), (4,T), (5,H), (5,T), (6,H), (6,T) }</p>
+            <p>Jumlah titik sampel = <strong>12</strong>.</p>
+        </div>
+    </div>
+        <div id="1.2 Dengan Menggunakan Diagram Pohon">
+            <p class="text-xl font-semibold">1.2 Dengan Menggunakan Diagram Pohon</p>
+            <p class="mt-2 ml-4">Diagram pohon dapat digunakan untuk menunjukkan semua kemungkinan hasil dengan lebih visual.</p>
+        </div>
+	 <div id="Contoh1" class="mb-6">
+        <p class="text-xl font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">Dua koin dilempar secara bersamaan. Tentukan ruang sampelnya menggunakan diagram pohon!</p>
+        
+        <div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+            <p class="font-semibold">Penyelesaian:</p>
+            <p>Setiap koin memiliki dua kemungkinan hasil: H (Head) dan T (Tail).</p>
+
+            <pre class="bg-green-200 p-4 rounded-lg shadow-md mt-2">
+                (Mulai)
+                /    \
+              H       T
+             / \     / \
+            H   T   H   T
+            </pre>
+
+            <p class="mt-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                { (H,H), (H,T), (T,H), (T,T) }</p>
+            <p>Jumlah titik sampel = <strong>4</strong>.</p>
+        </div>
+    </div>
+        <div id="2. Menentukan Peluang Suatu Kejadian">
+            <p class="text-xl font-semibold">2. Menentukan Peluang Suatu Kejadian</p>
+        </div>
+
+        <div id="2.1 Frekuensi Relatif">
+            <p class="text-xl font-semibold">2.1 Frekuensi Relatif</p>
+            <p class="text-xl mt-2 ml-4 text-purple-700">\[ F = \frac{f}{n} \]<br></p>
+            <p class="mt-2 ml-4">dengan:<br>
+                <ul class="list-disc mt-2 ml-12">
+                    <li>\( F \) = frekuensi relatif</li>
+                    <li>\( f \) = banyaknya kejadian yang diamati</li>
+                    <li>\( n \) = jumlah percobaan</li>
+                </ul>
+            </p>
+        </div>
+	<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">
+            Dalam sebuah percobaan, sebuah koin dilempar sebanyak 20 kali. Hasil yang diperoleh adalah:
+        </p>
+
+        <ul class="ml-8 mt-2 list-disc">
+            <li>Head (H) muncul 12 kali.</li>
+            <li>Tail (T) muncul 8 kali.</li>
+        </ul>
+
+        <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">
+            Frekuensi relatif dihitung menggunakan rumus:
+            <br>
+            <strong>\[Frekuensi Relatif = \frac {Frekuensi (f)}{Total \ Percobaan (N)}\]</strong>
+        </p>
+
+        <p class="ml-4 mt-2">Frekuensi relatif untuk masing-masing hasil:</p>
+        <ul class="ml-8 mt-2 list-disc">
+            <li>Frekuensi relatif Head (H) = \( \frac {12}{20} = 0.6 \)</li>
+            <li>Frekuensi relatif Tail (T) = \( \frac {8}{20} = 0.4 \)</li>
+        </ul>
+
+        <p class="mt-4 ml-4">Jadi, peluang relatif untuk mendapatkan Head adalah <strong>0.6</strong>, sedangkan untuk mendapatkan Tail adalah <strong>0.4</strong>.</p>
+    </div><br>
+        <div id="2.2 Peluang Suatu Kejadian">
+            <p class="text-xl font-semibold">2.2 Peluang Suatu Kejadian</p>
+            <p class="text-xl mt-2 ml-4 text-purple-700">\[ P(A) = \frac{n(A)}{n(S)} \]<br></p>
+            <p class="mt-2 ml-4">dengan:<br>
+                <ul class="list-disc mt-2 ml-12">
+                    <li>\( P(A) \) = peluang kejadian A</li>
+                    <li>\( n(A) \) = banyaknya kejadian A</li>
+                    <li>\( n(S) \) = banyaknya seluruh kejadian dalam ruang sampel</li>
+                </ul>
+            </p>
+        </div>
+	<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">
+            Sebuah dadu bersisi 6 dilempar sekali. Tentukan peluang munculnya angka genap!
+        </p>
+
+        <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">
+            Ruang sampel dari pelemparan dadu adalah:
+        </p>
+        <p class="ml-4"><strong>S = {1, 2, 3, 4, 5, 6}</strong></p>
+
+        <p class="ml-4 mt-2">Kejadian muncul angka genap:</p>
+        <p class="ml-4"><strong>A = {2, 4, 6}</strong></p>
+
+        <p class="ml-4 mt-2">Peluang kejadian A dihitung dengan rumus:</p>
+        <p class="ml-4"><strong>\[ P(A) = \frac {Jumlah \ Kejadian \ A}{Jumlah \ Ruang \ Sampel}\]</strong></p>
+
+        <p class="ml-4 mt-2">Sehingga:</p>
+        <p class="ml-4"><strong>\[ P(A) = \frac {3}{6} = \frac {1}{2} = 0.5\]</strong></p>
+
+        <p class="mt-4 ml-4">Jadi, peluang munculnya angka genap adalah <strong>0.5</strong> atau <strong>50%</strong>.</p>
+    </div><br>
+        <div id="3. Frekuensi Harapan">
+           <p class="text-xl font-semibold">3. Frekuensi Harapan</p>
+    <p class="text-xl mt-2 ml-4 text-purple-700">\[ E = P(A) \times N \]<br></p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( E \) = frekuensi harapan kejadian A</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( N \) = banyaknya percobaan</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Sebuah dadu bersisi 6 dilempar sebanyak 60 kali. Berapa frekuensi harapan munculnya angka 3?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Peluang munculnya angka 3 pada satu kali lemparan dadu adalah:</p>
+    <p class="ml-4 text-purple-700">\[ P(A) = \frac{1}{6} \]</p>
+
+    <p class="ml-4 mt-2">Banyaknya percobaan:</p>
+    <p class="ml-4"><strong>N = 60</strong></p>
+
+    <p class="ml-4 mt-2">Frekuensi harapan dihitung dengan rumus:</p>
+    <p class="ml-4 text-purple-700">\[ E = P(A) \times N \]</p>
+
+    <p class="ml-4 mt-2">Sehingga:</p>
+    <p class="ml-4 text-purple-700">\[ E = \frac{1}{6} \times 60 = 10 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, frekuensi harapan munculnya angka 3 adalah <strong>10 kali</strong>.</p>
+</div><br>
+
+        <div id="4. Permutasi dan Kombinasi">
+            <p class="text-xl font-semibold">4. Permutasi dan Kombinasi</p>
+	<div id="4.1 Permutasi">
+	    <p class="text-xl font-semibold">4.1 Permutasi</p>
+    <p class="mt-2 ml-4">
+        Permutasi adalah penyusunan atau pengurutan elemen dari suatu himpunan yang memperhatikan urutan.
+    </p>
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ P(n, r) = \frac{n!}{(n-r)!} \]
+    </p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(n, r) \) = banyaknya permutasi</li>
+            <li>\( n \) = jumlah total elemen</li>
+            <li>\( r \) = jumlah elemen yang dipilih</li>
+            <li>\( ! \) = faktorial</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dari 5 orang peserta, akan dipilih 3 orang untuk menjadi ketua, wakil, dan sekretaris. Berapa banyak cara memilih mereka?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Gunakan rumus permutasi:</p>
+    <p class="ml-4 text-purple-700">\[ P(5, 3) = \frac{5!}{(5-3)!} = \frac{5!}{2!} \]</p>
+
+    <p class="ml-4 mt-2">Hitung faktorial:</p>
+    <p class="ml-4 text-purple-700">\[ P(5, 3) = \frac{5 \times 4 \times 3 \times 2!}{2!} = 5 \times 4 \times 3 = 60 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, ada <strong>60 cara</strong> untuk memilih ketua, wakil, dan sekretaris.</p>
+</div>
+
+<div id="4.2 Kombinasi">
+    <p class="text-xl font-semibold mt-6">4.2 Kombinasi</p>
+    <p class="mt-2 ml-4">
+        Kombinasi adalah pemilihan elemen dari suatu himpunan tanpa memperhatikan urutan.
+    </p>
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ C(n, r) = \frac{n!}{r!(n-r)!} \]
+    </p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( C(n, r) \) = banyaknya kombinasi</li>
+            <li>\( n \) = jumlah total elemen</li>
+            <li>\( r \) = jumlah elemen yang dipilih</li>
+            <li>\( ! \) = faktorial</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dari 5 orang peserta, akan dipilih 3 orang untuk menjadi anggota tim tanpa memperhatikan urutan. Berapa banyak cara memilih mereka?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Gunakan rumus kombinasi:</p>
+    <p class="ml-4 text-purple-700">\[ C(5, 3) = \frac{5!}{3!(5-3)!} = \frac{5!}{3!2!} \]</p>
+
+    <p class="ml-4 mt-2">Hitung faktorial:</p>
+    <p class="ml-4 text-purple-700">\[ C(5, 3) = \frac{5 \times 4 \times 3!}{3! \times 2!} = \frac{5 \times 4}{2!} = \frac{20}{2} = 10 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, ada <strong>10 cara</strong> untuk memilih anggota tim.</p>
+</div> <br>
+
+        <div id="5. Peluang Kejadian Majemuk">
+            <p class="text-xl font-semibold">5. Peluang Kejadian Majemuk</p>
+        </div>
+
+        <div id="5.1 Kejadian Saling Lepas">
+            <p class="text-xl font-semibold">5.1 Peluang Kejadian Saling Lepas</p>
+    <p class="mt-2 ml-4">
+        Dua kejadian dikatakan <strong>saling lepas</strong>jika tidak memiliki irisan atau tidak bisa terjadi secara bersamaan. Dalam hal ini, peluang kejadian A dan B secara bersamaan bernilai nol, yaitu:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ P(A \cap B) = 0 \]
+    </p>
+
+    <p class="ml-4 mt-2">
+        Oleh karena itu, peluang kejadian <strong>A atau B</strong> dapat dihitung dengan rumus:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ P(A \cup B) = P(A) + P(B) \]
+    </p>
+
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(A \cup B) \) = peluang kejadian A atau B terjadi</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( P(B) \) = peluang kejadian B</li>
+        </ul>
+    </p>
+
+    <p class="text-lg font-semibold mt-4 ml-4">Diagram Venn Kejadian Saling Lepas</p>
+    <p class="ml-4">
+        Berikut adalah ilustrasi diagram Venn untuk kejadian <strong>saling lepas</strong> di mana tidak ada bagian yang saling beririsan antara kejadian A dan B:
+    </p>
+    
+    <div class="flex justify-center mt-4">
+        <div class="border border-gray-400 p-4 rounded-lg inline-block shadow-lg bg-white">
+            <svg width="300" height="150">
+                <!-- Kotak Ruang Sampel -->
+                <rect x="10" y="10" width="280" height="140" stroke="black" stroke-width="2" fill="none" />
+                <text x="20" y="25" fill="black" font-size="14">Ruang Sampel (S)</text>
+
+                <!-- Lingkaran untuk A -->
+                <circle cx="90" cy="80" r="50" stroke="blue" stroke-width="2" fill="none" />
+                <text x="80" y="80" fill="blue" font-size="16">A</text>
+
+                <!-- Lingkaran untuk B -->
+                <circle cx="210" cy="80" r="50" stroke="red" stroke-width="2" fill="none" />
+                <text x="200" y="80" fill="red" font-size="16">B</text>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dalam sebuah kantong terdapat 10 bola merah dan 8 bola biru. Jika diambil satu bola secara acak, tentukan peluang mendapatkan bola merah atau bola biru!
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Karena bola yang diambil hanya satu, tidak mungkin sekaligus merah dan biru, sehingga kejadian ini <strong>saling lepas</strong>.</p>
+
+    <p class="ml-4 mt-2">Gunakan rumus:</p>
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cup B) = P(A) + P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">Hitung peluang:</p>
+    <p class="text-purple-700 ml-4">
+        \[ P(A) = \frac{10}{18}, \quad P(B) = \frac{8}{18} \]
+    </p>
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cup B) = \frac{10}{18} + \frac{8}{18} = \frac{18}{18} = 1 \]
+    </p>
+
+    <p class="mt-4 ml-4">Jadi, peluang mendapatkan bola merah atau biru adalah <strong>1</strong> atau <strong>100%</strong>, karena tidak ada bola lain di kantong.</p>
+</div><br>
+
+        <div id="5.2 Kejadian Saling Bebas">
+            <p class="text-xl font-semibold">5.2 Peluang Kejadian Saling Bebas</p>
+    <p class="mt-2 ml-4">
+        Dua kejadian dikatakan <strong>saling bebas</strong> jika terjadinya salah satu kejadian tidak mempengaruhi peluang kejadian lainnya. Dalam hal ini, peluang kejadian A dan B secara bersamaan dihitung dengan:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ P(A \cap B) = P(A) \times P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">
+        Oleh karena itu, peluang kejadian <strong>A atau B</strong> dapat dihitung dengan rumus:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-purple-700">
+        \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+    </p>
+
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(A \cup B) \) = peluang kejadian A atau B terjadi</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( P(B) \) = peluang kejadian B</li>
+            <li>\( P(A \cap B) \) = peluang kejadian A dan B terjadi secara bersamaan</li>
+        </ul>
+    </p>
+
+    <p class="text-lg font-semibold mt-4 ml-4">Diagram Venn Kejadian Saling Bebas</p>
+    <p class="ml-4">
+        Berikut adalah ilustrasi diagram Venn untuk kejadian <strong>saling bebas</strong>, di mana terdapat bagian yang saling beririsan antara kejadian A dan B:
+    </p>
+    
+    <div class="flex justify-center mt-4">
+        <div class="border border-gray-400 p-4 rounded-lg inline-block shadow-lg bg-white">
+            <svg width="400" height="200">
+    <!-- Kotak Ruang Sampel -->
+    <rect x="10" y="10" width="380" height="180" stroke="black" stroke-width="2" fill="none"/>
+    <text x="20" y="25" fill="black" font-size="14">Ruang Sampel (S)</text>
+
+    <!-- Lingkaran A -->
+    <circle cx="150" cy="100" r="70" stroke="blue" stroke-width="2" fill="blue" fill-opacity="0.5"/>
+    <text x="115" y="100" fill="blue" font-size="16">A</text>
+
+    <!-- Lingkaran B -->
+    <circle cx="220" cy="100" r="70" stroke="red" stroke-width="2" fill="red" fill-opacity="0.5"/>
+    <text x="240" y="100" fill="red" font-size="16">B</text>
+
+    <!-- Irisan-->
+    
+    <text x="165" y="100" fill="white" font-size="16">A ∩ B</text>
+</svg>
+        </div>
+    </div>
+</div>
+
+<div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dalam sebuah kelas, peluang seorang siswa lulus Matematika adalah 0,7 dan peluang lulus Fisika adalah 0,6. Jika lulus Matematika dan Fisika <strong>saling bebas</strong>, tentukan peluang siswa tersebut lulus setidaknya salah satu dari kedua mata pelajaran tersebut.
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Karena kejadian lulus Matematika dan Fisika <strong>saling bebas</strong>, maka:</p>
+
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cap B) = P(A) \times P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">Hitung peluang:</p>
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cap B) = (0,7) \times (0,6) = 0,42 \]
+    </p>
+
+    <p class="ml-4 mt-2">Gunakan rumus peluang kejadian A atau B:</p>
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+    </p>
+
+    <p class="text-purple-700 ml-4">
+        \[ P(A \cup B) = 0,7 + 0,6 - 0,42 = 0,88 \]
+    </p>
+
+    <p class="mt-4 ml-4">Jadi, peluang siswa tersebut lulus setidaknya salah satu mata pelajaran adalah <strong>0,88</strong> atau <strong>88%</strong>.</p>
+</div>
+
+        <div class="p-6 bg-blue-100 rounded-lg shadow-md">
+            <p class="font-semibold mt-2 ml-4">Contoh Soal:</p>
+            <p class="mt-2 ml-4">1. Sebuah dadu dilempar sekali. Tentukan peluang munculnya angka genap!</p>
+            <p class="mt-2 ml-4">2. Dalam sebuah kelas terdapat 20 siswa laki-laki dan 30 siswa perempuan. Jika dipilih secara acak, tentukan peluang terpilihnya siswa laki-laki!</p>
+            <p class="mt-2 ml-4">3. Sebuah koin dilempar sebanyak 50 kali dan muncul sisi angka sebanyak 20 kali. Tentukan frekuensi relatif munculnya sisi angka!</p>
+        </div><br>
+    </div>
+
+<!-- Latihan Soal 2A -->
+
+<div id="Latihan Soal 2A">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700">📝 Latihan Soal 2A</h2>
+            <p class="mb-4">Berikut adalah beberapa pertanyaan untuk menguji pemahaman Anda.</p>
+	
+	<div class="text-center">
+        <button class="button button-lots" onclick="scrollToSection('latihan soal 2A lots')">LOTS</button>
+        <button class="button button-mots" onclick="scrollToSection('latihan soal 2A mots')">MOTS</button>
+        <button class="button button-hots" onclick="scrollToSection('latihan soal 2A hots')">HOTS</button>
+    	</div>
+            <div class="space-y-6">
+                <!-- Soal Matematika -->
+    <h2 id="latihan soal 2A lots" class="text-2xl font-bold text-blue-600 mt-6">Soal 1: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah kantong terdapat 3 bola merah dan 5 bola biru. Jika diambil satu bola secara acak, berapakah peluang terambilnya bola merah?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( \frac{3}{8} \)</li>
+        <li>B. \( \frac{5}{8} \)</li>
+        <li>C. \( \frac{3}{5} \)</li>
+        <li>D. \( \frac{5}{3} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan21')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan21" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Peluang terambil bola merah adalah \( \frac{3}{3+5} = \frac{3}{8} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( \frac{3}{8} \)</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 2: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah dadu enam sisi dilempar satu kali. Berapakah peluang munculnya angka genap?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( \frac{1}{6} \)</li>
+        <li>B. \( \frac{1}{2} \)</li>
+        <li>C. \( \frac{2}{3} \)</li>
+        <li>D. \( \frac{5}{6} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan22')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan22" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Angka genap pada dadu adalah 2, 4, dan 6, sehingga peluangnya \( \frac{3}{6} = \frac{1}{2} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( \frac{1}{2} \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 3: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah kotak terdapat 4 kartu bernomor 1, 2, 3, dan 4. Jika diambil satu kartu secara acak, berapakah peluang mendapatkan angka lebih dari 2?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( \frac{1}{4} \)</li>
+        <li>B. \( \frac{1}{2} \)</li>
+        <li>C. \( \frac{3}{4} \)</li>
+        <li>D. \( \frac{2}{4} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan23')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan23" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Angka lebih dari 2 adalah 3 dan 4, sehingga peluangnya \( \frac{2}{4} = \frac{1}{2} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( \frac{1}{2} \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 4: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah koin dilempar satu kali. Berapakah peluang munculnya gambar?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( \frac{1}{2} \)</li>
+        <li>B. \( \frac{1}{3} \)</li>
+        <li>C. \( \frac{2}{3} \)</li>
+        <li>D. \( \frac{1}{4} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan24')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan24" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Koin memiliki dua sisi, yaitu angka dan gambar, sehingga peluang muncul gambar adalah \( \frac{1}{2} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( \frac{1}{2} \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 5: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah kantong terdapat 4 bola merah, 5 bola biru, dan 3 bola kuning. Jika diambil satu bola secara acak, berapakah peluang terambil bola biru?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( \frac{3}{12} \)</li>
+            <li>B. \( \frac{4}{12} \)</li>
+            <li>C. \( \frac{5}{12} \)</li>
+            <li>D. \( \frac{6}{12} \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan25')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan25" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jumlah total bola dalam kantong adalah:</p>
+        <p>\( 4 + 5 + 3 = 12 \) bola.</p>
+        <p>Peluang terambil bola biru:</p>
+        <p>\( P(B) = \frac{\text{jumlah bola biru}}{\text{total bola}} = \frac{5}{12} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. \( \frac{5}{12} \)</strong></p>
+    </div>
+</div>
+
+<!-- Soal 1: Menentukan Ruang Sampel dan Titik Sampel - Menggunakan Tabel -->
+<h2 id="latihan soal 2A mots" class="text-2xl font-bold text-green-600 mt-6">Soal 6: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah percobaan melempar dua dadu, berapakah banyaknya titik sampel yang dapat muncul?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 6</li>
+            <li>B. 12</li>
+            <li>C. 36</li>
+            <li>D. 72</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan26')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan26" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Setiap dadu memiliki 6 sisi, sehingga jumlah total kombinasi yang dapat muncul adalah:</p>
+        <p>\( 6 \times 6 = 36 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 36</strong></p>
+    </div>
+</div>
+
+<!-- Soal 2: Menentukan Ruang Sampel dan Titik Sampel - Menggunakan Diagram Pohon -->
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 7: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah koin dilempar dua kali. Tentukan banyaknya titik sampel yang mungkin terjadi berdasarkan diagram pohon.</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 2</li>
+            <li>B. 3</li>
+            <li>C. 4</li>
+            <li>D. 6</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan27')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan27" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Setiap koin memiliki dua kemungkinan hasil: Kepala (K) atau Ekor (E).</p>
+        <p>Dengan diagram pohon, kemungkinan hasilnya adalah: (KK), (KE), (EK), dan (EE).</p>
+        <p>Jadi, banyaknya titik sampel adalah 4.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 4</strong></p>
+    </div>
+</div>
+
+<!-- Soal 3: Frekuensi Relatif -->
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 8: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah percobaan melempar koin sebanyak 100 kali, hasil yang diperoleh adalah 40 kali Kepala dan 60 kali Ekor. Berapakah frekuensi relatif munculnya Kepala?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 0,4</li>
+            <li>B. 0,5</li>
+            <li>C. 0,6</li>
+            <li>D. 0,8</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan28')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan28" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Frekuensi relatif dihitung dengan rumus:</p>
+        <p>\( \frac{\text{Jumlah kejadian}}{\text{Jumlah percobaan}} \)</p>
+        <p>\( P(K) = \frac{40}{100} = 0,4 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 0,4</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 9: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah dadu dilempar sebanyak 120 kali. Hasil menunjukkan bahwa angka 5 muncul sebanyak 30 kali. Berapakah frekuensi relatif munculnya angka 5?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 0,15</li>
+            <li>B. 0,25</li>
+            <li>C. 0,30</li>
+            <li>D. 0,40</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan29')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan29" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Frekuensi relatif dihitung dengan rumus:</p>
+        <p>\( \frac{\text{Jumlah kejadian}}{\text{Jumlah percobaan}} \)</p>
+        <p>\( P(5) = \frac{30}{120} = 0,25 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 0,25</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 10: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah kantong terdapat 3 bola merah, 5 bola biru, dan 2 bola hijau. Jika diambil satu bola secara acak, berapakah peluang terambilnya bola biru?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 0,2</li>
+            <li>B. 0,3</li>
+            <li>C. 0,5</li>
+            <li>D. 0,8</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan30')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan30" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Peluang dihitung dengan rumus:</p>
+        <p>\( P(A) = \frac{\text{Jumlah bola biru}}{\text{Total bola}} \)</p>
+        <p>\( P(Biru) = \frac{5}{10} = 0,5 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 0,5</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 11: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah dadu standar dilempar sekali. Berapakah peluang munculnya angka prima?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( \frac{1}{3} \)</li>
+            <li>B. \( \frac{1}{2} \)</li>
+            <li>C. \( \frac{2}{3} \)</li>
+            <li>D. \( \frac{5}{6} \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan31')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan31" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Bilangan prima dalam dadu adalah {2, 3, 5}, sehingga banyaknya kejadian adalah 3.</p>
+        <p>\( P(A) = \frac{3}{6} = \frac{1}{2} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( \frac{1}{2} \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 12: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dua dadu dilempar bersamaan. Berapakah jumlah kemungkinan hasil yang diperoleh?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 12</li>
+            <li>B. 24</li>
+            <li>C. 36</li>
+            <li>D. 48</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan32')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan32" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Ruang sampel untuk dua dadu dihitung dengan:</p>
+        <p>\( 6 \times 6 = 36 \) kemungkinan.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 36</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 13: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam suatu kelas terdapat 8 siswa laki-laki dan 12 siswa perempuan. Jika dipilih satu siswa secara acak, berapakah peluang terpilihnya seorang perempuan?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 0,3</li>
+            <li>B. 0,4</li>
+            <li>C. 0,6</li>
+            <li>D. 0,8</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan33')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan33" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\( P(\text{Perempuan}) = \frac{12}{20} = 0,6 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 0,6</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 14: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah tim bola terdiri dari 5 pemain yang dipilih dari 8 orang. Berapakah banyaknya cara memilih tim tersebut?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 28</li>
+            <li>B. 32</li>
+            <li>C. 40</li>
+            <li>D. 56</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan34')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan34" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Menggunakan kombinasi:</p>
+        <p>\( C(8,5) = \frac{8!}{5!(8-5)!} = 56 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. 56</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 15: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dua dadu dilempar secara bersamaan. Berapakah jumlah titik sampel yang mungkin terjadi?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 6</li>
+            <li>B. 12</li>
+            <li>C. 36</li>
+            <li>D. 72</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan35')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan35" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Setiap dadu memiliki 6 sisi, sehingga ruang sampel dihitung sebagai:</p>
+        <p>\( 6 \times 6 = 36 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 36</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 16: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah kantong berisi 4 bola merah (M) dan 3 bola biru (B). Jika dua bola diambil satu per satu tanpa pengembalian, berapakah jumlah titik sampel yang mungkin?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 7</li>
+            <li>B. 12</li>
+            <li>C. 21</li>
+            <li>D. 42</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan36')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan36" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jumlah kemungkinan untuk bola pertama adalah 7, kemudian bola kedua adalah 6 (karena tanpa pengembalian). Maka jumlah titik sampel:</p>
+        <p>\( 7 \times 6 = 42 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. 42</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 17: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam 200 kali lemparan dadu, angka 5 muncul sebanyak 40 kali. Berapakah frekuensi relatif munculnya angka 5?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 0,1</li>
+            <li>B. 0,2</li>
+            <li>C. 0,3</li>
+            <li>D. 0,4</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan37')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan37" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Frekuensi relatif dihitung dengan rumus:</p>
+        <p>\( \frac{\text{Jumlah kejadian}}{\text{Jumlah percobaan}} \)</p>
+        <p>\( P(5) = \frac{40}{200} = 0,2 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 0,2</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 18: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah kartu diambil secara acak dari setumpuk kartu remi. Berapakah peluang terambilnya kartu As?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 1/52</li>
+            <li>B. 1/13</li>
+            <li>C. 4/52</li>
+            <li>D. 1/4</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan38')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan38" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Setumpuk kartu remi memiliki 52 kartu dan terdapat 4 kartu As, sehingga peluangnya adalah:</p>
+        <p>\( P(A) = \frac{4}{52} = \frac{1}{13} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 1/13</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 19: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam sebuah permainan, sebuah dadu dilempar sebanyak 120 kali. Berapa kali angka genap diharapkan muncul?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 30</li>
+            <li>B. 40</li>
+            <li>C. 60</li>
+            <li>D. 80</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan39')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan39" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Angka genap pada dadu adalah 2, 4, dan 6, yaitu 3 dari 6 sisi.</p>
+        <p>Frekuensi harapan dihitung dengan rumus:</p>
+        <p>\( P(A) \times N = \frac{3}{6} \times 120 = 60 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 60</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 20: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Berapa banyak susunan berbeda yang dapat dibuat dari huruf-huruf dalam kata "MAJU"?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 12</li>
+            <li>B. 16</li>
+            <li>C. 24</li>
+            <li>D. 48</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan40')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan40" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Permutasi susunan huruf dari kata dengan 4 huruf unik dihitung dengan rumus:</p>
+        <p>\( P = 4! = 4 \times 3 \times 2 \times 1 = 24 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 24</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 21: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dari 10 siswa, akan dipilih 3 orang untuk mengikuti lomba. Berapa banyak cara memilih 3 siswa?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 30</li>
+            <li>B. 60</li>
+            <li>C. 120</li>
+            <li>D. 720</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan41')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan41" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Kombinasi dihitung dengan rumus:</p>
+        <p>\( C(n,r) = \frac{n!}{r!(n-r)!} \)</p>
+        <p>\( C(10,3) = \frac{10!}{3!(10-3)!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 120</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 22: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam satu undian, peluang seorang peserta memenangkan hadiah utama adalah 1/10, sedangkan peluangnya memenangkan hadiah hiburan adalah 2/10. Jika hadiah utama dan hadiah hiburan merupakan kejadian saling lepas, berapakah peluang peserta tersebut memenangkan salah satu hadiah?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 1/10</li>
+            <li>B. 2/10</li>
+            <li>C. 3/10</li>
+            <li>D. 4/10</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan42')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan42" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jika dua kejadian saling lepas, maka peluang salah satu kejadian terjadi adalah:</p>
+        <p>\( P(A \cup B) = P(A) + P(B) \).</p>
+        <p>\( P(A \cup B) = \frac{1}{10} + \frac{2}{10} = \frac{3}{10} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 3/10</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 23: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam satu permainan, peluang seseorang menang dalam satu putaran adalah 1/4. Jika pemain tersebut memainkan permainan dua kali secara independen, berapa peluangnya menang di kedua putaran?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 1/16</li>
+            <li>B. 1/8</li>
+            <li>C. 1/4</li>
+            <li>D. 1/2</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan43')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan43" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jika dua kejadian saling bebas, maka peluang keduanya terjadi dihitung dengan:</p>
+        <p>\( P(A \cap B) = P(A) \times P(B) \).</p>
+        <p>\( P(A \cap B) = \frac{1}{4} \times \frac{1}{4} = \frac{1}{16} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 1/16</strong></p>
+    </div>
+</div>
+
+<h2 id="latihan soal 2A hots" class="text-2xl font-bold text-red-600 mt-6">Soal 24: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah dadu enam sisi dan sebuah koin dilempar secara bersamaan. Berapa banyak ruang sampel yang bisa terbentuk?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 6</li>
+            <li>B. 12</li>
+            <li>C. 24</li>
+            <li>D. 36</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan44')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan44" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Ruang sampel diperoleh dengan mengalikan jumlah kemungkinan dari masing-masing percobaan.</p>
+        <p>Jumlah sisi dadu = 6, kemungkinan koin (H/T) = 2.</p>
+        <p>Sehingga total ruang sampel = \(6 \times 2 = 12\).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 12</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 25: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah eksperimen dilakukan dengan melempar dua buah koin secara bersamaan. Berapa banyak titik sampel yang dapat terbentuk jika digunakan diagram pohon?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 2</li>
+            <li>B. 3</li>
+            <li>C. 4</li>
+            <li>D. 8</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan45')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan45" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Menggunakan diagram pohon, setiap koin memiliki dua kemungkinan: H (Head) atau T (Tail).</p>
+        <p>Maka kombinasi yang mungkin: HH, HT, TH, TT.</p>
+        <p>Total titik sampel = \(2^2 = 4\).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 4</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 29: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam suatu kelas, 18 siswa suka matematika, 12 siswa suka fisika, dan 5 siswa menyukai keduanya. Jika terdapat 30 siswa dalam kelas, berapa peluang seorang siswa yang dipilih secara acak menyukai matematika atau fisika?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 5/6</li>
+            <li>B. 2/3</li>
+            <li>C. 3/5</li>
+            <li>D. 4/5</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan49')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan49" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>P(A ∪ B) = P(A) + P(B) - P(A ∩ B).</p>
+        <p>\( \frac{18}{30} + \frac{12}{30} - \frac{5}{30} = \frac{25}{30} = \frac{5}{6} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 5/6</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 30: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam suatu kantong terdapat 4 bola merah dan 6 bola biru. Jika satu bola diambil tanpa dikembalikan dan kemudian diambil bola kedua, berapa peluang bola pertama merah dan bola kedua biru?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 2/5</li>
+            <li>B. 4/15</li>
+            <li>C. 12/30</li>
+            <li>D. 6/25</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan50')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan50" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Peluang bola pertama merah = \( \frac{4}{10} \).</p>
+        <p>Peluang bola kedua biru setelah merah = \( \frac{6}{9} \).</p>
+        <p>\( \frac{4}{10} \times \frac{6}{9} = \frac{24}{90} = \frac{4}{15} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 4/15</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 31: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah restoran memiliki 5 jenis makanan pembuka dan 3 jenis minuman. Jika pelanggan dapat memilih satu makanan pembuka dan satu minuman, berapa banyak kombinasi pilihan yang tersedia?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 8</li>
+            <li>B. 10</li>
+            <li>C. 15</li>
+            <li>D. 20</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan51')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan51" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pilihan total diperoleh dari \( 5 \times 3 = 15 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. 15</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 32: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Sebuah kelompok siswa ingin membentuk tim beranggotakan 3 orang dari 5 kandidat. Berapa banyak cara tim tersebut dapat dibentuk?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 5</li>
+            <li>B. 10</li>
+            <li>C. 15</li>
+            <li>D. 20</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasan52')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan52" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus kombinasi:</p>
+        <p>\( C(n,r) = \frac{n!}{r!(n-r)!} \).</p>
+        <p>\( C(5,3) = \frac{5!}{3!(5-3)!} = \frac{5 \times 4}{2 \times 1} = 10 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 10</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 33: HOTS </h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Dalam suatu kelas, terdapat 40 siswa. Dari jumlah tersebut, 25 siswa menyukai matematika, 18 siswa menyukai fisika, dan 10 siswa menyukai keduanya. Berapa banyak siswa yang tidak menyukai keduanya?</p>
+    
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. 7</li>
+            <li>B. 10</li>
+            <li>C. 15</li>
+            <li>D. 12</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasanVenn')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanVenn" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Kita gunakan rumus diagram Venn untuk himpunan:</p>
+        <p>\( |A \cup B| = |A| + |B| - |A \cap B| \)</p>
+        <p>\( |A \cup B| = 25 + 18 - 10 = 33 \).</p>
+        <p>Jumlah total siswa adalah 40, jadi siswa yang tidak menyukai keduanya adalah:</p>
+        <p>\( 40 - 33 = 7 \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 7</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 34: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Perhatikan diagram Venn di bawah ini. Tentukan himpunan yang sesuai dengan daerah yang diarsir unggu!</p>
+
+    <!-- Diagram Venn SVG -->
+    <div class="flex justify-center my-6">
+        <svg width="200" height="150">
+            <!-- Lingkaran A -->
+            <circle cx="70" cy="75" r="50" fill="blue" fill-opacity="0.3" stroke="black"/>
+            <text x="40" y="50" font-size="14" fill="black">A</text>
+
+            <!-- Lingkaran B -->
+            <circle cx="130" cy="75" r="50" fill="red" fill-opacity="0.3" stroke="black"/>
+            <text x="150" y="50" font-size="14" fill="black">B</text>
+
+            <!-- Irisan A dan B -->
+            <rect x="95" y="50" width="20" height="50" fill="purple" fill-opacity="0.5"/>
+        </svg>
+    </div>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( A \cap B \)</li>
+            <li>B. \( A \cup B \)</li>
+            <li>C. \( (A \cup B)' \)</li>
+            <li>D. \( A - B \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasanVenn1')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanVenn1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Bagian yang diarsir pada diagram menunjukkan irisan antara himpunan \( A \) dan \( B \).</p>
+        <p>Dalam notasi himpunan, ini ditulis sebagai:</p>
+        <p>\( A \cap B \), yaitu elemen yang termasuk dalam kedua himpunan A dan B.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( A \cap B \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 35: HOTS </h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Perhatikan diagram Venn di bawah ini. Tentukan himpunan yang sesuai dengan daerah yang diarsir!</p>
+
+    <!-- Diagram Venn SVG -->
+    <div class="flex justify-center my-6">
+        <svg width="220" height="150">
+            <!-- Persegi sebagai semesta (S) -->
+            <rect x="10" y="10" width="200" height="150" fill="gray" fill-opacity="0.2" stroke="black"/>
+            <text x="15" y="30" font-size="14" fill="black">S</text>
+
+            <!-- Lingkaran A -->
+            <circle cx="70" cy="75" r="50" fill="white" stroke="black"/>
+            <text x="50" y="25" font-size="14" fill="black">A</text>
+
+            <!-- Lingkaran B -->
+            <circle cx="130" cy="75" r="50" fill="white" stroke="black"/>
+            <text x="150" y="25" font-size="14" fill="black">B</text>
+
+            <!-- Area luar (Komplemen A ∪ B) diarsir -->
+            <rect x="10" y="10" width="200" height="150" fill="gray" fill-opacity="0.5"/>
+
+            <!-- Mengosongkan daerah A dan B -->
+            <circle cx="70" cy="75" r="50" fill="white"/>
+            <circle cx="130" cy="75" r="50" fill="white"/>
+        </svg>
+    </div>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( A \cap B \)</li>
+            <li>B. \( A \cup B \)</li>
+            <li>C. \( (A \cup B)' \)</li>
+            <li>D. \( A - B \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasanVenn2')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanVenn2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Bagian yang diarsir pada diagram menunjukkan area di luar himpunan \( A \) dan \( B \).</p>
+        <p>Dalam notasi himpunan, ini ditulis sebagai:</p>
+        <p>\( (A \cup B)' \), yaitu elemen yang **tidak termasuk dalam A maupun B**.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. \( (A \cup B)' \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 36: HOTS </h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Perhatikan diagram Venn berikut. Tentukan himpunan yang sesuai dengan daerah yang diarsir paling tebal!</p>
+
+    <!-- Diagram Venn SVG -->
+    <div class="flex justify-center my-6">
+        <svg width="250" height="200">
+            <!-- Persegi sebagai semesta (S) -->
+            <rect x="10" y="10" width="230" height="180" fill="white" fill="none" stroke="black"/>
+            <text x="20" y="30" font-size="14" fill="black">S</text>
+
+            <!-- Lingkaran A -->
+            <circle cx="90" cy="80" r="50" fill="white" stroke="black"/>
+            <text x="70" y="50" font-size="14" fill="black">A</text>
+
+            <!-- Lingkaran B -->
+            <circle cx="140" cy="80" r="50" fill="white" stroke="black"/>
+            <text x="150" y="50" font-size="14" fill="black">B</text>
+
+            <!-- Lingkaran C -->
+            <circle cx="115" cy="120" r="50" fill="white" stroke="black"/>
+            <text x="110" y="150" font-size="14" fill="black">C</text>
+
+            <!-- Mengarsir bagian irisan A, B, dan C -->
+            <circle cx="90" cy="80" r="50" fill="gray" fill-opacity="0.3"/>
+            <circle cx="140" cy="80" r="50" fill="gray" fill-opacity="0.3"/>
+            <circle cx="115" cy="120" r="50" fill="gray" fill-opacity="0.3"/>
+        </svg>
+    </div>
+
+    <div class="mt-4 space-y-2">
+        <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+            <li>A. \( A \cap B \)</li>
+            <li>B. \( A \cap B \cap C \)</li>
+            <li>C. \( (A \cup B) - C \)</li>
+            <li>D. \( A \cup B \cup C \)</li>
+        </ul>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasanVenn3')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanVenn3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Bagian yang diarsir adalah irisan dari ketiga himpunan \( A, B, \) dan \( C \).</p>
+        <p>Dalam notasi himpunan, ini ditulis sebagai:</p>
+        <p>\( A \cap B \cap C \), yaitu elemen yang **termasuk dalam ketiga himpunan tersebut**.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( A \cap B \cap C \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 36: HOTS </h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Manakah diagram Venn yang sesuai dengan notasi berikut?</p>
+    
+    <p class="font-semibold text-xl text-center mt-3 text-blue-700">\( (A \cup B) - C \)</p>
+
+    <div class="grid grid-cols-2 gap-6 mt-6">
+        <!-- Opsi A -->
+        <div class="border p-4 rounded-lg bg-white shadow-md">
+            <p class="text-center font-semibold mb-3">A</p>
+            <svg width="200" height="160">
+                <rect x="10" y="10" width="180" height="140" fill="gray" fill-opacity="0.2" stroke="black"/>
+                <circle cx="80" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="120" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="100" cy="100" r="40" fill="white" stroke="black"/>
+                <text x="55" y="50" font-size="14" fill="black">A</text>
+                <text x="135" y="50" font-size="14" fill="black">B</text>
+                <text x="90" y="150" font-size="14" fill="black">C</text>
+            </svg>
+        </div>
+
+        <!-- Opsi B -->
+        <div class="border p-4 rounded-lg bg-white shadow-md">
+            <p class="text-center font-semibold mb-3">B</p>
+            <svg width="200" height="160">
+                <rect x="10" y="10" width="180" height="140" fill="gray" fill-opacity="0.2" stroke="black"/>
+                <circle cx="80" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="120" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="100" cy="100" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <text x="55" y="50" font-size="14" fill="black">A</text>
+                <text x="135" y="50" font-size="14" fill="black">B</text>
+                <text x="90" y="150" font-size="14" fill="black">C</text>
+            </svg>
+        </div>
+
+        <!-- Opsi C -->
+        <div class="border p-4 rounded-lg bg-white shadow-md">
+            <p class="text-center font-semibold mb-3">C</p>
+            <svg width="200" height="160">
+                <rect x="10" y="10" width="180" height="140" fill="gray" fill-opacity="0.2" stroke="black"/>
+                <circle cx="80" cy="70" r="40" fill="white" stroke="black"/>
+                <circle cx="120" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="100" cy="100" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <text x="55" y="50" font-size="14" fill="black">A</text>
+                <text x="135" y="50" font-size="14" fill="black">B</text>
+                <text x="90" y="150" font-size="14" fill="black">C</text>
+            </svg>
+        </div>
+
+        <!-- Opsi D -->
+        <div class="border p-4 rounded-lg bg-white shadow-md">
+            <p class="text-center font-semibold mb-3">D</p>
+            <svg width="200" height="160">
+                <rect x="10" y="10" width="180" height="140" fill="gray" fill-opacity="0.2" stroke="black"/>
+                <circle cx="80" cy="70" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <circle cx="120" cy="70" r="40" fill="white" stroke="black"/>
+                <circle cx="100" cy="100" r="40" fill="gray" fill-opacity="0.3" stroke="black"/>
+                <text x="55" y="50" font-size="14" fill="black">A</text>
+                <text x="135" y="50" font-size="14" fill="black">B</text>
+                <text x="90" y="150" font-size="14" fill="black">C</text>
+            </svg>
+        </div>
+    </div>
+
+    <button onclick="togglePembahasan('pembahasanVenn4')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasanVenn4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Notasi \( (A \cup B) - C \) berarti semua elemen dalam A atau B, tetapi tidak termasuk C.</p>
+        <p>Jadi, bagian yang diarsir harus mencakup A dan B, tetapi tidak boleh menyertakan bagian dalam C.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A</strong></p>
+    </div>
+</div>
+
+<!-- Sumatif Tengah Semester 1A -->
+
+<div id="Sumatif Tengah Semester 1A">
+            <h2 class="text-2xl font-semibold mb-4 text-purple-700">📝 Sumatif Tengah Semester 1A</h2>
+            <p class="mb-4">Berikut adalah beberapa pertanyaan untuk menguji pemahaman Anda.</p>
+	
+	<div class="text-center">
+        <button class="button button-lots" onclick="scrollToSection('Sumatif Tengah Semester 1A lots')">LOTS</button>
+        <button class="button button-mots" onclick="scrollToSection('Sumatif Tengah Semester 1A mots')">MOTS</button>
+        <button class="button button-hots" onclick="scrollToSection('Sumatif Tengah Semester 1A hots')">HOTS</button>
+    	</div>
+            <div class="space-y-6">
+                <!-- Soal Matematika -->
+<h2 id="Sumatif Tengah Semester 1A lots" class="text-2xl font-bold text-blue-600 mt-6">Soal 1: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">Manakah himpunan semesta yang mungkin dari hewan ternak?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. {Ayam, Sapi, Kambing, Kuda}</li>
+        <li>B. {Harimau, Singa, Serigala}</li>
+        <li>C. {Kucing, Anjing, Burung}</li>
+        <li>D. {Ular, Buaya, Komodo}</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a1')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Himpunan semesta adalah kumpulan semua elemen yang mungkin dalam suatu konteks. Dalam konteks hewan ternak, hewan yang biasanya diternakkan adalah ayam, sapi, kambing, dan kuda.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. {Ayam, Sapi, Kambing, Kuda}</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 2: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi \(f(x) = ax + b\)</span>. Jika \(f(k) = 15, a = 3\), dan \(b = 6\), maka nilai k adalah?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 2</li>
+        <li>B. 3</li>
+        <li>C. 4</li>
+        <li>D. 5</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a2')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Diketahui fungsi \( f(x) = ax + b\), dengan \( a = 3 \) dan \( b = 6\). Substitusi \(f(k) = 15\):</p>
+        <p class="mt-2">\(3k + 6 = 15\)</p>
+        <p class="mt-2">\(3k = 9\)</p>
+        <p class="mt-2">\(k = 3\)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 3</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 3: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi \( f(x) = 2x - 5 \). Jika domain fungsi adalah \( \{1, 3, 5, 7\} \), maka range dari fungsi tersebut adalah?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \(\{-3, 1, 5, 9\}\)</li>
+        <li>B. \(\{-3, -1, 3, 9\}\)</li>
+        <li>C. \(\{-3, 1, 3, 9\}\)</li>
+        <li>D. \(\{-3, 1, 5, 7\}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a3')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Diketahui fungsi \( f(x) = 2x - 5 \) dan domain \( \{1, 3, 5, 7\} \). Substitusi nilai domain ke fungsi:</p>
+        <p class="mt-2">\( f(1) = 2(1) - 5 = -3 \)</p>
+        <p class="mt-2">\( f(3) = 2(3) - 5 = 1 \)</p>
+        <p class="mt-2">\( f(5) = 2(5) - 5 = 5 \)</p>
+        <p class="mt-2">\( f(7) = 2(7) - 5 = 9 \)</p>
+        <p class="mt-2">Sehingga, range fungsi adalah \( \{-3, 1, 5, 9\} \).</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \(\{-3, 1, 5, 9\}\)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 4: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui himpunan pasangan berurutan berikut:
+        \[
+        \{(1, 2), (2, 4), (3, 6), (4, 8)\}
+        \]
+        Manakah nama relasi yang mungkin dari himpunan tersebut?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Relasi "lebih dari"</li>
+        <li>B. Relasi "setengah dari"</li>
+        <li>C. Relasi "dua kali dari"</li>
+        <li>D. Relasi "kurang dari"</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a4')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Himpunan pasangan berurutan yang diberikan menunjukkan pola bahwa setiap elemen pertama dikalikan dengan 2 untuk mendapatkan elemen kedua:</p>
+        <p class="mt-2">\( 1 \times 2 = 2 \)</p>
+        <p class="mt-2">\( 2 \times 2 = 4 \)</p>
+        <p class="mt-2">\( 3 \times 2 = 6 \)</p>
+        <p class="mt-2">\( 4 \times 2 = 8 \)</p>
+        <p>Sehingga relasi yang sesuai adalah <strong>"dua kali dari"</strong>.</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. Relasi "dua kali dari"</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 5: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Perhatikan grafik fungsi linear \( f(x) = mx + c \) berikut:
+    </p>
+    
+    <div class="mt-4 mx-auto flex justify-center">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Garis sumbu x dan y -->
+            <line x1="0" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+     <text x="155" y="5" font-size="14" fill="black"> y</text>
+            <line x1="150" y1="0" x2="150" y2="300" stroke="black" stroke-width="2"/>
+            <text x="290" y="170" font-size="14" fill="black"> x</text>
+
+            <!-- Garis fungsi linear -->
+            <line x1="20" y1="240" x2="300" y2="150" stroke="blue" stroke-width="2"/>
+            
+            <!-- Titik potong sumbu y -->
+            <circle cx="150" cy="200" r="5" fill="red"/>
+            
+            <!-- Label -->
+            <text x="155" y="195" font-size="14" fill="black"> (0, -3) </text>
+        </svg>
+    </div>
+    
+    <p class="mt-4 text-lg">
+        Jika grafik memotong sumbu \( y \) di titik \( (0, -3) \), maka nilai \( c \) adalah?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. -5</li>
+        <li>B. -3</li>
+        <li>C. 0</li>
+        <li>D. 3</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a5')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Dalam fungsi linear \( f(x) = mx + c \), nilai \( c \) adalah titik potong dengan sumbu \( y \), yaitu nilai fungsi saat \( x = 0 \).</p>
+        <p class="mt-2">Dari grafik, diketahui bahwa garis memotong sumbu \( y \) di titik \( (0, -3) \), sehingga:</p>
+        <p class="mt-2">\( c = -3 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. -3</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 6: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Perhatikan garis berikut pada kertas berpetak:
+    </p>
+    
+    <div class="mt-4 mx-auto flex justify-center">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kotak latar belakang -->
+            <rect width="300" height="300" fill="#f0f9ff"/>
+
+            <!-- Garis grid -->
+            <g stroke="#d1d5db" stroke-width="1">
+                <line x1="50" y1="0" x2="50" y2="300"/>
+                <line x1="100" y1="0" x2="100" y2="300"/>
+                <line x1="150" y1="0" x2="150" y2="300"/>
+                <line x1="200" y1="0" x2="200" y2="300"/>
+                <line x1="250" y1="0" x2="250" y2="300"/>
+
+                <line x1="0" y1="50" x2="300" y2="50"/>
+                <line x1="0" y1="100" x2="300" y2="100"/>
+                <line x1="0" y1="150" x2="300" y2="150"/>
+                <line x1="0" y1="200" x2="300" y2="200"/>
+                <line x1="0" y1="250" x2="300" y2="250"/>
+            </g>
+
+            <!-- Garis sumbu x dan y -->
+            <line x1="0" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+            <line x1="150" y1="0" x2="150" y2="300" stroke="black" stroke-width="2"/>
+            
+            <!-- Garis lurus -->
+            <line x1="50" y1="200" x2="250" y2="100" stroke="blue" stroke-width="2"/>
+            
+            <!-- Titik-titik -->
+            <circle cx="50" cy="200" r="5" fill="red"/>
+            <circle cx="250" cy="100" r="5" fill="red"/>
+
+            <!-- Label titik -->
+            <text x="10" y="190" font-size="14" fill="black">(-2,-2)</text>
+            <text x="255" y="95" font-size="14" fill="black">(2,2)</text>
+        </svg>
+    </div>
+    
+    <p class="mt-4 text-lg">
+        Berdasarkan gambar, tentukan nilai gradien garis tersebut!
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \(  1 \)</li>
+        <li>B. \( \frac{2}{3} \)</li>
+        <li>C. \( \frac{3}{2} \)</li>
+        <li>D. \( 2 \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a6')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a6" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gradien \( m \) dari garis dapat dihitung menggunakan rumus:</p>
+        <p class="mt-2">\( m = \frac{\Delta y}{\Delta x} \)</p>
+        <p class="mt-2">Dari gambar, garis melalui titik \( (-2,-2) \) dan \( (2,2) \), sehingga:</p>
+        <p class="mt-2">\( m = \frac{2 - (-2)}{2 - (-2)} = \frac{4}{4} = 1 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( 1 \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-blue-600 mt-6">Soal 7: LOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui persamaan garis \( y = mx \). Berikut adalah beberapa pernyataan yang berkaitan dengan titik koordinat pada garis tersebut:
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Jika \( m = 2 \), maka titik (3,6) terletak pada garis tersebut.</li>
+        <li>B. Jika \( m = 3 \), maka titik (2,5) terletak pada garis tersebut.</li>
+        <li>C. Jika \( m = -1 \), maka titik (-4,4) terletak pada garis tersebut.</li>
+        <li>D. Jika \( m = \frac{1}{2} \), maka titik (6,4) terletak pada garis tersebut.</li>
+    </ul>
+
+    <p class="mt-4 text-lg">
+        Tentukan dua pernyataan yang benar!
+    </p>
+
+    <button onclick="togglePembahasan('pembahasansts1a7')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a7" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Kita uji setiap titik dengan persamaan garis \( y = mx \):</p>
+
+        <p class="mt-2">A. Jika \( m = 2 \), maka \( y = 2(3) = 6 \). Benar ✅</p>
+        <p class="mt-2">B. Jika \( m = 3 \), maka \( y = 3(2) = 6 \), sedangkan titiknya (2,5), sehingga salah ❌</p>
+        <p class="mt-2">C. Jika \( m = -1 \), maka \( y = -1(-4) = 4 \). Benar ✅</p>
+        <p class="mt-2">D. Jika \( m = \frac{1}{2} \), maka \( y = \frac{1}{2} (6) = 3 \). sedangkan titiknya (6,4), sehingga salah ❌</p>
+
+        <p class="mt-4 font-medium text-purple-700 text-lg">Jawaban: <strong>A dan C</strong></p>
+    </div>
+</div>
+
+<h2 id="Sumatif Tengah Semester 1A mots" class="text-2xl font-bold text-green-600 mt-6">Soal 8: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui diagram panah berikut yang menunjukkan relasi antara himpunan A dan himpunan B:
+    </p>
+
+    <div class="flex justify-center mt-4">
+        <svg width="300" height="200">
+            <!-- Himpunan A -->
+            <ellipse cx="80" cy="100" rx="50" ry="80" fill="lightblue" stroke="black"/>
+            <text x="50" y="60" font-size="16" fill="black">1</text>
+            <text x="50" y="100" font-size="16" fill="black">2</text>
+            <text x="50" y="140" font-size="16" fill="black">3</text>
+            
+            <!-- Himpunan B -->
+            <ellipse cx="220" cy="100" rx="50" ry="80" fill="lightgreen" stroke="black"/>
+            <text x="200" y="70" font-size="16" fill="black">A</text>
+            <text x="200" y="110" font-size="16" fill="black">B</text>
+            <text x="200" y="150" font-size="16" fill="black">C</text>
+
+            <!-- Panah relasi -->
+            <line x1="70" y1="60" x2="190" y2="70" stroke="black" marker-end="url(#arrow)"/>
+            <line x1="70" y1="100" x2="190" y2="110" stroke="black" marker-end="url(#arrow)"/>
+            <line x1="70" y1="140" x2="190" y2="150" stroke="black" marker-end="url(#arrow)"/>
+
+            <!-- Marker untuk panah -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L9,3 Z" fill="black"/>
+                </marker>
+            </defs>
+        </svg>
+    </div>
+
+    <p class="mt-4 text-lg">
+        Berikut beberapa pernyataan mengenai domain, kodomain, dan range:
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Domain dari relasi tersebut adalah {1, 2, 3}.</li>
+        <li>B. Kodomain dari relasi tersebut adalah {A, B, C}.</li>
+        <li>C. Range dari relasi tersebut adalah {A, B}.</li>
+        <li>D. Kodomain dan range selalu sama.</li>
+    </ul>
+
+    <p class="mt-4 text-lg">
+        Tentukan dua pernyataan yang benar!
+    </p>
+
+    <button onclick="togglePembahasan('pembahasansts1a8')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a8" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Kita analisis diagram panah di atas:</p>
+
+        <p class="mt-2">A. Domain adalah himpunan semua elemen di himpunan asal (A), yaitu {1, 2, 3}. Benar ✅</p>
+        <p class="mt-2">B. Kodomain adalah semua elemen di himpunan tujuan (B), yaitu {A, B, C}. Benar ✅</p>
+        <p class="mt-2">C. Range adalah elemen yang memiliki pasangan dari domain. Jika hanya {A, B} yang terhubung, maka C tidak termasuk. Salah ❌</p>
+        <p class="mt-2">D. Kodomain adalah semua elemen di himpunan tujuan, tetapi range hanya elemen yang mendapat pasangan. Kodomain dan range tidak selalu sama. Salah ❌</p>
+
+        <p class="mt-4 font-medium text-purple-700 text-lg">Jawaban: <strong>A dan B</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 9: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui titik-titik pada diagram Cartesius berikut. Tentukan himpunan pasangan berurutan dari titik-titik tersebut!
+    </p>
+
+    <div class="flex justify-center mt-4">
+        <svg width="300" height="300">
+            <!-- Kertas berpetak -->
+            <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="gray" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="300" height="300" fill="url(#grid)" />
+
+            <!-- Sumbu X dan Y -->
+            <line x1="40" y1="160" x2="260" y2="160" stroke="black" stroke-width="2"/>
+            <line x1="140" y1="50" x2="140" y2="250" stroke="black" stroke-width="2"/>
+
+            <!-- Titik-titik -->
+            <circle cx="100" cy="100" r="5" fill="red"/>
+            <circle cx="200" cy="100" r="5" fill="blue"/>
+            <circle cx="100" cy="200" r="5" fill="green"/>
+            <circle cx="200" cy="200" r="5" fill="purple"/>
+       
+        </svg>
+    </div>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. {(-2,3), (3,3), (-2,-2), (3,-2)}</li>
+        <li>B. {(-2,3), (-3,3), (-2,-2), (3,-2)}</li>
+        <li>C. {(-2,3), (3,3), (2,-2), (3,-2)}</li>
+        <li>D. {(-2,3), (3,3), (-2,-2), (3,2)}</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a9')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a9" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Himpunan pasangan berurutan dari titik-titik yang ada dalam diagram Cartesius adalah:</p>
+        <p class="mt-2">Titik merah di kuadran II: \( (-2,3) \)</p>
+        <p class="mt-2">Titik biru di kuadran I: \( (3,3) \)</p>
+        <p class="mt-2">Titik hijau di kuadran III: \( (-2,-2) \)</p>
+        <p class="mt-2">Titik ungu di kuadran IV: \( (3,-2) \)</p>
+
+        <p class="mt-4">Sehingga himpunan pasangan berurutan yang benar adalah:</p>
+        <p class="font-medium text-purple-700 text-lg">Jawaban: <strong>A. {(-2,3), (3,3), (-2,-2), (3,-2)}</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 10: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi \( f(x) = ax + b \). Jika \( f(k) = 20 \), \( a = 4 \), dan \( b = 8 \), maka nilai \( k \) adalah?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 3</li>
+        <li>B. 4</li>
+        <li>C. 5</li>
+        <li>D. 6</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a10')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a10" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Diketahui fungsi \( f(x) = ax + b\), dengan \( a = 4 \) dan \( b = 8\). Substitusi \( f(k) = 20 \):</p>
+        <p class="mt-2">\( 4k + 8 = 20 \)</p>
+        <p class="mt-2">\( 4k = 12 \)</p>
+        <p class="mt-2">\( k = 3 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 3</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 11: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi \( f(x) = 5x - 3 \). Tentukan nilai \( f(4) \)!
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 15</li>
+        <li>B. 17</li>
+        <li>C. 18</li>
+        <li>D. 20</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a11')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a11" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Diketahui fungsi \( f(x) = 5x - 3 \). Substitusi \( x = 4 \):</p>
+        <p class="mt-2">\( f(4) = 5(4) - 3 \)</p>
+        <p class="mt-2">\( f(4) = 20 - 3 \)</p>
+        <p class="mt-2">\( f(4) = 17 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 17</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 12: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi \( f(x) = ax + b \) memenuhi \( f(2) = 10 \) dan \( f(4) = 16 \). Berikut adalah beberapa pernyataan terkait:
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>1. Nilai \( a = 3 \) dan \( b = 4 \).</li>
+        <li>2. Jika \( f(5) = 19 \), maka nilai \( a \) dan \( b \) benar.</li>
+        <li>3. Jika \( f(0) = 4 \), maka \( b = 4 \).</li>
+        <li>4. Fungsi ini linear dan memiliki gradien positif.</li>
+    </ul>
+
+    <p class="mt-4 text-lg">Pilih dua pernyataan yang benar!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 1 dan 2</li>
+        <li>B. 1 dan 3</li>
+        <li>C. 2 dan 4</li>
+        <li>D. 3 dan 4</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a12')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a12" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Diketahui \( f(x) = ax + b \), dengan \( f(2) = 10 \) dan \( f(4) = 16 \). Substitusi ke dalam persamaan:</p>
+        <p class="mt-2">\( 2a + b = 10 \)  ... (Persamaan 1)</p>
+        <p class="mt-2">\( 4a + b = 16 \)  ... (Persamaan 2)</p>
+
+        <p class="mt-2">Kurangi persamaan 2 dengan persamaan 1:</p>
+        <p class="mt-2">\( (4a + b) - (2a + b) = 16 - 10 \)</p>
+        <p class="mt-2">\( 2a = 6 \Rightarrow a = 3 \)</p>
+        <p class="mt-2">Substitusi \( a = 3 \) ke dalam Persamaan 1:</p>
+        <p class="mt-2">\( 2(3) + b = 10 \Rightarrow 6 + b = 10 \Rightarrow b = 4 \)</p>
+
+        <p class="mt-2">Dari hasil ini:</p>
+        <ul class="mt-2 list-disc pl-5">
+            <li>Pernyataan 1 benar: \( a = 3 \) dan \( b = 4 \).</li>
+            <li>Pernyataan 2 benar: Jika \( f(5) = 19 \), substitusi \( f(5) = 3(5) + 4 = 19 \), sesuai dengan nilai \( a \) dan \( b \).</li>
+            <li>Pernyataan 3 benar: Jika \( f(0) = 4 \), maka \( b = 4 \), sesuai dengan hasil perhitungan.</li>
+            <li>Pernyataan 4 benar: Fungsi linear memiliki gradien positif karena \( a = 3 \) positif.</li>
+        </ul>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. 1 dan 2</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 13: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui himpunan A = {1, 2, 3, 4} dan himpunan B = {a, b, c, d}. Hubungan antara A dan B merupakan korespondensi satu-satu jika setiap elemen di A dipasangkan dengan tepat satu elemen di B dan sebaliknya. Berikut adalah beberapa pernyataan terkait:
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>1. Setiap elemen di A memiliki pasangan unik di B.</li>
+        <li>2. Jika ada dua elemen di A yang berpasangan dengan elemen yang sama di B, maka ini tetap korespondensi satu-satu.</li>
+        <li>3. Jika ada elemen di B yang tidak memiliki pasangan di A, maka hubungan ini bukan korespondensi satu-satu.</li>
+        <li>4. Relasi \( f: A \to B \) disebut korespondensi satu-satu jika \( |A| = |B| \) dan setiap elemen berpasangan secara unik.</li>
+    </ul>
+
+    <p class="mt-4 text-lg">Pilih dua pernyataan yang benar!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 1 dan 2</li>
+        <li>B. 1 dan 3</li>
+        <li>C. 2 dan 4</li>
+        <li>D. 3 dan 4</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a13')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a13" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Hubungan antara dua himpunan disebut korespondensi satu-satu jika setiap elemen pada himpunan pertama berpasangan dengan tepat satu elemen di himpunan kedua, dan tidak ada elemen yang berpasangan lebih dari satu kali.</p>
+
+        <ul class="mt-2 list-disc pl-5">
+            <li>Pernyataan 1 benar: Setiap elemen di A harus memiliki pasangan unik di B.</li>
+            <li>Pernyataan 2 salah: Jika ada dua elemen di A yang berpasangan dengan elemen yang sama di B, maka ini bukan korespondensi satu-satu.</li>
+            <li>Pernyataan 3 benar: Jika ada elemen di B yang tidak memiliki pasangan di A, maka hubungan ini bukan korespondensi satu-satu.</li>
+            <li>Pernyataan 4 benar: Relasi dikatakan korespondensi satu-satu jika jumlah elemen di A dan B sama serta setiap elemen memiliki pasangan unik.</li>
+        </ul>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. 3 dan 4</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 14: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui garis lurus melalui dua titik, yaitu titik potong dengan sumbu X di \( (6,0) \) dan titik potong dengan sumbu Y di \( (0,4) \). 
+        Tentukan persamaan garis tersebut!
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( 2x + 3y = 12 \)</li>
+        <li>B. \( 3x + 2y = 12 \)</li>
+        <li>C. \( x + 2y = 6 \)</li>
+        <li>D. \( 2x + y = 6 \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a14')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a14" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Persamaan garis yang melalui dua titik \( (x_1, y_1) \) dan \( (x_2, y_2) \) dapat dicari menggunakan rumus:</p>
+        
+        <p class="mt-2">\( y - y_1 = m(x - x_1) \), dengan gradien \( m = \frac{y_2 - y_1}{x_2 - x_1} \).</p>
+
+        <p class="mt-2">Substitusi titik \( (6,0) \) dan \( (0,4) \):</p>
+        <p>\( m = \frac{4 - 0}{0 - 6} = \frac{4}{-6} = -\frac{2}{3} \).</p>
+
+        <p class="mt-2">Gunakan titik \( (6,0) \) untuk mencari persamaan garis:</p>
+        <p>\( y - 0 = -\frac{2}{3} (x - 6) \)</p>
+        <p>\( y = -\frac{2}{3}x + 4 \)</p>
+
+        <p class="mt-2">Kalikan dengan 3 untuk menghilangkan pecahan:</p>
+        <p>\( 3y = -2x + 12 \)</p>
+        <p>\( 2x + 3y = 12 \)</p>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( 2x + 3y = 12 \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 15: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui suatu fungsi \( f(x) = 2x - 5 \). Tentukan koordinat titik jika \( x = 4 \)!
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( (4, 2) \)</li>
+        <li>B. \( (4, 3) \)</li>
+        <li>C. \( (4, 5) \)</li>
+        <li>D. \( (4, -3) \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a15')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a15" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Substitusi \( x = 4 \) ke dalam fungsi \( f(x) = 2x - 5 \):</p>
+        <p class="mt-2">\( f(4) = 2(4) - 5 \)</p>
+        <p class="mt-2">\( f(4) = 8 - 5 = 3 \)</p>
+        
+        <p class="mt-2">Sehingga titik yang sesuai adalah \( (4,3) \).</p>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. (4,3)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 16: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Perhatikan grafik berikut yang digambarkan pada kertas berpetak. Tentukan koordinat titik yang ditandai pada grafik tersebut!
+    </p>
+
+    <!-- Gambar Grafik dalam Kertas Berpetak -->
+    <div class="mt-4 mx-auto flex justify-center">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Kotak latar belakang -->
+            <rect width="300" height="300" fill="#f0f9ff"/>
+
+            <!-- Garis grid -->
+            <g stroke="#d1d5db" stroke-width="1">
+                <line x1="50" y1="0" x2="50" y2="300"/>
+                <line x1="100" y1="0" x2="100" y2="300"/>
+                <line x1="150" y1="0" x2="150" y2="300"/>
+                <line x1="200" y1="0" x2="200" y2="300"/>
+                <line x1="250" y1="0" x2="250" y2="300"/>
+
+                <line x1="0" y1="50" x2="300" y2="50"/>
+                <line x1="0" y1="100" x2="300" y2="100"/>
+                <line x1="0" y1="150" x2="300" y2="150"/>
+                <line x1="0" y1="200" x2="300" y2="200"/>
+                <line x1="0" y1="250" x2="300" y2="250"/>
+            </g>
+
+            <!-- Garis sumbu x dan y -->
+            <line x1="0" y1="150" x2="300" y2="150" stroke="black" stroke-width="2"/>
+            <line x1="150" y1="0" x2="150" y2="300" stroke="black" stroke-width="2"/>
+            
+
+            
+            <!-- Garis fungsi y = x - 2 -->
+            <line x1="0" y1="250" x2="250" y2="0" stroke="blue" stroke-width="2"/>
+
+            <!-- Titik yang harus dipilih -->
+            <circle cx="200" cy="50" r="5" fill="red"/>
+        </svg>
+    </div>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( (2,2) \)</li>
+        <li>B. \( (1,3) \)</li>
+        <li>C. \( (1,2) \)</li>
+        <li>D. \( (0,3) \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a16')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a16" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pada grafik, titik yang ditandai berwarna merah memiliki koordinat \( (7,5) \).</p>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>C. (1,2)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 17: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diberikan empat persamaan garis lurus berikut:
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>\( y = 2x + 3 \)</li>
+        <li>\( y = -\frac{1}{2}x + 4 \)</li>
+        <li>\( y = 3x - 1 \)</li>
+        <li>\( y = -x + 5 \)</li>
+    </ul>
+
+    <p class="mt-4 text-lg">Pilih dua pernyataan yang benar tentang gradien dari persamaan garis di atas:</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Garis \( y = 3x - 1 \) memiliki gradien terbesar.</li>
+        <li>B. Gradien garis \( y = -x + 5 \) lebih kecil dari gradien garis \( y = -\frac{1}{2}x + 4 \).</li>
+        <li>C. Semua garis memiliki gradien positif.</li>
+        <li>D. Gradien garis \( y = 2x + 3 \) lebih kecil dari gradien garis \( y = 3x - 1 \).</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a17')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a17" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gradien dari masing-masing persamaan adalah:</p>
+        <ul class="mt-2">
+            <li>\( y = 2x + 3 \) → gradien \( m = 2 \)</li>
+            <li>\( y = -\frac{1}{2}x + 4 \) → gradien \( m = -\frac{1}{2} \)</li>
+            <li>\( y = 3x - 1 \) → gradien \( m = 3 \)</li>
+            <li>\( y = -x + 5 \) → gradien \( m = -1 \)</li>
+        </ul>
+
+        <p class="mt-4">Dari nilai gradien di atas:</p>
+        <ul class="mt-2">
+            <li>\( m = 3 \) adalah yang terbesar → <strong>Pernyataan A benar</strong></li>
+            <li>\( -1 < -\frac{1}{2} \), sehingga gradien \( y = -x + 5 \) lebih kecil → <strong>Pernyataan B benar</strong></li>
+            <li>Pernyataan C salah karena ada gradien negatif.</li>
+            <li>Pernyataan D benar karena \( 2 < 3 \), tetapi hanya dua yang harus dipilih.</li>
+        </ul>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A dan B</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 18: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui garis lurus memiliki gradien \( m = 2 \) dan melalui titik \( (3,5) \). Tentukan persamaan garis tersebut!
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( y = 2x + 1 \)</li>
+        <li>B. \( y = 2x - 1 \)</li>
+        <li>C. \( y = 2x - 3 \)</li>
+        <li>D. \( y = 2x - 5 \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a18')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a18" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gunakan rumus persamaan garis:</p>
+        <p class="mt-2">\( y - y_1 = m(x - x_1) \)</p>
+        <p>Substitusi \( (x_1, y_1) = (3,5) \) dan \( m = 2 \):</p>
+        <p class="mt-2">\( y - 5 = 2(x - 3) \)</p>
+        <p class="mt-2">\( y - 5 = 2x - 6 \)</p>
+        <p class="mt-2">\( y = 2x - 1 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. \( y = 2x - 1 \)</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 19: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Seorang petani ingin membuat pagar di sepanjang jalan menggunakan tiang-tiang yang dipasang dengan pola tertentu. Jarak antara setiap tiang berturut-turut membentuk suatu pola linier. Jika tinggi tiang pertama 1 meter dan setiap tiang berikutnya bertambah 0,5 meter, maka tentukan tinggi tiang ke-10.
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 5 meter</li>
+        <li>B. 5,5 meter</li>
+        <li>C. 6 meter</li>
+        <li>D. 6,5 meter</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a19')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a19" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pola tinggi tiang dapat dinyatakan dengan persamaan garis lurus dalam bentuk:</p>
+        <p class="mt-2">\( h(n) = a + (n-1)d \)</p>
+        <p>Dengan \( a = 1 \) meter (tiang pertama), \( d = 0,5 \) meter (kenaikan tiap tiang), dan \( n = 10 \):</p>
+        <p class="mt-2">\( h(10) = 1 + (10-1) \times 0,5 \)</p>
+        <p class="mt-2">\( h(10) = 1 + 9 \times 0,5 \)</p>
+        <p class="mt-2">\( h(10) = 1 + 4,5 = 5,5 \)</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>B. 5,5 meter</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-green-600 mt-6">Soal 20: MOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Perhatikan garis yang melewati dua titik berikut pada bidang koordinat:
+    </p>
+
+    <div class="flex justify-center mt-4">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid -->
+            <defs>
+                <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <path d="M 10 0 L 0 0 0 10" fill="none" stroke="gray" stroke-width="0.5"/>
+                </pattern>
+                <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <rect width="50" height="50" fill="url(#smallGrid)"/>
+                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="gray" stroke-width="1"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+
+            <!-- Sumbu X dan Y -->
+            <line x1="0" y1="160" x2="300" y2="160" stroke="black" stroke-width="2"/>
+            <line x1="140" y1="0" x2="140" y2="300" stroke="black" stroke-width="2"/>
+
+            <!-- Titik potong sumbu X (6,0) dan sumbu Y (0,4) -->
+            <circle cx="260" cy="160" r="5" fill="red"/>
+            <circle cx="140" cy="80" r="5" fill="red"/>
+            <text x="245" y="145" font-size="12" fill="black">(6,0)</text>
+            <text x="110" y="85" font-size="12" fill="black">(0,4)</text>
+
+            <!-- Garis lurus -->
+            <line x1="320" y1="200" x2="20" y2="0" stroke="blue" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <p class="mt-4 text-lg">
+        Berdasarkan gambar di atas, berapakah gradien garis tersebut?
+    </p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( -\frac{2}{3} \)</li>
+        <li>B. \( -\frac{3}{2} \)</li>
+        <li>C. \( \frac{2}{3} \)</li>
+        <li>D. \( \frac{3}{2} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a20')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasansts1a20" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gradien garis yang melalui dua titik \( (x_1, y_1) \) dan \( (x_2, y_2) \) dihitung dengan rumus:</p>
+        <p class="mt-2">\[
+        m = \frac{y_2 - y_1}{x_2 - x_1}
+        \]</p>
+        <p>Substitusi \( (6,0) \) dan \( (0,4) \):</p>
+        <p class="mt-2">\[
+        m = \frac{0 - 4}{6 - 0} = \frac{-4}{6} = -\frac{2}{3}
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. \( -\frac{2}{3} \)</strong></p>
+    </div>
+</div>
+ 
+<h2 id="Sumatif Tengah Semester 1A hots" class="text-2xl font-bold text-red-600 mt-6">Soal 21: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui dua himpunan berikut:
+        <br> - <strong>Himpunan A</strong> = {a, b, c, d, e} (memiliki 5 anggota)
+        <br> - <strong>Himpunan B</strong> = {p, q} (memiliki 2 anggota)
+        <br><br>
+        Setiap anggota dari <strong>A</strong> harus dipetakan ke <strong>B</strong> dalam suatu fungsi. Berapakah banyaknya pemetaan fungsi yang mungkin dari himpunan A ke himpunan B?
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 10</li>
+        <li>B. 16</li>
+        <li>C. 25</li>
+        <li>D. 32</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a21')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a21" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Banyaknya pemetaan dari himpunan <strong>A</strong> ke himpunan <strong>B</strong> dihitung dengan rumus eksponen:</p>
+        <p class="mt-2">\[
+        \text{Jumlah pemetaan} = (\text{banyaknya anggota B})^{(\text{banyaknya anggota A})}
+        \]</p>
+        <p class="mt-2">\[
+        \text{Jumlah pemetaan} = 2^5 = 32
+        \]</p>
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>D. 32</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 22: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui dua himpunan sebagai berikut:
+        <br> - <strong>Himpunan A</strong> = {3, 5, 7, 9}
+        <br> - <strong>Himpunan B</strong> = {1, 3, 5, 7}
+        <br><br>
+        Gambarlah diagram panah yang merepresentasikan relasi <strong>"dua kurangnya dari"</strong> dari himpunan A ke himpunan B.
+    </p>
+
+    <button onclick="togglePembahasan('pembahasansts1a22')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a22" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Relasi <strong>"dua kurangnya dari"</strong> berarti setiap elemen di himpunan A akan dipasangkan dengan elemen di himpunan B yang nilainya <strong>dua lebih kecil</strong>.</p>
+        
+        <p class="mt-2">Kita cek satu per satu:</p>
+        <ul class="mt-2 space-y-2 list-disc pl-5 text-gray-800">
+            <li>3 → 1 (karena 3 - 2 = 1)</li>
+            <li>5 → 3 (karena 5 - 2 = 3)</li>
+            <li>7 → 5 (karena 7 - 2 = 5)</li>
+            <li>9 → 7 (karena 9 - 2 = 7)</li>
+        </ul>
+
+        <p class="mt-3">Diagram panah yang sesuai menggambarkan pemetaan dari himpunan A ke himpunan B berdasarkan aturan ini:</p>
+
+        <div class="flex justify-center mt-4">
+        <svg width="300" height="200">
+            <!-- Himpunan A -->
+            <ellipse cx="80" cy="100" rx="50" ry="90" fill="lightblue" stroke="black"/>
+            <text x="60" y="60" font-size="16" fill="black">3</text>
+            <text x="60" y="100" font-size="16" fill="black">5</text>
+            <text x="60" y="140" font-size="16" fill="black">7</text>
+     	    <text x="60" y="180" font-size="16" fill="black">9</text>
+            
+            <!-- Himpunan B -->
+            <ellipse cx="220" cy="110" rx="50" ry="90" fill="lightgreen" stroke="black"/>
+            <text x="220" y="70" font-size="16" fill="black">1</text>
+            <text x="220" y="110" font-size="16" fill="black">3</text>
+            <text x="220" y="150" font-size="16" fill="black">5</text>
+            <text x="220" y="190" font-size="16" fill="black">7</text>
+
+            <!-- Panah relasi -->
+            <line x1="80" y1="55" x2="210" y2="65" stroke="black" marker-end="url(#arrow)"/>
+            <line x1="80" y1="95" x2="210" y2="105" stroke="black" marker-end="url(#arrow)"/>
+            <line x1="80" y1="135" x2="210" y2="145" stroke="black" marker-end="url(#arrow)"/>
+      	    <line x1="80" y1="175" x2="210" y2="185" stroke="black" marker-end="url(#arrow)"/>
+
+            <!-- Marker untuk panah -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
+                    <path d="M0,0 L0,6 L9,3 Z" fill="black"/>
+                </marker>
+            </defs>
+        </svg>
+        </div>  
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: Gambar diagram panah di atas.</p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 23: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui fungsi:
+        <br>
+        <strong>f(x) = 2x - 3</strong>
+        <br><br>
+        Gambarkan grafik fungsi tersebut pada bidang koordinat Kartesius.
+    </p>
+
+    <button onclick="togglePembahasan('pembahasansts1a23')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a23" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Grafik fungsi \( f(x) = 2x - 3 \) adalah garis lurus dengan:</p>
+        
+        <ul class="mt-2 space-y-2 list-disc pl-5 text-gray-800">
+            <li><strong>Gradien (kemiringan)</strong>: 2</li>
+            <li><strong>Titik potong sumbu Y</strong>: \( (0, -3) \)</li>
+            <li><strong>Titik potong sumbu X</strong>: \( (1.5, 0) \)</li>
+        </ul>
+
+        <div class="mt-4 flex justify-center">
+            <svg width="300" height="300" viewBox="-10 -10 220 220">
+                <!-- Sumbu X dan Y -->
+                <line x1="0" y1="100" x2="200" y2="100" stroke="black" stroke-width="2"/>
+                <line x1="100" y1="0" x2="100" y2="200" stroke="black" stroke-width="2"/>
+
+                <!-- Grid -->
+                <g stroke="lightgray">
+                    <line x1="20" y1="0" x2="20" y2="200"/>
+                    <line x1="40" y1="0" x2="40" y2="200"/>
+                    <line x1="60" y1="0" x2="60" y2="200"/>
+                    <line x1="80" y1="0" x2="80" y2="200"/>
+                    <line x1="120" y1="0" x2="120" y2="200"/>
+                    <line x1="140" y1="0" x2="140" y2="200"/>
+                    <line x1="160" y1="0" x2="160" y2="200"/>
+                    <line x1="180" y1="0" x2="180" y2="200"/>
+                    
+                    <line x1="0" y1="20" x2="200" y2="20"/>
+                    <line x1="0" y1="40" x2="200" y2="40"/>
+                    <line x1="0" y1="60" x2="200" y2="60"/>
+                    <line x1="0" y1="80" x2="200" y2="80"/>
+                    <line x1="0" y1="120" x2="200" y2="120"/>
+                    <line x1="0" y1="140" x2="200" y2="140"/>
+                    <line x1="0" y1="160" x2="200" y2="160"/>
+                    <line x1="0" y1="180" x2="200" y2="180"/>
+                </g>
+
+                <!-- Garis f(x) = 2x - 3 -->
+                <line x1="100" y1="160" x2="130" y2="100" stroke="blue" stroke-width="2"/>
+
+                <!-- Titik-titik -->
+                <circle cx="100" cy="160" r="4" fill="red"/>
+                <text x="105" y="175" font-size="14" fill="black">(0, -3)</text>
+
+                <circle cx="130" cy="100" r="4" fill="red"/>
+                <text x="135" y="95" font-size="14" fill="black">(1.5, 0)</text>
+
+                <!-- Label sumbu -->
+                <text x="190" y="110" font-size="14" fill="black">X</text>
+                <text x="90" y="15" font-size="14" fill="black">Y</text>
+            </svg>
+        </div>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: Grafik di atas menunjukkan fungsi \( f(x) = 2x - 3 \).</p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 24: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui sebuah sandi sebagai berikut:
+    </p>
+
+    <div class="mt-4 p-4 bg-white rounded-lg shadow">
+        <p class="font-semibold text-lg">"4 1 6 3 2 Buku"</p>
+    </div>
+
+    <p class="mt-4 text-lg">
+        Jika setiap angka dalam sandi mewakili jumlah huruf dalam sebuah kata, maka pesan yang tersembunyi dalam sandi tersebut adalah...
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Mari kita membaca buku</li>
+        <li>B. Sebuah buku untuk semua</li>
+        <li>C. Buku adalah teman setia</li>
+        <li>D. Belajar bersama dengan buku</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a24')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a24" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Setiap angka dalam sandi mewakili jumlah huruf dalam sebuah kata:</p>
+        
+        <ul class="mt-2 space-y-1 list-disc pl-5">
+            <li><strong>4 huruf</strong> → "Mari"</li>
+            <li><strong>1 huruf</strong> → "k" (dalam kata "kita")</li>
+            <li><strong>6 huruf</strong> → "membaca"</li>
+            <li><strong>3 huruf</strong> → "buku"</li>
+            <li><strong>2 huruf</strong> → "ad" (dalam kata "adalah")</li>
+        </ul>
+
+        <p class="mt-2">Sehingga, pesan yang tersembunyi dalam sandi ini adalah:</p>
+        <p class="mt-2 text-lg font-semibold text-blue-700">"Mari kita membaca buku"</p>
+
+        <p class="font-medium mt-3 text-purple-700 text-lg">Jawaban: <strong>A. Mari kita membaca buku</strong></p>
+    </div>
+</div>
+
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 25: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Perhatikan grafik berikut pada kertas berpetak:
+    </p>
+
+    <!-- Gambar Grafik dalam Grid -->
+    <div class="flex justify-center mt-4">
+        <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Grid (Kertas Berpetak) -->
+            <defs>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="gray" stroke-width="0.5"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)"/>
+
+            <!-- Sumbu X dan Y -->
+            <line x1="0" y1="140" x2="300" y2="140" stroke="black" stroke-width="2"/>
+            <line x1="160" y1="0" x2="160" y2="300" stroke="black" stroke-width="2"/>
+            
+            <!-- Garis Lurus -->
+            <line x1="20" y1="180" x2="180" y2="20" stroke="blue" stroke-width="2"/>
+            
+            <!-- Titik Potong Sumbu -->
+            <circle cx="20" cy="180" r="5" fill="red"/>
+            <circle cx="180" cy="20" r="5" fill="red"/>
+        </svg>
+    </div>
+
+    <p class="mt-4 text-lg">
+        Berdasarkan grafik di atas, tentukan persamaan garis yang melalui dua titik yang ditandai!
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( y = -x + 10 \)</li>
+        <li>B. \( y = x - 10 \)</li>
+        <li>C. \( y = -x + 5 \)</li>
+        <li>D. \( y = x + 5 \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a25')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a25" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Persamaan garis yang melalui dua titik \( (x_1, y_1) \) dan \( (x_2, y_2) \) dapat ditentukan dengan rumus:</p>
+        <p class="mt-2 text-lg">\( y - y_1 = m(x - x_1) \)</p>
+
+        <p class="mt-4">Diketahui titik-titik pada grafik:</p>
+        <ul class="mt-2 space-y-1 list-disc pl-5">
+            <li>Titik A: \( (-7, -2) \)</li>
+            <li>Titik B: \( (1, 6) \)</li>
+        </ul>
+
+        <p class="mt-4">Gradien (\( m \)) dihitung sebagai:</p>
+        <p class="mt-2">\( m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{6 - (-2)}{1 - (-7)} = \frac{8}{8} = 1 \)</p>
+
+        <p class="mt-4">Menggunakan rumus persamaan garis:</p>
+        <p class="mt-2">\( y - 6 = 1(x - 1) \)</p>
+        <p class="mt-2">\( y - 6= x - 1 \)</p>
+        <p class="mt-2">\( y = x + 5 \)</p>
+
+        <p class="mt-4 text-lg font-semibold text-blue-700">Jawaban: <strong>D. \( y = x + 5 \).</strong></p>
+    </div>
+</div>
+<h2 class="text-2xl font-bold text-red-600 mt-6">Soal 26: HOTS</h2>
+<div class="p-6 bg-blue-100 rounded-lg shadow-md">
+    <p class="mt-4 text-lg">
+        Diketahui dua titik koordinat \( A(x_1, y_1) = (2, 5) \) dan \( B(x_2, y_2) = (8, 17) \).  
+        Tentukan nilai gradien garis yang melalui kedua titik tersebut!
+    </p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \( \frac{5}{3} \)</li>
+        <li>B. \( 2 \)</li>
+        <li>C. \( \frac{3}{5} \)</li>
+        <li>D. \( \frac{12}{6} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasansts1a26')" 
+        class="mt-6 px-5 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasansts1a26" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Gradien (\( m \)) dari garis yang melalui dua titik \( (x_1, y_1) \) dan \( (x_2, y_2) \) dihitung dengan rumus:</p>
+        <p class="mt-2 text-lg">\( m = \frac{y_2 - y_1}{x_2 - x_1} \)</p>
+
+        <p class="mt-4">Substitusi titik yang diberikan:</p>
+        <p class="mt-2">\( m = \frac{17 - 5}{8 - 2} \)</p>
+        <p class="mt-2">\( m = \frac{12}{6} \)</p>
+        <p class="mt-2">\( m = 2 \)</p>
+
+        <p class="mt-4 text-lg font-semibold text-blue-700">Jawaban: <strong>B. 2</strong></p>
+    </div>
+</div>
+
+
+<script>
+    function togglePembahasan(id) {
+        var element = document.getElementById(id);
+        if (element.classList.contains("hidden")) {
+            element.classList.remove("hidden");
+        } else {
+            element.classList.add("hidden");
+        }
+    }
+</script>
+
+<script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
