@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+<style>
+	
+       table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: center; }
+        th { background-color: #1E90FF; }
+        button { display: block; margin: 0 auto 30px; padding: 10px 20px; cursor: pointer; }
+        footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #666; }
+.card {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25), 0 6px 6px rgba(0, 0, 0, 0.22);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("-translate-x-full");
+        }
+
+    </script>
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-500 p-5 flex">
+    <!-- Sidebar -->  
+    <div id="sidebar" class="w-64 bg-blue-600 text-white p-6 h-screen fixed transform transition-transform -translate-x-full rounded-r-lg shadow-lg z-50">
+        <button onclick="toggleSidebar()" class="absolute top-5 right-5 bg-yellow-400 text-white p-2 rounded-lg">✖</button>
+        <h2 class="text-2xl font-bold mb-4">📖 Daftar Isi</h2>
+        <ul>
+            <li class="mb-3"><a href="Matriks.html" class="hover:text-yellow-300">▶️ Matriks</a></li>
+            <li class="mb-3"><a href="#Latihan Soal 1A" class="hover:text-yellow-300">📝 Latihan Soal 1A</a></li>
+	    <li class="mb-3"><a href="Transformasi.html" class="hover:text-yellow-300">▶️ Transformasi</a></li>
+
+	    <li class="mb-3"><a href="#Latihan Soal 2A" class="hover:text-yellow-300">📝 Latihan Soal 2A</a></li>
+        </ul>
+    </div>
+    
+    <!-- Menu Bar di belakang Sidebar -->
+    <button onclick="toggleSidebar()" class="fixed top-5 left-5 bg-yellow-400 text-white p-3 rounded-lg shadow-lg z-40">☰ Menu</button>
+    
+    <!-- Konten Utama -->
+    <body class="bg-indigo-500 flex justify-center items-center min-h-screen">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-center text-white mb-10 drop-shadow-lg">Media Pembelajaran Matematika SMA</h1>
+        <div class="grid md:grid-cols-3 gap-8">
+            <a href="Transformasi.html" class="block p-6 bg-yellow-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Transformasi Geometri</h2>
+            </a>
+            <a href="Matriks.html" class="block p-6 bg-green-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Matriks</h2>
+            </a>
+            <a href="integral.html" class="block p-6 bg-pink-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Integral</h2>
+            </a>
+            <a href="diferensial.html" class="block p-6 bg-blue-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Diferensial</h2>
+            </a>
+            <a href="statistika.html" class="block p-6 bg-orange-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Statistika</h2>
+            </a>
+            <a href="peluang.html" class="block p-6 bg-red-400 shadow-2xl rounded-2xl text-center card">
+                <h2 class="text-2xl font-semibold text-black">Peluang</h2>
+            </a>
+        </div>
+        
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
