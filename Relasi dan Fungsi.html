@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+        .card:nth-child(1) { background: #4dd4a3; }
+        .card:nth-child(2) { background: #4dd4a3; }
+        .card:nth-child(3) { background: #4dd4a3; }
+        .card:nth-child(4) { background: #4dd4a3; }
+	.card:nth-child(5) { background: #4dd4a3; }
+        .card:nth-child(6) { background: #4dd4a3; }
+        .card:nth-child(7) { background: #4dd4a3; }
+        .card:nth-child(8) { background: #4dd4a3; }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+            <li ><a href="#Latihan Soal 1A" >📝 Latihan Soal 1A</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Latihan Soal 2A" >📝 Latihan Soal 2A</a></li>
+	    <li ><a href="Relasi dan Fungsi.html" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="#Latihan Soal 3A" >📝 Latihan Soal 3A</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="#Latihan Soal 4A" >📝 Latihan Soal 4A</a></li>
+	    <li ><a href="#Sumatif Tengah Semester 1A" >📖 Sumatif Tengah Semester 1A</a></li>
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Relasi dan Fungsi -->
+    <div id="Relasi dan Fungsi" class="mb-8">
+    	<h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]">Relasi dan Fungsi</h1>
+    <ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+        <li class="mb-3"><a href="#1. Relasi" class="hover:text-white">1. Relasi</a></li>
+        <li class="mb-3 ml-6"><a href="#1.1 Definisi Relasi" class="hover:text-white">1.1 Definisi Relasi</a></li>
+        <li class="mb-3 ml-6"><a href="#1.2 Domain, Kodomain, dan Range" class="hover:text-white">1.2 Domain, Kodomain, dan Range</a></li>
+        <li class="mb-3"><a href="#2. Fungsi atau Pemetaan" class="hover:text-white">2. Fungsi atau Pemetaan</a></li>
+        <li class="mb-3 ml-6"><a href="#2.1 Definisi Fungsi atau Pemetaan" class="hover:text-white">2.1 Definisi Fungsi atau Pemetaan</a></li>
+        <li class="mb-3 ml-6"><a href="#2.2 Macam-Macam Fungsi" class="hover:text-white">2.2 Macam-Macam Fungsi</a></li>
+        <li class="mb-3 ml-6"><a href="#2.3 Banyak Pemetaan dan Korespondensi Satu-Satu" class="hover:text-white">2.3 Banyak Pemetaan dan Korespondensi Satu-Satu</a></li>
+        <li class="mb-3"><a href="#3. Diagram Relasi dan Fungsi" class="hover:text-white">3. Diagram Relasi dan Fungsi</a></li>
+        <li class="mb-3 ml-6"><a href="#3.1 Diagram Panah" class="hover:text-white">3.1 Diagram Panah</a></li>
+        <li class="mb-3 ml-6"><a href="#3.2 Diagram Kartesius" class="hover:text-white">3.2 Diagram Kartesius</a></li>
+        <li class="mb-3 ml-6"><a href="#3.3 Himpunan Pasangan Berurutan" class="hover:text-white">3.3 Himpunan Pasangan Berurutan</a></li>
+    </ul><br>
+
+    <div id="1. Relasi">
+        <p class="text-xl font-semibold">1. Relasi</p>
+        <p class="mt-2 ml-4">Relasi adalah suatu hubungan antara anggota-anggota dua himpunan.</p>
+    </div>
+    
+   <div id="1.1 Definisi Relasi">
+    <p class="text-xl font-semibold">1.1 Definisi Relasi</p>
+    <p class="mt-2 ml-4">
+        Relasi adalah suatu hubungan antara anggota himpunan A ke anggota himpunan B berdasarkan aturan tertentu. 
+        Relasi dapat dinyatakan dalam bentuk diagram panah, diagram kartesius, atau himpunan pasangan berurutan.
+    </p>
+</div>
+
+<div id="ContohRelasi" class="mb-6">
+    <div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Relasi</p>
+        <p class="mt-2 ml-4">
+            Misalkan terdapat dua himpunan berikut:
+        </p>
+        <p class="ml-4">A = {2, 3, 4, 5, 6}</p>
+        <p class="ml-4">B = {"Bilangan Prima", "Bilangan Genap", "Bilangan Ganjil"}</p>
+        <p class="mt-2 ml-4">
+            Jika diberikan relasi "kelompok bilangan berdasarkan sifatnya", maka pasangan yang terbentuk adalah:
+        </p>
+        <p class="ml-4">
+            R = {(2, "Bilangan Genap"), (3, "Bilangan Prima"), (3, "Bilangan Ganjil"), 
+            (4, "Bilangan Genap"), (5, "Bilangan Prima"), (5, "Bilangan Ganjil"), (6, "Bilangan Genap")}
+        </p>
+        <p class="ml-4">
+            Relasi ini dapat digambarkan menggunakan diagram panah seperti berikut:
+        </p>
+    </div>
+</div>
+
+<div class="flex justify-center mt-4">
+    <svg width="600" height="300">
+        <!-- Elips untuk Himpunan A -->
+        <ellipse cx="150" cy="150" rx="80" ry="130" fill="lightblue" stroke="black" stroke-width="2"/>
+        <text x="150" y="10" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan A</text>
+
+        <!-- Elemen dalam Himpunan A (rata tengah) -->
+        <text x="150" y="80" text-anchor="middle" font-size="16" fill="black">2</text>
+        <text x="150" y="110" text-anchor="middle" font-size="16" fill="black">3</text>
+        <text x="150" y="140" text-anchor="middle" font-size="16" fill="black">4</text>
+        <text x="150" y="170" text-anchor="middle" font-size="16" fill="black">5</text>
+        <text x="150" y="200" text-anchor="middle" font-size="16" fill="black">6</text>
+
+        <!-- Elips untuk Himpunan B -->
+        <ellipse cx="450" cy="150" rx="80" ry="130" fill="lightgreen" stroke="black" stroke-width="2"/>
+        <text x="450" y="10" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan B</text>
+
+        <!-- Elemen dalam Himpunan B (rata tengah) -->
+        <text x="450" y="100" text-anchor="middle" font-size="16" fill="black">Bilangan Prima</text>
+        <text x="450" y="150" text-anchor="middle" font-size="16" fill="black">Bilangan Genap</text>
+        <text x="450" y="200" text-anchor="middle" font-size="16" fill="black">Bilangan Ganjil</text>
+
+        <!-- Garis Relasi -->
+        <line x1="160" y1="75" x2="380" y2="145" stroke="black" stroke-width="2"/> <!-- 2 ke Genap -->
+        <line x1="160" y1="105" x2="380" y2="95" stroke="blue" stroke-width="2"/> <!-- 3 ke Prima -->
+        <line x1="160" y1="105" x2="380" y2="195" stroke="red" stroke-width="2"/> <!-- 3 ke Ganjil -->
+        <line x1="160" y1="135" x2="380" y2="145" stroke="green" stroke-width="2"/> <!-- 4 ke Genap -->
+        <line x1="160" y1="165" x2="380" y2="95" stroke="purple" stroke-width="2"/> <!-- 5 ke Prima -->
+        <line x1="160" y1="165" x2="380" y2="195" stroke="gray" stroke-width="2"/> <!-- 5 ke Ganjil -->
+        <line x1="160" y1="195" x2="380" y2="145" stroke="brown" stroke-width="2"/> <!-- 6 ke Genap -->
+    </svg>
+	</div>
+     
+<div id="1.2 Domain, Kodomain, dan Range">
+    <p class="text-xl font-semibold">1.2 Domain, Kodomain, dan Range</p>
+    <p class="mt-2 ml-4">Dalam relasi antara dua himpunan, terdapat tiga konsep penting yang perlu dipahami, yaitu <strong>Domain</strong>, <strong>Kodomain</strong>, dan <strong>Range</strong>.</p>
+
+    <div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Pengertian Domain, Kodomain, dan Range</p>
+        <ul class="list-disc mt-2 ml-8">
+            <li><strong>Domain</strong>: Himpunan semua elemen pertama dalam relasi (himpunan asal).</li>
+            <li><strong>Kodomain</strong>: Himpunan semua elemen tujuan yang mungkin.</li>
+            <li><strong>Range</strong>: Himpunan elemen di kodomain yang memiliki pasangan dari domain.</li>
+        </ul>
+    </div>
+<div id="BukanRelasi" class="mb-6">
+    <div class="p-4 bg-red-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh yang Bukan Relasi</p>
+        <p class="mt-2 ml-4">
+            Relasi hanya valid jika setiap elemen di himpunan A memiliki pasangan di himpunan B sesuai dengan aturan yang jelas.
+        </p>
+        <p class="ml-4">Misalnya, jika kita punya:</p>
+        <p class="ml-4">A = {🍎, 🚗, 🎸}</p>
+        <p class="ml-4">B = {"Buah", "Kendaraan", "Alat Musik"}</p>
+        <p class="ml-4">
+            Jika diberikan aturan relasi "adalah bagian dari", maka:
+        </p>
+        <p class="ml-4">
+            R = {(🍎, "Buah"), (🚗, "Kendaraan"), (🎸, "Alat Musik")}
+        </p>
+        <p class="ml-4">
+            Namun, jika kita mencoba membuat relasi yang tidak sesuai, misalnya:
+        </p>
+        <p class="ml-4">
+            R = {(🍎, "Kendaraan"), (🚗, "Alat Musik")}
+        </p>
+        <p class="ml-4">
+            Ini bukan relasi yang valid karena tidak mengikuti aturan hubungan yang benar.
+        </p>
+    </div>
+</div>
+
+
+    
+    <div id="1.2 ContohSoal">
+    <p class="text-xl font-semibold">Contoh Soal</p>
+    
+    <div class="p-4 bg-yellow-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Soal:</p>
+        <p class="mt-2 ml-4">Diketahui dua himpunan sebagai berikut:</p>
+       <div class="flex justify-center mt-4">
+        <svg width="600" height="300">
+            <!-- Himpunan A (Domain) -->
+            <ellipse cx="150" cy="150" rx="80" ry="100" fill="lightblue" stroke="black" stroke-width="2"/>
+            <text x="150" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan A</text>
+
+            <!-- Elemen dalam Himpunan A -->
+            <text x="150" y="80" text-anchor="middle" font-size="16" fill="black">2</text>
+            <text x="150" y="110" text-anchor="middle" font-size="16" fill="black">4</text>
+            <text x="150" y="140" text-anchor="middle" font-size="16" fill="black">6</text>
+            <text x="150" y="170" text-anchor="middle" font-size="16" fill="black">8</text>
+
+            <!-- Himpunan B (Kodomain) -->
+            <ellipse cx="400" cy="150" rx="80" ry="100" fill="lightgreen" stroke="black" stroke-width="2"/>
+            <text x="400" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan B</text>
+
+            <!-- Elemen dalam Himpunan B -->
+            <text x="400" y="70" text-anchor="middle" font-size="16" fill="black">a</text>
+            <text x="400" y="100" text-anchor="middle" font-size="16" fill="black">b</text>
+            <text x="400" y="130" text-anchor="middle" font-size="16" fill="black">c</text>
+            <text x="400" y="160" text-anchor="middle" font-size="16" fill="black">d</text>
+            <text x="400" y="190" text-anchor="middle" font-size="16" fill="black">e</text>
+
+            <!-- Garis Relasi (Range) -->
+            <line x1="160" y1="75" x2="390" y2="65" stroke="black" stroke-width="2"/> <!-- 2 ke a -->
+            <line x1="160" y1="105" x2="390" y2="95" stroke="black" stroke-width="2"/> <!-- 4 ke b -->
+            <line x1="160" y1="135" x2="390" y2="125" stroke="black" stroke-width="2"/> <!-- 6 ke c -->
+        </svg>
+    </div>
+
+        <p class="ml-4 mt-2">Tentukan:</p>
+        <ol class="ml-8 mt-2 list-decimal">
+            <li>Domain dari relasi tersebut</li>
+            <li>Kodomain dari relasi tersebut</li>
+            <li>Range dari relasi tersebut</li>
+        </ol>
+    </div>
+
+    
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Jawaban:</p>
+        <ul class="ml-8 mt-2">
+            <li><strong>Domain</strong> = {2, 4, 6, 8}</li>
+            <li><strong>Kodomain</strong> = {a, b, c, d, e}</li>
+            <li><strong>Range</strong> = {a, b, c}</li>
+        </ul>
+    </div>
+</div><br>
+
+    
+    <div id="2. Fungsi atau Pemetaan">
+        <p class="text-xl font-semibold">2. Fungsi atau Pemetaan</p>
+        <p class="mt-2 ml-4">Fungsi adalah relasi khusus yang memasangkan setiap elemen di domain dengan tepat satu elemen di kodomain.</p>
+    </div>
+    
+    <div id="2.1 Definisi Fungsi atau Pemetaan" class="mb-6">
+    <p class="text-xl font-semibold">2.1 Definisi Fungsi atau Pemetaan</p>
+    <p class="mt-2 ml-4">
+        Fungsi atau pemetaan adalah relasi khusus dari himpunan A ke himpunan B, di mana setiap anggota himpunan A memiliki tepat satu pasangan di himpunan B. Dengan kata lain, tidak ada anggota di himpunan A yang berpasangan dengan lebih dari satu anggota di himpunan B.
+    </p>
+</div>
+
+<div id="ContohFungsi" class="mb-6">
+    <div class="p-4 bg-blue-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Fungsi</p>
+        <p class="mt-2 ml-4">Misalkan terdapat himpunan A dan B sebagai berikut:</p>
+        <ul class="ml-8 mt-2">
+            <li>Himpunan A = {1, 2, 3, 4}</li>
+            <li>Himpunan B = {a, b, c, d}</li>
+        </ul>
+        <p class="ml-4 mt-2">Didefinisikan relasi "setiap angka di A berpasangan dengan satu huruf di B". Relasi ini membentuk fungsi sebagai berikut:</p>
+        <p class="ml-8">f = {(1, a), (2, b), (3, c), (4, d)}</p>
+        <p class="ml-4">Karena setiap elemen di A memiliki tepat satu pasangan di B, maka ini adalah fungsi.</p>
+    </div>
+</div>
+
+<div class="flex justify-center mt-4">
+    <svg width="600" height="300">
+        <!-- Himpunan A -->
+        <ellipse cx="150" cy="150" rx="80" ry="90" fill="lightblue" stroke="black" stroke-width="2"/>
+        <text x="150" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan A</text>
+
+        <!-- Elemen dalam Himpunan A -->
+        <text x="150" y="80" text-anchor="middle" font-size="16" fill="black">1</text>
+        <text x="150" y="110" text-anchor="middle" font-size="16" fill="black">2</text>
+        <text x="150" y="140" text-anchor="middle" font-size="16" fill="black">3</text>
+        <text x="150" y="170" text-anchor="middle" font-size="16" fill="black">4</text>
+
+        <!-- Himpunan B -->
+        <ellipse cx="450" cy="150" rx="80" ry="90" fill="lightgreen" stroke="black" stroke-width="2"/>
+        <text x="450" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan B</text>
+
+        <!-- Elemen dalam Himpunan B -->
+        <text x="450" y="80" text-anchor="middle" font-size="16" fill="black">a</text>
+        <text x="450" y="110" text-anchor="middle" font-size="16" fill="black">b</text>
+        <text x="450" y="140" text-anchor="middle" font-size="16" fill="black">c</text>
+        <text x="450" y="170" text-anchor="middle" font-size="16" fill="black">d</text>
+
+        <!-- Garis Relasi -->
+        <line x1="160" y1="75" x2="440" y2="75" stroke="black" stroke-width="2"/> <!-- 1 ke a -->
+        <line x1="160" y1="105" x2="440" y2="105" stroke="black" stroke-width="2"/> <!-- 2 ke b -->
+        <line x1="160" y1="135" x2="440" y2="135" stroke="black" stroke-width="2"/> <!-- 3 ke c -->
+        <line x1="160" y1="165" x2="440" y2="165" stroke="black" stroke-width="2"/> <!-- 4 ke d -->
+    </svg>
+</div>
+
+<div id="ContohBukanFungsi" class="mb-6">
+    <div class="p-4 bg-red-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh yang Bukan Fungsi</p>
+        <p class="mt-2 ml-4">Misalkan terdapat relasi berikut:</p>
+        <p class="ml-8">R = {(1, a), (2, b), (2, c), (3, d)}</p>
+        <p class="ml-4">Relasi ini bukan fungsi karena elemen 2 memiliki dua pasangan, yaitu (2, b) dan (2, c). Dalam fungsi, setiap elemen di himpunan A hanya boleh memiliki satu pasangan di B.</p>
+    </div>
+</div>
+<div class="flex justify-center mt-4">
+    <svg width="600" height="300">
+        <!-- Himpunan A -->
+        <ellipse cx="150" cy="150" rx="80" ry="90" fill="lightcoral" stroke="black" stroke-width="2"/>
+        <text x="150" y="20" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan A</text>
+
+        <!-- Elemen dalam Himpunan A -->
+        <text x="150" y="80" text-anchor="middle" font-size="16" fill="black">1</text>
+        <text x="150" y="110" text-anchor="middle" font-size="16" fill="black">2</text>
+        <text x="150" y="140" text-anchor="middle" font-size="16" fill="black">3</text>
+
+        <!-- Himpunan B -->
+        <ellipse cx="450" cy="150" rx="80" ry="90" fill="lightyellow" stroke="black" stroke-width="2"/>
+        <text x="450" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="black">Himpunan B</text>
+
+        <!-- Elemen dalam Himpunan B -->
+        <text x="450" y="80" text-anchor="middle" font-size="16" fill="black">a</text>
+        <text x="450" y="110" text-anchor="middle" font-size="16" fill="black">b</text>
+        <text x="450" y="140" text-anchor="middle" font-size="16" fill="black">c</text>
+        <text x="450" y="170" text-anchor="middle" font-size="16" fill="black">d</text>
+
+        <!-- Garis Relasi (Bukan Fungsi) -->
+        <line x1="160" y1="75" x2="440" y2="75" stroke="black" stroke-width="2"/> <!-- 1 ke a -->
+        <line x1="160" y1="105" x2="440" y2="105" stroke="black" stroke-width="2"/> <!-- 2 ke b -->
+        <line x1="160" y1="105" x2="440" y2="135" stroke="black" stroke-width="2"/> <!-- 2 ke c (duplikat) -->
+        <line x1="160" y1="135" x2="440" y2="165" stroke="black" stroke-width="2"/> <!-- 3 ke d -->
+    </svg>
+</div>
+<br>
+    
+    <div id="2.2 Macam-Macam Fungsi" class="mb-6">
+        <p class="text-lg font-semibold">2.2 Macam-Macam Fungsi</p>
+        <p class="mt-2 ml-4">Macam-macam fungsi antara lain fungsi injektif, surjektif, dan bijektif.</p>
+    </div>
+    
+    <div id="2.3 Banyak Pemetaan dan Korespondensi Satu-Satu" class="mb-6">
+        <p class="text-lg font-semibold">2.3 Banyak Pemetaan dan Korespondensi Satu-Satu</p>
+        <p class="mt-2 ml-4">Korespondensi satu-satu terjadi ketika setiap elemen di domain memiliki satu pasangan unik di kodomain.</p>
+    </div>
+    
+    <div id="3. Diagram Relasi dan Fungsi">
+        <p class="text-xl font-semibold">3. Diagram Relasi dan Fungsi</p>
+        <p class="mt-2 ml-4">Diagram dapat digunakan untuk merepresentasikan relasi dan fungsi, seperti diagram panah, diagram kartesius, dan himpunan pasangan berurutan.</p>
+    </div>
+    
+    <div id="3.1 Diagram Panah" class="mb-6">
+        <p class="text-lg font-semibold">3.1 Diagram Panah</p>
+        <p class="mt-2 ml-4">Diagram panah menunjukkan hubungan antara domain dan kodomain menggunakan panah.</p>
+    </div>
+    
+    <div id="3.2 Diagram Kartesius" class="mb-6">
+        <p class="text-lg font-semibold">3.2 Diagram Kartesius</p>
+        <p class="mt-2 ml-4">Diagram kartesius menggunakan koordinat (x, y) untuk merepresentasikan hubungan antara elemen domain dan kodomain.</p>
+    </div>
+    
+    <div id="3.3 Himpunan Pasangan Berurutan" class="mb-6">
+        <p class="text-lg font-semibold">3.3 Himpunan Pasangan Berurutan</p>
+        <p class="mt-2 ml-4">Relasi dapat direpresentasikan dalam bentuk himpunan pasangan berurutan seperti {(a, b), (c, d)}.</p>
+    </div>
+</div>
+</div>
+
+
+	
+	           
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "user2", password: "qwerty" }
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
+

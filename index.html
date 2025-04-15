@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: #f8d444;
+            position: relative;
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+        .card:nth-child(1) { background: #4dd4a3; }
+        .card:nth-child(2) { background: #4dd4a3; }
+        .card:nth-child(3) { background: #4dd4a3; }
+        .card:nth-child(4) { background: #4dd4a3; }
+	.card:nth-child(5) { background: #4dd4a3; }
+        .card:nth-child(6) { background: #4dd4a3; }
+        .card:nth-child(7) { background: #4dd4a3; }
+        .card:nth-child(8) { background: #4dd4a3; }
+	.card:nth-child(9) { background: #4dd4a3; }
+        .card:nth-child(10) { background: #4dd4a3; }
+	.card:nth-child(11) { background: #4dd4a3; }
+        .card:nth-child(12) { background: #4dd4a3; }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2>Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+            <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="Relasi dan Fungsi.html" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="Transformasi Geometri.html" >▶️ Transformasi Geometri</a></li>
+	    <li ><a href="Bangun Ruang Sisi Datar.html" >▶️ Bangun Ruang Sisi Datar</a></li>
+	    <li ><a href="Bangun Ruang Sisi Lengkung.html" >▶️ Bangun Ruang Sisi Lengkung</a></li>
+	    <li ><a href="Persamaan Kuadrat.html" >▶️ Persamaan Kuadrat</a></li>
+	    <li ><a href="Fungsi Kuadrat.html" >▶️ Fungsi Kuadrat</a></li>
+	    <li ><a href="Perbandingan.html" >▶️ Perbandingan</a></li>
+	    <li ><a href="SPLDV.html" >▶️ SPLDV</a></li>
+	    <li ><a href="Segitiga dan Segi Empat.html" >▶️ Segitiga dan Segi Empat</a></li> 
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <div class="content">
+        <p>Selamat datang di media pembelajaran interaktif!</p>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <a href="persamaan garis lurus.html">Persamaan Garis Lurus</a>
+        </div>
+        <div class="card">
+            <a href="Peluang.html">Peluang</a>
+        </div>
+        <div class="card">
+            <a href="Relasi dan Fungsi.html">Relasi da Fungsi</a>
+        </div>
+        <div class="card">
+            <a href="Statistika.html">Statistika</a>
+        </div>
+	<div class="card">
+            <a href="Transformasi Geometri.html">Transformasi Geometri</a>
+        </div>
+        <div class="card">
+            <a href="Bangun Ruang Sisi Datar.html">Bangun Ruang Sisi Datar</a>
+        </div>
+        <div class="card">
+            <a href="Bangun Ruang Sisi Lengkung.html">Bangun Ruang Sisi Lengkung</a>
+        </div>
+        <div class="card">
+            <a href="Persamaan Kuadrat.html">Persamaan Kuadrat</a>
+        </div>
+	<div class="card">
+            <a href="Fungsi Kuadrat.html">Fungsi Kuadrat</a>
+        </div>
+	<div class="card">
+            <a href="Perbandingan.html">Perbandingan</a>
+        </div>
+	<div class="card">
+            <a href="SPLDV.html">SPLDV</a>
+        </div>
+	<div class="card">
+            <a href="Segitiga dan Segi Empat.html">Segitiga dan Segi Empat</a>
+        </div>
+
+    </div>
+    
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+        .card:nth-child(1) { background: #4dd4a3; }
+        .card:nth-child(2) { background: #4dd4a3; }
+        .card:nth-child(3) { background: #4dd4a3; }
+        .card:nth-child(4) { background: #4dd4a3; }
+	.card:nth-child(5) { background: #4dd4a3; }
+        .card:nth-child(6) { background: #4dd4a3; }
+        .card:nth-child(7) { background: #4dd4a3; }
+        .card:nth-child(8) { background: #4dd4a3; }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="Perbandingan.html" >▶️ Perbandingan</a></li>
+	    <li ><a href="#Sumatif Tengah Semester 1A" >📖 Sumatif Tengah Semester 1A</a></li>
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Perbandingan-->
+        <div id="Perbandingan" class="mb-8">
+            <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]"> Perbandingan</h1>
+	<ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+    <li class="mb-3"><a href="#1. Pengertian Perbandingan" class="hover:text-white">1. Pengertian Perbandingan</a></li>
+    <li class="mb-3"><a href="#2. Skala" class="hover:text-white">2. Skala</a></li>
+    <li class="mb-3"><a href="#3. Perbandingan Senilai" class="hover:text-white">3. Perbandingan Senilai</a></li>
+    <li class="mb-3"><a href="#4. Perbandingan Berbalik Nilai" class="hover:text-white">4. Perbandingan Berbalik Nilai</a></li>
+</ul><br>
+
+
+        <div id="1. Pengertian Perbandingan">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1. Pengertian Perbandingan</p>
+    <p class="mt-2 ml-4">
+        Perbandingan adalah suatu cara untuk membandingkan dua besaran sejenis dengan satuan yang sama.
+        Perbandingan digunakan untuk mengetahui seberapa besar satu besaran dibandingkan dengan besaran lainnya.
+    </p>
+    <p class="mt-2 ml-4">
+        Perbandingan bisa dinyatakan dalam bentuk pecahan, rasio (misalnya 2 : 3), atau persentase.
+    </p>
+</div>
+
+<div id="Contoh1" class="mb-6">
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">Dalam sebuah kelas terdapat 12 siswa laki-laki dan 18 siswa perempuan. Tentukan perbandingan banyak siswa laki-laki dan perempuan!</p>
+        <p class="mt-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">Banyak siswa laki-laki = 12</p>
+        <p class="ml-4">Banyak siswa perempuan = 18</p>
+        <p class="ml-4">Perbandingan laki-laki dan perempuan = 12 : 18</p>
+        <p class="ml-4">Disederhanakan = 2 : 3</p>
+        <p class="ml-4">Jadi, perbandingan siswa laki-laki dan perempuan adalah <strong>2 : 3</strong>.</p>
+    </div>
+</div>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Video Penjelasan Perbandingan</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/PdDRPUuNIVg" frameborder="0" allowfullscreen></iframe><br>
+</div><br>
+
+<div id="Latihan-1">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 1</p>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Dalam sebuah kantong terdapat 6 kelereng merah dan 9 kelereng biru. Tentukan perbandingan kelereng merah terhadap kelereng biru!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1"> A. 1 : 2</li>
+            <li><input type="radio" name="soal1"> B. 2 : 3</li>
+            <li><input type="radio" name="soal1"> C. 3 : 2</li>
+            <li><input type="radio" name="soal1"> D. 3 : 5</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Kelereng merah = 6, kelereng biru = 9</p>
+            <p>Perbandingan = 6 : 9 = <strong>2 : 3</strong></p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    <p class="mt-4 text-lg">
+        Dalam sebuah kantong terdapat 12 bola hijau dan 8 bola merah. Tentukan perbandingan bola hijau terhadap bola merah!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal2"> A. 3 : 2</li>
+        <li><input type="radio" name="soal2"> B. 2 : 3</li>
+        <li><input type="radio" name="soal2"> C. 4 : 3</li>
+        <li><input type="radio" name="soal2"> D. 3 : 4</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no2')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan1-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Bola hijau = 12, bola merah = 8</p>
+        <p>Perbandingan = 12 : 8 = <strong>3 : 2</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div><br>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="mt-4 text-lg">
+        Sebuah kelas memiliki 20 siswa perempuan dan 10 siswa laki-laki. Tentukan perbandingan siswa perempuan terhadap siswa laki-laki!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal3"> A. 2 : 1</li>
+        <li><input type="radio" name="soal3"> B. 1 : 2</li>
+        <li><input type="radio" name="soal3"> C. 3 : 2</li>
+        <li><input type="radio" name="soal3"> D. 4 : 3</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no3')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan1-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Siswa perempuan = 20, siswa laki-laki = 10</p>
+        <p>Perbandingan = 20 : 10 = <strong>2 : 1</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div><br>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="mt-4 text-lg">
+        Terdapat 5 buah apel dan 3 buah jeruk dalam sebuah keranjang. Tentukan perbandingan apel terhadap jeruk!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal4"> A. 5 : 3</li>
+        <li><input type="radio" name="soal4"> B. 3 : 5</li>
+        <li><input type="radio" name="soal4"> C. 2 : 3</li>
+        <li><input type="radio" name="soal4"> D. 3 : 2</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no4')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan1-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Apel = 5, Jeruk = 3</p>
+        <p>Perbandingan = 5 : 3 = <strong>5 : 3</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    <p class="mt-4 text-lg">
+        Dalam sebuah perlombaan, 3 orang peserta berlari dengan waktu masing-masing 25 detik, 35 detik, dan 40 detik. Tentukan perbandingan waktu yang ditempuh oleh peserta pertama terhadap peserta kedua dan ketiga!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal5"> A. 5 : 7 : 8</li>
+        <li><input type="radio" name="soal5"> B. 5 : 7 : 9</li>
+        <li><input type="radio" name="soal5"> C. 5 : 7 : 10</li>
+        <li><input type="radio" name="soal5"> D. 5 : 7 : 12</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no5')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan1-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Waktu peserta pertama = 25 detik, waktu peserta kedua = 35 detik, waktu peserta ketiga = 40 detik</p>
+        <p>Perbandingan = 25 : 35 : 40</p>
+        <p>Kita sederhanakan perbandingan ini dengan membagi semua angka dengan faktor persekutuan terbesar (FPB) yaitu 5:</p>
+        <p>Perbandingan = (25 ÷ 5) : (35 ÷ 5) : (40 ÷ 5) = 5 : 7 : 8</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div>
+
+</div><br>
+
+
+
+        <div id="2. Skala">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2. Skala</p>
+    <p class="mt-2 ml-4">
+        Skala adalah perbandingan antara jarak pada gambar (peta, denah, atau model) dengan jarak sebenarnya di lapangan. 
+        Skala sering digunakan dalam peta, gambar teknik, atau model bangunan untuk mewakili objek yang terlalu besar atau kecil jika digambarkan dalam ukuran sebenarnya.
+    </p>
+    <p class="mt-2 ml-4">
+        Rumus umum skala:
+        <br><span class="ml-4 font-mono bg-gray-200 p-2 rounded inline-block">Skala = Jarak pada gambar / Jarak sebenarnya</span>
+    </p>
+</div>
+
+<div id="ContohSkala" class="mb-6">
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">Pada sebuah peta, jarak antara dua kota adalah 5 cm. Jika skala peta adalah 1:1.000.000, tentukan jarak sebenarnya antara dua kota tersebut!</p>
+        <p class="mt-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">Skala = Jarak pada peta / Jarak sebenarnya</p>
+        <p class="ml-4">1 : 1.000.000 berarti 1 cm pada peta mewakili 1.000.000 cm di lapangan</p>
+        <p class="ml-4">Jarak sebenarnya = 5 × 1.000.000 = 5.000.000 cm = 50 km</p>
+        <p class="ml-4 font-semibold">Jadi, jarak sebenarnya antara dua kota adalah 50 km.</p>
+    </div>
+</div>
+
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan tentang Skala</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/AEhPUCvsXCk" frameborder="0" allowfullscreen></iframe><br>
+</div><br>
+
+<div id="Latihan-2">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Jarak dua kota pada sebuah peta adalah 3 cm. Jika skala peta adalah 1 : 500.000, maka jarak sebenarnya antara kedua kota tersebut adalah?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1-skala"> A. 15 km</li>
+            <li><input type="radio" name="soal1-skala"> B. 150 km</li>
+            <li><input type="radio" name="soal1-skala"> C. 1,5 km</li>
+            <li><input type="radio" name="soal1-skala"> D. 3 km</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-skala-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-skala-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Skala 1 : 500.000 berarti 1 cm = 500.000 cm = 5 km.</p>
+            <p>Jadi, 3 cm = 3 × 5 km = <strong>15 km</strong>.</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Sebuah denah rumah memiliki panjang ruang tamu 4 cm. Jika skala denah adalah 1 : 100, maka panjang ruang tamu sebenarnya adalah?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal2-skala"> A. 4 cm</li>
+            <li><input type="radio" name="soal2-skala"> B. 40 cm</li>
+            <li><input type="radio" name="soal2-skala"> C. 400 cm</li>
+            <li><input type="radio" name="soal2-skala"> D. 4 m</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-skala-no2')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-skala-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>1 : 100 berarti 1 cm = 100 cm</p>
+            <p>4 cm pada gambar = 4 × 100 = 400 cm</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+        </div>
+    </div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="mt-4 text-lg">
+        Sebuah gambar lapangan sepak bola berbentuk persegi panjang memiliki panjang 6 cm dan lebar 4 cm. Jika skala gambar adalah 1 : 100.000, tentukan luas lapangan sepak bola yang sebenarnya!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal3-luas"> A. 24.000.000 m²</li>
+        <li><input type="radio" name="soal3-luas"> B. 240.000.000 m²</li>
+        <li><input type="radio" name="soal3-luas"> C. 240.000 m²</li>
+        <li><input type="radio" name="soal3-luas"> D. 2.400.000 m²</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-luas-lapangan-sepakbola-skala')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-luas-lapangan-sepakbola-skala" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Skala 1 : 100.000 berarti 1 cm pada gambar = 100.000 cm (atau 1.000 m) pada ukuran sebenarnya.</p>
+        <p>Ukuran panjang dan lebar lapangan sebenarnya adalah:</p>
+        <ul>
+            <li>Panjang = 6 cm × 100.000 = 600.000 cm = 6.000 m</li>
+            <li>Lebar = 4 cm × 100.000 = 400.000 cm = 4.000 m</li>
+        </ul>
+        <p>Luasan lapangan sebenarnya = panjang × lebar = 6.000 m × 4.000 m = <strong>24.000.000 m²</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="mt-4 text-lg">
+        Diketahui sebuah bangun datar berbentuk segitiga sama sisi dengan panjang sisi 12 cm. Tentukan perbandingan antara luas dan keliling bangun datar tersebut!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal4-perbandingan"> A. 2 : 3</li>
+        <li><input type="radio" name="soal4-perbandingan"> B. 3 : 2</li>
+        <li><input type="radio" name="soal4-perbandingan"> C. 4 : 3</li>
+        <li><input type="radio" name="soal4-perbandingan"> D. 1 : 2</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-perbandingan-luas-keliling')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-perbandingan-luas-keliling" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Untuk segitiga sama sisi dengan panjang sisi 12 cm, rumus keliling adalah:</p>
+        <ul>
+            <li>Keliling = 3 × sisi = 3 × 12 cm = 36 cm</li>
+        </ul>
+        <p>Rumus luas segitiga sama sisi adalah: <br> 
+            \( \text{Luas} = \frac{1}{2} \times \text{alas} \times \text{tinggi} \) <br>
+            Dimana tinggi dapat dicari dengan rumus Pythagoras pada segitiga siku-siku yang terbentuk, yaitu:
+        </p>
+        <ul>
+            <li>Tinggi = \( \sqrt{12^2 - 6^2} = \sqrt{144 - 36} = \sqrt{108} \approx 10,39 \, \text{cm}</li>
+        </ul>
+        <p>Jadi, luas = \( \frac{1}{2} \times 12 \times 10,39 \approx 62,34 \, \text{cm}^2 \)</p>
+        <p>Perbandingan luas dan keliling = 62,34 : 36 ≈ <strong>3 : 2</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    <p class="mt-4 text-lg">
+        Sebuah peta menunjukkan jarak antara dua kota yang terletak 15 cm pada peta. Jarak sebenarnya antara kedua kota tersebut adalah 90 km. Tentukan skala peta tersebut!
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal5-skala"> A. 1 : 600.000</li>
+        <li><input type="radio" name="soal5-skala"> B. 1 : 600</li>
+        <li><input type="radio" name="soal5-skala"> C. 1 : 60.000</li>
+        <li><input type="radio" name="soal5-skala"> D. 1 : 6.000.000</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-skala-no5')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-skala-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Skala peta dapat dihitung dengan rumus:</p>
+        <p>Skala = (Jarak pada peta) / (Jarak sebenarnya)</p>
+        <p>Diketahui jarak pada peta = 15 cm dan jarak sebenarnya = 90 km. Pertama, ubah jarak sebenarnya ke dalam satuan yang sama (cm):</p>
+        <ul>
+            <li>1 km = 100.000 cm, jadi 90 km = 90 × 100.000 = 9.000.000 cm</li>
+        </ul>
+        <p>Selanjutnya, skala peta = 15 cm / 9.000.000 cm = 1 / 600.000</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div>
+
+</div><br>
+
+        <div id="3. Perbandingan Senilai">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">3. Perbandingan Senilai</p>
+    <p class="mt-2 ml-4">
+        Perbandingan senilai adalah perbandingan antara dua besaran di mana jika salah satu besaran bertambah, maka besaran lainnya juga bertambah dengan perbandingan yang sama. Sebaliknya, jika salah satu besaran berkurang, maka besaran lainnya juga berkurang.
+    </p>
+    <p class="mt-2 ml-4">
+        Contoh perbandingan senilai dalam kehidupan sehari-hari misalnya: semakin banyak buku yang dibeli, maka semakin besar uang yang dibutuhkan (jika harga per buku tetap).
+    </p>
+    <p class="mt-2 ml-4">
+        Rumus perbandingan senilai:
+        <br><span class="ml-4 font-mono bg-gray-200 p-2 rounded inline-block">a : b = c : d</span>
+        <br>atau dalam bentuk pecahan:
+        <br><span class="ml-4 font-mono bg-gray-200 p-2 rounded inline-block">\[\frac{a}{b} = \frac{c}{d}\]</span>
+    </p>
+</div>
+
+<div id="ContohPerbandinganSenilai" class="mb-6">
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">
+            Jika 2 kg apel berharga Rp16.000, berapa harga untuk 5 kg apel dengan harga per kg yang sama?
+        </p>
+        <p class="mt-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">\[2 kg : 16.000 = 5 kg : x \]
+			\[\frac{2}{16.000} = \frac{5}{x}\]
+			\[ 2x = 5 \times16.000 \]
+			\[ 2x = 80.000\]
+			\[ x = 40.000\]</p>
+        <p class="ml-4 font-semibold">Jadi, harga untuk 5 kg apel adalah Rp40.000.</p>
+    </div>
+</div>
+
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan tentang Perbandingan Senilai</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/-I8hztM_LV4" frameborder="0" allowfullscreen></iframe><br>
+</div><br>
+
+<div id="Latihan-3">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 3</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Jika 3 buku tulis seharga Rp9.000, maka harga 7 buku tulis adalah...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1-senilai"> A. Rp18.000</li>
+            <li><input type="radio" name="soal1-senilai"> B. Rp21.000</li>
+            <li><input type="radio" name="soal1-senilai"> C. Rp27.000</li>
+            <li><input type="radio" name="soal1-senilai"> D. Rp30.000</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-senilai-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-senilai-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>3 buku = Rp9.000 → Harga 1 buku = Rp3.000</p>
+            <p>Harga 7 buku = 7 × 3.000 = <strong>Rp21.000</strong></p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Dalam 4 jam, sebuah mesin bisa menghasilkan 80 botol minuman. Berapa banyak botol yang dihasilkan dalam 10 jam dengan kecepatan kerja yang sama?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal2-senilai"> A. 100 botol</li>
+            <li><input type="radio" name="soal2-senilai"> B. 180 botol</li>
+            <li><input type="radio" name="soal2-senilai"> C. 200 botol</li>
+            <li><input type="radio" name="soal2-senilai"> D. 220 botol</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-senilai-no2')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-senilai-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>4 jam = 80 botol → 1 jam = 20 botol</p>
+            <p>10 jam = 10 × 20 = <strong>200 botol</strong></p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+        </div>
+    </div><br>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="mt-4 text-lg">
+        Jika 6 meter kain seharga Rp72.000, maka harga 10 meter kain adalah...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal3-senilai"> A. Rp100.000</li>
+        <li><input type="radio" name="soal3-senilai"> B. Rp120.000</li>
+        <li><input type="radio" name="soal3-senilai"> C. Rp130.000</li>
+        <li><input type="radio" name="soal3-senilai"> D. Rp140.000</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-senilai-no3')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-senilai-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>6 meter = Rp72.000 → 1 meter = Rp12.000</p>
+        <p>Harga 10 meter = 10 × 12.000 = <strong>Rp120.000</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div><br>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="mt-4 text-lg">
+        Dalam 8 jam, sebuah mesin dapat menghasilkan 160 barang. Berapa banyak barang yang dihasilkan dalam 20 jam dengan kecepatan yang sama?
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal4-senilai"> A. 200 barang</li>
+        <li><input type="radio" name="soal4-senilai"> B. 300 barang</li>
+        <li><input type="radio" name="soal4-senilai"> C. 320 barang</li>
+        <li><input type="radio" name="soal4-senilai"> D. 400 barang</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-senilai-no4')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-senilai-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>8 jam = 160 barang → 1 jam = 20 barang</p>
+        <p>20 jam = 20 × 20 = <strong>400 barang</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: D</p>
+    </div>
+</div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    <p class="mt-4 text-lg">
+        Sebuah pabrik memproduksi 120 mobil dalam 10 hari. Jika jumlah mobil yang diproduksi setiap hari tetap, berapa banyak mobil yang akan diproduksi dalam 25 hari?
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal5-senilai"> A. 250 mobil</li>
+        <li><input type="radio" name="soal5-senilai"> B. 300 mobil</li>
+        <li><input type="radio" name="soal5-senilai"> C. 350 mobil</li>
+        <li><input type="radio" name="soal5-senilai"> D. 400 mobil</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-senilai-no5')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-senilai-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>10 hari = 120 mobil → 1 hari = 120 ÷ 10 = 12 mobil</p>
+        <p>25 hari = 25 × 12 = <strong>300 mobil</strong></p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+</div><br>
+
+
+<div id="4. Perbandingan Berbalik Nilai">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">4. Perbandingan Berbalik Nilai</p>
+    <p class="mt-2 ml-4">
+        Perbandingan berbalik nilai adalah perbandingan antara dua besaran di mana jika salah satu besaran bertambah, maka besaran lainnya akan berkurang, atau jika salah satu besaran berkurang, besaran lainnya akan bertambah. 
+    </p>
+    <p class="mt-2 ml-4">
+        Perbandingan ini biasanya terjadi pada situasi yang melibatkan waktu dan kecepatan, seperti dalam hal perjalanan dengan kecepatan tetap: semakin cepat suatu benda bergerak, semakin sedikit waktu yang dibutuhkan untuk menempuh jarak tertentu.
+    </p>
+    <p class="mt-2 ml-4">
+        Rumus perbandingan berbalik nilai:
+        <br><span class="ml-4 font-mono bg-gray-200 p-2 rounded inline-block">\[a : b = \frac{1}{c} : \frac{1}{d}\]</span>
+        <br>atau dalam bentuk pecahan:
+        <br><span class="ml-4 font-mono bg-gray-200 p-2 rounded inline-block">\[\frac{a}{b} = \frac{d}{c}\]</span>
+    </p>
+</div>
+
+<div id="ContohPerbandinganBerbalikNilai" class="mb-6">
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">
+            Jika sebuah mobil dapat menempuh 60 km dalam 2 jam, berapa waktu yang dibutuhkan untuk menempuh jarak 90 km dengan kecepatan yang sama?
+        </p>
+        <p class="mt-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">60 km : 2 jam = 90 km : x</p>
+        <p class="ml-4">\[\frac{60}{2}=\frac{90}{x}\]
+			\[60 \times x = 90 \times 2\]
+			\[ 60x = 180 \]
+			\[x = \frac{180}{60}\]
+			\[ x = 3 \]</p>
+        <p class="ml-4 font-semibold">Jadi, waktu yang dibutuhkan untuk menempuh jarak 90 km adalah 3 jam.</p>
+    </div>
+</div>
+
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan tentang Perbandingan Berbalik Nilai</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/sop63Y5SSV4" frameborder="0" allowfullscreen></iframe><br>
+</div><br>
+
+<div id="Latihan-4">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 4</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Jika 5 pekerja dapat menyelesaikan pekerjaan dalam 10 hari, berapa banyak hari yang dibutuhkan untuk menyelesaikan pekerjaan yang sama jika jumlah pekerjanya menjadi 15 orang?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1-berbalik-nilai"> A. 3 hari</li>
+            <li><input type="radio" name="soal1-berbalik-nilai"> B. 5 hari</li>
+            <li><input type="radio" name="soal1-berbalik-nilai"> C. 7 hari</li>
+            <li><input type="radio" name="soal1-berbalik-nilai"> D. 10 hari</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-berbalik-nilai-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-berbalik-nilai-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>5 pekerja : 10 hari = 15 pekerja : x</p>
+            <p>5 × x = 15 × 10 → 5x = 150 → x = 30 hari</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Jika 4 mesin dapat menghasilkan 80 unit barang dalam 5 jam, berapa lama waktu yang dibutuhkan oleh 8 mesin untuk menghasilkan 160 unit barang?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal2-berbalik-nilai"> A. 3 jam</li>
+            <li><input type="radio" name="soal2-berbalik-nilai"> B. 4 jam</li>
+            <li><input type="radio" name="soal2-berbalik-nilai"> C. 5 jam</li>
+            <li><input type="radio" name="soal2-berbalik-nilai"> D. 6 jam</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-berbalik-nilai-no2')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-berbalik-nilai-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>4 mesin : 5 jam = 8 mesin : x</p>
+            <p>4 × x = 8 × 5 → 4x = 40 → x = 10 jam</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+        <p class="mt-4 text-lg">
+            Jika 6 mobil dapat menempuh jarak 180 km dalam 3 jam, berapa banyak jam yang dibutuhkan untuk menempuh jarak yang sama jika jumlah mobil menjadi 12?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal3-berbalik-nilai"> A. 1,5 jam</li>
+            <li><input type="radio" name="soal3-berbalik-nilai"> B. 2 jam</li>
+            <li><input type="radio" name="soal3-berbalik-nilai"> C. 3 jam</li>
+            <li><input type="radio" name="soal3-berbalik-nilai"> D. 4 jam</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-berbalik-nilai-no3')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-berbalik-nilai-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>6 mobil : 3 jam = 12 mobil : x</p>
+            <p>6 × x = 12 × 3 → 6x = 36 → x = 6 jam</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+        <p class="mt-4 text-lg">
+            Jika 3 karyawan dapat menyelesaikan pekerjaan dalam 12 hari, berapa banyak hari yang dibutuhkan untuk menyelesaikan pekerjaan yang sama jika jumlah karyawannya menjadi 9 orang?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal4-berbalik-nilai"> A. 3 hari</li>
+            <li><input type="radio" name="soal4-berbalik-nilai"> B. 4 hari</li>
+            <li><input type="radio" name="soal4-berbalik-nilai"> C. 6 hari</li>
+            <li><input type="radio" name="soal4-berbalik-nilai"> D. 12 hari</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-berbalik-nilai-no4')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-berbalik-nilai-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>3 karyawan : 12 hari = 9 karyawan : x</p>
+            <p>3 × x = 9 × 12 → 3x = 108 → x = 36 hari</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+        </div>
+    </div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+        <p class="mt-4 text-lg">
+            Sebuah pabrik memproduksi 500 unit barang dalam 8 jam menggunakan 4 mesin. Jika pabrik tersebut menambah jumlah mesin menjadi 10 mesin, berapa banyak jam yang dibutuhkan untuk memproduksi 1.250 unit barang dengan kecepatan yang sama?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal5-berbalik-nilai"> A. 6 jam</li>
+            <li><input type="radio" name="soal5-berbalik-nilai"> B. 7 jam</li>
+            <li><input type="radio" name="soal5-berbalik-nilai"> C. 10 jam</li>
+            <li><input type="radio" name="soal5-berbalik-nilai"> D. 12 jam</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-berbalik-nilai-no5')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-berbalik-nilai-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>4 mesin : 8 jam = 10 mesin : x</p>
+            <p>Kecepatan produksi juga berbanding terbalik dengan waktu, jadi:</p>
+            <p>4 mesin : 8 jam = 10 mesin : (x jam)</p>
+            <p>4 × 8 = 10 × x → 32 = 10x → x = 3,2 jam</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+
+</div><br>
+
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "user2", password: "qwerty" }
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>

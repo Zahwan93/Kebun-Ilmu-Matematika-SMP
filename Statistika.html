@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	      min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    .chart-box, .piktogram-box {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+    canvas {
+      max-width: 100%;
+    }
+    .piktogram {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .kelas {
+      text-align: center;
+    }
+    .ikon {
+      font-size: 30px;
+    }
+    table {
+      margin-top: 40px;
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: #4dd4a3;
+    }
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+            <li ><a href="#Latihan Soal 1A" >📝 Latihan Soal 1A</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Latihan Soal 2A" >📝 Latihan Soal 2A</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="#Latihan Soal 3A" >📝 Latihan Soal 3A</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="#Latihan Soal 4A" >📝 Latihan Soal 4A</a></li>
+	    <li ><a href="#Sumatif Tengah Semester 1A" >📖 Sumatif Tengah Semester 1A</a></li>
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Statistika -->
+<div id="Statistika" class="mb-8">
+    <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]">Statistika</h1>
+    <ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+        <li class="mb-3"><a href="#1_Pengertian_Statistika" class="hover:text-white">1. Pengertian Statistika</a></li>
+        <li class="mb-3 ml-6"><a href="#1.1_Perbedaan_Data" class="hover:text-white">1.1 Perbedaan antara Data Kualitatif dan Kuantitatif</a></li>
+        <li class="mb-3"><a href="#2_Pengumpulan_Data" class="hover:text-white">2. Pengumpulan Data</a></li>
+        <li class="mb-3 ml-6"><a href="#2.1_Sumber_Data" class="hover:text-white">2.1 Sumber Data</a></li>
+        <li class="mb-3 ml-6"><a href="#2.2_Cara_Mengumpulkan_Data" class="hover:text-white">2.2 Cara Mengumpulkan Data</a></li>
+        <li class="mb-3 ml-6"><a href="#2.3_Populasi_Sampel" class="hover:text-white">2.3 Populasi dan Sampel</a></li>
+        <li class="mb-3"><a href="#3_Penyajian_Data" class="hover:text-white">3. Penyajian Data</a></li>
+        <li class="mb-3 ml-6"><a href="#3.1_Tabel_Frekuensi" class="hover:text-white">3.1 Tabel Frekuensi</a></li>
+        <li class="mb-3 ml-6"><a href="#3.2_Diagram_Statistik" class="hover:text-white">3.2 Diagram Statistik</a></li>
+        <li class="mb-3"><a href="#4_Ukuran_Pemusatan_Data" class="hover:text-white">4. Ukuran Pemusatan Data</a></li>
+	<li class="mb-3 ml-6"><a href="#4_1_Mean" class="hover:text-white">4.1 Mean (Rata-rata)</a></li>
+	<li class="mb-3 ml-6"><a href="#4_2_Median" class="hover:text-white">4.2 Median (Nilai Tengah)</a></li>
+	<li class="mb-3 ml-6"><a href="#4_3_Modus" class="hover:text-white">4.3 Modus (Nilai yang Paling Sering Muncul)</a></li>
+        <li class="mb-3"><a href="#5_Ukuran_Penyebaran_Data" class="hover:text-white">5. Ukuran Penyebaran Data</a></li>
+	<li class="mb-3 ml-6"><a href="#5_1_Jangkauan" class="hover:text-white">5.1 Jangkauan</a></li>
+	<li class="mb-3 ml-6"><a href="#5_2_Kuartil" class="hover:text-white">5.2 Kuartil </a></li>
+	<li class="mb-3 ml-6"><a href="#5_3_Jangkauan_Antar_Kuartil" class="hover:text-white">5.3 Jangkauan Antar Kuartil</a></li>
+        <li class="mb-3 ml-6"><a href="#5_4_Simpangan_Antar_Kuartil" class="hover:text-white">5.4 Simpangan Antar Kuartil</a></li>
+	<li class="mb-3 ml-6"><a href="#5_5_Simpangan_Rata_Rata" class="hover:text-white">5.5 Simpangan Rata-Rata</a></li>
+	<li class="mb-3 ml-6"><a href="#5_6_Simpangan_Baku" class="hover:text-white">5.6 Simpangan Baku</a></li>
+        <li class="mb-3 ml-6"><a href="#5_7_Varian" class="hover:text-white">5.7 Varian</a></li>
+        
+    </ul><br>
+
+    <div id="1_Pengertian_Statistika">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">1. Pengertian Statistika</p>
+        <p class="mt-2 ml-4">Statistika adalah ilmu yang mempelajari cara mengumpulkan, mengorganisir, menganalisis, dan menafsirkan data.</p>
+    </div>
+
+    <div id="1.1_Perbedaan_Data">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">1.1 Perbedaan antara Data Kualitatif dan Kuantitatif</p>
+	<p class="mt-2 ml-4"> Dalam statistika, <strong>data</strong> adalah <strong>kumpulan informasi atau fakta berupa angka atau kategori </strong>yang diperoleh dari suatu pengamatan, pencatatan, atau penelitian, yang kemudian diolah untuk mendapatkan kesimpulan.</p>
+        <p class="mt-2 ml-4">Dalam statistika, <strong>data dapat dikategorikan menjadi dua jenis utama</strong>, yaitu <strong>data kualitatif</strong> dan <strong>data kuantitatif</strong>. Kedua jenis data ini memiliki karakteristik yang berbeda dalam pengumpulan dan analisis.</p>
+</div>
+
+<div id="1.1.1 Data Kualitatif">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6 ml-4">1.1.1  Data Kualitatif</p>
+    <p class="mt-2 ml-8">Data kualitatif adalah data yang berbentuk kategori atau deskripsi dan tidak dapat diukur dengan angka secara langsung.</p>
+    <p class="mt-2 ml-4">Contoh:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>Warna favorit seseorang (merah, biru, hijau, dll.)</li>
+        <li>Jenis kendaraan (mobil, motor, sepeda)</li>
+        <li>Jawaban dalam bentuk opini (baik, cukup, buruk)</li>
+    </ul>
+</div>
+
+<div id="2. Data Kuantitatif">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6 ml-4">1.1.2 Data Kuantitatif</p>
+    <p class="mt-2 ml-4">Data kuantitatif adalah data yang berbentuk angka dan dapat diukur atau dihitung secara numerik.</p>
+    <p class="mt-2 ml-4">Contoh:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>Jumlah siswa dalam kelas (30 siswa)</li>
+        <li>Tinggi badan seseorang (170 cm)</li>
+        <li>Berat suatu benda (2,5 kg)</li>
+    </ul>
+</div>
+
+<div id="3. Perbandingan Data Kualitatif dan Kuantitatif">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6 ml-4">1.1.3 Perbandingan Data Kualitatif dan Kuantitatif</p>
+    <table class="border-collapse border border-black mt-2 ml-4">
+        <tr>
+            <th class="border border-black px-4 py-2 bg-[#4dd4a3]">Aspek</th>
+            <th class="border border-black px-4 py-2 bg-[#4dd4a3]">Data Kualitatif</th>
+            <th class="border border-black px-4 py-2 bg-[#4dd4a3]">Data Kuantitatif</th>
+        </tr>
+        <tr>
+            <td class="border border-black px-4 py-2">Bentuk Data</td>
+            <td class="border border-black px-4 py-2">Kategori atau deskripsi</td>
+            <td class="border border-black px-4 py-2">Angka atau jumlah</td>
+        </tr>
+        <tr>
+            <td class="border border-black px-4 py-2">Contoh</td>
+            <td class="border border-black px-4 py-2">Jenis kelamin, warna mata</td>
+            <td class="border border-black px-4 py-2">Berat badan, suhu udara</td>
+        </tr>
+        <tr>
+            <td class="border border-black px-4 py-2">Metode Analisis</td>
+            <td class="border border-black px-4 py-2">Dikelompokkan dan dianalisis secara deskriptif</td>
+            <td class="border border-black px-4 py-2">Dapat dihitung dan dianalisis secara statistik</td>
+        </tr>
+    </table>
+    </div><br>
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan Data Kualitatif dan Kuantitatif</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/7kKgARYIQP8" frameborder="0" allowfullscreen></iframe><br>
+<!-- latihan 1.1-->
+<h2 id="pengertianstatistik01" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 1</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="pengertianstatistik01" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Apa yang dimaksud dengan statistika?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Ilmu yang mempelajari tentang angka dan bilangan</li>
+        <li>B. Ilmu yang mempelajari cara mengumpulkan, mengolah, menganalisis, dan menyajikan data</li>
+        <li>C. Ilmu yang hanya membahas tentang probabilitas</li>
+        <li>D. Ilmu tentang sistematika dalam berpikir logis</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanpengertiansatistik01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanpengertiansatistik01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Statistika adalah ilmu yang mempelajari cara mengumpulkan, mengolah, menganalisis, dan menyajikan data untuk mendapatkan informasi yang berguna.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. Ilmu yang mempelajari cara mengumpulkan, mengolah, menganalisis, dan menyajikan data</strong></p>
+    </div>
+
+
+    <h2 id="datakualitatifkuantitatif01" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+
+    <p class="mt-4 text-lg">Manakah contoh data kualitatif di bawah ini?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Tinggi badan seseorang</li>
+        <li>B. Warna mata seseorang</li>
+        <li>C. Berat badan bayi</li>
+        <li>D. Suhu udara di siang hari</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasandatakualitatifkuantitatif01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasandatakualitatifkuantitatif01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Data kualitatif adalah data yang berbentuk deskripsi atau kategori dan tidak dinyatakan dalam angka. Warna mata seseorang adalah data kualitatif karena menggambarkan karakteristik tanpa menggunakan angka.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. Warna mata seseorang</strong></p>
+    </div>
+<h2 id="datakualitatifkuantitatif02" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+
+    <p class="mt-4 text-lg">Seorang siswa ingin mengetahui jenis jajanan yang paling disukai teman-teman di kelasnya. Ia mencatat pilihan jajanan yang paling banyak disebut oleh teman-temannya.</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Data kualitatif</li>
+        <li>B. Data kuantitatif diskrit</li>
+        <li>C. Data kuantitatif kontinu</li>
+        <li>D. Bukan data statistik</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasandatakualitatifkuantitatif02')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasandatakualitatifkuantitatif02" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Data yang dikumpulkan siswa berupa jenis jajanan yang paling banyak disukai. Karena ini berupa kategori atau nama, data ini termasuk dalam data kualitatif.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. Data kualitatif</strong></p>
+    </div>
+<h2 id="datakualitatifkuantitatif03" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+
+    <p class="mt-4 text-lg">Lengkapi tabel perbedaan antara data kualitatif dan data kuantitatif dengan memilih jawaban yang tepat untuk bagian yang kosong!</p>
+
+    <table class="mt-4 w-full border-collapse border border-black text-lg text-gray-800">
+        <thead>
+            <tr class="bg-[#4dd4a3]">
+                <th class="border border-black px-4 py-2">Jenis Data</th>
+                <th class="border border-black px-4 py-2">Definisi</th>
+                <th class="border border-black px-4 py-2">Contoh</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border border-black px-4 py-2">Data Kualitatif</td>
+                <td class="border border-black px-4 py-2">Data yang berbentuk deskripsi atau kategori, bukan angka.</td>
+                <td class="border border-black px-4 py-2">Warna rambut, ....</td>
+            </tr>
+            <tr>
+                <td class="border border-black px-4 py-2">Data Kuantitatif</td>
+                <td class="border border-black px-4 py-2">....</td>
+                <td class="border border-black px-4 py-2">Tinggi badan, jumlah siswa dalam kelas</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Data yang dinyatakan dalam angka dan dapat dihitung atau diukur</li>
+        <li>B. Hobi seseorang</li>
+        <li>C. Nama jalan</li>
+        <li>D. Berat badan</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasandatakualitatifkuantitatif03')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasandatakualitatifkuantitatif03" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Data kualitatif adalah data yang tidak dinyatakan dalam angka, misalnya warna rambut atau hobi seseorang. Sedangkan data kuantitatif adalah data yang dinyatakan dalam angka, seperti tinggi badan dan jumlah siswa.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>Data kualitatif - Contoh: B. Hobi seseorang</strong> dan <strong>Data kuantitatif - Definisi: A. Data yang dinyatakan dalam angka dan dapat dihitung atau diukur</strong></p>
+    </div>
+</div>
+</div><br>
+
+
+    <div id="2_Pengumpulan_Data">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">2. Pengumpulan Data</p>
+    </div>
+
+    <div id="2.1_Sumber_Data">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">2.1 Sumber Data</p>
+        <p class="mt-2 ml-4">Sumber data adalah asal atau tempat di mana data diperoleh untuk digunakan dalam penelitian atau analisis.</p>
+        <p class="mt-2 ml-4">Sumber data dibagi menjadi dua, yaitu:</p>
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Data Primer:</strong> Data yang diperoleh langsung dari sumber pertama melalui observasi, wawancara, atau angket.</li>
+            <li><strong>Data Sekunder:</strong> Data yang diperoleh dari sumber kedua seperti laporan, buku, artikel, atau dokumen yang sudah ada.</li>
+        </ul>
+    </div><br>
+
+    <div id="2.2_Cara_Mengumpulkan_Data">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">2.2 Cara Mengumpulkan Data</p>
+        <p class="mt-2 ml-4">Terdapat beberapa cara dalam mengumpulkan data, antara lain:</p>
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Observasi:</strong> Mengamati langsung objek atau fenomena yang sedang diteliti.</li>
+            <li><strong>Wawancara:</strong> Mengumpulkan data dengan cara bertanya langsung kepada responden.</li>
+            <li><strong>Angket (Kuesioner):</strong> Mengumpulkan data dengan menggunakan daftar pertanyaan yang diberikan kepada responden.</li>
+            <li><strong>Studi Pustaka:</strong> Mengumpulkan data dari literatur, dokumen, atau laporan yang sudah ada.</li>
+        </ul>
+    </div><br>
+
+    <div id="2.3_Populasi_Sampel">
+        <p class="text-xl font-semibold text-[#4dd4a3] mt-6">2.3 Populasi dan Sampel</p>
+        <p class="mt-2 ml-8"><strong>Populasi</strong> adalah keseluruhan objek atau individu yang menjadi fokus penelitian.</p>
+        <p class="mt-2 ml-8"><strong>Sampel</strong> adalah sebagian dari populasi yang diambil sebagai perwakilan untuk diteliti.</p>
+        <p class="mt-2 ml-8">Contoh:</p>
+        <ul class="list-disc mt-2 ml-12">
+            <li>Populasi: Seluruh siswa kelas 7 di sebuah sekolah.</li>
+            <li>Sampel: 7 siswa kelas 7 yang dipilih secara acak untuk diteliti.</li>
+        </ul>
+<svg width="700" height="450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Populasi box -->
+  <rect x="30" y="30" width="250" height="300" fill="#e3f2fd" stroke="#42a5f5" stroke-width="3" rx="20"/>
+  <text x="160" y="25" text-anchor="middle" font-size="20" font-weight="bold" fill="#0d47a1">Populasi</text>
+  
+  <!-- Sampel box -->
+  <rect x="350" y="60" width="200" height="250" fill="#e8f5e9" stroke="#66bb6a" stroke-width="3" rx="20"/>
+  <text x="450" y="55" text-anchor="middle" font-size="20" font-weight="bold" fill="#1b5e20">Sampel</text>
+
+  <!-- Garis penghubung -->
+  <line x1="80" y1="80" x2="350" y2="150" stroke="#66bb6a" stroke-dasharray="4"/>
+  <line x1="180" y1="80" x2="350" y2="150" stroke="#66bb6a" stroke-dasharray="4"/>
+  <line x1="130" y1="180" x2="350" y2="200" stroke="#66bb6a" stroke-dasharray="4"/>
+  <line x1="230" y1="180" x2="350" y2="200" stroke="#66bb6a" stroke-dasharray="4"/>
+  <line x1="80" y1="280" x2="350" y2="250" stroke="#66bb6a" stroke-dasharray="4"/>
+
+  <!-- Populasi circles -->
+  <g>
+    <circle cx="80" cy="80" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="130" cy="80" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="180" cy="80" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="230" cy="80" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    
+    <circle cx="80" cy="130" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="130" cy="130" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="180" cy="130" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="230" cy="130" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    
+    <circle cx="80" cy="180" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="130" cy="180" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="180" cy="180" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="230" cy="180" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+
+    <circle cx="80" cy="230" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="130" cy="230" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="180" cy="230" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="230" cy="230" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+
+    <circle cx="80" cy="280" r="15" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="130" cy="280" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="180" cy="280" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+    <circle cx="230" cy="280" r="15" fill="#90caf9" stroke="#1565c0" stroke-width="2"/>
+  </g>
+
+  <!-- Sampel circles -->
+  <g>
+    <circle cx="480" cy="150" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="420" cy="150" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="480" cy="200" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="420" cy="200" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="480" cy="100" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="420" cy="100" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+    <circle cx="450" cy="250" r="20" fill="#66bb6a" stroke="#2e7d32" stroke-width="2"/>
+  </g>
+ <text x="150" y="350" text-anchor="middle" font-size="14">Siswa Kelas 7</text>
+  <text x="450" y="350" text-anchor="middle" font-size="14">7 siswa dipilih acak</text>
+</svg>
+    </div>
+<!-- latihan 2-->
+<h2 id="latihan1" class="text-3xl font-bold text-[#4dd4a3] mt-6">Latihan 2</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    
+    <h2 id="soal1" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mt-4 text-lg">Apa yang dimaksud dengan pengumpulan data?</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Proses menghitung data dengan kalkulator</li>
+        <li>B. Proses mencari sumber data dari internet</li>
+        <li>C. Proses mengumpulkan data dari berbagai sumber untuk keperluan analisis</li>
+        <li>D. Proses menyimpan data dalam komputer</li>
+    </ul>
+    <button onclick="togglePembahasan('pembahasanpengumpulandata01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    <div id="pembahasanpengumpulandata01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Pengumpulan data adalah proses mengumpulkan data dari berbagai sumber, baik secara langsung maupun tidak langsung, untuk digunakan dalam penelitian atau analisis.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. Proses mengumpulkan data dari berbagai sumber untuk keperluan analisis</strong></p>
+    </div>
+
+    <h2 id="soal2" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    <p class="mt-4 text-lg">Apa yang dimaksud dengan populasi dalam statistik?</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Seluruh kumpulan objek atau individu yang diamati</li>
+        <li>B. Sebagian kecil dari kelompok yang diteliti</li>
+        <li>C. Data yang sudah diolah dalam bentuk tabel</li>
+        <li>D. Data yang diambil dari survei kecil</li>
+    </ul>
+    <button onclick="togglePembahasan('pembahasanpopulasi01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    <div id="pembahasanpopulasi01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Populasi adalah seluruh kumpulan objek, individu, atau kejadian yang menjadi sasaran penelitian.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. Seluruh kumpulan objek atau individu yang diamati</strong></p>
+    </div>
+
+    <h2 id="soal3" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="mt-4 text-lg">Apa yang dimaksud dengan sampel?</p>
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Seluruh data yang dikumpulkan dari populasi</li>
+        <li>B. Bagian dari populasi yang dipilih untuk dianalisis</li>
+        <li>C. Data yang diambil dari hasil wawancara</li>
+        <li>D. Data yang ditampilkan dalam bentuk diagram</li>
+    </ul>
+    <button onclick="togglePembahasan('pembahasansampel01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    <div id="pembahasansampel01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Sampel adalah sebagian dari populasi yang dipilih untuk mewakili seluruh populasi dalam suatu penelitian.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. Bagian dari populasi yang dipilih untuk dianalisis</strong></p>
+    </div>
+<h2 id="soal4" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="mt-4 text-lg">
+        Dalam sebuah kelas terdapat 30 siswa. Guru ingin mengadakan survei tentang kebiasaan membaca buku di rumah. 
+        Namun, guru hanya memilih 10 siswa secara acak untuk diwawancarai lebih lanjut.  
+    </p>
+    <p class="mt-4 text-lg">Berdasarkan ilustrasi tersebut, tentukan:</p>
+    <ol class="mt-4 list-decimal pl-5 text-lg text-gray-800 space-y-2">
+        <li>Jumlah populasi</li>
+        <li>Jumlah sampel</li>
+    </ol>
+    <ul class="mt-4 text-lg text-gray-800">
+        <li>A. Populasi = 30 siswa, Sampel = 10 siswa</li>
+        <li>B. Populasi = 10 siswa, Sampel = 30 siswa</li>
+        <li>C. Populasi = 10 siswa, Sampel = 10 siswa</li>
+        <li>D. Populasi = 30 siswa, Sampel = 30 siswa</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanilustrasi01')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    <div id="pembahasanilustrasi01" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Populasi adalah seluruh siswa dalam kelas, yaitu 30 siswa. Sampel adalah sebagian kecil dari populasi yang dipilih untuk mewakili, yaitu 10 siswa.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. Populasi = 30 siswa, Sampel = 10 siswa</strong></p>
+    </div>
+</div><br>
+
+
+    <div id="3_Penyajian_Data">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">3. Penyajian Data</p>
+    <p class="mt-2 ml-4">Penyajian data adalah cara untuk menampilkan data dalam bentuk yang mudah dipahami, sehingga informasi yang terkandung di dalam data dapat dibaca dan diinterpretasikan dengan jelas. Penyajian data dapat dilakukan dalam bentuk tabel, diagram, grafik, atau lainnya.</p>
+</div><br>
+
+<div id="3.1_Tabel_Frekuensi">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">3.1 Tabel Frekuensi</p>
+    <p class="mt-2 ml-4">Tabel frekuensi adalah bentuk penyajian data dalam bentuk tabel yang memuat data dan jumlah kemunculan (frekuensi) dari masing-masing data.</p>
+    <p class="mt-2 ml-4">Tabel frekuensi digunakan untuk memudahkan membaca data yang banyak dan menyajikannya secara teratur.</p>
+    <p class="mt-2 ml-4">Tabel frekuensi terdiri dari:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Data atau Kelas:</strong> Nilai atau kelompok nilai yang diamati.</li>
+        <li><strong>Frekuensi:</strong> Banyaknya data yang muncul dalam suatu nilai atau kelas tertentu.</li>
+    </ul>
+    <p class="mt-2 ml-4">Contoh Tabel Frekuensi:</p>
+    <div class="mt-4 ml-12">
+        <table class="table-auto border-collapse border border-black">
+            <thead>
+                <tr>
+                    <th class="border border-black px-4 py-2">Nilai</th>
+                    <th class="border border-black px-4 py-2">Frekuensi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-black px-4 py-2">70</td>
+                    <td class="border border-black px-4 py-2">3</td>
+                </tr>
+                <tr>
+                    <td class="border border-black px-4 py-2">75</td>
+                    <td class="border border-black px-4 py-2">5</td>
+                </tr>
+                <tr>
+                    <td class="border border-black px-4 py-2">80</td>
+                    <td class="border border-black px-4 py-2">7</td>
+                </tr>
+                <tr>
+                    <td class="border border-black px-4 py-2">85</td>
+                    <td class="border border-black px-4 py-2">4</td>
+                </tr>
+                <tr>
+                    <td class="border border-black px-4 py-2">90</td>
+                    <td class="border border-black px-4 py-2">1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div><br>
+
+
+   <div id="3.2_Diagram_Statistik">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">3.2 Diagram Statistik</p>
+    <p class="mt-2 ml-4">Diagram statistik adalah cara penyajian data dalam bentuk gambar atau grafik yang bertujuan untuk mempermudah pembaca memahami data yang disajikan.</p>
+    <p class="mt-2 ml-4">Ada beberapa jenis diagram statistik yang umum digunakan, yaitu:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Diagram Batang:</strong> <p>Penyajian data dalam bentuk batang tegak atau mendatar. Setiap batang mewakili data dan panjangnya sesuai dengan nilai data.</p></li>
+        <li><strong>Diagram Garis:</strong> <p>Penyajian data dengan menggunakan garis yang menghubungkan titik-titik data. Biasanya digunakan untuk menunjukkan perkembangan data dari waktu ke waktu.</p></li>
+        <li><strong>Diagram Lingkaran:</strong> <p>Penyajian data dalam bentuk lingkaran yang dibagi menjadi beberapa bagian. Setiap bagian menunjukkan proporsi data terhadap keseluruhan.</p></li>
+        <li><strong>Diagram Piktogram:</strong> <p>Penyajian data dengan menggunakan gambar atau simbol untuk mempermudah pemahaman data.</p></li>
+    </ul>
+</div><br>
+
+<div class="grid-container">
+    <div class="chart-box">
+      <h2>Diagram Batang: Jumlah Siswa per Kelas</h2>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h2>Diagram Lingkaran: Persentase Siswa per Kelas</h2>
+      <canvas id="pieChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+      <h2>Diagram Garis: Jumlah Siswa per Kelas</h2>
+      <canvas id="lineChart"></canvas>
+    </div>
+
+    <div class="piktogram-box">
+      <h2>Piktogram: Jumlah Siswa per Kelas</h2>
+      <p style="text-align:center; margin-bottom:10px; font-style:italic;">1 ikon 👤 mewakili 5 siswa</p>
+      <div class="piktogram" id="piktogram"></div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Kelas</th>
+        <th>Jumlah Siswa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Kelas 7</td><td>25</td></tr>
+      <tr><td>2</td><td>Kelas 8</td><td>30</td></tr>
+      <tr><td>3</td><td>Kelas 9</td><td>20</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    const dataSiswa = [25, 30, 20];
+    const labelsKelas = ['Kelas 7', 'Kelas 8', 'Kelas 9'];
+    const warna = [
+      'rgba(54, 162, 235, 0.7)',
+      'rgba(255, 206, 86, 0.7)',
+      'rgba(75, 192, 192, 0.7)'
+    ];
+    const borderWarna = [
+      'rgba(54, 162, 235, 1)',
+      'rgba(255, 206, 86, 1)',
+      'rgba(75, 192, 192, 1)'
+    ];
+
+    // Diagram Batang
+    const ctxBar = document.getElementById('barChart').getContext('2d');
+    new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: labelsKelas,
+        datasets: [{
+          label: 'Jumlah Siswa',
+          data: dataSiswa,
+          backgroundColor: warna,
+          borderColor: borderWarna,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Jumlah Siswa'
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Kelas'
+            }
+          }
+        }
+      }
+    });
+
+    // Diagram Lingkaran
+    const ctxPie = document.getElementById('pieChart').getContext('2d');
+    new Chart(ctxPie, {
+      type: 'pie',
+      data: {
+        labels: labelsKelas,
+        datasets: [{
+          label: 'Persentase Siswa',
+          data: dataSiswa,
+          backgroundColor: warna,
+          borderColor: borderWarna,
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Diagram Garis
+    const ctxLine = document.getElementById('lineChart').getContext('2d');
+    new Chart(ctxLine, {
+      type: 'line',
+      data: {
+        labels: labelsKelas,
+        datasets: [{
+          label: 'Jumlah Siswa',
+          data: dataSiswa,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Jumlah Siswa'
+            }
+          }
+        }
+      }
+    });
+
+    // Piktogram
+    const piktogramContainer = document.getElementById('piktogram');
+    dataSiswa.forEach((jumlah, index) => {
+      const kelasDiv = document.createElement('div');
+      kelasDiv.className = 'kelas';
+      const label = document.createElement('div');
+      label.textContent = labelsKelas[index];
+      const ikonContainer = document.createElement('div');
+      for (let i = 0; i < Math.floor(jumlah / 5); i++) { // 1 ikon = 5 siswa
+        const ikon = document.createElement('div');
+        ikon.className = 'ikon';
+        ikon.textContent = '👤';
+        ikonContainer.appendChild(ikon);
+      }
+      kelasDiv.appendChild(label);
+      kelasDiv.appendChild(ikonContainer);
+      piktogramContainer.appendChild(kelasDiv);
+    });
+  </script>
+
+    <div id="4_Ukuran_Pemusatan_Data">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">4. Ukuran Pemusatan Data</p>
+    <p class="mt-2 ml-4">Ukuran pemusatan data adalah ukuran yang menunjukkan nilai tengah atau nilai yang mewakili sekelompok data. Ukuran ini membantu kita memahami kecenderungan umum dari data yang ada.</p>
+    <p class="mt-2 ml-4">Tiga ukuran pemusatan data yang paling umum digunakan adalah:</p>
+
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Mean (Rata-rata):</strong> Jumlah seluruh data dibagi dengan banyaknya data.</li>
+        <li><strong>Median:</strong> Nilai tengah dari data yang telah diurutkan.</li>
+        <li><strong>Modus:</strong> Nilai yang paling sering muncul dalam data.</li>
+	
+    </ul><br>
+
+<div id="4_1_Mean">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">4.1 Mean (Rata-rata)</p>
+    <p class="mt-2 ml-4">Mean atau rata-rata adalah ukuran pemusatan data yang diperoleh dengan menjumlahkan seluruh data, kemudian membaginya dengan banyaknya data. Mean memberikan gambaran umum mengenai nilai tengah dari suatu kelompok data.</p>
+    
+    <p class="mt-2 ml-4">Rumus untuk menghitung mean adalah:</p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[ \text{Mean (Rata-rata)} = \frac{\sum X}{n} \]</p>
+    <p class="mt-2 ml-4">Dimana:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>\(\sum X\)</strong> = Jumlah seluruh data</li>
+        <li><strong>n</strong> = Jumlah data</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh:</strong></p>
+        <p class="mt-2 ml-4">Diketahui data nilai ulangan Matematika: \[70, 75, 75, 80, 80, 80, 85, 85, 90\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Jumlah seluruh data:</strong> 70 + 75 + 75 + 80 + 80 + 80 + 85 + 85 + 90 = 720</li>
+            <li><strong>Banyak data:</strong> 9</li>
+            <li><strong>Mean:</strong> \( \frac{720}{9} = \textbf{80} \)</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, mean dari data tersebut adalah <strong>80</strong>.</p>
+    </div></div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan Mean (Rata-rat)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/WCmcLHJVHNI" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 4.1 -->
+<h2 id="ukuranpemusatandata01" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 4.1</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata4101" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ulangan siswa: \[70 \quad 75 \quad 75 \quad 80 \quad 80 \quad 80 \quad 85 \quad 85 \quad 90
+\]. Berapakah nilai rata-ratanya (mean)?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 75</li>
+        <li>B. 77</li>
+        <li>C. 80</li>
+        <li>D. 82</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4101')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4101" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jumlah seluruh data: 70 + 75 + 75 + 80 + 80 + 80 + 85 + 85 + 90 = 720</p>
+        <p>Banyak data = 9</p>
+        <p>Rata-rata = 720 ÷ 9 = 80</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 80</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata04" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+
+<p class="mt-4 text-lg">Diketahui tabel frekuensi nilai ulangan siswa sebagai berikut:</p>
+
+<table class="table-auto border-collapse border border-gray-400 mt-4 text-lg">
+  <thead>
+    <tr>
+      <th class="border border-gray-400 px-4 py-2 bg-gray-100">Nilai</th>
+      <th class="border border-gray-400 px-4 py-2 bg-gray-100">Frekuensi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-400 px-4 py-2 text-center">70</td>
+      <td class="border border-gray-400 px-4 py-2 text-center">1</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-400 px-4 py-2 text-center">75</td>
+      <td class="border border-gray-400 px-4 py-2 text-center">2</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-400 px-4 py-2 text-center">80</td>
+      <td class="border border-gray-400 px-4 py-2 text-center">3</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-400 px-4 py-2 text-center">85</td>
+      <td class="border border-gray-400 px-4 py-2 text-center">2</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-400 px-4 py-2 text-center">90</td>
+      <td class="border border-gray-400 px-4 py-2 text-center">1</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="mt-4 text-lg">Berapakah nilai rata-rata (mean) dari data tersebut?</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 75</li>
+    <li>B. 77</li>
+    <li>C. 80</li>
+    <li>D. 82</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata04')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+
+<div id="pembahasanukuranpemusatandata04" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Kita hitung jumlah seluruh data berdasarkan frekuensinya:</p>
+    <p>
+	\[\text{Mean}=\frac{\text{jumlah seluruh data}}{\text{banyaknya data}}\]  
+        \[ \text{Mean}=\frac{70 \times 1 + 75 \times 2 + 80 \times 3 + 85 \times 2 + 90 \times 1}{1 + 2 + 3 + 2 + 1}\]
+	\[ = \frac{70 + 150 + 240 + 170 + 90}{9}\] 
+	\[= \frac{720}{9}=80\]
+    </p>
+    
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 80</strong></p>
+</div>
+<h2 id="ukuranpemusatandata4103" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    
+<p class="mt-4 text-lg">Diketahui diagram batang berikut menunjukkan jumlah buku yang dibaca oleh siswa selama 5 minggu:</p>
+
+<canvas id="myChart" width="500" height="300"></canvas>
+
+<p class="mt-4 text-lg">Berapakah nilai rata-rata (mean) buku yang dibaca per minggu?</p>
+    
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 5</li>
+    <li>B. 7</li>
+    <li>C. 8</li>
+    <li>D. 10</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4103')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+    
+<div id="pembahasanukuranpemusatandata4103" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Jumlah seluruh data: (6 + 8 + 9 + 10 + 7) = 40</p>
+    <p>Banyak data = 5</p>
+    <p>Rata-rata = 40 ÷ 5 = 8</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 8</strong></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Minggu 1', 'Minggu 2', 'Minggu 3', 'Minggu 4', 'Minggu 5'], // Labels untuk sumbu X
+            datasets: [{
+                label: 'Jumlah Buku yang Dibaca',
+                data: [6, 8, 9, 10, 7], // Data untuk batang
+                backgroundColor: '#4dd4a3', // Warna batang
+                borderColor: '#4dd4a3', // Warna border batang
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false, // Mulai dari angka 1 di sumbu Y
+                    min: 1, // Set minimum value di sumbu Y
+                    ticks: {
+                        stepSize: 1, // Setiap langkah untuk sumbu Y
+                        callback: function(value) {
+                            return value; // Menampilkan angka langsung di sumbu Y
+                        }
+                    },
+                    grid: {
+                        color: '#e0e0e0'
+                    }
+                },
+                x: {
+                    grid: {
+                        color: '#e0e0e0'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // Menyembunyikan legenda
+                }
+            }
+        }
+    });
+</script>
+<h2 id="ukuranpemusatandata4104" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    
+<p class="mt-4 text-lg">Diketahui diagram lingkaran berikut menunjukkan proporsi nilai ulangan yang diperoleh oleh siswa:</p>
+
+<canvas id="myPieChart" width="400" height="400"></canvas>
+
+<p class="mt-4 text-lg">Berapakah nilai rata-rata (mean) yang diperoleh siswa berdasarkan diagram lingkaran ini?</p>
+    
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 7</li>
+    <li>B. 8</li>
+    <li>C. 9</li>
+    <li>D. 10</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4104')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+    
+<div id="pembahasanukuranpemusatandata4104" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Jumlah seluruh data: (5 + 7 + 8 + 9 + 6) = 35</p>
+    <p>Banyak data = 5</p>
+    <p>Rata-rata = 35 ÷ 5 = 7</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. 7</strong></p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    var ctx = document.getElementById('myPieChart').getContext('2d');
+    var myPieChart = new Chart(ctx, {
+        type: 'pie', // Diagram Lingkaran
+        data: {
+            labels: ['Nilai 5', 'Nilai 6', 'Nilai 7', 'Nilai 8', 'Nilai 9'], // Labels untuk proporsi data
+            datasets: [{
+                label: 'Proporsi Nilai Siswa',
+                data: [5, 6, 7, 8, 9], // Data nilai untuk diagram lingkaran
+                backgroundColor: ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99', '#c2c2f0'], // Warna masing-masing segmen
+                borderColor: '#fff', // Warna border segmen
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top', // Posisi legenda di atas
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.label + ': ' + tooltipItem.raw; // Menampilkan nilai saat hover
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+<h2 id="ukuranpemusatandata4105" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    
+<p class="mt-4 text-lg">Diketahui rata-rata hasil ulangan siswa sebagai berikut:</p>
+
+<p class="mt-4 text-lg">Rata-rata hasil ulangan siswa laki-laki (6 orang): 80</p>
+<p class="mt-4 text-lg">Rata-rata hasil ulangan siswa perempuan (4 orang): 85</p>
+
+<p class="mt-4 text-lg">Berapakah rata-rata seluruh siswa?</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 81</li>
+    <li>B. 82</li>
+    <li>C. 82.5</li>
+    <li>D. 83</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4105')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+    
+<div id="pembahasanukuranpemusatandata4105" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    
+    <p><strong>Rumus untuk menghitung rata-rata seluruh siswa:</strong></p>
+    <p><em><strong>\[ \bar{X}_{total} = \frac{( \bar{X}_1 \times f_1 ) + ( \bar{X}_2 \times f_2 )}{f_1 + f_2} \]</strong></em></p>
+
+    <p><strong>Langkah-langkah perhitungan:</strong></p>
+
+    <p><strong>\( \bar{X}_1 = 80 \)</strong> (Rata-rata siswa laki-laki)</p>
+    <p><strong>\( f_1 = 6 \)</strong> (Jumlah siswa laki-laki)</p>
+    <p><strong>\( \bar{X}_2 = 85 \)</strong> (Rata-rata siswa perempuan)</p>
+    <p><strong>\( f_2 = 4 \)</strong> (Jumlah siswa perempuan)</p>
+
+    <p><strong>Menggunakan rumus:</strong></p>
+    <p>\[ \bar{X}_{total} = \frac{(80 \times 6) + (85 \times 4)}{6 + 4} \]
+    \[ = \frac{480 + 340}{10} \]</p>
+    \[ = \frac{820}{10} = 82 \]</p>
+
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 82</strong></p>
+</div>
+<h2 id="ukuranpemusatandata4106" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 6</h2>
+    
+<p class="mt-4 text-lg">Diketahui rata-rata nilai ulangan dari 39 siswa adalah 75. Setelah ditambahkan 1 siswa lagi, rata-rata menjadi 75,5.</p>
+
+<p class="mt-4 text-lg">Berapakah nilai siswa yang ditambahkan tersebut?</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 85</li>
+    <li>B. 90</li>
+    <li>C. 100</li>
+    <li>D. 105</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4106')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+    
+<div id="pembahasanukuranpemusatandata4106" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    
+    <p><strong>Langkah-langkah perhitungan:</strong></p>
+
+    <p>Jumlah nilai 39 siswa:</p>
+    <p>\[ 75 \times 39 = 2925 \]</p>
+
+    <p>Jumlah nilai seluruh siswa setelah ditambah 1 orang (total 40 siswa):</p>
+    <p>\[ 75,5 \times 40 = 3020 \]</p>
+
+    <p>Nilai siswa ke-40:</p>
+    <p>\[ 3020 - 2925 = 95 \]</p>
+
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>Tidak ada di pilihan (Nilai siswa adalah 95)</strong></p>
+</div>
+</div>
+</div>
+<div id="4_2_Median">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">4.2 Median (Nilai Tengah)</p>
+    <p class="mt-2 ml-4">Median adalah nilai tengah dari suatu kumpulan data yang telah diurutkan dari yang terkecil hingga terbesar. Median digunakan untuk mengetahui titik tengah data, sehingga tidak terpengaruh oleh data ekstrem (sangat kecil atau sangat besar).</p>
+    
+    <p class="mt-2 ml-4">Langkah-langkah untuk menentukan median:</p>
+    <ul class="list-decimal mt-2 ml-12">
+        <li>Urutkan data dari yang terkecil ke terbesar.</li>
+        <li>Tentukan posisi tengah data.</li>
+        <li>
+            Jika jumlah data ganjil, median adalah nilai yang tepat di tengah.<br>
+            Jika jumlah data genap, median adalah rata-rata dari dua nilai tengah.
+        </li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh : Jumlah data ganjil</strong></p>
+        <p class="mt-2 ml-4">Diketahui data nilai ulangan Matematika: \[70, 75, 75, 80, 80, 80, 85, 85, 90\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Data sudah diurutkan:</strong> Ya</li>
+            <li><strong>Banyak data:</strong> 9 (ganjil)</li>
+            <li><strong>Posisi median:</strong> Data ke-5</li>
+            <li><strong>Median:</strong> <strong>80</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, median dari data tersebut adalah <strong>80</strong>.</p>
+    </div><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh : Jumlah data genap</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[65, 70, 75, 80, 85, 90\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Banyak data:</strong> 6 (genap)</li>
+            <li><strong>Dua nilai tengah:</strong> 75 dan 80</li>
+            <li><strong>Median:</strong> \( \frac{75 + 80}{2} = \textbf{77.5} \)</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, median dari data tersebut adalah <strong>77,5</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Median (Nilai Tengah)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/WCmcLHJVHNI" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 4.2 -->
+<h2 id="ukuranpemusatandata42" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 4.2</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata4201" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ulangan siswa: \[65 \quad 70 \quad 75 \quad 75 \quad 80 \quad 85 \quad 90\]. Berapakah nilai median dari data tersebut?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 70</li>
+        <li>B. 75</li>
+        <li>C. 80</li>
+        <li>D. 85</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4201')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4201" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Urutan data: 65, 70, 75, 75, 80, 85, 90</p>
+        <p>Banyak data = 7 (ganjil), maka median adalah data ke-4</p>
+        <p>Data ke-4 adalah 75</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 75</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata4202" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ulangan berikut: \[85 \quad 70 \quad 90 \quad 75 \quad 80 \quad 65 \quad 95 \quad 60\]. Berapakah nilai median dari data tersebut?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 75</li>
+        <li>B. 77,5</li>
+        <li>C. 80</li>
+        <li>D. 85</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4202')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4202" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Urutkan data dari yang terkecil ke yang terbesar:</p>
+        <p>\[60\quad65\quad70\quad75\quad80\quad85\quad90\quad95\]</p>
+        <p>Banyak data = 8 (genap), maka median adalah rata-rata dari data ke-4 dan ke-5</p>
+        <p>Data ke-4 = 75, data ke-5 = 80</p>
+        <p>Median = \(\frac{75 + 80}{2} \)= 77,5</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 77,5</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata4203" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    
+    <p class="mt-4 text-lg">Diketahui tabel frekuensi nilai ulangan siswa sebagai berikut:</p>
+
+    <table class="table-auto border-collapse border border-gray-400 mt-4 text-lg">
+      <thead>
+        <tr>
+          <th class="border border-gray-400 px-4 py-2 bg-gray-100">Nilai</th>
+          <th class="border border-gray-400 px-4 py-2 bg-gray-100">Frekuensi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">60</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">2</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">65</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">3</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">70</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">4</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">75</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">3</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">80</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">2</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mt-4 text-lg">Berapakah nilai median dari data tersebut?</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 65</li>
+        <li>B. 67,5</li>
+        <li>C. 70</li>
+        <li>D. 72,5</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4203')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4203" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Hitung total frekuensi: 2 + 3 + 4 + 3 + 2 = 14</p>
+        <p>Karena jumlah data genap (14), maka median adalah rata-rata data ke-7 dan ke-8</p>
+        <p>Tentukan posisi data ke-7 dan ke-8 berdasarkan frekuensi kumulatif:</p>
+        <ul class="list-disc pl-5">
+            <li>Nilai 60 → F = 2 → data ke-1 dan ke-2</li>
+            <li>Nilai 65 → F = 2 + 3 = 5 → data ke-3 sampai data ke-5</li>
+            <li>Nilai 70 → F = 5 + 4 = 9 → data ke-6 sampai data ke-9</li>
+        </ul>
+        <p>Data ke-7 dan ke-8 berada pada nilai 70</p>
+        <p>Median =\(\frac{70+70}{2}= 70\)</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 70</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata4204" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    
+    <p class="mt-4 text-lg">Perhatikan diagram batang berikut yang menunjukkan jumlah siswa berdasarkan nilai ulangan:</p>
+    
+    <canvas id="diagramMedian2" width="500" height="370" class="mt-4 border border-gray-400 rounded-lg"></canvas>
+
+    <script>
+        const canvas2 = document.getElementById('diagramMedian2');
+        const ctx2 = canvas2.getContext('2d');
+
+        const labels2 = [60, 65, 70, 75, 80];
+        const frequencies2 = [2, 3, 4, 3, 2];
+
+        const barWidth = 40;
+        const gap = 30;
+        const baseY = 300;
+        const axisXStart = 60;
+        const axisYStart = 20;
+        const maxFreq = 5;
+
+        // Gambar grid horizontal dan angka sumbu Y
+        ctx2.strokeStyle = '#ccc';
+        ctx2.fillStyle = '#000';
+        ctx2.font = '14px Arial';
+        for (let i = 0; i <= maxFreq; i++) {
+            const y = baseY - i * 50;
+            ctx2.beginPath();
+            ctx2.moveTo(axisXStart, y);
+            ctx2.lineTo(480, y);
+            ctx2.stroke();
+            ctx2.fillText(i.toString(), 30, y + 5);
+        }
+
+        // Gambar sumbu X dan Y
+        ctx2.beginPath();
+        ctx2.moveTo(axisXStart, axisYStart);
+        ctx2.lineTo(axisXStart, baseY);
+        ctx2.lineTo(480, baseY);
+        ctx2.strokeStyle = '#000';
+        ctx2.stroke();
+
+        // Label sumbu Y
+        ctx2.save();
+        ctx2.translate(10, 180);
+        ctx2.rotate(-Math.PI / 2);
+        ctx2.fillText("Jumlah Siswa", 0, 0);
+        ctx2.restore();
+
+        // Label sumbu X
+        ctx2.fillText("Nilai Ulangan", 220, 350);
+
+        // Gambar batang dan label sumbu X
+        for (let i = 0; i < frequencies2.length; i++) {
+            const x = axisXStart + i * (barWidth + gap);
+            const barHeight = frequencies2[i] * 50;
+            ctx2.fillStyle = '#4dd4a3';
+            ctx2.fillRect(x, baseY - barHeight, barWidth, barHeight);
+
+            // Label nilai
+            ctx2.fillStyle = '#000';
+            ctx2.fillText(labels2[i], x + 6, baseY + 20);
+
+            // Label frekuensi di atas batang
+            ctx2.fillText(frequencies2[i], x + 12, baseY - barHeight - 10);
+        }
+    </script>
+
+    <p class="mt-4 text-lg">Berapakah nilai median dari data pada diagram batang tersebut?</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 65</li>
+        <li>B. 67,5</li>
+        <li>C. 70</li>
+        <li>D. 75</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4204')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4204" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Data dari diagram:</p>
+        <ul class="list-disc pl-5">
+            <li>60 → 2 siswa</li>
+            <li>65 → 3 siswa</li>
+            <li>70 → 4 siswa</li>
+            <li>75 → 3 siswa</li>
+            <li>80 → 2 siswa</li>
+        </ul>
+        <p>Total siswa: 2 + 3 + 4 + 3 + 2 = 14 (genap)</p>
+        <p>Median = rata-rata data ke-7 dan ke-8</p>
+        <p>Frekuensi kumulatif:
+            <br>60 → 2
+            <br>65 → 5
+            <br>70 → 9 → data ke-7 dan ke-8 berada pada nilai 70
+        </p>
+        <p>Jadi, median = 70</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 70</strong></p>
+    </div>
+</div>
+
+<div id="4_3_Modus">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">4.3 Modus (Nilai yang Paling Sering Muncul)</p>
+    <p class="mt-2 ml-4">Modus adalah nilai yang paling sering muncul dalam suatu kumpulan data. Modus digunakan untuk mengetahui nilai yang paling dominan atau paling sering terjadi dalam data tersebut.</p>
+    
+    <p class="mt-2 ml-4">Langkah-langkah untuk menentukan modus:</p>
+    <ul class="list-decimal mt-2 ml-12">
+        <li>Kelompokkan data berdasarkan nilainya.</li>
+        <li>Hitung frekuensi (berapa kali setiap nilai muncul).</li>
+        <li>Nilai dengan frekuensi tertinggi adalah modus.</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh : Data memiliki satu modus</strong></p>
+        <p class="mt-2 ml-4">Diketahui data nilai ulangan: \[65\quad 70\quad 70\quad 75\quad 80\quad 85\quad 90\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Nilai 70 muncul sebanyak 2 kali</strong>, sedangkan nilai lainnya hanya muncul sekali.</li>
+            <li><strong>Modus:</strong> <strong>70</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, modus dari data tersebut adalah <strong>70</strong>.</p>
+    </div><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh : Data memiliki dua modus (bimodal)</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[60\quad 65\quad 65\quad 70\quad 75\quad 75\quad 80\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Nilai 65 dan 75 masing-masing muncul 2 kali</strong></li>
+            <li><strong>Modus:</strong> <strong>65 dan 75</strong> (bimodal)</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, data tersebut memiliki dua modus yaitu <strong>65 dan 75</strong>.</p>
+    </div><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh : Data tidak memiliki modus</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[55\quad 60\quad 65\quad 70\quad 75\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Setiap nilai hanya muncul satu kali.</li>
+            <li><strong>Tidak ada nilai yang muncul lebih dari satu kali.</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, data tersebut <strong>tidak memiliki modus</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Modus (Nilai yang Paling Sering Muncul)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/WCmcLHJVHNI" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 4.3 -->
+<h2 id="ukuranpemusatandata03" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 4.3</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata4301" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ulangan siswa: \[70 \quad 75 \quad 75 \quad 80 \quad 80 \quad 80 \quad 85 \quad 85 \quad 90\].<br> Berapakah nilai modus dari data tersebut?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 75</li>
+        <li>B. 80</li>
+        <li>C. 85</li>
+        <li>D. 90</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4301')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata4301" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Kita lihat frekuensi kemunculan tiap nilai:</p>
+        <ul class="list-disc pl-5">
+            <li>70 → 1 kali</li>
+            <li>75 → 2 kali</li>
+            <li>80 → 3 kali</li>
+            <li>85 → 2 kali</li>
+            <li>90 → 1 kali</li>
+        </ul>
+        <p>Nilai yang paling sering muncul adalah <strong>80</strong> sebanyak 3 kali.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 80</strong></p>
+    </div>
+
+    <h2 id="ukuranpemusatandata4302" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+
+    <p class="mt-4 text-lg">Diketahui tabel frekuensi nilai ulangan siswa sebagai berikut:</p>
+
+    <table class="table-auto border-collapse border border-gray-400 mt-4 text-lg">
+      <thead>
+        <tr>
+          <th class="border border-gray-400 px-4 py-2 bg-gray-100">Nilai</th>
+          <th class="border border-gray-400 px-4 py-2 bg-gray-100">Frekuensi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">60</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">1</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">65</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">3</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">70</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">5</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">75</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">2</td>
+        </tr>
+        <tr>
+          <td class="border border-gray-400 px-4 py-2 text-center">80</td>
+          <td class="border border-gray-400 px-4 py-2 text-center">1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="mt-4 text-lg">Berapakah nilai modus dari data tersebut?</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 65</li>
+        <li>B. 70</li>
+        <li>C. 75</li>
+        <li>D. 80</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata4302')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasanukuranpemusatandata4302" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Dari tabel, nilai dengan frekuensi tertinggi adalah:</p>
+        <ul class="list-disc pl-5">
+            <li>70 → 5 kali (frekuensi tertinggi)</li>
+        </ul>
+        <p>Jadi, modus dari data tersebut adalah <strong>70</strong>.</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 70</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata4302" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+
+<p class="mt-4 text-lg">Diagram batang berikut menunjukkan jumlah siswa yang memperoleh nilai tertentu dalam ulangan matematika:</p>
+
+<canvas id="barChart4302" width="400" height="250" class="mt-4"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx4302 = document.getElementById('barChart4302').getContext('2d');
+  new Chart(ctx4302, {
+    type: 'bar',
+    data: {
+      labels: ['70', '75', '80', '85', '90'],
+      datasets: [{
+        label: 'Jumlah Siswa',
+        data: [1, 2, 3, 2, 1],
+        backgroundColor: '#4dd4a3',
+        borderRadius: 5
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          stepSize: 1
+        }
+      },
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      responsive: false
+    }
+  });
+</script>
+
+<p class="mt-4 text-lg">Berapakah nilai yang paling sering muncul (modus) dari data di atas?</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. 75</li>
+    <li>B. 80</li>
+    <li>C. 85</li>
+    <li>D. 90</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4302')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+
+<div id="pembahasanukuranpemusatandata4302" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Dari diagram batang kita bisa melihat:</p>
+    <ul class="list-disc pl-5">
+        <li>70 → 1 siswa</li>
+        <li>75 → 2 siswa</li>
+        <li>80 → 3 siswa</li>
+        <li>85 → 2 siswa</li>
+        <li>90 → 1 siswa</li>
+    </ul>
+    <p>Nilai yang paling sering muncul adalah <strong>80</strong> karena diperoleh oleh 3 siswa.</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 80</strong></p>
+</div>
+
+<h2 id="ukuranpemusatandata4303" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+
+<p class="mt-4 text-lg">Diagram lingkaran berikut menunjukkan hobi siswa kelas 7:</p>
+
+<canvas id="pieChart4303" width="300" height="300" class="mt-4"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx4303 = document.getElementById('pieChart4303').getContext('2d');
+  new Chart(ctx4303, {
+    type: 'pie',
+    data: {
+      labels: ['Membaca', 'Olahraga', 'Menonton', 'Bermain Game'],
+      datasets: [{
+        label: 'Jumlah Siswa',
+        data: [4, 6, 3, 7],
+        backgroundColor: ['#4dd4a3', '#3b82f6', '#facc15', '#f87171'],
+        borderColor: '#ffffff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: false,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+</script>
+
+<p class="mt-4 text-lg">Berapakah hobi yang paling banyak dipilih siswa (modus)?</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. Membaca</li>
+    <li>B. Olahraga</li>
+    <li>C. Menonton</li>
+    <li>D. Bermain Game</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasanukuranpemusatandata4303')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+
+<div id="pembahasanukuranpemusatandata4303" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Dari diagram lingkaran terlihat jumlah siswa untuk setiap hobi:</p>
+    <ul class="list-disc pl-5">
+        <li>Membaca → 4 siswa</li>
+        <li>Olahraga → 6 siswa</li>
+        <li>Menonton → 3 siswa</li>
+        <li>Bermain Game → 7 siswa</li>
+    </ul>
+    <p>Yang paling banyak dipilih adalah <strong>Bermain Game</strong> sebanyak 7 siswa.</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>D. Bermain Game</strong></p>
+</div>
+</div>
+
+
+
+    <div id="5_Ukuran_Penyebaran_Data">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5. Ukuran Penyebaran Data</p>
+    <p class="mt-2 ml-4">Ukuran penyebaran data adalah ukuran yang menunjukkan seberapa jauh data tersebar dari nilai pusatnya (seperti mean atau median). Ukuran ini penting untuk mengetahui tingkat variasi atau keragaman data dalam suatu kelompok.</p>
+    <p class="mt-2 ml-4">Beberapa ukuran penyebaran data yang umum digunakan antara lain:</p>
+
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Jangkauan (Range):</strong> Selisih antara nilai maksimum dan nilai minimum.</li>
+	<li><strong>kuartil:</strong> Ukuran statistik yang membagi data yang telah diurutkan menjadi empat bagian yang sama besar</li>
+        <li><strong>Jangkauan Antar Kuartil (Interquartile Range / IQR):</strong> Selisih antara Kuartil 3 (Q3) dan Kuartil 1 (Q1), yaitu IQR = Q3 - Q1.</li>
+        <li><strong>Simpangan Rata-rata:</strong> Rata-rata dari selisih setiap data terhadap nilai rata-rata (mean).</li>
+        <li><strong>Ragam (Varians):</strong> Rata-rata kuadrat dari selisih setiap data terhadap nilai mean.</li>
+        <li><strong>Simpangan Baku (Standar Deviasi):</strong> Akar kuadrat dari varians. Menunjukkan seberapa jauh data menyebar dari nilai rata-rata.</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[60\quad 65\quad 70\quad 75\quad 80\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Jangkauan:</strong> 80 - 60 = 20</li>
+            <li><strong>Q1:</strong> 65, <strong>Q3:</strong> 75 → <strong>IQR:</strong> 75 - 65 = 10</li>
+            <li><strong>Mean:</strong> (60 + 65 + 70 + 75 + 80) / 5 = 70</li>
+            <li><strong>Simpangan rata-rata:</strong>
+                <ul class="list-disc ml-6">
+                    <li>|60 - 70| = 10</li>
+                    <li>|65 - 70| = 5</li>
+                    <li>|70 - 70| = 0</li>
+                    <li>|75 - 70| = 5</li>
+                    <li>|80 - 70| = 10</li>
+                </ul>
+                <p class="ml-4">Jumlah = 30 → Simpangan rata-rata = 30 / 5 = 6</p>
+            </li>
+        </ul>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Ukuran Penyebaran Data</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/Dp1yY6z-QVg" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<div id="5_1_Jangkauan">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.1 Jangkauan</p>
+    <p class="mt-2 ml-4">Jangkauan (Range) adalah ukuran penyebaran data yang paling sederhana. Jangkauan menunjukkan seberapa jauh nilai maksimum dan nilai minimum dalam suatu kumpulan data.</p>
+
+    <p class="mt-2 ml-4"><strong>Rumus Jangkauan:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[\text{Jangkauan} = \text{Nilai Maksimum - Nilai Minimum}\]</p>
+
+    <p class="mt-2 ml-4">Jangkauan digunakan untuk mengetahui seberapa besar selisih nilai tertinggi dan terendah dalam data, namun tidak memberikan informasi tentang bagaimana data tersebar di antara dua nilai tersebut.</p><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data nilai ulangan: \[60\quad 65\quad 70\quad 75\quad 80\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Nilai maksimum:</strong> 80</li>
+            <li><strong>Nilai minimum:</strong> 60</li>
+            <li><strong>Jangkauan:</strong> 80 - 60 = <strong>20</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, jangkauan data tersebut adalah <strong>20</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Jangkauan (Range)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/55fUiV2lLC0" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.1 -->
+<h2 id="ukuranpemusatandata01" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.1</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata5101" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data tinggi badan siswa (dalam cm): \[140 \quad 145 \quad 150 \quad 150 \quad 155 \quad 160 \quad 165 \quad 170 \quad 175\]. Berapakah jangkauan dari data tersebut?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 25</li>
+        <li>B. 30</li>
+        <li>C. 35</li>
+        <li>D. 40</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5101')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5101" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jangkauan adalah selisih antara data terbesar dan data terkecil.</p>
+        <p>Data terbesar = 175, Data terkecil = 140</p>
+        <p>Jangkauan = 175 − 140 = 35</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 35</strong></p>
+    </div>
+    
+    <h2 id="ukuranpemusatandata5102" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ulangan Matematika dari sekelompok siswa disajikan dalam tabel berikut:</p>
+
+    <div class="overflow-x-auto mt-4 mb-4">
+        <table class="min-w-full border border-gray-400 text-lg text-center">
+            <thead class="bg-green-200">
+                <tr>
+                    <th class="border border-gray-400 px-4 py-2">Nilai</th>
+                    <th class="border border-gray-400 px-4 py-2">Frekuensi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-400 px-4 py-2">60</td>
+                    <td class="border border-gray-400 px-4 py-2">2</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-400 px-4 py-2">65</td>
+                    <td class="border border-gray-400 px-4 py-2">3</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-400 px-4 py-2">70</td>
+                    <td class="border border-gray-400 px-4 py-2">4</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-400 px-4 py-2">75</td>
+                    <td class="border border-gray-400 px-4 py-2">5</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-400 px-4 py-2">80</td>
+                    <td class="border border-gray-400 px-4 py-2">1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="mt-4 text-lg">Berapakah jangkauan dari data tersebut?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 15</li>
+        <li>B. 20</li>
+        <li>C. 25</li>
+        <li>D. 30</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5102')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5102" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jangkauan adalah selisih antara data terbesar dan data terkecil.</p>
+        <p>Data terbesar = 80, Data terkecil = 60</p>
+        <p>Jangkauan = 80 − 60 = 20</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 20</strong></p>
+    </div>
+
+<h2 id="ukuranpemusatandata5103" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    
+    <p class="mt-4 text-lg">Perhatikan diagram batang berikut yang menunjukkan jumlah buku yang dibaca oleh siswa dalam satu bulan!</p>
+
+    <div class="mt-4 mb-6">
+        <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background -->
+            <rect x="0" y="0" width="400" height="300" fill="#f3f4f6"></rect>
+            
+            <!-- Axis -->
+            <line x1="50" y1="250" x2="350" y2="250" stroke="#000" stroke-width="2"></line> <!-- X-axis -->
+            <line x1="50" y1="250" x2="50" y2="20" stroke="#000" stroke-width="2"></line>   <!-- Y-axis -->
+            
+            <!-- Y-axis Labels -->
+            <text x="40" y="240" font-size="14" text-anchor="middle">2</text>
+            <text x="40" y="190" font-size="14" text-anchor="middle">3</text>
+            <text x="40" y="140" font-size="14" text-anchor="middle">4</text>
+            <text x="40" y="90" font-size="14" text-anchor="middle">5</text>
+            <text x="40" y="40" font-size="14" text-anchor="middle">6</text>
+
+            <!-- Bars -->
+            <rect x="70" y="200" width="40" height="50" fill="#4dd4a3"></rect> <!-- 2 Buku -->
+            <rect x="120" y="150" width="40" height="100" fill="#4dd4a3"></rect> <!-- 3 Buku -->
+            <rect x="170" y="100" width="40" height="150" fill="#4dd4a3"></rect> <!-- 4 Buku -->
+            <rect x="220" y="50" width="40" height="200" fill="#4dd4a3"></rect> <!-- 5 Buku -->
+            <rect x="270" y="200" width="40" height="50" fill="#4dd4a3"></rect> <!-- 6 Buku -->
+            <rect x="320" y="230" width="40" height="20" fill="#4dd4a3"></rect> <!-- 7 Buku -->
+
+            <!-- X-axis Labels -->
+            <text x="90" y="270" font-size="14" text-anchor="middle">2 Buku</text>
+            <text x="140" y="270" font-size="14" text-anchor="middle">3 Buku</text>
+            <text x="190" y="270" font-size="14" text-anchor="middle">4 Buku</text>
+            <text x="240" y="270" font-size="14" text-anchor="middle">5 Buku</text>
+            <text x="290" y="270" font-size="14" text-anchor="middle">6 Buku</text>
+            <text x="340" y="270" font-size="14" text-anchor="middle">7 Buku</text>
+        </svg>
+    </div>
+
+    <p class="mt-4 text-lg">Berapakah jangkauan dari data jumlah buku yang dibaca?</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 3</li>
+        <li>B. 4</li>
+        <li>C. 5</li>
+        <li>D. 6</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5103')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5103" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Data jumlah buku yang dibaca adalah: 2, 3, 4, 5, 6, dan 7 buku.</p>
+        <p>Data terbesar = 7, Data terkecil = 2</p>
+        <p>Jangkauan = 7 − 2 = 5</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 5</strong></p>
+    </div>
+</div>
+
+<div id="5_2_Kuartil">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.2 Kuartil (Pembagian Data Menjadi Empat Bagian Sama Besar)</p>
+    <p class="mt-2 ml-4">Kuartil adalah ukuran statistik yang membagi data yang telah diurutkan menjadi empat bagian yang sama besar. Kuartil digunakan untuk mengetahui sebaran data dan posisi suatu nilai dalam data.</p>
+
+    <p class="mt-2 ml-4">Ada tiga kuartil utama:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Kuartil 1 (Q1):</strong> Nilai tengah antara data terkecil dan median (25%).</li>
+        <li><strong>Kuartil 2 (Q2):</strong> Median atau nilai tengah data (50%).</li>
+        <li><strong>Kuartil 3 (Q3):</strong> Nilai tengah antara median dan data terbesar (75%).</li>
+    </ul><br>
+
+    <p class="mt-2 ml-4">Langkah-langkah untuk menentukan kuartil:</p>
+    <ul class="list-decimal mt-2 ml-12">
+        <li>Urutkan data dari yang terkecil ke terbesar.</li>
+        <li>Tentukan median (Q2).</li>
+        <li>Q1 adalah median dari data sebelah kiri (sebelum Q2).</li>
+        <li>Q3 adalah median dari data sebelah kanan (setelah Q2).</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[55\quad 60\quad 65\quad 70\quad 75\quad 80\quad 85\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Data sudah terurut.</li>
+            <li><strong>Q2 (Median):</strong> Nilai tengah = 70</li>
+            <li><strong>Q1:</strong> Median dari \[55\quad 60\quad 65\] = 60</li>
+            <li><strong>Q3:</strong> Median dari \[75\quad 80\quad 85\] = 80</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, nilai kuartil dari data tersebut adalah:</p>
+        <ul class="list-disc mt-2 ml-12">
+            <li><strong>Q1 = 60</strong></li>
+            <li><strong>Q2 = 70</strong></li>
+            <li><strong>Q3 = 80</strong></li>
+        </ul>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Kuartil (Pembagian Data Menjadi Empat Bagian)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/HCJNu2ZFMRw" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.2 -->
+<h2 id="ukuranpemusatandata02" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.2</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata5201" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ujian siswa (dalam poin): \[55 \quad 60 \quad 62 \quad 65 \quad 70 \quad 72 \quad 75 \quad 80 \quad 85 \quad 90\]. Tentukan kuartil pertama (Q1) dan kuartil ketiga (Q3) dari data tersebut!</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Q1 = 62, Q3 = 80</li>
+        <li>B. Q1 = 60, Q3 = 80</li>
+        <li>C. Q1 = 62, Q3 = 85</li>
+        <li>D. Q1 = 65, Q3 = 75</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5201')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5201" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Untuk mencari kuartil pertama (Q1) dan kuartil ketiga (Q3), kita urutkan terlebih dahulu data dari yang terkecil hingga yang terbesar.</p>
+        <p>Data urut: \[55\quad 60\quad 62\quad 65\quad 70\quad 72\quad 75\quad 80\quad 85\quad 90\]</p>
+        <p>Q1 adalah nilai yang berada pada posisi ke-3, dan Q3 adalah nilai yang berada pada posisi ke-8.</p>
+        <p>Q1 = 62, Q3 = 80</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. Q1 = 62, Q3 = 80</strong></p>
+    </div>
+    
+    <h2 id="ukuranpemusatandata5202" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data nilai ujian siswa (dalam poin): \[70 \quad 55 \quad 90 \quad 60 \quad 80 \quad 65 \quad 75 \quad 85 \quad 72 \quad 68\]. Tentukan kuartil bawah (Q1) dan kuartil atas (Q3) dari data tersebut!</p>
+    
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Q1 = 62, Q3 = 80</li>
+        <li>B. Q1 = 65, Q3 = 80</li>
+        <li>C. Q1 = 62, Q3 = 75</li>
+        <li>D. Q1 = 68, Q3 = 85</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5202')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5202" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah mengurutkan data dari yang terkecil hingga yang terbesar.</p>
+        <p>Data urut: \[55\quad 60\quad 65\quad 68\quad 70\quad 72\quad 75\quad 80\quad 85\quad 90\]</p>
+        <p>Setelah data terurut, kita cari kuartil bawah (Q1) dan kuartil atas (Q3):</p>
+        <p>Q1 berada pada posisi ke-3, dan Q3 berada pada posisi ke-8.</p>
+        <p>Q1 = 62, Q3 = 80</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. Q1 = 62, Q3 = 80</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata5301" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data dalam bentuk tabel frekuensi sebagai berikut:</p>
+
+    <table class="table-auto w-full mt-4 text-lg text-gray-800">
+        <thead>
+            <tr>
+                <th class="border px-4 py-2">Nilai (X)</th>
+                <th class="border px-4 py-2">Frekuensi (f)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border px-4 py-2">50</td>
+                <td class="border px-4 py-2">3</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">60</td>
+                <td class="border px-4 py-2">5</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">70</td>
+                <td class="border px-4 py-2">7</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">80</td>
+                <td class="border px-4 py-2">4</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">90</td>
+                <td class="border px-4 py-2">6</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="mt-4">Tentukan kuartil pertama (Q1) dan kuartil kedua (Q2) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. Q1 = 60, Q2 = 75</li>
+        <li>B. Q1 = 65, Q2 = 70</li>
+        <li>C. Q1 = 65, Q2 = 75</li>
+        <li>D. Q1 = 70, Q2 = 80</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5301')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5301" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Untuk menentukan Q1 dan Q2, kita perlu mencari posisi kuartil berdasarkan jumlah total frekuensi.</p>
+        <p>Jumlah total frekuensi = 3 + 5 + 7 + 4 + 6 = 25</p>
+        <p>Posisi Q1 adalah pada persentase 25% dari total data, dan posisi Q2 adalah pada persentase 50% (median).</p>
+        
+        <p>Jumlah kumulatif frekuensi:</p>
+        <ul>
+            <li>50: 3</li>
+            <li>60: 3 + 5 = 8</li>
+            <li>70: 8 + 7 = 15</li>
+            <li>80: 15 + 4 = 19</li>
+            <li>90: 19 + 6 = 25</li>
+        </ul>
+        
+        <p>Posisi Q1 = 25% × 25 = 6.25, jadi Q1 berada pada nilai 60.</p>
+        <p>Posisi Q2 = 50% × 25 = 12.5, jadi Q2 berada pada nilai 70.</p>
+
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. Q1 = 65, Q2 = 75</strong></p>
+    </div>
+</div>
+
+<div id="5_3_Jangkauan_Antar_Kuartil">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.3 Jangkauan Antar Kuartil (Interquartile Range / IQR)</p>
+    <p class="mt-2 ml-4">Jangkauan Antar Kuartil atau <strong>Interquartile Range (IQR)</strong> adalah ukuran penyebaran data yang mengukur sebaran data di tengah, yaitu antara Kuartil 1 (Q1) dan Kuartil 3 (Q3).</p>
+    
+    <p class="mt-2 ml-4"><strong>Rumus IQR:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[\text{IQR = Q3 - Q1} \]</p>
+
+    <p class="mt-2 ml-4">IQR membantu kita mengetahui seberapa lebar persebaran data di tengah 50% data. IQR juga digunakan untuk mendeteksi nilai pencilan (outlier).</p><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data berikut telah diurutkan:</p>
+        <p class="mt-2 ml-4">\[50\quad 55\quad 60\quad 65\quad 70\quad 75\quad 80\quad 85\quad 90\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Median (Q2) = 70</li>
+            <li>Q1 adalah median dari data bagian bawah: \[50\quad 55\quad 60\quad 65\] → Q1 = (55 + 60) / 2 = 57.5</li>
+            <li>Q3 adalah median dari data bagian atas: \[75\quad 80\quad 85\quad 90\] → Q3 = (80 + 85) / 2 = 82.5</li>
+            <li>IQR = Q3 - Q1 = 82.5 - 57.5 = <strong>25</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, jangkauan antar kuartil dari data tersebut adalah <strong>25</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Jangkauan Antar Kuartil (IQR)</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/32M_l1HIb0I" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.3 -->
+<h2 id="ukuranpemusatandata03" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.3</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata5301" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+    <p class="text-lg">\[45 \quad 50 \quad 55 \quad 60 \quad 65 \quad 70 \quad 75 \quad 80 \quad 85 \quad 90\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan jangkauan antar kuartil (IQR) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 30</li>
+        <li>B. 35</li>
+        <li>C. 40</li>
+        <li>D. 45</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan5301')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan5301" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah menentukan kuartil pertama (Q1) dan kuartil ketiga (Q3).</p>
+        <p>Data urut: \[45\quad 50\quad 55\quad 60\quad 65\quad 70\quad 75\quad 80\quad 85\quad 90\]</p>
+        <p>Q1 berada pada posisi ke-3, yaitu 55.</p>
+        <p>Q3 berada pada posisi ke-8, yaitu 80.</p>
+        <p>Jangkauan antar kuartil (IQR) adalah selisih antara Q3 dan Q1.</p>
+        <p>IQR = Q3 − Q1 = 80 − 55 = 25</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. 25</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata5302" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data dalam bentuk tabel frekuensi sebagai berikut:</p>
+
+    <table class="table-auto w-full mt-4 text-lg text-gray-800">
+        <thead>
+            <tr>
+                <th class="border px-4 py-2">Nilai (X)</th>
+                <th class="border px-4 py-2">Frekuensi (f)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border px-4 py-2">30</td>
+                <td class="border px-4 py-2">4</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">40</td>
+                <td class="border px-4 py-2">6</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">50</td>
+                <td class="border px-4 py-2">8</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">60</td>
+                <td class="border px-4 py-2">7</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">70</td>
+                <td class="border px-4 py-2">5</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="mt-4 text-lg">Tentukan jangkauan antar kuartil (IQR) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 30</li>
+        <li>B. 35</li>
+        <li>C. 40</li>
+        <li>D. 45</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5302')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5302" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Untuk menghitung jangkauan antar kuartil (IQR), kita harus mencari kuartil pertama (Q1) dan kuartil ketiga (Q3) terlebih dahulu.</p>
+        <p>Jumlah total frekuensi = 4 + 6 + 8 + 7 + 5 = 30</p>
+
+        <p>Posisi Q1: 25% × 30 = 7,5 → Q1 terletak antara nilai 40 dan 50.</p>
+        <p>Posisi Q3: 75% × 30 = 22,5 → Q3 terletak antara nilai 50 dan 60.</p>
+
+        <p>Untuk mencari Q1 dan Q3, kita hitung nilai kuartil berdasarkan data kumulatif frekuensi:</p>
+
+        <p>Frekuensi kumulatif:</p>
+        <ul>
+            <li>30: 4</li>
+            <li>40: 4 + 6 = 10</li>
+            <li>50: 10 + 8 = 18</li>
+            <li>60: 18 + 7 = 25</li>
+            <li>70: 25 + 5 = 30</li>
+        </ul>
+
+        <p>Q1 = 45 dan Q3 = 55.</p>
+        <p>IQR = Q3 − Q1 = 55 − 45 = 10.</p>
+
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. 30</strong></p>
+    </div>
+</div>
+
+
+<div id="5_4_Simpangan_Antar_Kuartil">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.4 Simpangan Antar Kuartil</p>
+    <p class="mt-2 ml-4">Simpangan Antar Kuartil adalah setengah dari Jangkauan Antar Kuartil (Interquartile Range atau IQR). Ukuran ini menunjukkan seberapa jauh data tersebar dari median secara rata-rata di tengah 50% data.</p>
+
+    <p class="mt-2 ml-4"><strong>Rumus Simpangan Antar Kuartil:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[\text{Simpangan Antar Kuartil} =\frac{Q_3 - Q_1}{2}\]</p>
+
+    <p class="mt-2 ml-4">Simpangan ini sering digunakan sebagai gambaran simpangan data yang berada di sekitar median, terutama ketika data memiliki pencilan (outlier).</p><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui Q1 = 57.5 dan Q3 = 82.5</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Jangkauan Antar Kuartil (IQR) = Q3 - Q1 = 82.5 - 57.5 = 25</li>
+            <li>Simpangan Antar Kuartil = ½ × 25 = <strong>12.5</strong></li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, simpangan antar kuartil dari data tersebut adalah <strong>12.5</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Simpangan Antar Kuartil</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/fXHyOz9Oz0c" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.4 -->
+<h2 id="ukuranpemusatandata05" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.4</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata5401" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+    <p class="text-lg">\[15\quad 20\quad 25\quad 30\quad 35\quad 40\quad 45\quad 50\quad 55 \quad 60\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan simpangan antar kuartil (SAK) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 10</li>
+        <li>B. 12.5</li>
+        <li>C. 15</li>
+        <li>D. 20</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5401')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5401" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah mencari kuartil pertama (Q1) dan kuartil ketiga (Q3) dari data yang sudah diurutkan:</p>
+        <p>Data urut: \[15\quad20\quad25\quad30\quad35\quad40\quad45\quad50\quad55\quad60\]</p>
+
+        <p>Q1 terletak pada posisi ke-3, yaitu 25.</p>
+        <p>Q3 terletak pada posisi ke-8, yaitu 50.</p>
+
+        <p>Simpangan antar kuartil (SAK) dihitung sebagai selisih antara Q3 dan Q1:</p>
+        <p>SAK = Q3 − Q1 = 50 − 25 = 25</p>
+
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>C. 25</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata5402" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut (tidak urut):</p>
+    <p class="text-lg">\[55\quad 45\quad30\quad40\quad25\quad35\quad50\quad15\quad60\quad20\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan simpangan antar kuartil (SAK) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 25</li>
+        <li>B. 30</li>
+        <li>C. 20</li>
+        <li>D. 15</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5402')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5402" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah mengurutkan data dari yang terkecil ke yang terbesar:</p>
+        <p>Data urut: \[15\quad20\quad25\quad30\quad35\quad40\quad45\quad50\quad55\quad60\]</p>
+
+        <p>Untuk mencari <strong>Q1</strong>(kuartil pertama) dan <strong>Q3</strong> (kuartil ketiga):</p>
+        <p>Jumlah data = 10. Posisi <strong>Q1</strong> terletak pada posisi ke-2,5 dan <strong>Q3</strong> terletak pada posisi ke-7,5.</p>
+        <p>Q1 = rata-rata antara data ke-2 dan ke-3 = (20 + 25) / 2 = 22,5.</p>
+        <p>Q3 = rata-rata antara data ke-7 dan ke-8 = (45 + 50) / 2 = 47,5.</p>
+
+        <p>Simpangan antar kuartil (SAK) dihitung sebagai:</p>
+        <p>SAK = Q3 − Q1 = 47,5 − 22,5 = 25.</p>
+
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. 25</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata5405" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    
+    <p class="mt-4 text-lg">Diketahui tabel data nilai ulangan siswa sebagai berikut:</p>
+
+    <table class="table-auto mt-4 w-full text-lg text-gray-800">
+        <thead>
+            <tr>
+                <th class="px-4 py-2">Nilai Ulangan</th>
+                <th class="px-4 py-2">Frekuensi (f)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="border px-4 py-2">60</td>
+                <td class="border px-4 py-2">3</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">70</td>
+                <td class="border px-4 py-2">4</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">80</td>
+                <td class="border px-4 py-2">5</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">90</td>
+                <td class="border px-4 py-2">2</td>
+            </tr>
+            <tr>
+                <td class="border px-4 py-2">100</td>
+                <td class="border px-4 py-2">1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="mt-4 text-lg">Tentukan simpangan antar kuartil (SAK) berdasarkan data nilai ulangan siswa di atas!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. 15</li>
+        <li>B. 20</li>
+        <li>C. 25</li>
+        <li>D. 30</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasanukuranpemusatandata5405')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasanukuranpemusatandata5405" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah mengurutkan data dan mencari total frekuensi (n), lalu posisi Q1 dan Q3.</p>
+        
+        <p><strong>Total frekuensi (n)</strong> = 3 + 4 + 5 + 2 + 1 = 15</p>
+        
+        <p><strong>Q1</strong> terletak pada posisi \( \frac{1}{4} \times (n + 1) = \frac{1}{4} \times (15 + 1) = 4 \), yang terletak pada nilai 70.</p>
+        
+        <p><strong>Q3</strong> terletak pada posisi \( \frac{3}{4} \times (n + 1) = \frac{3}{4} \times (15 + 1) = 12 \), yang terletak pada nilai 90.</p>
+
+        <h3 class="font-semibold text-lg text-green-700">Untuk Q1:</h3>
+        <p>Frekuensi kumulatif sebelum nilai 70 = 3 (nilai 60).</p>
+        <p>Posisi Q1 berada pada nilai ke-4. Maka, Q1 = 70.</p>
+
+        <h3 class="font-semibold text-lg text-green-700">Untuk Q3:</h3>
+        <p>Frekuensi kumulatif sebelum nilai 90 = 3 + 4 + 5 = 12.</p>
+        <p>Posisi Q3 berada pada nilai ke-12. Maka, Q3 = 90.</p>
+
+        <h3 class="font-semibold text-lg text-green-700">Simpangan Antar Kuartil (SAK):</h3>
+        <p>SAK = Q3 − Q1 = 90 − 70 = 20</p>
+
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. 20</strong></p>
+    </div>
+</div>
+
+
+<div id="5_5_Simpangan_Rata_Rata">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.5 Simpangan Rata-Rata</p>
+    <p class="mt-2 ml-4">Simpangan rata-rata adalah ukuran penyebaran data yang menunjukkan rata-rata dari selisih absolut (mutlak) antara setiap data dengan nilai rata-ratanya (mean).</p>
+
+    <p class="mt-2 ml-4"><strong>Rumus Simpangan Rata-Rata:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[\text{Simpangan Rata-Rata} = \frac{\sum{|x_i - \bar{x}|}}{n}\]</p>
+    <p class="mt-2 ml-4">Keterangan:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>\(x_i\): data ke-i</li>
+        <li>\(\bar{x}\): nilai rata-rata (mean)</li>
+        <li>n: jumlah data</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[4\quad 6\quad 8\quad 10\quad 12\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Jumlah data = 5</li>
+            <li>Rata-rata \(\bar{x} = \frac{4 + 6 + 8 + 10 + 12}{5} = 8\)</li>
+            <li>Selisih absolut dari setiap data terhadap rata-rata:</li>
+            <ul class="list-disc ml-6">
+                <li>|4 - 8| = 4</li>
+                <li>|6 - 8| = 2</li>
+                <li>|8 - 8| = 0</li>
+                <li>|10 - 8| = 2</li>
+                <li>|12 - 8| = 4</li>
+            </ul>
+            <li>Simpangan rata-rata = \(\frac{4 + 2 + 0 + 2 + 4}{5} = \frac{12}{5} = 2.4\)</li>
+        </ul>
+        <p class="mt-2 ml-4">Jadi, simpangan rata-rata dari data tersebut adalah <strong>2.4</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Simpangan Rata-Rata</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/a-FahuVVkQI" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<div id="5_6_Simpangan_Baku">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.6 Simpangan Baku</p>
+    <p class="mt-2 ml-4">Simpangan baku (standar deviasi) adalah ukuran yang menunjukkan seberapa jauh data tersebar dari nilai rata-ratanya (mean). Simpangan baku digunakan untuk mengetahui tingkat keragaman atau variasi data dalam suatu kumpulan data.</p>
+
+    <p class="mt-2 ml-4"><strong>Rumus Simpangan Baku:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[S = \sqrt{\frac{\sum{(x_i - \bar{x})^2}}{n}}\]</p>
+
+    <p class="mt-2 ml-4">Keterangan:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>\(x_i\): data ke-i</li>
+        <li>\(\bar{x}\): nilai rata-rata (mean)</li>
+        <li>n: jumlah data</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[2\quad 4\quad 4\quad 4\quad 5\quad 5\quad 7\quad 9\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Jumlah data = 8</li>
+            <li>Rata-rata \(\bar{x} = \frac{2 + 4 + 4 + 4 + 5 + 5 + 7 + 9}{8} = \frac{40}{8} = 5\)</li>
+            <li>Hitung kuadrat selisih setiap data dengan rata-rata:</li>
+            <ul class="list-disc ml-6">
+                <li>(2 − 5)² = 9</li>
+                <li>(4 − 5)² = 1</li>
+                <li>(4 − 5)² = 1</li>
+                <li>(4 − 5)² = 1</li>
+                <li>(5 − 5)² = 0</li>
+                <li>(5 − 5)² = 0</li>
+                <li>(7 − 5)² = 4</li>
+                <li>(9 − 5)² = 16</li>
+            </ul>
+            <li>Jumlah kuadrat selisih = 9 + 1 + 1 + 1 + 0 + 0 + 4 + 16 = 32</li>
+            <li>Simpangan baku = \(\sqrt{\frac{32}{8}} = \sqrt{4} = 2\)</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, simpangan baku dari data tersebut adalah <strong>2</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Simpangan Baku</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/OUM5qWIuys0" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.6 -->
+<h2 id="ukuranpemusatandata06" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.6</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata6301" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+    <p class="text-lg">\[10 \quad 12 \quad 15 \quad 18 \quad 20 \quad 25 \quad 28 \quad 30 \quad 35 \quad 40\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan simpangan baku (standard deviation) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \(\sqrt{22.05} \)</li>
+        <li>B. \(\sqrt{23.05} \)</li>
+        <li>C. \(\sqrt{24.05} \)</li>
+        <li>D. \(\sqrt{25.05} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan6301')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan6301" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah menghitung rata-rata (mean) dari data tersebut.</p>
+        <p>Data: \[10, 12, 15, 18, 20, 25, 28, 30, 35, 40\]</p>
+        <p>Rata-rata (mean) = \(\frac{10 + 12 + 15 + 18 + 20 + 25 + 28 + 30 + 35 + 40}{10} = \frac{233}{10} = 23.3\)</p>
+        <p>Selanjutnya, hitung selisih setiap data dengan rata-rata, kuadratkan selisihnya, dan rata-rata kuadrat selisihnya.</p>
+        <p>Varian = \(\frac{(10 - 23.3)^2 + (12 - 23.3)^2 + \cdots + (40 - 23.3)^2}{10}\)</p>
+        <p>Varian = \(\frac{(13.3)^2 + (11.3)^2 + (8.3)^2 + (5.3)^2 + (3.3)^2 + (1.7)^2 + (4.7)^2 + (6.7)^2 + (11.7)^2 + (16.7)^2}{10} = \frac{220.5}{10} = 22.05\)</p>
+        <p>Simpangan baku = \(\sqrt{22.05} \)</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A.\(\sqrt{22.05} \)</strong></p>
+    </div>
+<h2 id="ukuranpemusatandata6505" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+    <p class="text-lg">\[10 \quad 30 \quad 20 \quad 40 \quad 50\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan simpangan baku (standard deviation) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \(\sqrt{200} \)</li>
+        <li>B. \(\sqrt{300} \)</li>
+        <li>C. \(\sqrt{400} \)</li>
+        <li>D. \(\sqrt{500} \)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan6502')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan6502" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah menghitung rata-rata (mean) dari data tersebut.</p>
+        <p>Data: \[10, 30, 20, 40, 50\]</p>
+        <p>Rata-rata (mean) = \(\frac{10 + 30 + 20 + 40 + 50}{5} = \frac{150}{5} = 30\)</p>
+        <p>Selanjutnya, hitung selisih setiap data dengan rata-rata, kuadratkan selisihnya, dan rata-rata kuadrat selisihnya.</p>
+        <p>Varian = \(\frac{(10 - 30)^2 + (30 - 30)^2 + (20 - 30)^2 + (40 - 30)^2 + (50 - 30)^2}{5}\)</p>
+        <p>Varian = \(\frac{(-20)^2 + (0)^2 + (-10)^2 + (10)^2 + (20)^2}{5} = \frac{400 + 0 + 100 + 100 + 400}{5} = \frac{1000}{5} = 200\)</p>
+        <p>Simpangan baku = \(\sqrt{200} \)</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. \(\sqrt{200} \)</strong></p>
+    </div>
+</div>
+
+<div id="5_7_Varian">
+    <p class="text-xl font-semibold text-[#4dd4a3] mt-6">5.7 Varian ( Ragam )</p>
+    <p class="mt-2 ml-4">Varian adalah ukuran penyebaran data yang menunjukkan seberapa jauh nilai-nilai dalam suatu kumpulan data tersebar dari nilai rata-ratanya. Varian merupakan kuadrat dari simpangan baku.</p>
+
+    <p class="mt-2 ml-4"><strong>Rumus Varian:</strong></p>
+    <p class="mt-2 ml-4" style="color: #4dd4a3;">\[ \sigma^2 = \frac{\sum{(x_i - \bar{x})^2}}{n} \]</p>
+
+    <p class="mt-2 ml-4">Keterangan:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>\(x_i\): data ke-i</li>
+        <li>\(\bar{x}\): nilai rata-rata (mean)</li>
+        <li>n: jumlah data</li>
+        <li>\(\sigma^2\): varian</li>
+    </ul><br>
+
+    <div class="p-6 bg-green-100 rounded-lg shadow-md">
+        <p class="mt-4 ml-4"><strong>Contoh :</strong></p>
+        <p class="mt-2 ml-4">Diketahui data: \[2\quad 4\quad 4\quad 4\quad 5\quad 5\quad 7\quad 9\]</p>
+
+        <ul class="list-disc mt-2 ml-12">
+            <li>Jumlah data = 8</li>
+            <li>Rata-rata \(\bar{x} = 5\)</li>
+            <li>Selisih kuadrat seperti pada contoh simpangan baku: 9, 1, 1, 1, 0, 0, 4, 16</li>
+            <li>Jumlah kuadrat selisih = 32</li>
+            <li>Varian = \(\frac{32}{8} = 4\)</li>
+        </ul>
+        <p class="mt-2 ml-4">Dengan demikian, varian dari data tersebut adalah <strong>4</strong>.</p>
+    </div>
+</div><br>
+
+<p class="text-xl text-[#4dd4a3] font-semibold">Penjelasan Varian</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+    <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/-L0k4-4wvb4" frameborder="0" allowfullscreen></iframe><br>
+</div>
+
+<!-- latihan 5.7 -->
+<h2 id="ukuranpemusatandata07" class="text-3xl font-bold text-[#4dd4a3] mt-6">latihan 5.7</h2><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    
+    <h2 id="ukuranpemusatandata7702" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+    <p class="text-lg">\[2 \quad 4 \quad 6 \quad 8 \quad 10 \quad 12\]</p>
+    
+    <p class="mt-4 text-lg">Tentukan varian (ragam) dari data tersebut!</p>
+
+    <ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+        <li>A. \(\frac{35}{3}\)</li>
+        <li>B. \(\frac{35}{4}\)</li>
+        <li>C. \(\frac{37}{3}\)</li>
+        <li>D. \(\frac{37}{4}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan7702')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+    
+    <div id="pembahasan7702" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Langkah pertama adalah menghitung rata-rata (mean) dari data tersebut.</p>
+        <p>Data: \[2, 4, 6, 8, 10, 12\]</p>
+        <p>Rata-rata (mean) = \(\frac{2 + 4 + 6 + 8 + 10 + 12}{6} = \frac{42}{6} = 7\)</p>
+        <p>Selanjutnya, hitung selisih setiap data dengan rata-rata, kuadratkan selisihnya, dan rata-rata kuadrat selisihnya.</p>
+        <p>\[\text{Varian} = \frac{(2 - 7)^2 + (4 - 7)^2 + (6 - 7)^2 + (8 - 7)^2 + (10 - 7)^2 + (12 - 7)^2}{6}\]
+        \[= \frac{(-5)^2 + (-3)^2 + (-1)^2 + (1)^2 + (3)^2 + (5)^2}{6}\]
+	   \[ = \frac{25 + 9 + 1 + 1 + 9 + 25}{6} = \frac{70}{6} =\frac{35}{3} \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>B. \(\frac{35}{3}\)</strong></p>
+    </div>
+<!-- latihan 5.7 -->
+<h2 id="ukuranpemusatandata7703" class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+<p class="mt-4 text-lg">Diketahui data sebagai berikut:</p>
+<p class="text-lg">\[3 \quad 5 \quad 7 \quad 9 \quad 11 \quad 13\]</p>
+
+<p class="mt-4 text-lg">Tentukan varian (ragam) dari data tersebut!</p>
+
+<ul class="mt-4 space-y-2 list-disc pl-5 text-lg text-gray-800">
+    <li>A. \(\frac{35}{3}\)</li>
+    <li>B. \(\frac{35}{4}\)</li>
+    <li>C. \(\frac{37}{3}\)</li>
+    <li>D. \(\frac{37}{4}\)</li>
+</ul>
+
+<button onclick="togglePembahasan('pembahasan7703')" 
+    class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+    Lihat Pembahasan
+</button>
+
+<div id="pembahasan7703" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Langkah pertama adalah menghitung rata-rata (mean) dari data tersebut.</p>
+    <p>Data: \[3, 5, 7, 9, 11, 13\]</p>
+    <p>Rata-rata (mean) = \(\frac{3 + 5 + 7 + 9 + 11 + 13}{6} = \frac{48}{6} = 8\)</p>
+    <p>Selanjutnya, hitung selisih setiap data dengan rata-rata, kuadratkan selisihnya, dan rata-rata kuadrat selisihnya.</p>
+    <p>\[\text{Varian} = \frac{(3 - 8)^2 + (5 - 8)^2 + (7 - 8)^2 + (9 - 8)^2 + (11 - 8)^2 + (13 - 8)^2}{6}\]</p>
+    <p>\[= \frac{(-5)^2 + (-3)^2 + (-1)^2 + (1)^2 + (3)^2 + (5)^2}{6}\]</p>
+    <p>\[ = \frac{25 + 9 + 1 + 1 + 9 + 25}{6} = \frac{70}{6} = \frac{35}{3} \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A. \(\frac{35}{3}\)</strong></p>
+</div>
+</div><br>
+
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #4dd4a3;
+      margin-bottom: 30px;
+      font-size: 32px;
+      font-weight: 600;
+      text-shadow: 1px 1px 2px #ccc;
+    }
+    h4 {
+      color: #4dd4a3;
+      border-left: 6px solid #4dd4a3;
+      padding-left: 12px;
+      margin-top: 40px;
+      font-size: 22px;
+    }
+    .formula-table {
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .formula-row {
+      display: table-row;
+      transition: background-color 0.3s;
+    }
+    .formula-row:hover {
+      background-color: #f3e5f5;
+    }
+    .formula-label, .formula-math {
+      display: table-cell;
+      padding: 14px 20px;
+      border: 1px solid #e0e0e0;
+      vertical-align: middle;
+      font-size: 16px;
+    }
+    .formula-label {
+      font-weight: 600;
+      background-color: #4dd4a3;
+      color: white;
+      width: 35%;
+    }
+    .formula-math {
+      font-family: 'Courier New', monospace;
+      background-color: #fff3e0;
+      color: black;
+    }
+    .btn-download {
+      display: block;
+      margin: 40px auto 0;
+      padding: 14px 28px;
+      font-size: 16px;
+      background-color: #4dd4a3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-download:hover {
+      background-color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="rangkumanstatistika">
+    <h1>Rangkuman Materi Statistika</h1>
+
+    <h4>Pengumpulan Data</h4>
+    <div class="formula-table">
+      <div class="formula-row">
+        <div class="formula-label">Metode</div>
+        <div class="formula-math">Observasi, Wawancara, Kuesioner, Eksperimen</div>
+      </div>
+    </div>
+
+    <h4>Penyajian Data</h4>
+    <div class="formula-table">
+      <div class="formula-row">
+        <div class="formula-label">Jenis</div>
+        <div class="formula-math">Tabel, Diagram Batang, Lingkaran, Garis</div>
+      </div>
+    </div>
+
+    <h4>Ukuran Pemusatan</h4>
+    <div class="formula-table">
+      <div class="formula-row">
+        <div class="formula-label">Mean (Rata-rata)</div>
+        <div class="formula-math">\[ \text{Mean (Rata-rata)} = \frac{\sum X}{n} \]</div>
+      </div>
+      <div class="formula-row">
+        <div class="formula-label">Median</div>
+        <div class="formula-math">\[\text{Nilai tengah dari data yang diurutkan}\]</div>
+      </div>
+      <div class="formula-row">
+        <div class="formula-label">Modus</div>
+        <div class="formula-math">\[\text{Data yang paling sering muncul}\]</div>
+      </div>
+    </div>
+
+    <h4>Ukuran Penyebaran</h4>
+    <div class="formula-table">
+      <div class="formula-row">
+        <div class="formula-label">Range (Jangkauan)</div>
+        <div class="formula-math">\[\text{Range = Nilai Maksimum - Nilai Minimum}\]</div>
+      </div>
+      <div class="formula-row">
+        <div class="formula-label">Jangkauan antar kuartil (IQR)</div>
+        <div class="formula-math">\[\text{IQR} = Q_3 - Q_1\]</div>
+      </div>
+	<div class="formula-row">
+        <div class="formula-label">Simpangan antar kuartil (IQR)</div>
+        <div class="formula-math">\[ Q_d = \frac{1}{2}(Q_3 - Q_1) \]</div>
+      </div>
+
+      <div class="formula-row">
+        <div class="formula-label">Simpangan Baku</div>
+        <div class="formula-math">\[S = \sqrt{\frac{\sum{(x_i - \bar{x})^2}}{n}}\]</div>
+      </div>
+	<div class="formula-row">
+        <div class="formula-label">Simpangan Rata-rata</div>
+        <div class="formula-math">\[S = \sqrt{\frac{\sum{|x_i - \bar{x}|}}{n}}\]</div>
+</div>
+	<div class="formula-row">
+        <div class="formula-label">Varian</div>
+        <div class="formula-math">\[ \sigma^2 = \frac{\sum{(x_i - \bar{x})^2}}{n} \]</div>
+  </div>
+</div>
+</div>
+
+    
+  <button class="btn-download" onclick="downloadPDF()">⬇ Download PDF</button>
+
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById('rangkumanstatistika');
+      html2pdf().from(element).set({
+        margin: 1,
+        filename: 'Rangkuman_Statistika.pdf',
+        html2canvas: { scale:5 },
+        jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
+      }).save();
+    }
+  </script>
+
+       
+
+	<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "user2", password: "qwerty" }
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 20px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: white;
+        }
+        .card:nth-child(1) { background: #4dd4a3; }
+        .card:nth-child(2) { background: #4dd4a3; }
+        .card:nth-child(3) { background: #4dd4a3; }
+        .card:nth-child(4) { background: #4dd4a3; }
+	.card:nth-child(5) { background: #4dd4a3; }
+        .card:nth-child(6) { background: #4dd4a3; }
+        .card:nth-child(7) { background: #4dd4a3; }
+        .card:nth-child(8) { background: #4dd4a3; }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .card a {
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+            <li ><a href="#Latihan Soal 1A" >📝 Latihan Soal 1A</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Latihan Soal 2A" >📝 Latihan Soal 2A</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="#Latihan Soal 3A" >📝 Latihan Soal 3A</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="#Latihan Soal 4A" >📝 Latihan Soal 4A</a></li>
+	    <li ><a href="#Sumatif Tengah Semester 1A" >📖 Sumatif Tengah Semester 1A</a></li>
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Peluang -->
+        <div id="Peluang" class="mb-8">
+            <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]"> Peluang </h1>
+	<ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+            <li class="mb-3"><a href="#1. Menentukan Ruang Sampel dan Titik Sampel" class="hover:text-white">1. Menentukan Ruang Sampel dan Titik Sampel</a></li>
+            <li class="mb-3 ml-6"><a href="#1.1 Dengan Menggunakan Tabel" class="hover:text-white">1.1 Dengan Menggunakan Tabel</a></li>
+            <li class="mb-3 ml-6"><a href="#1.2 Dengan Menggunakan Diagram Pohon" class="hover:text-white">1.2 Dengan Menggunakan Diagram Pohon</a></li>
+            <li class="mb-3"><a href="#2. Menentukan Peluang Suatu Kejadian" class="hover:text-white">2. Menentukan Peluang Suatu Kejadian</a></li>
+            <li class="mb-3 ml-6"><a href="#2.1 Frekuensi Relatif" class="hover:text-white">2.1 Frekuensi Relatif</a></li>
+            <li class="mb-3 ml-6"><a href="#2.2 Peluang Suatu Kejadian" class="hover:text-white">2.2 Peluang Suatu Kejadian</a></li>
+            <li class="mb-3"><a href="#3. Frekuensi Harapan" class="hover:text-white">3. Frekuensi Harapan</a></li>
+            <li class="mb-3"><a href="#4. Permutasi dan Kombinasi" class="hover:text-white">4. Permutasi dan Kombinasi</a></li>
+	    <li class="mb-3 ml-6"><a href="#4.1 Permutasi" class="hover:text-white">4.1 Permutasi</a></li>
+            <li class="mb-3 ml-6"><a href="#4.2 Kombinasi" class="hover:text-white">4.2 Kombinasi</a></li>
+            <li class="mb-3"><a href="#5. Peluang Kejadian Majemuk" class="hover:text-white">5. Peluang Kejadian Majemuk</a></li>
+            <li class="mb-3 ml-6"><a href="#5.1 Kejadian Saling Lepas" class="hover:text-white">5.1 Kejadian Saling Lepas</a></li>
+            <li class="mb-3 ml-6"><a href="#5.2 Kejadian Saling Bebas" class="hover:text-white">5.2 Kejadian Saling Bebas</a></li>
+        </ul><br>
+
+        <div id="1. Menentukan Ruang Sampel dan Titik Sampel">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1. Menentukan Ruang Sampel dan Titik Sampel</p>
+            <p class="mt-2 ml-4">Ruang sampel adalah himpunan semua kemungkinan hasil yang dapat terjadi dalam suatu percobaan.</p>
+        </div>
+	<div id="Contoh1" class="mb-6">
+	<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal</p>
+        <p class="mt-2 ml-4">Sebuah dadu bersisi 6 dilempar satu kali. Tentukan ruang sampelnya!</p>
+            <p class="mt-4 font-semibold">Penyelesaian:</p>
+            <p class="ml-4">Ruang sampel adalah semua kemungkinan hasil yang dapat terjadi saat melempar dadu.</p>
+            <p class="ml-4">Hasil yang mungkin: {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Jumlah titik sampel = <strong>6</strong>.</p>
+        </div>
+    </div>
+</div>
+<p class="text-xl text-[#4dd4a3] font-semibold"> Penjelasan Ruang dan Titik Sample</p><br>
+<div class="w-full rounded-lg shadow-lg overflow-hidden">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/8GvsSRJL93U" frameborder="0" allowfullscreen></iframe><br>
+</div><br>
+
+<div id="Latihan-1">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 1</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Sebuah dadu enam sisi dilempar sekali. Tentukan ruang sampel dari percobaan ini!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1"> A. {1, 2, 3, 4, 5}</li>
+            <li><input type="radio" name="soal1"> B. {1, 2, 3, 4, 5, 6}</li>
+            <li><input type="radio" name="soal1"> C. {2, 4, 6}</li>
+            <li><input type="radio" name="soal1"> D. {1, 3, 5}</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Ruang sampel dari pelemparan satu dadu enam sisi adalah himpunan semua hasil yang mungkin, yaitu:</p>
+            <p class="font-mono bg-gray-200 p-2 rounded">S = {1, 2, 3, 4, 5, 6}</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Sebuah koin dilempar sekali. Tentukan titik sampel dari percobaan ini!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal2"> A. {H, T}</li>
+            <li><input type="radio" name="soal2"> B. {H, T, K}</li>
+            <li><input type="radio" name="soal2"> C. {T, K}</li>
+            <li><input type="radio" name="soal2"> D. {H, K}</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no2')" 
+           class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Titik sampel dari pelemparan satu koin adalah semua kemungkinan hasil yang bisa terjadi, yaitu:</p>
+            <p class="font-mono bg-gray-200 p-2 rounded">S = {H, T}</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+
+	<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+        <p class="mt-4 text-lg">
+            Sebuah koin dilempar sekali. Tentukan ruang sampel dari percobaan ini!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal3"> A. {0, 1}</li>
+            <li><input type="radio" name="soal3"> B. {Head, Tail}</li>
+            <li><input type="radio" name="soal3"> C. {A, B, C}</li>
+            <li><input type="radio" name="soal3"> D. {1, 2, 3, 4}</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no3')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Ruang sampel dari pelemparan satu koin adalah dua kemungkinan hasil, yaitu:</p>
+            <p class="font-mono bg-gray-200 p-2 rounded">S = {Head, Tail}</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+        <p class="mt-4 text-lg">
+            Sebuah spinner dengan 4 warna (merah, biru, hijau, kuning) diputar sekali. Tentukan ruang sampel dari percobaan ini!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal4"> A. {1, 2, 3, 4}</li>
+            <li><input type="radio" name="soal4"> B. {Merah, Biru, Hijau, Kuning}</li>
+            <li><input type="radio" name="soal4"> C. {A, B, C, D}</li>
+            <li><input type="radio" name="soal4"> D. {0, 1}</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no4')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Ruang sampel dari pemutaran spinner dengan 4 warna adalah:</p>
+            <p class="font-mono bg-gray-200 p-2 rounded">S = {Merah, Biru, Hijau, Kuning}</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+	<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+        <p class="mt-4 text-lg">
+            Sebuah dadu enam sisi dilempar sekali. Tentukan himpunan kejadian muncul bilangan prima!
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal5"> A. {1, 4, 6}</li>
+            <li><input type="radio" name="soal5"> B. {2, 3, 5}</li>
+            <li><input type="radio" name="soal5"> C. {1, 2, 3}</li>
+            <li><input type="radio" name="soal5"> D. {1, 3, 5}</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no5')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan1-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Bilangan prima yang mungkin muncul dalam pelemparan dadu adalah:</p>
+            <p class="font-mono bg-gray-200 p-2 rounded">S = {2, 3, 5}</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+</div><br>
+
+
+        <div id="1.1 Dengan Menggunakan Tabel">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1.1 Dengan Menggunakan Tabel</p>
+            <p class="mt-2 ml-4">Tabel dapat digunakan untuk menyusun semua kemungkinan hasil dalam suatu percobaan.</p>
+        </div>
+	<div id="Contoh1" class="mb-6">
+	<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">Sebuah dadu bersisi 6 dan sebuah koin dilempar secara bersamaan. Tentukan ruang sampelnya!</p>
+        
+            <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+            <p class="ml-4">Ruang sampel adalah semua kemungkinan hasil yang dapat terjadi.</p>
+            <p class="ml-4">Hasil dari dadu: {1, 2, 3, 4, 5, 6}</p>
+            <p class="ml-4">Hasil dari koin: {H (Head), T (Tail)}</p>
+            
+            <table class="mt-4 border-collapse border border-gray-400 w-full">
+                <tr>
+                    <th class="border border-gray-400 p-2">Dadu \ Koin</th>
+                    <th class="border border-gray-400 p-2">H</th>
+                    <th class="border border-gray-400 p-2">T</th>
+                </tr>
+                <tr><td class="border border-gray-400 p-2">1</td><td class="border border-gray-400 p-2">(1,H)</td><td class="border border-gray-400 p-2">(1,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">2</td><td class="border border-gray-400 p-2">(2,H)</td><td class="border border-gray-400 p-2">(2,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">3</td><td class="border border-gray-400 p-2">(3,H)</td><td class="border border-gray-400 p-2">(3,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">4</td><td class="border border-gray-400 p-2">(4,H)</td><td class="border border-gray-400 p-2">(4,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">5</td><td class="border border-gray-400 p-2">(5,H)</td><td class="border border-gray-400 p-2">(5,T)</td></tr>
+                <tr><td class="border border-gray-400 p-2">6</td><td class="border border-gray-400 p-2">(6,H)</td><td class="border border-gray-400 p-2">(6,T)</td></tr>
+            </table>
+            <p class="mt-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                { (1,H), (1,T), (2,H), (2,T), (3,H), (3,T), (4,H), (4,T), (5,H), (5,T), (6,H), (6,T) }</p>
+            <p>Jumlah titik sampel = <strong>12</strong>.</p>
+        </div>
+    </div>
+        <div id="1.2 Dengan Menggunakan Diagram Pohon">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1.2 Dengan Menggunakan Diagram Pohon</p>
+            <p class="mt-2 ml-4">Diagram pohon dapat digunakan untuk menunjukkan semua kemungkinan hasil dengan lebih visual.</p>
+        </div>
+	 <div id="Contoh1" class="mb-6">
+	<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+        <p class="text-xl font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">Dua koin dilempar secara bersamaan. Tentukan ruang sampelnya menggunakan diagram pohon!</p>
+            <p class="font-semibold">Penyelesaian:</p>
+            <p>Setiap koin memiliki dua kemungkinan hasil: H (Head) dan T (Tail).</p>
+
+            <pre class="bg-green-200 p-4 rounded-lg shadow-md mt-2">
+                (Mulai)
+                /    \
+              H       T
+             / \     / \
+            H   T   H   T
+            </pre>
+
+            <p class="mt-4">Jadi, ruang sampel <strong>S</strong> adalah:<br>
+                { (H,H), (H,T), (T,H), (T,T) }</p>
+            <p>Jumlah titik sampel = <strong>4</strong>.</p>
+        </div>
+    </div>
+        <div id="2. Menentukan Peluang Suatu Kejadian">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2. Menentukan Peluang Suatu Kejadian</p>
+        </div>
+
+        <div id="2.1 Frekuensi Relatif">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2.1 Frekuensi Relatif</p>
+            <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">\[ F = \frac{f}{n} \]<br></p>
+            <p class="mt-2 ml-4">dengan:<br>
+                <ul class="list-disc mt-2 ml-12">
+                    <li>\( F \) = frekuensi relatif</li>
+                    <li>\( f \) = banyaknya kejadian yang diamati</li>
+                    <li>\( n \) = jumlah percobaan</li>
+                </ul>
+            </p>
+        </div>
+	<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">
+            Dalam sebuah percobaan, sebuah koin dilempar sebanyak 20 kali. Hasil yang diperoleh adalah:
+        </p>
+
+        <ul class="ml-8 mt-2 list-disc">
+            <li>Head (H) muncul 12 kali.</li>
+            <li>Tail (T) muncul 8 kali.</li>
+        </ul>
+
+        <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">
+            Frekuensi relatif dihitung menggunakan rumus:
+            <br>
+            <strong>\[Frekuensi Relatif = \frac {Frekuensi (f)}{Total \ Percobaan (N)}\]</strong>
+        </p>
+
+        <p class="ml-4 mt-2">Frekuensi relatif untuk masing-masing hasil:</p>
+        <ul class="ml-8 mt-2 list-disc">
+            <li>Frekuensi relatif Head (H) = \( \frac {12}{20} = 0.6 \)</li>
+            <li>Frekuensi relatif Tail (T) = \( \frac {8}{20} = 0.4 \)</li>
+        </ul>
+
+        <p class="mt-4 ml-4">Jadi, peluang relatif untuk mendapatkan Head adalah <strong>0.6</strong>, sedangkan untuk mendapatkan Tail adalah <strong>0.4</strong>.</p>
+    </div><br>
+        <div id="2.2 Peluang Suatu Kejadian">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2.2 Peluang Suatu Kejadian</p>
+            <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">\[ P(A) = \frac{n(A)}{n(S)} \]<br></p>
+            <p class="mt-2 ml-4">dengan:<br>
+                <ul class="list-disc mt-2 ml-12">
+                    <li>\( P(A) \) = peluang kejadian A</li>
+                    <li>\( n(A) \) = banyaknya kejadian A</li>
+                    <li>\( n(S) \) = banyaknya seluruh kejadian dalam ruang sampel</li>
+                </ul>
+            </p>
+        </div>
+	<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+        <p class="font-semibold">Contoh Soal:</p>
+        <p class="mt-2 ml-4">
+            Sebuah dadu bersisi 6 dilempar sekali. Tentukan peluang munculnya angka genap!
+        </p>
+
+        <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+        <p class="ml-4">
+            Ruang sampel dari pelemparan dadu adalah:
+        </p>
+        <p class="ml-4"><strong>S = {1, 2, 3, 4, 5, 6}</strong></p>
+
+        <p class="ml-4 mt-2">Kejadian muncul angka genap:</p>
+        <p class="ml-4"><strong>A = {2, 4, 6}</strong></p>
+
+        <p class="ml-4 mt-2">Peluang kejadian A dihitung dengan rumus:</p>
+        <p class="ml-4"><strong>\[ P(A) = \frac {Jumlah \ Kejadian \ A}{Jumlah \ Ruang \ Sampel}\]</strong></p>
+
+        <p class="ml-4 mt-2">Sehingga:</p>
+        <p class="ml-4"><strong>\[ P(A) = \frac {3}{6} = \frac {1}{2} = 0.5\]</strong></p>
+
+        <p class="mt-4 ml-4">Jadi, peluang munculnya angka genap adalah <strong>0.5</strong> atau <strong>50%</strong>.</p>
+    </div><br>
+
+<div id="Latihan-2">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Dari sebuah kotak yang berisi 5 bola merah dan 3 bola biru, diambil satu bola secara acak. 
+            Berapakah peluang terambilnya bola merah?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="latihan2-soal1"> A. \(\frac{3}{8}\)i>
+            <li><input type="radio" name="latihan2-soal1"> B. 5/8</li>
+            <li><input type="radio" name="latihan2-soal1"> C. 1/2</li>
+            <li><input type="radio" name="latihan2-soal1"> D. 5/3</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan2-no1')" 
+            class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan2-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Jumlah bola keseluruhan = 5 merah + 3 biru = 8 bola</p>
+            <p>Peluang terambil bola merah = jumlah bola merah / total bola = 5/8</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Sebuah dadu dilempar satu kali. Berapakah peluang munculnya mata dadu ganjil?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="latihan2-soal2"> A. 1/2</li>
+            <li><input type="radio" name="latihan2-soal2"> B. 1/3</li>
+            <li><input type="radio" name="latihan2-soal2"> C. 2/3</li>
+            <li><input type="radio" name="latihan2-soal2"> D. 5/6</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan2-no2')" 
+           class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+            Lihat Pembahasan
+        </button>
+
+        <div id="pembahasan-latihan2-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Ruang sampel pelemparan dadu = {1, 2, 3, 4, 5, 6}</p>
+            <p>Angka ganjil = {1, 3, 5} → jumlah = 3</p>
+            <p>Peluang muncul angka ganjil = 3/6 = 1/2</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="mt-4 text-lg">
+        Dalam suatu kantong terdapat 4 kelereng merah, 5 kelereng biru, dan 3 kelereng hijau. 
+        Jika diambil satu kelereng secara acak, berapakah peluang terambilnya kelereng biru?
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="latihan2-soal3"> A. 3/12</li>
+        <li><input type="radio" name="latihan2-soal3"> B. 4/12</li>
+        <li><input type="radio" name="latihan2-soal3"> C. 5/12</li>
+        <li><input type="radio" name="latihan2-soal3"> D. 5/11</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan2-no3')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan2-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Jumlah total kelereng = 4 + 5 + 3 = 12</p>
+        <p>Jumlah kelereng biru = 5</p>
+        <p>Peluang terambil kelereng biru = 5/12</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+    </div>
+</div>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="mt-4 text-lg">
+        Dari angka 1 sampai 10, diambil satu angka secara acak. 
+        Berapakah peluang terambilnya angka kelipatan 3?
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="latihan2-soal4"> A. 1/10</li>
+        <li><input type="radio" name="latihan2-soal4"> B. 2/10</li>
+        <li><input type="radio" name="latihan2-soal4"> C. 3/10</li>
+        <li><input type="radio" name="latihan2-soal4"> D. 4/10</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan2-no4')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan2-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Angka dari 1 sampai 10 adalah: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</p>
+        <p>Kelipatan 3 = {3, 6, 9} → jumlah = 3</p>
+        <p>Jumlah angka total = 10</p>
+        <p>Peluang terambil angka kelipatan 3 = 3/10</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+    </div>
+</div>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    <p class="mt-4 text-lg">
+        Dari sebuah kotak yang berisi 3 bola merah dan 2 bola putih, diambil 2 bola sekaligus secara acak tanpa melihat warna bola. 
+        Berapakah peluang kedua bola yang terambil berwarna merah?
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="latihan2-soal5"> A. 2/5</li>
+        <li><input type="radio" name="latihan2-soal5"> B. 3/10</li>
+        <li><input type="radio" name="latihan2-soal5"> C. 3/5</li>
+        <li><input type="radio" name="latihan2-soal5"> D. 1/2</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan2-no5')" 
+        class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">
+        Lihat Pembahasan
+    </button>
+
+    <div id="pembahasan-latihan2-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>Total bola = 3 merah + 2 putih = 5 bola</p>
+        <p>Kita cari kombinasi mengambil 2 bola dari 5:</p>
+        <p class="font-mono bg-gray-200 p-2 rounded">C(5, 2) = 10</p>
+        <p>Jumlah cara memilih 2 bola merah dari 3:</p>
+        <p class="font-mono bg-gray-200 p-2 rounded">C(3, 2) = 3</p>
+        <p>Maka peluangnya = 3 / 10</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+</div><br>
+
+        <div id="3. Frekuensi Harapan">
+           <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">3. Frekuensi Harapan</p>
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">\[ E = P(A) \times N \]<br></p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( E \) = frekuensi harapan kejadian A</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( N \) = banyaknya percobaan</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Sebuah dadu bersisi 6 dilempar sebanyak 60 kali. Berapa frekuensi harapan munculnya angka 3?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Peluang munculnya angka 3 pada satu kali lemparan dadu adalah:</p>
+    <p class="ml-4 text-white">\[ P(A) = \frac{1}{6} \]</p>
+
+    <p class="ml-4 mt-2">Banyaknya percobaan:</p>
+    <p class="ml-4"><strong>N = 60</strong></p>
+
+    <p class="ml-4 mt-2">Frekuensi harapan dihitung dengan rumus:</p>
+    <p class="ml-4 text-white">\[ E = P(A) \times N \]</p>
+
+    <p class="ml-4 mt-2">Sehingga:</p>
+    <p class="ml-4 text-white">\[ E = \frac{1}{6} \times 60 = 10 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, frekuensi harapan munculnya angka 3 adalah <strong>10 kali</strong>.</p>
+</div><br>
+
+        <div id="4. Permutasi dan Kombinasi">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">4. Permutasi dan Kombinasi</p>
+	<div id="4.1 Permutasi">
+	    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">4.1 Permutasi</p>
+    <p class="mt-2 ml-4">
+        Permutasi adalah penyusunan atau pengurutan elemen dari suatu himpunan yang memperhatikan urutan.
+    </p>
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ P(n, r) = \frac{n!}{(n-r)!} \]
+    </p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(n, r) \) = banyaknya permutasi</li>
+            <li>\( n \) = jumlah total elemen</li>
+            <li>\( r \) = jumlah elemen yang dipilih</li>
+            <li>\( ! \) = faktorial</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dari 5 orang peserta, akan dipilih 3 orang untuk menjadi ketua, wakil, dan sekretaris. Berapa banyak cara memilih mereka?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Gunakan rumus permutasi:</p>
+    <p class="ml-4 text-white">\[ P(5, 3) = \frac{5!}{(5-3)!} = \frac{5!}{2!} \]</p>
+
+    <p class="ml-4 mt-2">Hitung faktorial:</p>
+    <p class="ml-4 text-white">\[ P(5, 3) = \frac{5 \times 4 \times 3 \times 2!}{2!} = 5 \times 4 \times 3 = 60 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, ada <strong>60 cara</strong> untuk memilih ketua, wakil, dan sekretaris.</p>
+</div>
+
+<div id="4.2 Kombinasi">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">4.2 Kombinasi</p>
+    <p class="mt-2 ml-4">
+        Kombinasi adalah pemilihan elemen dari suatu himpunan tanpa memperhatikan urutan.
+    </p>
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ C(n, r) = \frac{n!}{r!(n-r)!} \]
+    </p>
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( C(n, r) \) = banyaknya kombinasi</li>
+            <li>\( n \) = jumlah total elemen</li>
+            <li>\( r \) = jumlah elemen yang dipilih</li>
+            <li>\( ! \) = faktorial</li>
+        </ul>
+    </p>
+</div>
+
+<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dari 5 orang peserta, akan dipilih 3 orang untuk menjadi anggota tim tanpa memperhatikan urutan. Berapa banyak cara memilih mereka?
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Gunakan rumus kombinasi:</p>
+    <p class="ml-4 text-white">\[ C(5, 3) = \frac{5!}{3!(5-3)!} = \frac{5!}{3!2!} \]</p>
+
+    <p class="ml-4 mt-2">Hitung faktorial:</p>
+    <p class="ml-4 text-white">\[ C(5, 3) = \frac{5 \times 4 \times 3!}{3! \times 2!} = \frac{5 \times 4}{2!} = \frac{20}{2} = 10 \]</p>
+
+    <p class="mt-4 ml-4">Jadi, ada <strong>10 cara</strong> untuk memilih anggota tim.</p>
+</div> <br>
+
+        <div id="5. Peluang Kejadian Majemuk">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">5. Peluang Kejadian Majemuk</p>
+        </div>
+
+        <div id="5.1 Kejadian Saling Lepas">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">5.1 Peluang Kejadian Saling Lepas</p>
+    <p class="mt-2 ml-4">
+        Dua kejadian dikatakan <strong>saling lepas</strong>jika tidak memiliki irisan atau tidak bisa terjadi secara bersamaan. Dalam hal ini, peluang kejadian A dan B secara bersamaan bernilai nol, yaitu:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ P(A \cap B) = 0 \]
+    </p>
+
+    <p class="ml-4 mt-2">
+        Oleh karena itu, peluang kejadian <strong>A atau B</strong> dapat dihitung dengan rumus:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ P(A \cup B) = P(A) + P(B) \]
+    </p>
+
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(A \cup B) \) = peluang kejadian A atau B terjadi</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( P(B) \) = peluang kejadian B</li>
+        </ul>
+    </p>
+
+    <p class="text-lg font-semibold mt-4 ml-4">Diagram Venn Kejadian Saling Lepas</p>
+    <p class="ml-4">
+        Berikut adalah ilustrasi diagram Venn untuk kejadian <strong>saling lepas</strong> di mana tidak ada bagian yang saling beririsan antara kejadian A dan B:
+    </p>
+    
+    <div class="flex justify-center mt-4">
+        <div class="border border-gray-400 p-4 rounded-lg inline-block shadow-lg bg-white">
+            <svg width="300" height="150">
+                <!-- Kotak Ruang Sampel -->
+                <rect x="10" y="10" width="280" height="140" stroke="black" stroke-width="2" fill="none" />
+                <text x="20" y="25" fill="black" font-size="14">Ruang Sampel (S)</text>
+
+                <!-- Lingkaran untuk A -->
+                <circle cx="90" cy="80" r="50" stroke="blue" stroke-width="2" fill="none" />
+                <text x="80" y="80" fill="blue" font-size="16">A</text>
+
+                <!-- Lingkaran untuk B -->
+                <circle cx="210" cy="80" r="50" stroke="red" stroke-width="2" fill="none" />
+                <text x="200" y="80" fill="red" font-size="16">B</text>
+            </svg>
+        </div>
+    </div>
+</div>
+
+<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dalam sebuah kantong terdapat 10 bola merah dan 8 bola biru. Jika diambil satu bola secara acak, tentukan peluang mendapatkan bola merah atau bola biru!
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Karena bola yang diambil hanya satu, tidak mungkin sekaligus merah dan biru, sehingga kejadian ini <strong>saling lepas</strong>.</p>
+
+    <p class="ml-4 mt-2">Gunakan rumus:</p>
+    <p class="text-white ml-4">
+        \[ P(A \cup B) = P(A) + P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">Hitung peluang:</p>
+    <p class="text-white ml-4">
+        \[ P(A) = \frac{10}{18}, \quad P(B) = \frac{8}{18} \]
+    </p>
+    <p class="text-white ml-4">
+        \[ P(A \cup B) = \frac{10}{18} + \frac{8}{18} = \frac{18}{18} = 1 \]
+    </p>
+
+    <p class="mt-4 ml-4">Jadi, peluang mendapatkan bola merah atau biru adalah <strong>1</strong> atau <strong>100%</strong>, karena tidak ada bola lain di kantong.</p>
+</div><br>
+
+        <div id="5.2 Kejadian Saling Bebas">
+            <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">5.2 Peluang Kejadian Saling Bebas</p>
+    <p class="mt-2 ml-4">
+        Dua kejadian dikatakan <strong>saling bebas</strong> jika terjadinya salah satu kejadian tidak mempengaruhi peluang kejadian lainnya. Dalam hal ini, peluang kejadian A dan B secara bersamaan dihitung dengan:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ P(A \cap B) = P(A) \times P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">
+        Oleh karena itu, peluang kejadian <strong>A atau B</strong> dapat dihitung dengan rumus:
+    </p>
+
+    <p class="text-xl mt-2 ml-4 text-[#4dd4a3]">
+        \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+    </p>
+
+    <p class="mt-2 ml-4">dengan:<br>
+        <ul class="list-disc mt-2 ml-12">
+            <li>\( P(A \cup B) \) = peluang kejadian A atau B terjadi</li>
+            <li>\( P(A) \) = peluang kejadian A</li>
+            <li>\( P(B) \) = peluang kejadian B</li>
+            <li>\( P(A \cap B) \) = peluang kejadian A dan B terjadi secara bersamaan</li>
+        </ul>
+    </p>
+
+    <p class="text-lg font-semibold mt-4 ml-4">Diagram Venn Kejadian Saling Bebas</p>
+    <p class="ml-4">
+        Berikut adalah ilustrasi diagram Venn untuk kejadian <strong>saling bebas</strong>, di mana terdapat bagian yang saling beririsan antara kejadian A dan B:
+    </p>
+    
+    <div class="flex justify-center mt-4">
+        <div class="border border-gray-400 p-4 rounded-lg inline-block shadow-lg bg-white">
+            <svg width="400" height="200">
+    <!-- Kotak Ruang Sampel -->
+    <rect x="10" y="10" width="380" height="180" stroke="black" stroke-width="2" fill="none"/>
+    <text x="20" y="25" fill="black" font-size="14">Ruang Sampel (S)</text>
+
+    <!-- Lingkaran A -->
+    <circle cx="150" cy="100" r="70" stroke="blue" stroke-width="2" fill="blue" fill-opacity="0.5"/>
+    <text x="115" y="100" fill="blue" font-size="16">A</text>
+
+    <!-- Lingkaran B -->
+    <circle cx="220" cy="100" r="70" stroke="red" stroke-width="2" fill="red" fill-opacity="0.5"/>
+    <text x="240" y="100" fill="red" font-size="16">B</text>
+
+    <!-- Irisan-->
+    
+    <text x="165" y="100" fill="white" font-size="16">A ∩ B</text>
+</svg>
+        </div>
+    </div>
+</div>
+
+<div class="p-4 bg-[#4dd4a3] rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">
+        Dalam sebuah kelas, peluang seorang siswa lulus Matematika adalah 0,7 dan peluang lulus Fisika adalah 0,6. Jika lulus Matematika dan Fisika <strong>saling bebas</strong>, tentukan peluang siswa tersebut lulus setidaknya salah satu dari kedua mata pelajaran tersebut.
+    </p>
+
+    <p class="mt-2 ml-4 font-semibold">Penyelesaian:</p>
+    <p class="ml-4">Karena kejadian lulus Matematika dan Fisika <strong>saling bebas</strong>, maka:</p>
+
+    <p class="text-white ml-4">
+        \[ P(A \cap B) = P(A) \times P(B) \]
+    </p>
+
+    <p class="ml-4 mt-2">Hitung peluang:</p>
+    <p class="text-white ml-4">
+        \[ P(A \cap B) = (0,7) \times (0,6) = 0,42 \]
+    </p>
+
+    <p class="ml-4 mt-2">Gunakan rumus peluang kejadian A atau B:</p>
+    <p class="text-white ml-4">
+        \[ P(A \cup B) = P(A) + P(B) - P(A \cap B) \]
+    </p>
+
+    <p class="text-white ml-4">
+        \[ P(A \cup B) = 0,7 + 0,6 - 0,42 = 0,88 \]
+    </p>
+
+    <p class="mt-4 ml-4">Jadi, peluang siswa tersebut lulus setidaknya salah satu mata pelajaran adalah <strong>0,88</strong> atau <strong>88%</strong>.</p>
+</div><br>
+
+        <div class="p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+            <p class="font-semibold mt-2 ml-4">Contoh Soal:</p>
+            <p class="mt-2 ml-4">1. Sebuah dadu dilempar sekali. Tentukan peluang munculnya angka genap!</p>
+            <p class="mt-2 ml-4">2. Dalam sebuah kelas terdapat 20 siswa laki-laki dan 30 siswa perempuan. Jika dipilih secara acak, tentukan peluang terpilihnya siswa laki-laki!</p>
+            <p class="mt-2 ml-4">3. Sebuah koin dilempar sebanyak 50 kali dan muncul sisi angka sebanyak 20 kali. Tentukan frekuensi relatif munculnya sisi angka!</p>
+        </div><br>
+    </div>
+</div>
+
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "user2", password: "qwerty" }
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
