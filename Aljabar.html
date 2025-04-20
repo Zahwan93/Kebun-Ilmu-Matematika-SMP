@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+                }
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="Segitiga dan Segi Empat.html" >▶️ Segitiga dan Segi Empat</a></li>
+	    <li ><a href="Aljabar.html" >▶️ Aljabar</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Aljabar-->
+
+        <div id="Aljabar" class="mb-8">
+            <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]"> Aljabar</h1>
+	<ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+    <li class="mb-3">
+        <a href="#1.-Pengertian-Dasar-Aljabar" class="hover:text-white">1. Pengertian Dasar Aljabar</a>
+    </li>
+    <li class="mb-3">
+        <a href="#2.-Operasi-Aljabar" class="hover:text-white">2. Operasi Aljabar</a>
+    </li>
+    <li class="mb-3 ml-6">
+        <a href="#2.1-Penjumlahan" class="hover:text-white">2.1 Penjumlahan</a>
+    </li>
+    <li class="mb-3 ml-6">
+        <a href="#2.2-Pengurangan" class="hover:text-white">2.2 Pengurangan</a>
+    </li>
+    <li class="mb-3 ml-6">
+        <a href="#2.3-Perkalian" class="hover:text-white">2.3 Perkalian</a>
+    </li>
+    <li class="mb-3 ml-6">
+        <a href="#2.4-Pembagian" class="hover:text-white">2.4 Pembagian</a>
+    </li>
+    <li class="mb-3">
+        <a href="#4.-Persamaan-Linear-Satu-Variabel" class="hover:text-white">4. Persamaan Linear Satu Variabel</a>
+    </li>
+    <li class="mb-3">
+        <a href="#4.-Pertidaksamaan-Linear-Satu-Variabel" class="hover:text-white">4. Pertidaksamaan Linear Satu Variabel</a>
+    </li>
+    <li class="mb-3">
+        <a href="#5.-Aplikasi-Aljabar-dalam-Kehidupan-Sehari-hari" class="hover:text-white">5. Aplikasi Aljabar dalam Kehidupan Sehari-hari</a>
+    </li>
+</ul>
+
+<br>
+	<div id="1.-Pengertian-Dasar-Aljabar">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1. Pengertian Dasar Aljabar</p>
+    <p class="mt-2 ml-4 "><strong>Aljabar </strong>adalah cabang matematika yang mempelajari tentang operasi dan simbol-simbol matematika. Aljabar memungkinkan kita untuk mengubah bilangan konkret menjadi variabel dan menyelesaikan persamaan atau ketidaksamaan. Aljabar banyak digunakan dalam berbagai cabang matematika dan ilmu pengetahuan lainnya.</p>
+    <p class="mt-2 ml-4">Simbol dalam aljabar sering digunakan untuk mewakili angka yang tidak diketahui, yang disebut variabel. Biasanya, variabel ini dilambangkan dengan huruf seperti \( x \), \( y \), dan \( z \). Dalam aljabar, kita juga belajar tentang operasi matematika seperti penjumlahan, pengurangan, perkalian, pembagian, dan pemangkatan, yang dapat diterapkan pada variabel-variabel ini.</p>
+    <p class="mt-2 ml-4">Berikut adalah penjelasan tentang beberapa komponen dalam aljabar:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Variabel:</strong> Simbol yang mewakili suatu nilai yang tidak diketahui. Biasanya dilambangkan dengan huruf seperti \( x \), \( y \), atau \( z \).</li>
+        <li><strong>Koefisien:</strong> Angka yang mengalikan variabel dalam suatu ekspresi aljabar.</li>
+        <li><strong>Konstanta:</strong> Angka yang tidak memiliki variabel, atau nilai tetap dalam suatu ekspresi aljabar.</li>
+        <li><strong>Suku:</strong> Bagian-bagian dalam suatu ekspresi aljabar yang dipisahkan oleh tanda penjumlahan atau pengurangan.</li>
+    </ul>
+</div>
+
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">Berikut adalah suatu ekspresi aljabar:</p>
+    <p class="ml-4 mt-2 font-semibold">Ekspresi: \( 2x + 3 \)</p>
+
+    <p class="mt-2 ml-4">Mari kita identifikasi bagian-bagian dari ekspresi ini:</p>
+    <ul class="ml-8 mt-2 list-disc">
+        <li><strong>Variabel:</strong> \( x \) adalah variabel, yang mewakili nilai yang tidak diketahui.</li>
+        <li><strong>Koefisien:</strong> 2 adalah koefisien, yaitu angka yang mengalikan variabel \( x \).</li>
+        <li><strong>Konstanta:</strong> 3 adalah konstanta, yaitu angka yang tidak mengandung variabel.</li>
+        <li><strong>Suku:</strong> \( 2x \) dan 3 adalah dua suku dalam ekspresi ini, karena dipisahkan oleh tanda penjumlahan.</li>
+    </ul>
+
+    <p class="mt-4 ml-4">Dengan demikian, ekspresi \( 2x + 3 \) terdiri dari dua suku: \( 2x \) (suku pertama) dan 3 (suku kedua). Dalam suku pertama, 2 adalah koefisien dan \( x \) adalah variabel. Dalam suku kedua, 3 adalah konstanta.</p>
+</div>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan aljabar:</p>
+    <div class="mt-2 ml-4">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/s5yk8vg01As" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+<div id="Latihan-1" class="mt-6">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 1</p>
+    
+    <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+	
+
+  <p class="mb-4">Diberikan bentuk aljabar\[4x^2+3x-3\]Tentukan: </p>
+  <p class="mb-4"><strong>Petunjuk:</strong> Jika jawaban lebih dari satu, pisahkan dengan koma. Contoh: <em>x, y</em></p>
+
+
+  <!-- Koefisien -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Koefisien :</span>
+    <input type="text" id="jawaban1" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban1', ['4', '3'], 'hasil1')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil1" class="font-semibold"></span>
+  </div>
+
+  <!-- Variabel -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Variabel :</span>
+    <input type="text" id="jawaban2" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban2', ['x'], 'hasil2')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil2" class="font-semibold"></span>
+  </div>
+
+  <!-- Konstanta -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Konstanta :</span>
+    <input type="text" id="jawaban3" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban3', ['-3'], 'hasil3')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3" class="font-semibold"></span>
+  </div>
+
+  <!-- Suku -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Suku-suku </span>
+    <input type="text" id="jawaban4" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban4', ['4x^2', '3x', '-3'], 'hasil4')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4" class="font-semibold"></span>
+  </div>
+</div><br>
+
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+
+  <p class="mb-4">Diberikan bentuk aljabar \[3x^2 + 2xy - y + 4\]<br>Tentukan:</p>
+  <p class="mb-4"><strong>Petunjuk:</strong> Jika jawaban lebih dari satu, pisahkan dengan koma. Contoh: <em>x, y</em></p>
+
+  <!-- Koefisien -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Koefisien :</span>
+    <input type="text" id="jawaban5" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban5', ['3', '2', '-1'], 'hasil5')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5" class="font-semibold"></span>
+  </div>
+
+  <!-- Variabel -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Variabel :</span>
+    <input type="text" id="jawaban6" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban6', ['x', 'y'], 'hasil6')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6" class="font-semibold"></span>
+  </div>
+
+  <!-- Konstanta -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Konstanta :</span>
+    <input type="text" id="jawaban7" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban7', ['4'], 'hasil7')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7" class="font-semibold"></span>
+  </div>
+
+  <!-- Suku -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Suku-suku :</span>
+    <input type="text" id="jawaban8" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban8', ['3x^2', '2xy', '-y', '4'], 'hasil8')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8" class="font-semibold"></span>
+  </div>
+</div><br>
+
+
+
+<script>
+  function cekInput(inputId, kunciList, hasilId) {
+    const userJawabanRaw = document.getElementById(inputId).value.trim().toLowerCase();
+    const hasilEl = document.getElementById(hasilId);
+
+    if (userJawabanRaw === "") {
+      hasilEl.innerHTML = "Isi dulu ya!";
+      hasilEl.className = "font-semibold text-yellow-600";
+      return;
+    }
+
+    const userList = userJawabanRaw.split(',').map(x => x.trim()).filter(Boolean);
+    const kunciLower = kunciList.map(x => x.toLowerCase()).sort();
+    const userSorted = userList.sort();
+
+    const isCorrect = userSorted.length === kunciLower.length && userSorted.every((val, idx) => val === kunciLower[idx]);
+
+    if (isCorrect) {
+      hasilEl.innerHTML = "✅ Benar";
+      hasilEl.className = "font-semibold text-green-600";
+    } else {
+      hasilEl.innerHTML = "❌ Salah";
+      hasilEl.className = "font-semibold text-red-600";
+    }
+  }
+</script>
+</div><br>
+
+
+<div id="2.-Operasi-Aljabar">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2. Operasi Aljabar</p>
+    <p class="mt-2 ml-4"><strong>Operasi aljabar </strong>adalah proses matematika yang dilakukan terhadap bentuk-bentuk aljabar, seperti penjumlahan, pengurangan, perkalian, dan pembagian. Operasi-operasi ini mengikuti aturan tertentu seperti pada bilangan biasa, namun melibatkan variabel dan suku-suku aljabar.</p>
+
+    <p class="mt-2 ml-4">Berikut adalah beberapa operasi dasar dalam aljabar:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li><strong>Penjumlahan dan Pengurangan:</strong> Hanya suku-suku sejenis yang dapat dijumlahkan atau dikurangkan. Suku sejenis adalah suku yang memiliki variabel dan pangkat yang sama.</li>
+        <li><strong>Perkalian:</strong> Melibatkan distribusi atau hukum distributif, yaitu mengalikan setiap suku di dalam kurung dengan suku di luar kurung.</li>
+        <li><strong>Pembagian:</strong> Membagi koefisien dan mengurangkan pangkat variabel, jika memungkinkan.</li>
+    </ul>
+</div>
+
+<div id="2.1-Penjumlahan">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2.1 Penjumlahan</p>
+    <p class="mt-2 ml-4">Penjumlahan dalam aljabar adalah proses menggabungkan dua atau lebih suku aljabar. Dalam melakukan penjumlahan, hanya suku-suku sejenis yang dapat dijumlahkan. Suku sejenis adalah suku-suku yang memiliki variabel dan pangkat variabel yang sama.</p>
+    <p class="mt-2 ml-4"><strong>Contoh suku sejenis:</strong> \( 3x \) dan \( 5x \), \( 2x^2 \) dan \( -x^2 \).</p>
+<p class="mt-2 ml-4"><strong>Contoh suku tak sejenis:</strong> \( 4x \) dan \( 2x^2 \), <em>(karena pangkat variabelnya berbeda)</em>.</p>
+    <p class="mt-2 ml-4"><strong>Langkah-langkah penjumlahan aljabar</strong>:</p>
+    <ul class="list-disc mt-2 ml-12">
+        <li>Kelompokkan suku-suku sejenis.</li>
+        <li>Jumlahkan koefisien dari suku-suku sejenis.</li>
+        <li>Biarkan suku tak sejenis tetap apa adanya.</li>
+    </ul>
+
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+        <p class="font-semibold text-lg text-[#4dd4a3] mb-2">Sifat-Sifat Penjumlahan Aljabar:</p>
+        <ul class="list-disc ml-6">
+            <li><strong>Sifat Komutatif (Pertukaran):</strong> \( a + b = b + a \)  
+                <br><span class="ml-6">Contoh: \( 3x + 5x = 5x + 3x \)</span>
+            </li>
+            <li class="mt-2"><strong>Sifat Asosiatif (Pengelompokan):</strong> \( (a + b) + c = a + (b + c) \)  
+                <br><span class="ml-6">Contoh: \( (2x + 3x) + 4x = 2x + (3x + 4x) \)</span>
+            </li>
+            <li class="mt-2"><strong>Sifat Identitas:</strong> Penjumlahan dengan 0 tidak mengubah nilai suku.  
+                <br><span class="ml-6">Contoh: \( x + 0 = x \)</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">Perhatikan dua ekspresi aljabar berikut:</p>
+    <p class="ml-4 mt-2 font-semibold">Ekspresi 1: \( 3x + 4 \)<br>Ekspresi 2: \( 2x + 5 \)</p>
+
+    <p class="mt-2 ml-4">Jumlahkan kedua ekspresi aljabar tersebut.</p>
+    
+    <ul class="ml-8 mt-4 list-disc">
+        <li>Gabungkan suku-suku sejenis (yaitu yang memiliki variabel yang sama).</li>
+        <li>\( 3x + 2x = 5x \)</li>
+        <li>\( 4 + 5 = 9 \)</li>
+    </ul>
+
+    <p class="mt-4 ml-4">Jadi, hasil penjumlahan dari kedua ekspresi tersebut adalah:</p>
+    <p class="ml-4 mt-2 font-semibold">Hasil: \( 5x + 9 \)</p>
+</div>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Penjumlahan Aljabar:</p>
+    <div class="mt-2 ml-4">
+        <iframe class="w-full h-64 md:h-96"src="https://www.youtube.com/embed/f9W9uTYFAhs" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<div id="Latihan-2" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2</p>
+  
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    
+    <p class="mb-4">Sederhanakan Penjumlahan aljabar berikut :</p>
+
+
+    <Soal 1>
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-64">\(2x+4x=\)</span>
+      <input type="text" id="jawaban9" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawaban9', ['6x'], 'hasil9')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil9" class="font-semibold"></span>
+    </div>
+
+    <Soal 2>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(5x - 3 + 7x=\)</span>
+    <input type="text" id="jawaban10" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban10', ['12x-3'], 'hasil10')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil10" class="font-semibold"></span>
+  </div>
+
+<Soal 3>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(4x + 7 + 6x + 3=\)</span>
+    <input type="text" id="jawaban11" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban11', [ '10x+10'], 'hasil11')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil11" class="font-semibold"></span>
+  </div>
+
+<Soal 4>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(2x + 3y=\)</span>
+    <input type="text" id="jawaban12" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban12', ['2x+3y'], 'hasil12')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil12" class="font-semibold"></span>
+  </div>
+
+<Soal 5>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(3x + 4y +5x + 2y=\)</span>
+    <input type="text" id="jawaban13" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban13', ['8x+6y'], 'hasil13')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil13" class="font-semibold"></span>
+  </div>
+
+<Soal 6>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(x^2 + 5x + 7 + 4x + 12 = \)</span>
+    <input type="text" id="jawaban14" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban14', ['x^2+9x+19'], 'hasil14')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil14" class="font-semibold"></span>
+  </div>
+
+<Soal 7>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(2xy^2 + 4xy + 5yx + 6x^2y = \)</span>
+    <input type="text" id="jawaban15" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban15', ['2xy^2+9xy+6x^2y'], 'hasil15')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil15" class="font-semibold"></span>
+  </div>
+
+<Soal 8>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(x + 2y + 1  \text{ dan } 2x - 3y + 5\)</span>
+    <input type="text" id="jawaban16" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban16', ['3x-y+6'], 'hasil16')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil16" class="font-semibold"></span>
+  </div>
+</Soal 8>
+
+<Soal 9>
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">\(x^2 + 4x - 3\text{  dan  } -2x^2 + 5x - 4 \)</span>
+    <input type="text" id="jawaban17" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban17', ['-x^2+9x-7'], 'hasil17')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil17" class="font-semibold"></span>
+  </div>
+
+
+  </div><br>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    
+    <p class="mb-4">Gunakan Sifat-sifat Penjumlahan Aljabar untuk mengisi kotak dibwah ini</p>
+    <p class="mb-4"><strong>Sifat Komutatif</strong> </p>
+
+     <!-- Soal 1 -->
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-32 text-center">\(2x  + 4y =\)</span>
+      <input type="text" id="jawaban18" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <span class="w-32 text-center">\(+2x\)</span>
+      <button onclick="cekInput('jawaban18', ['4y'], 'hasil18')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil18" class="font-semibold"></span>
+    </div>
+
+
+    <!-- Soal 2 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\( 4x^2 + 5x =\)</span>
+  <span class="w-32 text-center">\(5x + \)</span>
+  <input type="text" id="jawaban19" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban19', ['4x^2'], 'hasil19')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil19" class="font-semibold"></span>
+</div>
+
+
+    <!-- Soal 3 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\( 2x + 5y-3 =\)</span>
+  <span class="w-32 text-center">\(5y -3 \)</span>
+  <input type="text" id="jawaban20" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban20', ['2x'], 'hasil20')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil20" class="font-semibold"></span>
+</div>
+
+
+   <!-- Soal 4 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\( 4x - 10y+15 =\)</span>
+  <span class="w-16 text-center">\(15 + \)</span>
+  <input type="text" id="jawaban21" class="border rounded px-2 py-1 w-[80px]" placeholder="Jawaban">
+  <span class="w-16 text-center">\(-10y \)</span>
+  <button onclick="cekInput('jawaban21', ['4x'], 'hasil21')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil21" class="font-semibold"></span>
+</div>
+
+<p class="mb-4"><strong>Sifat Asosiatif</strong></p>
+
+<!-- Soal 1 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\((2 + 3) + 4 =\)</span>
+  <input type="text" id="jawaban22" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <span class="w-32 text-center">\( + (3 + 4)\)</span>
+  <button onclick="cekInput('jawaban22', ['2'], 'hasil22')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil22" class="font-semibold"></span>
+</div>
+
+<!-- Soal 2 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\((x + 2x) + 5x =\)</span>
+  <input type="text" id="jawaban23" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <span class="w-32 text-center">\(+ (2x + 5x)\)</span>
+  <button onclick="cekInput('jawaban23', ['x'], 'hasil23')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil23" class="font-semibold"></span>
+</div>
+
+<!-- Soal 3 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\(1 + (2 + x) =\)</span>
+  <span class="w-32 text-center">\((1 + 2) + \)</span>
+ <input type="text" id="jawaban24" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban24', ['x'], 'hasil24')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil24" class="font-semibold"></span>
+</div>
+
+<!-- Soal 4 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-32 text-center">\(4x + (6x + 10x) =\)</span>
+  <span class="w-32 text-center">\((4x + 6x )+ \)</span>
+  <input type="text" id="jawaban25" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban25', ['10x'], 'hasil25')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil25" class="font-semibold"></span>
+</div>
+
+
+  </div><br>
+</div>
+
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "Diza MTSN 1 Brebes 7", password: "semangatbelajar45" },
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
