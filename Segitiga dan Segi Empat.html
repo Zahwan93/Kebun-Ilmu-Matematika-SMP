@@ -626,9 +626,9 @@
 <div class="mb-6">
   <p class="mb-1 font-medium">b. \(77^\circ\).</p>
   <div class="flex flex-row items-center gap-2">
-    <input type="text" class="border rounded px-2 py-1" id="jawaban3b" placeholder="Masukkan nilai ">
-    <button onclick="cekSatu('jawaban3b', '13', 'hasil3b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
-    <span id="hasil3b" class="font-semibold ml-2"></span>
+    <input type="text" class="border rounded px-2 py-1" id="jawaban3b1" placeholder="Masukkan nilai ">
+    <button onclick="cekSatu('jawaban3b1', '13', 'hasil3b1')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3b1" class="font-semibold ml-2"></span>
   </div>
   </div>
 <!-- Soal 3 -->
@@ -1503,6 +1503,10 @@
     <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban12fb" placeholder="Jawaban">
     <button onclick="cekSatu('jawaban12fb', '85', 'hasil12fb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
     <span id="hasil12fb" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-4">
 <p class="mb-1 font-medium"> \( c^\circ = \)</p>
     <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban12fc" placeholder="Jawaban">
     <button onclick="cekSatu('jawaban12fc', '130', 'hasil12fc')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
@@ -1512,8 +1516,6 @@
     <button onclick="cekSatu('jawaban12fd', '50', 'hasil12fd')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
     <span id="hasil12fd" class="font-semibold ml-2"></span>
 
-  </div>
-</div>
 </div><br>
 
 
@@ -1853,7 +1855,7 @@
     const validAccounts = [
       { username: "admin", password: "12345" },
       { username: "user1", password: "abcde" },
-      { username: "Diza MTSN 1 Brebes 7", password: "semangatbelajar45" },
+      { username: "user2", password: "qwerty" }
     ];
 
     const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
