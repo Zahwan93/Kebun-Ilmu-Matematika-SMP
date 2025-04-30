@@ -2091,13 +2091,19 @@
   </div>
 </div>
 </div><br>
+  
+<!-- Review -->
 
-<p class="text-2xl text-[#4dd4a3] font-semibold">Review</p>
-    
+  
 <div class="p-6 bg-green-100 rounded-lg shadow-md">
-  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
-  <p><strong>Tentukan pernyataan berikut benar atau salah!</strong></p><br>
-<svg width="300" height="300" style="border:0px solid #ccc;">
+  <p class="text-3xl text-[#4dd4a3] font-bold">Review</p>
+  <h2 class="text-2xl font-semibold text-[#4dd4a3] mt-6">Soal 1</h2>
+  <p><strong>Tentukan nilai a,b, dan c!</strong></p><br>
+
+<!-- 1RVa -->
+
+<div class="flex flex-row items-center gap-4">
+<svg width="250" height="300" style="border:0px solid #ccc;">
   <!-- Garis pertama -->
   <line x1="50" y1="250" x2="250" y2="50" stroke="black" stroke-width="2" />
   
@@ -2110,13 +2116,16 @@
   <text x="135" y="185" font-size="16" fill="blue">142°</text>
   
 </svg>
-<div class="flex flex-row items-center gap-4">
 <p class="mb-1 font-medium">\( a^\circ = \)</p>
 <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1RVa" placeholder="Jawaban">
-    <button onclick="cekSatu('jawaban1RVa', '40', 'hasil1RVa')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <button onclick="cekSatu('jawaban1RVa', '38', 'hasil1RVa')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
     <span id="hasil1RVa" class="font-semibold ml-2"></span>
 </div>
-<svg width="300" height="200" style="border:0px solid #ccc;">
+
+<!-- 1RVb -->
+
+<div class="flex flex-row items-center gap-4">
+<svg width="250" height="200" style="border:0px solid #ccc;">
   <!-- Garis horizontal -->
   <line x1="20" y1="150" x2="280" y2="150" stroke="black" stroke-width="2" />
 
@@ -2129,10 +2138,229 @@
   <text x="135" y="145" font-size="14" fill="blue">b°</text>
   <text x="170" y="145" font-size="14" fill="blue">50°</text>
 </svg>
-
-
+<p class="mb-1 font-medium">\( b^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1RVb" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban1RVb', '130', 'hasil1RVb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil1RVb" class="font-semibold ml-2"></span>
 </div>
+
+<!-- 1RVc -->
+
+<div class="flex flex-row items-center gap-4">
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <!-- Garis vertikal -->
+  <line x1="50" y1="20" x2="50" y2="150" stroke="black" stroke-width="2" />
+  
+  <!-- Garis horizontal -->
+  <line x1="50" y1="150" x2="200" y2="150" stroke="black" stroke-width="2" />
+  
+  <!-- Garis pemotong membagi sudut 90 derajat menjadi dua sudut 45 derajat -->
+  <line x1="50" y1="150" x2="180" y2="20" stroke="red" stroke-width="2" />
+
+<text x="55" y="130" font-size="1" fill="blue">c°</text>
+<text x="70" y="145" font-size="16" fill="blue">c°</text>
+<text x="10" y="20" font-size="18" fill="black">c. </text>
+</svg>
+<p class="mb-1 font-medium">\( c^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1RVc" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban1RVc', '45', 'hasil1RVc')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil1RVc" class="font-semibold ml-2"></span>
+</div>
+
+<h2 class="text-2xl font-semibold text-[#4dd4a3] mt-6">Soal 2</h2>
+  <p><strong>Tentukan sudut untuk:</strong></p><br>
+<!-- Soal 2RVa -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-4">
+    <p class="mb-1 font-medium">a. Sudut penyiku untuk \(63^\circ\)</p>
+    <input type="number" class="border rounded px-2 py-1 w-24" id="jawaban2RVa" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban2RVa', '27', 'hasil2RVa')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil2RVa" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 2RVb -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-4">
+    <p class="mb-1 font-medium">b. Sudut penlurus untuk \(26^\circ\)</p>
+    <input type="number" class="border rounded px-2 py-1 w-24" id="jawaban2RVb" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban2RVb', '154', 'hasil2RVb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil2RVb" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<h2 class="text-2xl font-semibold text-[#4dd4a3] mt-6">Soal 3</h2>
+  <p><strong>Tentukan nilai setiap variabel berikut: </strong></p><br>
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <!-- Garis sejajar -->
+  <line x1="20" y1="60" x2="200" y2="60" stroke="black" stroke-width="2"/>
+  <line x1="20" y1="160" x2="200" y2="160" stroke="black" stroke-width="2"/>
+
+  <!-- Garis pemotong (transversal) -->
+  <line x1="100" y1="20" x2="150" y2="200" stroke="red" stroke-width="2"/>
+
+  <!-- Sudut atas kiri -->
+  <text x="130" y="80" font-size="16" fill="blue">b°</text>
+  <!-- Sudut atas kanan -->
+  <text x="90" y="80" font-size="16" fill="blue">a°</text>
+  <!-- Sudut bawah kiri -->
+  <text x="10" y="20" font-size="18" fill="black">a. </text>
+  <!-- Sudut bawah kanan -->
+  <text x="100" y="180" font-size="16" fill="blue">120°</text>
+</svg><br>
+
+<!-- 3RVa -->
+<div class="flex flex-colm items-center gap-4">
+<p class="mb-1 font-medium">\( a^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVa" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVa', '120', 'hasil3RVa')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVa" class="font-semibold ml-2"></span>
+<p class="mb-1 font-medium">\( b^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVab" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVab', '60', 'hasil3RVab')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVab" class="font-semibold ml-2"></span>
+</div>
+<!-- 3RVb -->
+<div class="flex flex-row items-center gap-4">
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <!-- Segitiga utama -->
+  <polygon points="100,20 40,180 160,180" fill="none" stroke="black" stroke-width="2"/>
+
+  <!-- Garis sejajar dengan sisi kiri segitiga -->
+  <line x1="100" y1="180" x2="130" y2="100" stroke="red" stroke-width="2" marker-mid="url(#arrow)"/>
+
+<p class="mb-1 font-medium">\( b^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVb" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVb', '70', 'hasil3RVb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVb" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 3RVc -->
+
+<svg width="200" height="200" viewBox="0 0 200 200">
+  <!-- Garis kiri segitiga -->
+  <line x1="100" y1="20" x2="20" y2="200" stroke="black" stroke-width="2"/>
+
+  <!-- Garis kanan segitiga -->
+  <line x1="100" y1="20" x2="160" y2="160" stroke="black" stroke-width="2"/>
+
+  <!-- Garis bawah segitiga -->
+  <line x1="10" y1="160" x2="200" y2="160" stroke="black" stroke-width="2"/>
+
+  <!-- Label sudut -->
+  <text x="95" y="55" font-size="16" fill="black">c°</text>
+  <text x="50" y="150" font-size="16" fill="black">a°</text>
+<text x="5" y="180" font-size="16" fill="black">55°</text>
+  <text x="125" y="150" font-size="16" fill="black">b°</text>
+<text x="165" y="150" font-size="16" fill="black">100°</text>
+<text x="10" y="20" font-size="18" fill="black">c.</text>
+</svg><br>
+<div class="flex flex-row items-center gap-4">
+<p class="mb-1 font-medium">\( a^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVc" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVc', '55', 'hasil3RVc')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVc" class="font-semibold ml-2"></span>
+<p class="mb-1 font-medium">\( b^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVcb" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVcb', '80', 'hasil3RVcb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVcb" class="font-semibold ml-2"></span>
 </div><br>
+<div class="flex flex-row items-center gap-4">
+<p class="mb-1 font-medium">\( c^\circ = \)</p>
+<input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3RVcc" placeholder="Jawaban">
+<button onclick="cekSatu('jawaban3RVcc', '45', 'hasil3RVcc')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+<span id="hasil3RVcc" class="font-semibold ml-2"></span>
+</div>
+
+
+<h2 class="text-2xl font-semibold text-[#4dd4a3] mt-6">Soal 4</h2>
+  <p><strong>Tentukan jenis seigitiga berikut berdasarkan sisinya: </strong></p><br>
+<svg width="500" height="250" viewBox="0 0 600 250">
+  <!-- SEGITIGA SAMA KAKI (sudut 25°, 25°, 130°) -->
+  <!-- Titik: A(100,50), B(60,180), C(140,180) -->
+  <line x1="100" y1="50" x2="60" y2="180" stroke="black" stroke-width="2"/>
+  <line x1="100" y1="50" x2="140" y2="180" stroke="black" stroke-width="2"/>
+  <line x1="60" y1="180" x2="140" y2="180" stroke="black" stroke-width="2"/>
+  <!-- Label sudut -->
+  <text x="90" y="100" font-size="12" fill="black">130°</text>
+  <text x="70" y="175" font-size="12" fill="black">25°</text>
+  <text x="50" y="40" font-size="18" fill="black">a. </text>
+  <!-- Label jenis -->
+  
+  <!-- SEGITIGA SAMA SISI (sudut x = 60°) -->
+  <!-- Titik: A(270,60), B(220,180), C(320,180) -->
+  <line x1="270" y1="60" x2="220" y2="180" stroke="green" stroke-width="2"/>
+  <line x1="270" y1="60" x2="320" y2="180" stroke="green" stroke-width="2"/>
+  <line x1="220" y1="180" x2="320" y2="180" stroke="green" stroke-width="2"/>
+  <!-- Label sudut -->
+  <text x="265" y="100" font-size="12" fill="green">x°</text>
+  <text x="230" y="175" font-size="12" fill="green">x°</text>
+  <text x="305" y="175" font-size="12" fill="green">x°</text>
+  <text x="210" y="40" font-size="18" fill="black">b. </text>
+  <!-- Label jenis -->
+  
+  <!-- SEGITIGA SEMBARANG (sudut 52°, 38°, 90°) -->
+  <!-- Titik: A(470,80), B(420,180), C(540,180) -->
+  <line x1="470" y1="80" x2="420" y2="180" stroke="blue" stroke-width="2"/>
+  <line x1="470" y1="80" x2="540" y2="180" stroke="blue" stroke-width="2"/>
+  <line x1="420" y1="180" x2="540" y2="180" stroke="blue" stroke-width="2"/>
+  <!-- Label sudut -->
+  <text x="400" y="40" font-size="18" fill="black">c.</text>
+  <text x="430" y="175" font-size="12" fill="blue">52°</text>
+  <text x="515" y="175" font-size="12" fill="blue">38°</text>
+  <!-- Label jenis -->
+  </svg>
+ 
+ <!-- Soal 4RVa -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a.</p>
+    <select class="border rounded px-2 py-1" id="jawaban4RVa">
+      <option value="">Pilih Jawaban</option>
+      <option value="1">segitiga sama kaki</option>
+      <option value="2">segitiga sama sisi</option>
+      <option value="3">segitiga sembarang</option>
+    </select>
+    <button onclick="cekSatu('jawaban4RVa', '1', 'hasil4RVa')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4RVa" class="font-semibold"></span>
+  </div>
+</div>
+
+<!-- Soal 4RVb -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b.</p>
+    <select class="border rounded px-2 py-1" id="jawaban4RVb">
+      <option value="">Pilih Jawaban</option>
+      <option value="1">segitiga sama kaki</option>
+      <option value="2">segitiga sama sisi</option>
+      <option value="3">segitiga sembarang</option>
+    </select>
+    <button onclick="cekSatu('jawaban4RVb', '2', 'hasil4RVb')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4RVb" class="font-semibold"></span>
+  </div>
+</div>
+
+<!-- Soal 4RVc -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c.</p>
+    <select class="border rounded px-2 py-1" id="jawaban4RVc">
+      <option value="">Pilih Jawaban</option>
+      <option value="1">segitiga sama kaki</option>
+      <option value="2">segitiga sama sisi</option>
+      <option value="3">segitiga sembarang</option>
+    </select>
+    <button onclick="cekSatu('jawaban4RVc', '3', 'hasil4RVc')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4RVc" class="font-semibold"></span>
+  </div>
+</div>
+</div> 
+
+</div><br>
+
 
 <div id="2.-Unsur-Segitiga">
   <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2. Unsur Segitiga</p>
