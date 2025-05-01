@@ -40,7 +40,11 @@
         body::after {
             bottom: -50%;
             left: -30%;
-        }
+         }
+	html, body {
+    overflow-x: hidden;
+}
+
 
 .login-box {
     background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
@@ -223,14 +227,9 @@
         <h2 class=" text-2xl text-semibold ">Menu</h2>
         <ul>
             <li ><a href="persamaan garis lurus.html" >▶️ Persamaan Garis Lurus</a></li>
-            <li ><a href="#Latihan Soal 1A" >📝 Latihan Soal 1A</a></li>
 	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
-	    <li ><a href="#Latihan Soal 2A" >📝 Latihan Soal 2A</a></li>
 	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
-	    <li ><a href="#Latihan Soal 3A" >📝 Latihan Soal 3A</a></li>
 	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
-	    <li ><a href="#Latihan Soal 4A" >📝 Latihan Soal 4A</a></li>
-	    <li ><a href="#Sumatif Tengah Semester 1A" >📖 Sumatif Tengah Semester 1A</a></li>
         </ul>
     </div>
     
@@ -255,6 +254,8 @@
             <li class="mb-3"><a href="#2. Bentuk umum dari persamaan garis lurus" class="hover:text-white">2. Bentuk umum dari persamaan garis lurus</a></li>
 	    <li class="mb-3"><a href="#3. Gradien Garis Lurus" class="hover:text-white">3. Gradien Garis Lurus</a></li>
 	    <li class="mb-3"><a href="#4. Menentukan Persamaan Garis Lurus" class="hover:text-white">4. Menentukan Persamaan Garis Lurus</a></li>
+	    <li class="mb-3"><a href="#Latihan" class="hover:text-white">Latihan</a></li>
+
         </ul><br>	
 	    <div id="1. Pengertian Persamaan Garis Lurus" >
             <p class="text-xl font-semibold mb-4 text-[#4dd4a3]"">1. Pengertian Persamaan Garis Lurus</p>
@@ -535,8 +536,1117 @@
         </ul>
     </p></div>
 	</div><br><br>
-</div>    
-    
+
+ <div id="Latihan"></div> 
+<div class="p-6 bg-green-100 rounded-lg shadow-md">
+<p class="text-2xl text-white font-bold bg-[#4dd4a3]">Latihan </p>
+  <h2 class="text-xl font-semibold text-[#4dd4a3] mt-6">Soal 1</h2>
+  <p><strong>Tentukan gradien dari setiap gambar garis berikut: </strong></p><br>
+	<img src="Gradien1.png" alt="Gradien"><br>
+  <p class="text-l"><em>tulis <strong>INFINIT</strong> di kotak jawaban jika gradien <strong>tak hingga</strong> </em></p><br>
+  <!-- Soal 1a -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">a.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1a" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1a', '2/3', 'hasil1a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1a" class="font-semibold ml-2"></span>
+      
+  <!-- Soal 1b -->
+      <p class="mb-1 font-medium">b.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1b" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1b', '-1', 'hasil1b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1b" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div><br>
+
+  <!-- Soal 1c -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">c.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1c" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1c', '2/5', 'hasil1c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1c" class="font-semibold ml-2"></span>
+  
+  <!-- Soal 1d -->
+      <p class="mb-1 font-medium">d.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1d" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1d', '-4/3', 'hasil1d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1d" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div><br>
+
+  <!-- Soal 1e -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">e.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1e" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1e', '1/6', 'hasil1e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1e" class="font-semibold ml-2"></span>
+  
+  <!-- Soal 1f -->
+      <p class="mb-1 font-medium">f.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1f" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1f', 'INFINIT', 'hasil1f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1f" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div><br>
+
+  <!-- Soal 1g -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">g.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1g" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1g', '-3', 'hasil1g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1g" class="font-semibold ml-2"></span>
+  
+  <!-- Soal 1h -->
+      <p class="mb-1 font-medium">h.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1h" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1h', '-1/8', 'hasil1h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1h" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div><br>
+
+  <!-- Soal 1i -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">i.  \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban1i" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban1i', '0', 'hasil1i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil1i" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+<p class="bg-red-100 p-2">\[m=\frac{y_2 - y_1}{x_2 - x_1}\]</p><br>  
+<p><strong>Tentukan gradien garis yang melalui titik: </strong></p><br>
+  
+ 
+  <!-- Soal 2a -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">a.  \((0,0)\) dan \((2,6)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2a" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2a', '3', 'hasil2a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2a" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2b -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">b.  \((2,3)\) dan \((5,9)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2b" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2b', '2', 'hasil2b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2b" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2c -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">c.  \((4,5)\) dan \((4,8)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2c" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2c', 'tak hingga', 'hasil2c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2c" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2d -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">d.  \((1,7)\) dan \((3,7)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2d" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2d', '0', 'hasil2d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2d" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2e -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">e.  \((-1,2)\) dan \((3,-6)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2e" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2e', '-2', 'hasil2e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2e" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2f -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">f.  \((0,4)\) dan \((4,0)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2f" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2f', '-1', 'hasil2f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2f" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2g -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">g.  \((-2,-3)\) dan \((2,1)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2g" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2g', '1', 'hasil2g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2g" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2h -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">h.  \((3,6)\) dan \((6,3)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2h" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2h', '-1', 'hasil2h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2h" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2i -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">i.  \((5,2)\) dan \((10,4)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2i" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2i', '0.4', 'hasil2i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2i" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2j -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">j.  \((0,1)\) dan \((2,5)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2j" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2j', '2', 'hasil2j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2j" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2k -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">k.  \((3,-2)\) dan \((6,4)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2k" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2k', '2', 'hasil2k')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2k" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soal 2l -->
+  <div class="mb-6">
+    <div class="flex flex-row items-center gap-2">
+      <p class="mb-1 font-medium">l.  \((-3,1)\) dan \((0,7)\) \(m = \) </p>
+      <div class="flex flex-row items-center gap-2">
+        <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban2l" placeholder="Jawaban">
+        <button onclick="cekSatu('jawaban2l', '2', 'hasil2l')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+        <span id="hasil2l" class="font-semibold ml-2"></span>
+      </div>
+    </div>
+  </div>
+
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+<p class="bg-red-100 p-2">\[y=mx+c\]</p><br>
+<p><strong>Tentukan gradien persamaan garis lurus berikut: </strong></p><br>
+
+<!-- Soal 3a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a.  \(y=3x-2\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3a', '3', 'hasil3a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b.  \(y=-4x+7\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3b', '-4', 'hasil3b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c.  \(y=\frac{1}{2}x+5\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3c', '1/2', 'hasil3c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d.  \(y=-\frac{3}{4}x-1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3d', '-3/4', 'hasil3d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e.  \(y=x+4\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3e', '1', 'hasil3e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f.  \(y=-2x\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3f', '-2', 'hasil3f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g.  \(y=0.25x-1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3g', '0.25', 'hasil3g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h.  \(y=-x+9\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3h', '-1', 'hasil3h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i.  \(y=5x+0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3i', '5', 'hasil3i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 3j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j.  \(y=-6x+2\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban3j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban3j', '-6', 'hasil3j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil3j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+<p class="bg-red-100 p-2">\[ax+by+c=0\]\[m=-\frac{a}{b}\]</p><br>
+<p><strong>Tentukan gradien persamaan garis lurus berikut: </strong></p><br>
+
+<!-- Soal 4a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a.  \(6x - 2y - 5 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4a', '3', 'hasil4a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b.  \(4x + y - 2 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4b', '-4', 'hasil4b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c.  \(-3x + 2y - 6 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4c', '3/2', 'hasil4c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d.  \(5x - y - 10 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4d', '5', 'hasil4d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e.  \(x + 3y = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4e', '-1/3', 'hasil4e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f.  \(2x + 5y - 7 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4f', '-2/5', 'hasil4f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g.  \(7x - y + 14 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4g', '7', 'hasil4g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h.  \(5x + 2y - 1 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4h', '-5/2', 'hasil4h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i.  \(x - y = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4i', '1', 'hasil4i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 4j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j.  \(3x + 6y - 9 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban4j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban4j', '-1/2', 'hasil4j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil4j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+<p class="bg-red-100 p-2">\[m_2=m_1\]</p><br>
+<p><strong>Tentukan gradien yang sejajar dengan: </strong></p><br>
+
+<!-- Soal 5a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a. Garis yang melalui titik \((2, 4)\) dan \((5, 10)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5a', '2', 'hasil5a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b. Garis dengan persamaan \(3x - y = 6\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5b', '3', 'hasil5b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c. Garis yang melalui titik \((1, -2)\) dan \((4, -2)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5c', '0', 'hasil5c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d. Garis yang memiliki gradien \(-\frac{2}{3}\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5d', '-2/3', 'hasil5d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<!-- Soal 5e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e. Garis dengan persamaan \(y = \frac{4}{5}x - 7\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5e', '4/5', 'hasil5e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f. Garis yang melalui titik \((0, 0)\) dan \((3, -6)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5f', '-2', 'hasil5f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g. Garis dengan persamaan \(2y = 8x + 1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5g', '4', 'hasil5g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h. Garis yang melalui titik \((1, 1)\) dan \((4, 10)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5h', '3', 'hasil5h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i. Garis yang memiliki gradien \( - 1 \)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5i', '-1', 'hasil5i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j. Garis yang melalui titik \((-2, 5)\) dan \((1, -1)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5j', '-2', 'hasil5j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5k -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">k. Garis dengan persamaan \(5x - y + 3 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5k" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5k', '5', 'hasil5k')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5k" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 5l -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">l. Garis yang melalui titik \((6, -2)\) dan \((9, 1)\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban5l" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban5l', '1', 'hasil5l')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5l" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 6</h2>
+<p class="bg-red-100 p-2">\[m_2=-\frac{1}{m_1}\]</p><br>
+<p><strong>Tentukan gradien yang tegak lurus dengan : </strong></p><br>
+
+<!-- Soal 6a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a. Garis yang melalui titik  \((2,4)\) dan \((0,0)\) </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6a', '-1/2', 'hasil6a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b. Garis \(y = -3x + 1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6b', '1/3', 'hasil6b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c. Garis \(x - 2y = 6\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6c', '2', 'hasil6c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d. Garis \(2y = 5x + 1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6d', '-2/5', 'hasil6d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e. Garis \(3x + y - 4 = 0\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6e', '1/3', 'hasil6e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f. Garis \(y = \frac{4}{5}x - 3\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6f', '-5/4', 'hasil6f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g. Garis \(2x - y = 8\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6g', '1/2', 'hasil6g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h. Garis dengan gradien \(m = 7\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6h', '-1/7', 'hasil6h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i. Garis \(y = -2x + 4\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6i', '1/2', 'hasil6i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j. Garis \(4y = -x + 8\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6j', '4', 'hasil6j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<!-- Soal 6k -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">k. Garis yang melalui titik  \((3,2)\) dan \((7,4)\) </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6k" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6k', '-2', 'hasil6k')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6k" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 6l -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">l. Garis yang melalui titik  \((-1,5)\) dan \((3,-3)\) </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban6l" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban6l', '1/2', 'hasil6l')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6l" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 7</h2>
+<p class="bg-red-100 p-2">\[y-y_1=m \cdot (x-x_1)\]</p><br>
+<p><strong>Tentukan Persamaan garis yang: </strong></p><br>
+<p><em>Tulis jawaban dalam bentuk <strong>y=mx+c</strong></em></p><br>
+
+<!-- Soal 7a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a. melalui titik  \((0,1)\)  dan memiliki gradien m=2 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7a', 'y=2x+1', 'hasil7a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b. melalui titik  \((1,3)\)  dan memiliki gradien m=1 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7b', 'y=x+2', 'hasil7b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c. melalui titik  \((2,-1)\)  dan memiliki gradien m=3 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7c', 'y=3x-7', 'hasil7c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d. melalui titik  \((4,2)\)  dan memiliki gradien m=-2 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7d', 'y=-2x+10', 'hasil7d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e. melalui titik  \((5,5)\)  dan memiliki gradien m=0 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7e', 'y=5', 'hasil7e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f. melalui titik  \((1,-2)\)  dan memiliki gradien m=4 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7f', 'y=4x-6', 'hasil7f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g. melalui titik  \((3,0)\)  dan memiliki gradien m=-1 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7g', 'y=-x+3', 'hasil7g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h. melalui titik  \((0,-4)\)  dan memiliki gradien m=5 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7h', 'y=5x-4', 'hasil7h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i. melalui titik  \((-2,3)\)  dan memiliki gradien m=1 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7i', 'y=x+5', 'hasil7i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j. melalui titik  \((2,1)\)  dan memiliki gradien m=-3 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7j', 'y=-3x+7', 'hasil7j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7k -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">k. melalui titik  \((1,1)\)  dan memiliki gradien m=½ </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7k" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7k', 'y=1/2x+1/2', 'hasil7k')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7k" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 7l -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">l. melalui titik  \((0,0)\)  dan memiliki gradien m=3 </p>
+    <input type="text" class="border rounded px-2 py-1 w-24" id="jawaban7l" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban7l', 'y=3x', 'hasil7l')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7l" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 8</h2>
+<p class="bg-red-100 p-2">\[y-y_1=m \cdot (x-x_1)\]</p><br>
+<p><strong>Tentukan Persamaan garis yang: </strong></p><br>
+
+<!-- Soal 8a -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">a. melalui titik  \((0,1)\) dan <u>sejajar</u> dengan garis \(y=2x-3\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8a', 'y=2x+1', 'hasil8a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8a" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8b -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">b. melalui titik \((2,3)\) dan <u>tegak lurus</u> dengan garis \(y=2x-5\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8b', 'y=-1/2x+4', 'hasil8b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8b" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8c -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">c. melalui titik \((1,-2)\) dan <u>sejajar</u> dengan garis \(y=-x+1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8c', 'y=-x-1', 'hasil8c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8c" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8d -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">d. melalui titik \((-3,2)\) dan <u>tegak lurus</u> dengan garis \(y=-x+4\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8d', 'y=x+5', 'hasil8d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8d" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8e -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">e. melalui titik \((2,-1)\) dan <u>sejajar</u> dengan garis \(y=\frac{1}{2}x+3\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8e', 'y=1/2x-2', 'hasil8e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8e" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8f -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">f. melalui titik \((-2,5)\) dan <u>tegak lurus</u> dengan garis \(y=4x+1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8f', 'y=-1/4x+9/2', 'hasil8f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8f" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8g -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">g. melalui titik \((1,1)\) dan <u>sejajar</u> dengan garis \(y=-\frac{3}{4}x+2\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8g', 'y=-3/4x+7/4', 'hasil8g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8g" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8h -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">h. melalui titik \((0,3)\) dan <u>tegak lurus</u> dengan garis \(y=-\frac{2}{3}x+4\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8h', 'y=3/2x+3', 'hasil8h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8h" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8i -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">i. melalui titik \((4,-2)\) dan <u>sejajar</u> dengan garis \(y=\frac{2}{5}x-1\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8i', 'y=2/5x-18/5', 'hasil8i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8i" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 8j -->
+<div class="mb-6">
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-1 font-medium">j. melalui titik \((-1,4)\) dan <u>tegak lurus</u> dengan garis \(y=-3x+5\)</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban8j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban8j', 'y=1/3x+13/3', 'hasil8j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8j" class="font-semibold ml-2"></span>
+  </div>
+</div>
+<h2 class="text-xl font-bold text-[#4dd4a3] mt-6">Soal 9</h2>
+<p class="bg-red-100 p-2"><br>
+1. Titik potong sumbu-x \(\Rightarrow y=0\)<br>
+2. Titik potong sumbu-y \(\Rightarrow x=0\)<br>
+ </p><br>
+<p><strong>Tentukan titik potong sumbu-x dan sumbu-y dari Persamaan garis berikut:</strong></p><br>
+<p><em>contoh penulisan jawaban <strong>(2, 3)</strong></em></p><br>
+<!-- Soal 9a -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">a. \(y = 2x - 4\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9a" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9a', '(2, 0)', 'hasil9a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9a" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9ay" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9ay', '(0, -4)', 'hasil9ay')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9ay" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9b -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">b. \(y = -x + 3\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9b" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9b', '(3, 0)', 'hasil9b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9b" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9by" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9by', '(0, 3)', 'hasil9by')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9by" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9c -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">c. \(-3x + y =  6\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9c" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9c', '(-2, 0)', 'hasil9c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9c" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9cy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9cy', '(0, 6)', 'hasil9cy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9cy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9d -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">d. \(x + 2y + 2 = 0\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9d" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9d', '(-2, 0)', 'hasil9d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9d" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9dy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9dy', '(0, -1)', 'hasil9dy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9dy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9e -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">e. \(y = x - 2\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9e" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9e', '(2, 0)', 'hasil9e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9e" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9ey" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9ey', '(0, -2)', 'hasil9ey')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9ey" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9f -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">f. \(y = -2x + 8\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9f" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9f', '(4, 0)', 'hasil9f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9f" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9fy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9fy', '(0, 8)', 'hasil9fy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9fy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9g -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">g. \(y = 4x - 2\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9g" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9g', '(0.5, 0)', 'hasil9g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9g" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9gy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9gy', '(0, -2)', 'hasil9gy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9gy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9h -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">h. \(2y = -3x + 6\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9h" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9h', '(2, 0)', 'hasil9h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9h" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9hy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9hy', '(0, 3)', 'hasil9hy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9hy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9i -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">i. \(5x - 5y + 25= \)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9i" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9i', '(-5, 0)', 'hasil9i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9i" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9iy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9iy', '(0, 5)', 'hasil9iy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9iy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+<!-- Soal 9j -->
+<div class="mb-6">
+  <p class="mb-1 font-medium">j. \(y = -x - 6\)</p>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">i) Titik potong sumbu-x</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9j" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9j', '(-6, 0)', 'hasil9j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9j" class="font-semibold ml-2"></span>
+  </div><br>
+  <div class="flex flex-row items-center gap-2">
+    <p class="mb-2 ml-4 font-medium">ii) Titik potong sumbu-y</p>
+    <input type="text" class="border rounded px-2 py-1 w-28" id="jawaban9jy" placeholder="Jawaban">
+    <button onclick="cekSatu('jawaban9jy', '(0, -6)', 'hasil9jy')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil9jy" class="font-semibold ml-2"></span>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>        
 <script>
     function togglePembahasan(id) {
         var x = document.getElementById(id);
@@ -568,6 +1678,24 @@
         }
     </script>
 <script>
+  function cekSatu(selectId, kunci, hasilId) {
+    const userJawaban = document.getElementById(selectId).value;
+    const hasilEl = document.getElementById(hasilId);
+
+    if (userJawaban === "") {
+      hasilEl.innerHTML = "Pilih dulu!";
+      hasilEl.className = "font-semibold text-yellow-600";
+    } else if (userJawaban === kunci) {
+      hasilEl.innerHTML = "✅ Benar";
+      hasilEl.className = "font-semibold text-green-600";
+    } else {
+      hasilEl.innerHTML = "❌ Salah";
+      hasilEl.className = "font-semibold text-red-600";
+    }
+  }
+</script>
+
+<script>
   function checkLogin() {
     const user = document.getElementById("username").value;
     const pass = document.getElementById("password").value;
@@ -576,7 +1704,7 @@
     const validAccounts = [
       { username: "admin", password: "12345" },
       { username: "user1", password: "abcde" },
-      { username: "user2", password: "qwerty" }
+      { username: "Diza MTSN 1 Brebes 7", password: "semangatbelajar45" },
     ];
 
     const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
