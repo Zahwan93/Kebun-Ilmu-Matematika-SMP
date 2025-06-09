@@ -1,0 +1,3060 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+	html, body {
+    overflow-x: hidden;
+}
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+                }
+	
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" ▶️ Persamaan Garis Lurus</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="Segitiga dan Segi Empat.html" >▶️ Segitiga dan Segi Empat</a></li>
+	    <li ><a href="Aljabar.html" >▶️ Aljabar</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+    <div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+        <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+        
+        <!-- Bilangan Berpangkat dan Bentuk Akar -->
+
+<div id="BilanganBerpangkat" class="mb-8">
+    <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]">Bilangan Berpangkat dan Bentuk Akar</h1>
+    <ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+        <li class="mb-3">
+            <a href="#1.-Pengertian-Bilangan-Berpangkat" class="hover:text-white">1. Pengertian Bilangan Berpangkat</a>
+        </li>
+        <li class="mb-3">
+            <a href="#2.-Sifat-Sifat-Bilangan-Berpangkat" class="hover:text-white">2. Sifat-sifat Bilangan Berpangkat</a>
+        </li>
+        <li class="mb-3 ml-6">
+            <a href="#2.1-Perkalian-Berbasis-Pangkat" class="hover:text-white">2.1 Perkalian Berbasis Pangkat</a>
+        </li>
+        <li class="mb-3 ml-6">
+            <a href="#2.2-Pembagian-Berbasis-Pangkat" class="hover:text-white">2.2 Pembagian Berbasis Pangkat</a>
+        </li>
+        <li class="mb-3 ml-6">
+            <a href="#2.4-Pangkat-yang-Dipangkat" class="hover:text-white">2.4 Pangkat yang Dipangkat</a>
+        </li>
+<li class="mb-3 ml-6">
+            <a href="#2.5-Pangkat-yang-Diakar-Pangkat" class="hover:text-white">2.5 Pangkat yang Diakar Pangkat</a>
+        </li>
+        <li class="mb-3">
+            <a href="#3.-Pengertian-Bentuk-Akar" class="hover:text-white">3. Pengertian Bentuk Akar</a>
+        </li>
+        <li class="mb-3">
+            <a href="#4.-Sifat-Sifat-Bentuk-Akar" class="hover:text-white">4. Sifat-sifat Bentuk Akar</a>
+        </li>
+        <li class="mb-3 ml-6">
+            <a href="#4.1-Menyederhanakan-Bentuk-Akar" class="hover:text-white">4.1 Menyederhanakan Bentuk Akar</a>
+        </li>
+        <li class="mb-3 ml-6">
+            <a href="#4.2-Operasi-Pada-Bentuk-Akar" class="hover:text-white">4.2 Operasi Pada Bentuk Akar</a>
+        </li>
+        <li class="mb-3">
+            <a href="#5.-Hubungan-Pangkat-dan-Akar" class="hover:text-white">5. Hubungan Pangkat dan Akar</a>
+        </li>
+	<li class="mb-3">
+	<a href="#6.-Merasionalkan-Bentuk-Akar" class="hover:text-white">6. Merasionalkan Bentuk Akar</a>
+        </li>
+        <li class="mb-3">
+            <a href="#Review-Bilangan-Berpangkat-dan-Akar" class="hover:text-white">Review</a>
+        </li>
+    </ul>
+
+
+<br>
+	<div id="1.-Pengertian-Bilangan-Berpangkat">
+    <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">1. Pengertian Bilangan Berpangkat</p>
+    <p class="mt-2 ml-4"><strong>Bilangan berpangkat</strong> adalah bilangan yang menyatakan hasil dari perkalian berulang suatu bilangan pokok (basis) sebanyak pangkat tertentu. Notasi bilangan berpangkat ditulis dalam bentuk </p>
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+<p class="text-3xl text-[#4dd4a3]">\[ a^n \]</p> 
+<p>di mana:
+    <ul class="list-disc mt-2 ml-12">
+        <li>\( a \) disebut <strong>basis</strong> atau bilangan pokok, yaitu bilangan yang dikalikan berulang.</li>
+        <li>\( n \) disebut <strong>pangkat</strong> atau eksponen, yaitu banyaknya pengulangan perkalian terhadap basis.</li>
+    </ul></div>
+    <p class="mt-2 ml-4">Contoh: \( 3^4 \) berarti 3 dikalikan dengan dirinya sebanyak 4 kali, yaitu \( 3 \times 3 \times 3 \times 3 = 81 \).</p>
+    <p class="mt-2 ml-4">Bilangan berpangkat sering digunakan untuk menyederhanakan penulisan dan perhitungan yang melibatkan perkalian berulang, serta banyak digunakan dalam ilmu pengetahuan dan teknologi, seperti dalam perhitungan luas, volume, dan pertumbuhan eksponensial.</p>
+</div>
+
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh Soal:</p>
+    <p class="mt-2 ml-4">Hitung hasil dari bilangan berpangkat berikut:</p>
+    <ul class="ml-8 mt-2 list-disc">
+        <li>\( 2^3 = 2 \times 2 \times 2 = 8 \)</li>
+        <li>\( 5^2 = 5 \times 5 = 25 \)</li>
+        <li>\( 10^0 = 1 \) (Setiap bilangan yang dipangkatkan 0 hasilnya adalah 1, kecuali 0)</li>
+    </ul>
+    <p class="mt-4 ml-4">Dengan memahami bilangan berpangkat, kamu dapat menyelesaikan berbagai soal matematika dengan lebih efisien.</p>
+</div>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Bilangan Berpangkat:</p>
+    <div class="mt-2 ml-4">
+        <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/oaC7dxb9-3I" 
+        title="Penjelasan Bilangan Berpangkat" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div><br>
+
+
+<div id="Latihan-1" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 1</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+
+    <p class="mb-4">Perhatikan bentuk bilangan berpangkat berikut: \[5^3\]<br>Jawablah pertanyaan-pertanyaan di bawah ini!</p>
+    <p class="mb-4"><strong>Petunjuk:</strong> Jika jawaban lebih dari satu, pisahkan dengan koma. Contoh: <em>a, b</em></p>
+
+    <!-- Bilangan Pokok -->
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-64">Bilangan pokok :</span>
+      <input type="text" id="jawaban1" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawaban1', ['5'], 'hasil1')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil1" class="font-semibold"></span>
+    </div>
+
+    <!-- Pangkat -->
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-64">Pangkat :</span>
+      <input type="text" id="jawaban2" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawaban2', ['3'], 'hasil2')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil2" class="font-semibold"></span>
+    </div>
+
+    <!-- Hasil Perpangkatan -->
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-64">Hasil dari 5³ :</span>
+      <input type="text" id="jawaban3" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawaban3', ['125'], 'hasil3')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil3" class="font-semibold"></span>
+    </div>
+
+    <!-- Arti dari Pangkat -->
+    <div class="flex items-center gap-4 mb-3">
+      <span class="w-64">Makna dari 5³ :</span>
+      <input type="text" id="jawaban4" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawaban4', ['5x5x5'], 'hasil4')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasil4" class="font-semibold"></span>
+    </div>
+<p class="mb-4">Perhatikan bentuk bilangan berpangkat berikut: \[4^2\]<br>Jawablah pertanyaan-pertanyaan di bawah ini!</p>
+<p class="mb-4"><strong>Petunjuk:</strong> Jika jawaban lebih dari satu, pisahkan dengan koma. Contoh: <em>a, b</em></p>
+
+<!-- Bilangan Pokok -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Bilangan pokok :</span>
+  <input type="text" id="jawaban1a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban1a', ['4'], 'hasil1a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil1a" class="font-semibold"></span>
+</div>
+
+<!-- Pangkat -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Pangkat :</span>
+  <input type="text" id="jawaban2a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban2a', ['2'], 'hasil2a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil2a" class="font-semibold"></span>
+</div>
+
+<!-- Hasil Perpangkatan -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Hasil dari 4² :</span>
+  <input type="text" id="jawaban3a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban3a', ['16'], 'hasil3a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil3a" class="font-semibold"></span>
+</div>
+
+<!-- Arti dari Pangkat -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Makna dari 4² :</span>
+  <input type="text" id="jawaban4a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban4a', ['4x4'], 'hasil4a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil4a" class="font-semibold"></span>
+</div>
+<p class="mb-4">Perhatikan bentuk bilangan berpangkat berikut: \[2^4\]<br>Jawablah pertanyaan-pertanyaan di bawah ini!</p>
+<p class="mb-4"><strong>Petunjuk:</strong> Jika jawaban lebih dari satu, pisahkan dengan koma. Contoh: <em>a, b</em></p>
+
+<!-- Bilangan Pokok -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Bilangan pokok :</span>
+  <input type="text" id="jawaban1b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban1b', ['2'], 'hasil1b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil1b" class="font-semibold"></span>
+</div>
+
+<!-- Pangkat -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Pangkat :</span>
+  <input type="text" id="jawaban2b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban2b', ['4'], 'hasil2b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil2b" class="font-semibold"></span>
+</div>
+
+<!-- Hasil Perpangkatan -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Hasil dari 2⁴ :</span>
+  <input type="text" id="jawaban3b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban3b', ['16'], 'hasil3b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil3b" class="font-semibold"></span>
+</div>
+
+<!-- Arti dari Pangkat -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Makna dari 2⁴ :</span>
+  <input type="text" id="jawaban4b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban4b', ['2x2x2x2'], 'hasil4b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil4b" class="font-semibold"></span>
+</div>
+
+  </div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+
+  <p class="mb-4">Diberikan bilangan berpangkat \[2^4 + 3^2\].<br>Tentukan hasil dari operasi tersebut!</p>
+  <p class="mb-4"><strong>Petunjuk:</strong> Hitung hasil dari setiap bilangan berpangkat terlebih dahulu, lalu jumlahkan.</p>
+
+  <!-- Hasil 2^4 -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Hasil dari 2⁴ :</span>
+    <input type="text" id="jawaban5" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban5', ['16'], 'hasil5')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil5" class="font-semibold"></span>
+  </div>
+
+  <!-- Hasil 3^2 -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Hasil dari 3² :</span>
+    <input type="text" id="jawaban6" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban6', ['9'], 'hasil6')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil6" class="font-semibold"></span>
+  </div>
+
+  <!-- Hasil akhir -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Hasil dari 2⁴ + 3² :</span>
+    <input type="text" id="jawaban7" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+    <button onclick="cekInput('jawaban7', ['25'], 'hasil7')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil7" class="font-semibold"></span>
+  </div>
+<p class="mb-4">Diberikan bilangan berpangkat \[3^3 + 2^5\].<br>Tentukan hasil dari operasi tersebut!</p>
+<p class="mb-4"><strong>Petunjuk:</strong> Hitung hasil dari setiap bilangan berpangkat terlebih dahulu, lalu jumlahkan.</p>
+
+<!-- Hasil 3^3 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Hasil dari 3³ :</span>
+  <input type="text" id="jawaban5a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban5a', ['27'], 'hasil5a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil5a" class="font-semibold"></span>
+</div>
+
+<!-- Hasil 2^5 -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Hasil dari 2⁵ :</span>
+  <input type="text" id="jawaban6a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban6a', ['32'], 'hasil6a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil6a" class="font-semibold"></span>
+</div>
+
+<!-- Hasil akhir -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Hasil dari 3³ + 2⁵ :</span>
+  <input type="text" id="jawaban7a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawaban7a', ['59'], 'hasil7a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil7a" class="font-semibold"></span>
+</div>
+
+</div><br>
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+
+  <p class="mb-4">Seorang siswa menulis bahwa \[2^3 + 2^2 = 2^5\]. Apakah pernyataan tersebut benar?<br>
+  Jelaskan alasanmu berdasarkan konsep bilangan berpangkat!</p>
+  <p class="mb-4"><strong>Petunjuk:</strong> Ingat bahwa sifat penjumlahan berbeda dengan sifat bilangan berpangkat.</p>
+
+  <!-- Pilihan dropdown -->
+  <div class="flex items-center gap-4 mb-3">
+    <span class="w-64">Pernyataan ini:</span>
+    <select id="dropdown1" class="border rounded px-2 py-1 w-[120px]">
+      <option value="">Pilih jawaban</option>
+      <option value="benar">Benar</option>
+      <option value="salah">Salah</option>
+    </select>
+    <button onclick="cekDropdown('dropdown1', 'salah', 'hasil8')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+    <span id="hasil8" class="font-semibold"></span>
+  </div>
+<p class="mb-4">Seorang siswa menulis bahwa \[3^2 + 3^3 = 3^5\]. Apakah pernyataan tersebut benar?<br>
+  Jelaskan alasanmu berdasarkan konsep bilangan berpangkat!</p>
+<p class="mb-4"><strong>Petunjuk:</strong> Ingat bahwa sifat penjumlahan berbeda dengan sifat bilangan berpangkat.</p>
+
+<!-- Pilihan dropdown -->
+<div class="flex items-center gap-4 mb-3">
+  <span class="w-64">Pernyataan ini:</span>
+  <select id="jawaban8a" class="border rounded px-2 py-1 w-[120px]">
+    <option value="">Pilih jawaban</option>
+    <option value="benar">Benar</option>
+    <option value="salah">Salah</option>
+  </select>
+  <button onclick="cekDropdown('jawaban8a', 'salah', 'hasil8a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasil8a" class="font-semibold"></span>
+</div>
+
+</div><br>
+<div id="2.-Sifat-Sifat-Bilangan-Berpangkat">
+  <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">2. Sifat-sifat Bilangan Berpangkat</p>
+  <p class="mt-2 ml-4">Bilangan berpangkat memiliki beberapa sifat penting yang memudahkan dalam perhitungan. Sifat-sifat ini berlaku jika basisnya sama, dan sangat berguna dalam menyederhanakan bentuk aljabar maupun perhitungan aritmetika.</p>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Sifat Pangkat:</p>
+    <div class="mt-2 ml-4">
+      <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/BTiHS5gU56I"
+        title="Sifat-Sifat Bilangan Berpangkat" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div><br>
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p id="2.1-Perkalian-Berbasis-Pangkat" class="font-semibold">2.1 Perkalian Berbasis Pangkat</p>
+    <p class="mt-2 ml-4">Jika dua bilangan berpangkat dengan basis yang sama dikalikan, pangkatnya dapat dijumlahkan:</p>
+    <p class="text-3xl text-[#4dd4a3] text-center mt-4">\[ a^m \times a^n = a^{m+n} \]</p>
+    <p class="mt-2 ml-4">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( 2^3 \times 2^4 = 2^{3+4} = 2^7 = 128 \)</li>
+      <li>\( 5^2 \times 5 = 5^2 \times 5^1 = 5^3 = 125 \)</li>
+    </ul>
+  </div><br>
+
+<div id="Latihan-2-1" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2.1</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Gunakan sifat bilangan berpangkat: </p>
+<div class="p-2 bg-green-100 rounded-lg shadow-md">
+<p class="text-2xl" >\[a^m \times a^n = a^{m+n}\]</p>
+</div><br>
+
+    <!-- 2.1a-->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(3^2\times3^4\):</span>
+      <input type="text" id="jawabans21a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans21a', ['3^6'], 'hasils21a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils21a" class="font-semibold"></span>
+<span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh21a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh21a', ['729'], 'hasilh21a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh21a" class="font-semibold"></span>
+</div>
+<!-- 2.1b -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(2^3\times2^5\):</span>
+  <input type="text" id="jawabans21b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21b', ['2^8'], 'hasils21b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21b" class="font-semibold"></span>
+  
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21b', ['256'], 'hasilh21b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21b" class="font-semibold"></span>
+</div>
+
+<!-- 2.1c -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(4^2\times4^3\):</span>
+  <input type="text" id="jawabans21c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21c', ['4^5'], 'hasils21c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21c" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21c', ['1024'], 'hasilh21c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21c" class="font-semibold"></span>
+</div>
+
+<!-- 2.1d -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(6^1\times6^3\):</span>
+  <input type="text" id="jawabans21d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21d', ['6^4'], 'hasils21d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21d" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21d', ['1296'], 'hasilh21d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21d" class="font-semibold"></span>
+</div>
+
+<!-- 2.1e -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(7^2\times7^2\):</span>
+  <input type="text" id="jawabans21e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21e', ['7^4'], 'hasils21e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21e" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21e', ['2401'], 'hasilh21e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21e" class="font-semibold"></span>
+</div>
+<!-- 2.1f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(9^2\times9^1\):</span>
+  <input type="text" id="jawabans21f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21f', ['9^3'], 'hasils21f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21f" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21f', ['729'], 'hasilh21f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21f" class="font-semibold"></span>
+</div>
+
+<!-- 2.1g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(10^4\times10^2\):</span>
+  <input type="text" id="jawabans21g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21g', ['10^6'], 'hasils21g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21g" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21g', ['1000000'], 'hasilh21g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21g" class="font-semibold"></span>
+</div>
+
+<!-- 2.1h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(8^1\times8^2\):</span>
+  <input type="text" id="jawabans21h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans21h', ['8^3'], 'hasils21h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils21h" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh21h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh21h', ['512'], 'hasilh21h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh21h" class="font-semibold"></span>
+</div>
+
+  </div>
+</div><br>
+
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p id="2.2-Pembagian-Berbasis-Pangkat" class="font-semibold">2.2 Pembagian Berbasis Pangkat</p>
+    <p class="mt-2 ml-4">Jika dua bilangan berpangkat dengan basis yang sama dibagi, pangkatnya dikurangkan:</p>
+    <p class="text-3xl text-[#4dd4a3] text-center mt-4">\[ a^m \div a^n = a^{m-n} \quad \text{(dengan a ≠ 0)} \]</p>
+    <p class="mt-2 ml-4">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( 4^5 \div 4^2 = 4^{5-2} = 4^3 = 64 \)</li>
+      <li>\( 7^6 \div 7^6 = 7^0 = 1 \)</li>
+    </ul>
+  </div><br>
+
+<div id="Latihan-2-2" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2.2</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Gunakan sifat bilangan berpangkat: </p>
+    <div class="p-2 bg-green-100 rounded-lg shadow-md">
+      <p class="text-2xl">\[a^m \div a^n = a^{m-n}\]</p>
+    </div><br>
+
+    <!-- 2.2a -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(5^6 \div 5^2\):</span>
+      <input type="text" id="jawabans22a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans22a', ['5^4'], 'hasils22a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils22a" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh22a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh22a', ['625'], 'hasilh22a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh22a" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.2b -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(8^5 \div 8^3\):</span>
+      <input type="text" id="jawabans22b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans22b', ['8^2'], 'hasils22b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils22b" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh22b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh22b', ['64'], 'hasilh22b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh22b" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.2c -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(6^4 \div 6^1\):</span>
+      <input type="text" id="jawabans22c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans22c', ['6^3'], 'hasils22c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils22c" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh22c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh22c', ['216'], 'hasilh22c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh22c" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.2d -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(10^3 \div 10^2\):</span>
+      <input type="text" id="jawabans22d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans22d', ['10^1'], 'hasils22d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils22d" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh22d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh22d', ['10'], 'hasilh22d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh22d" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.2e -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \(9^4 \div 9^2\):</span>
+      <input type="text" id="jawabans22e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans22e', ['9^2'], 'hasils22e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils22e" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \(=\):</span>
+      <input type="text" id="jawabanh22e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh22e', ['81'], 'hasilh22e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh22e" class="font-semibold"></span>
+    </div>
+<!-- 2.2f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(5^7 \div 5^4\):</span>
+  <input type="text" id="jawabans22f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans22f', ['5^3'], 'hasils22f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils22f" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh22f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh22f', ['125'], 'hasilh22f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh22f" class="font-semibold"></span>
+</div>
+
+<!-- 2.2g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(9^6 \div 9^2\):</span>
+  <input type="text" id="jawabans22g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans22g', ['9^4'], 'hasils22g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils22g" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh22g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh22g', ['6561'], 'hasilh22g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh22g" class="font-semibold"></span>
+</div>
+
+<!-- 2.2h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \(2^8 \div 2^3\):</span>
+  <input type="text" id="jawabans22h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans22h', ['2^5'], 'hasils22h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils22h" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \(=\):</span>
+  <input type="text" id="jawabanh22h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh22h', ['32'], 'hasilh22h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh22h" class="font-semibold"></span>
+</div>
+
+  </div>
+</div><br>
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p id="2.3-Pangkat-Negatif-dan-Nol" class="font-semibold">2.3 Pangkat Nol dan Pangkat Negatif</p>
+    <p class="mt-2 ml-4">Pangkat nol dan negatif memiliki aturan khusus:</p>
+<p class="text-3xl text-[#4dd4a3] text-center mt-4">   
+      \[ a^0 = 1 , a \neq 0 \]
+      \[ a^{-n} = \frac{1}{a^n} \]
+    </p>
+    <p class="mt-2 ml-4">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( 10^0 = 1 \)</li>
+      <li>\( 2^{-3} = \frac{1}{2^3} = \frac{1}{8} \)</li>
+    </ul>
+  </div><br>
+<div id="Latihan-2-3" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2.3</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Gunakan sifat bilangan berpangkat negatif dan nol: </p>
+    <div class="p-2 bg-green-100 rounded-lg shadow-md">
+      <p class="text-2xl">\[a^{-n} = \frac{1}{a^n}, \quad a^0 = 1 \quad (a \neq 0)\]</p>
+    </div><br>
+
+    <!-- 2.3a -->
+    <div class="flex items-center gap-2 mb-2">
+      
+      <span class="w-32">Hasil dari \(4^{-2}=\) </span>
+      <input type="text" id="jawabanh23a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh23a', ['1/16'], 'hasilh23a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh23a" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.3b -->
+    <div class="flex items-center gap-2 mb-2">
+     
+      <span class="w-32">Hasil dari\(10^{-1}=\)</span>
+      <input type="text" id="jawabanh23b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh23b', ['1/10'], 'hasilh23b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh23b" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.3c -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-40">Hasil dari \(7^0=\):</span>
+      <input type="text" id="jawabanh23c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh23c', ['1'], 'hasilh23c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh23c" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.3d -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-32">Hasil dari \(10^{-2}=\)</span>
+  <input type="text" id="jawabanh23d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh23d', ['1/100'], 'hasilh23d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh23d" class="font-semibold"></span>
+</div>
+
+<!-- 2.3e -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-32">Hasil dari \(3^{-4}=\)</span>
+  <input type="text" id="jawabanh23e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh23e', ['1/81'], 'hasilh23e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh23e" class="font-semibold"></span>
+</div>
+
+<!-- 2.3f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-32">Hasil dari \(2^{-5}=\)</span>
+  <input type="text" id="jawabanh23f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh23f', ['1/32'], 'hasilh23f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh23f" class="font-semibold"></span>
+</div>
+
+<!-- 2.3g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-32">Hasil dari \(6^{-1}=\)</span>
+  <input type="text" id="jawabanh23g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh23g', ['1/6'], 'hasilh23g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh23g" class="font-semibold"></span>
+</div>
+
+<!-- 2.3h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-32">Hasil dari \(8^{-2}=\)</span>
+  <input type="text" id="jawabanh23h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh23h', ['1/64'], 'hasilh23h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh23h" class="font-semibold"></span>
+</div>
+  </div>
+</div><br>
+
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+  <p id="2.4-Pangkat-yang-Dipangkat" class="font-semibold">2.4 Pangkat yang Dipangkat</p>
+  <p class="mt-2 ml-4">Jika suatu bilangan berpangkat dipangkatkan lagi, maka pangkat-pangkatnya dikalikan:</p>
+  <p class="text-3xl text-[#4dd4a3] text-center mt-4">\[ (a^m)^n = a^{m \times n} \]</p>
+  <p class="mt-2 ml-4">Contoh:</p>
+  <ul class="ml-8 mt-2 list-disc">
+    <li>\( (3^2)^4 = 3^{2 \times 4} = 3^8 = 6561 \)</li>
+    <li>\( (5^3)^2 = 5^{3 \times 2} = 5^6 = 15625 \)</li>
+  </ul>
+</div><br>
+
+<div id="Latihan-2-4" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2.4</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Gunakan sifat bilangan berpangkat:</p>
+    <div class="p-2 bg-green-100 rounded-lg shadow-md">
+      <p class="text-2xl">\[(a^m)^n = a^{m \times n}\]</p>
+    </div><br>
+
+    <!-- 2.4a -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( (2^3)^2 \):</span>
+      <input type="text" id="jawabans24a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans24a', ['2^6'], 'hasils24a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils24a" class="font-semibold"></span>
+
+      <span class="w-16">Hasil =</span>
+      <input type="text" id="jawabanh24a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh24a', ['64'], 'hasilh24a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh24a" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.4b -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( (4^2)^3 \):</span>
+      <input type="text" id="jawabans24b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans24b', ['4^6'], 'hasils24b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils24b" class="font-semibold"></span>
+
+      <span class="w-16">Hasil =</span>
+      <input type="text" id="jawabanh24b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh24b', ['4096'], 'hasilh24b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh24b" class="font-semibold"></span>
+    </div>
+<!-- 2.4c -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (3^2)^3 \):</span>
+  <input type="text" id="jawabans24c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24c', ['3^6'], 'hasils24c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24c" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24c', ['729'], 'hasilh24c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24c" class="font-semibold"></span>
+</div>
+
+<!-- 2.4d -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (6^1)^4 \):</span>
+  <input type="text" id="jawabans24d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24d', ['6^4'], 'hasils24d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24d" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24d', ['1296'], 'hasilh24d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24d" class="font-semibold"></span>
+</div>
+
+<!-- 2.4e -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (10^2)^2 \):</span>
+  <input type="text" id="jawabans24e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24e', ['10^4'], 'hasils24e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24e" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24e', ['10000'], 'hasilh24e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24e" class="font-semibold"></span>
+</div>
+
+<!-- 2.4f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (7^2)^2 \):</span>
+  <input type="text" id="jawabans24f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24f', ['7^4'], 'hasils24f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24f" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24f', ['2401'], 'hasilh24f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24f" class="font-semibold"></span>
+</div>
+
+<!-- 2.4g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (9^1)^3 \):</span>
+  <input type="text" id="jawabans24g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24g', ['9^3'], 'hasils24g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24g" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24g', ['729'], 'hasilh24g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24g" class="font-semibold"></span>
+</div>
+
+<!-- 2.4h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (2^4)^2 \):</span>
+  <input type="text" id="jawabans24h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24h', ['2^8'], 'hasils24h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24h" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24h', ['256'], 'hasilh24h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24h" class="font-semibold"></span>
+</div>
+
+<!-- 2.4i -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (11^1)^2 \):</span>
+  <input type="text" id="jawabans24i" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24i', ['11^2'], 'hasils24i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24i" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24i" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24i', ['121'], 'hasilh24i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24i" class="font-semibold"></span>
+</div>
+
+<!-- 2.4j -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( (12^2)^2 \):</span>
+  <input type="text" id="jawabans24j" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans24j', ['12^4'], 'hasils24j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils24j" class="font-semibold"></span>
+
+  <span class="w-16">Hasil =</span>
+  <input type="text" id="jawabanh24j" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh24j', ['20736'], 'hasilh24j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh24j" class="font-semibold"></span>
+</div>
+  </div>
+</div><br>
+
+<div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+  <p id="2.5-Pangkat-yang-Diakar-Pangkat" class="font-semibold">2.5 Pangkat yang Diakar Pangkat</p>
+  <p class="mt-2 ml-4">Jika sebuah bilangan berpangkat berada di dalam akar, maka bentuk tersebut dapat ditulis sebagai bilangan berpangkat pecahan:</p>
+  <p class="text-3xl text-[#4dd4a3] text-center mt-4">\[ \sqrt[n]{a^m} = a^{\frac{m}{n}} \]</p>
+  <p class="mt-2 ml-4">Jika tidak tertulis angka di akar, maka dianggap sebagai akar kuadrat (n = 2).</p>
+  <p class="mt-2 ml-4">Contoh:</p>
+  <ul class="ml-8 mt-2 list-disc">
+    <li>\( \sqrt{4^6} = 4^{6 \div 2} = 4^3 = 64 \)</li>
+    <li>\( \sqrt[3]{2^6} = 2^{6 \div 3} = 2^2 = 4 \)</li>
+    <li>\( \sqrt[4]{5^8} = 5^{8 \div 4} = 5^2 = 25 \)</li>
+  </ul>
+</div><br>
+
+<div id="Latihan-2-5" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 2.5</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Gunakan sifat akar pangkat:</p>
+    <div class="p-2 bg-green-100 rounded-lg shadow-md">
+      <p class="text-2xl">\[ \sqrt[n]{a^m} = a^{\frac{m}{n}} \]</p>
+    </div><br>
+
+    <!-- 2.5a -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( \sqrt{9^4} \):</span>
+      <input type="text" id="jawabans25a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans25a', ['9^2'], 'hasils25a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils25a" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \( = \):</span>
+      <input type="text" id="jawabanh25a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh25a', ['81'], 'hasilh25a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh25a" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.5b -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( \sqrt[3]{8^6} \):</span>
+      <input type="text" id="jawabans25b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans25b', ['8^2'], 'hasils25b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils25b" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \( = \):</span>
+      <input type="text" id="jawabanh25b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh25b', ['64'], 'hasilh25b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh25b" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.5c -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( \sqrt[4]{16^8} \):</span>
+      <input type="text" id="jawabans25c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans25c', ['16^2'], 'hasils25c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils25c" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \( = \):</span>
+      <input type="text" id="jawabanh25c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh25c', ['256'], 'hasilh25c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh25c" class="font-semibold"></span>
+    </div>
+
+    <!-- 2.5d -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Sederhanakan \( \sqrt[5]{32^{10}} \):</span>
+      <input type="text" id="jawabans25d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabans25d', ['32^2'], 'hasils25d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasils25d" class="font-semibold"></span>
+
+      <span class="w-16">Hasil \( = \):</span>
+      <input type="text" id="jawabanh25d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh25d', ['1024'], 'hasilh25d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh25d" class="font-semibold"></span>
+    </div>
+<!-- 2.5e -->
+<div class="flex items-center gap-2 mb-2 mt-4">
+  <span class="w-30">Sederhanakan \( \sqrt[3]{27^6} \):</span>
+  <input type="text" id="jawabans25e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25e', ['27^2'], 'hasils25e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25e" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25e', ['729'], 'hasilh25e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25e" class="font-semibold"></span>
+</div>
+
+<!-- 2.5f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( \sqrt[4]{81^4} \):</span>
+  <input type="text" id="jawabans25f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25f', ['81^1', '81'], 'hasils25f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25f" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25f', ['81'], 'hasilh25f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25f" class="font-semibold"></span>
+</div>
+
+<!-- 2.5g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( \sqrt{25^6} \):</span>
+  <input type="text" id="jawabans25g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25g', ['25^3'], 'hasils25g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25g" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25g', ['15625'], 'hasilh25g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25g" class="font-semibold"></span>
+</div>
+
+<!-- 2.5h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( \sqrt[3]{64^3} \):</span>
+  <input type="text" id="jawabans25h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25h', ['64'], 'hasils25h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25h" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25h', ['64'], 'hasilh25h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25h" class="font-semibold"></span>
+</div>
+
+<!-- 2.5i -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Sederhanakan \( \sqrt[6]{64^{12}} \):</span>
+  <input type="text" id="jawabans25i" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25i', ['64^2'], 'hasils25i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25i" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25i" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25i', ['4096'], 'hasilh25i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25i" class="font-semibold"></span>
+</div>
+
+<!-- 2.5j -->
+<div class="flex items-center gap-2 mb-4">
+  <span class="w-30">Sederhanakan \( \sqrt{10^4} \):</span>
+  <input type="text" id="jawabans25j" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabans25j', ['10^2'], 'hasils25j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasils25j" class="font-semibold"></span>
+
+  <span class="w-16">Hasil \( = \):</span>
+  <input type="text" id="jawabanh25j" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh25j', ['100'], 'hasilh25j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh25j" class="font-semibold"></span>
+</div>
+  </div>
+</div><br>
+
+  
+
+
+<div id="3.-Pengertian-Bentuk-Akar">
+  <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">3. Pengertian Bentuk Akar</p>
+  <p class="mt-2 ml-4">
+    <strong>Bentuk akar</strong> adalah bentuk bilangan yang mengandung tanda akar (√), khususnya akar kuadrat atau akar pangkat lainnya.
+    Bentuk akar umumnya muncul ketika kita tidak bisa menyederhanakan suatu bilangan ke dalam bentuk bilangan bulat atau rasional.
+  </p>
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="text-3xl text-[#4dd4a3] text-center">\[ \sqrt{a} \]</p>
+    <p class="mt-2 ml-4">di mana:</p>
+    <ul class="list-disc ml-12 mt-2">
+      <li>\( a \) adalah bilangan yang diakarkan (disebut juga radikand).</li>
+      <li>Tanda √ disebut tanda akar.</li>
+    </ul>
+  </div>
+
+  <p class="mt-4 ml-4">Jika hasil dari akar merupakan bilangan bulat, maka disebut sebagai <strong>akar sempurna</strong>. Namun, jika hasilnya bukan bilangan bulat, maka disebut sebagai <strong>bentuk akar tak sempurna</strong>.</p>
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( \sqrt{25} = 5 \) (akar sempurna)</li>
+      <li>\( \sqrt{2} \approx 1{,}41 \) (bentuk akar tak sempurna)</li>
+      <li>\( \sqrt{81} = 9 \)</li>
+      <li>\( \sqrt{10} \approx 3{,}16 \)</li>
+    </ul>
+  </div>
+
+  <p class="mt-4 ml-4">
+    Bentuk akar sering muncul dalam berbagai cabang matematika seperti geometri, aljabar, dan trigonometri, terutama ketika menghitung panjang sisi segitiga, luas, dan nilai-nilai eksak.
+  </p>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Bentuk Akar:</p>
+
+    <div class="mt-2 ml-4">
+      <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/VlNNVsOcdMc"
+        title="Penjelasan Bentuk Akar Matematika" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div><br>
+
+<div id="Latihan-3" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 3</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Hitunglah akar dari bilangan kuadrat sempurna di bawah ini:</p>
+    <div class="p-2 bg-green-100 rounded-lg shadow-md">
+      <p class="text-2xl">\[\sqrt{a^2} = a\]</p>
+    </div><br>
+    <!-- Soal a -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Hitung nilai dari \(\sqrt{49}\):</span>
+      <input type="text" id="jawabanh3a" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh3a', ['7'], 'hasilh3a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh3a" class="font-semibold"></span>
+    </div>
+
+    <!-- Soal b -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Hitung nilai dari \(\sqrt{64}\):</span>
+      <input type="text" id="jawabanh3b" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh3b', ['8'], 'hasilh3b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh3b" class="font-semibold"></span>
+    </div>
+
+    <!-- Soal c -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Hitung nilai dari \(\sqrt{81}\):</span>
+      <input type="text" id="jawabanh3c" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh3c', ['9'], 'hasilh3c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh3c" class="font-semibold"></span>
+    </div>
+
+    <!-- Soal d -->
+    <div class="flex items-center gap-2 mb-2">
+      <span class="w-30">Hitung nilai dari \(\sqrt{100}\):</span>
+      <input type="text" id="jawabanh3d" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+      <button onclick="cekInput('jawabanh3d', ['10'], 'hasilh3d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+      <span id="hasilh3d" class="font-semibold"></span>
+    </div>
+<!-- Soal e -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{121}\):</span>
+  <input type="text" id="jawabanh3e" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3e', ['11'], 'hasilh3e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3e" class="font-semibold"></span>
+</div>
+
+<!-- Soal f -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{144}\):</span>
+  <input type="text" id="jawabanh3f" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3f', ['12'], 'hasilh3f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3f" class="font-semibold"></span>
+</div>
+
+<!-- Soal g -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{169}\):</span>
+  <input type="text" id="jawabanh3g" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3g', ['13'], 'hasilh3g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3g" class="font-semibold"></span>
+</div>
+
+<!-- Soal h -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{196}\):</span>
+  <input type="text" id="jawabanh3h" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3h', ['14'], 'hasilh3h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3h" class="font-semibold"></span>
+</div>
+
+<!-- Soal i -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{225}\):</span>
+  <input type="text" id="jawabanh3i" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3i', ['15'], 'hasilh3i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3i" class="font-semibold"></span>
+</div>
+
+<!-- Soal j -->
+<div class="flex items-center gap-2 mb-2">
+  <span class="w-30">Hitung nilai dari \(\sqrt{256}\):</span>
+  <input type="text" id="jawabanh3j" class="border rounded px-2 py-1 w-[90px]" placeholder="Jawaban">
+  <button onclick="cekInput('jawabanh3j', ['16'], 'hasilh3j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek</button>
+  <span id="hasilh3j" class="font-semibold"></span>
+</div>
+
+  </div>
+</div><br>
+
+  
+
+<div id="4.-Sifat-Sifat-Bentuk-Akar">
+  <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">4. Sifat-sifat Bentuk Akar</p>
+  <p class="mt-2 ml-4">
+    Dalam matematika, bentuk akar memiliki beberapa sifat penting yang dapat digunakan untuk menyederhanakan dan melakukan operasi terhadap bilangan dalam bentuk akar. 
+    Berikut ini adalah dua sifat utama yang sering digunakan.
+  </p>
+
+<div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Sifat-Sifat Bentuk Akar:</p>
+    <div class="mt-2 ml-4">
+      <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/MuT4pxRs0Wg" 
+        title="Sifat-Sifat Bentuk Akar" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div><br>
+
+  <!-- 4.1 Menyederhanakan Bentuk Akar -->
+  <div id="4.1-Menyederhanakan-Bentuk-Akar">
+    <p class="text-lg font-semibold mt-6 mb-2 ml-2 text-[#4dd4a3]">4.1 Menyederhanakan Bentuk Akar</p>
+    <p class="mt-2 ml-4">
+      Menyederhanakan bentuk akar berarti menuliskan akar dalam bentuk yang lebih sederhana namun tetap memiliki nilai yang sama.
+    </p>
+    
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+      <p class="font-semibold">Sifat Umum:</p>
+      <p class="ml-4 mt-2">\[ \sqrt{a \times b} = \sqrt{a} \times \sqrt{b} \]</p>
+      <p class="ml-4 mt-2">\[ \sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}} \]</p>
+    </div>
+
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+      <p class="font-semibold">Contoh Menyederhanakan:</p>
+      <ul class="ml-8 mt-2 list-disc">
+        <li>\( \sqrt{50} = \sqrt{25 \times 2} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2} \)</li>
+        <li>\( \sqrt{72} = \sqrt{36 \times 2} = 6\sqrt{2} \)</li>
+      </ul>
+    </div>
+  </div><br>
+
+<div id="Latihan-4-1" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 4.1</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Pilih jawaban yang tepat untuk menyederhanakan bentuk akar berikut.</p>
+
+    <!-- 4.1a -->
+    <div class="mb-4">
+      <p class="font-semibold">1. Sederhanakan \(\sqrt{50}\):</p>
+      <div>
+        <input type="radio" id="soal41a1" name="soal41a" value="5√2">
+        <label for="soal41a1">A. \(5\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41a2" name="soal41a" value="25√2">
+        <label for="soal41a2">B. \(25\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41a3" name="soal41a" value="10√5">
+        <label for="soal41a3">C. \(10\sqrt{5}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41a4" name="soal41a" value="√25">
+        <label for="soal41a4">D. \(\sqrt{25}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41a', '5√2', 'hasil41a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41a" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1b -->
+    <div class="mb-4">
+      <p class="font-semibold">2. Sederhanakan \(\sqrt{72}\):</p>
+      <div>
+        <input type="radio" id="soal41b1" name="soal41b" value="6√2">
+        <label for="soal41b1">A. \(6\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41b2" name="soal41b" value="12√3">
+        <label for="soal41b2">B. \(12\sqrt{3}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41b3" name="soal41b" value="8√9">
+        <label for="soal41b3">C. \(8\sqrt{9}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41b4" name="soal41b" value="9√8">
+        <label for="soal41b4">D. \(9\sqrt{8}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41b', '6√2', 'hasil41b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41b" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1c -->
+    <div class="mb-4">
+      <p class="font-semibold">3. Sederhanakan \(\sqrt{98}\):</p>
+      <div>
+        <input type="radio" id="soal41c1" name="soal41c" value="7√2">
+        <label for="soal41c1">A. \(7\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41c2" name="soal41c" value="14√7">
+        <label for="soal41c2">B. \(14\sqrt{7}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41c3" name="soal41c" value="49√2">
+        <label for="soal41c3">C. \(49\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41c4" name="soal41c" value="7√14">
+        <label for="soal41c4">D. \(7\sqrt{14}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41c', '7√2', 'hasil41c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41c" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1d -->
+    <div class="mb-4">
+      <p class="font-semibold">4. Sederhanakan \(\sqrt{18}\):</p>
+      <div>
+        <input type="radio" id="soal41d1" name="soal41d" value="3√2">
+        <label for="soal41d1">A. \(3\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41d2" name="soal41d" value="6√3">
+        <label for="soal41d2">B. \(6\sqrt{3}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41d3" name="soal41d" value="9√9">
+        <label for="soal41d3">C. \(9\sqrt{9}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41d4" name="soal41d" value="√36">
+        <label for="soal41d4">D. \(\sqrt{36}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41d', '3√2', 'hasil41d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41d" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1e -->
+    <div class="mb-4">
+      <p class="font-semibold">5. Sederhanakan \(\sqrt{200}\):</p>
+      <div>
+        <input type="radio" id="soal41e1" name="soal41e" value="10√2">
+        <label for="soal41e1">A. \(10\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41e2" name="soal41e" value="20√10">
+        <label for="soal41e2">B. \(20\sqrt{10}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41e3" name="soal41e" value="5√40">
+        <label for="soal41e3">C. \(5\sqrt{40}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41e4" name="soal41e" value="√400">
+        <label for="soal41e4">D. \(\sqrt{400}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41e', '10√2', 'hasil41e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41e" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1f -->
+    <div class="mb-4">
+      <p class="font-semibold">6. Sederhanakan \(\sqrt{32}\):</p>
+      <div>
+        <input type="radio" id="soal41f1" name="soal41f" value="4√2">
+        <label for="soal41f1">A. \(4\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41f2" name="soal41f" value="2√16">
+        <label for="soal41f2">B. \(2\sqrt{16}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41f3" name="soal41f" value="16√2">
+        <label for="soal41f3">C. \(16\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41f4" name="soal41f" value="8√4">
+        <label for="soal41f4">D. \(8\sqrt{4}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41f', '4√2', 'hasil41f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41f" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1g -->
+    <div class="mb-4">
+      <p class="font-semibold">7. Sederhanakan \(\sqrt{45}\):</p>
+      <div>
+        <input type="radio" id="soal41g1" name="soal41g" value="3√5">
+        <label for="soal41g1">A. \(3\sqrt{5}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41g2" name="soal41g" value="9√5">
+        <label for="soal41g2">B. \(9\sqrt{5}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41g3" name="soal41g" value="5√9">
+        <label for="soal41g3">C. \(5\sqrt{9}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41g4" name="soal41g" value="15√3">
+        <label for="soal41g4">D. \(15\sqrt{3}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41g', '3√5', 'hasil41g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41g" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1h -->
+    <div class="mb-4">
+      <p class="font-semibold">8. Sederhanakan \(\sqrt{128}\):</p>
+      <div>
+        <input type="radio" id="soal41h1" name="soal41h" value="8√2">
+        <label for="soal41h1">A. \(8\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41h2" name="soal41h" value="16√8">
+        <label for="soal41h2">B. \(16\sqrt{8}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41h3" name="soal41h" value="4√32">
+        <label for="soal41h3">C. \(4\sqrt{32}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41h4" name="soal41h" value="2√64">
+        <label for="soal41h4">D. \(2\sqrt{64}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41h', '8√2', 'hasil41h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41h" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1i -->
+    <div class="mb-4">
+      <p class="font-semibold">9. Sederhanakan \(\sqrt{98}\):</p>
+      <div>
+        <input type="radio" id="soal41i1" name="soal41i" value="7√2">
+        <label for="soal41i1">A. \(7\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41i2" name="soal41i" value="14√7">
+        <label for="soal41i2">B. \(14\sqrt{7}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41i3" name="soal41i" value="49√2">
+        <label for="soal41i3">C. \(49\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41i4" name="soal41i" value="7√14">
+        <label for="soal41i4">D. \(7\sqrt{14}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41i', '7√2', 'hasil41i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41i" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 4.1j -->
+    <div class="mb-4">
+      <p class="font-semibold">10. Sederhanakan \(\sqrt{72}\):</p>
+      <div>
+        <input type="radio" id="soal41j1" name="soal41j" value="6√2">
+        <label for="soal41j1">A. \(6\sqrt{2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41j2" name="soal41j" value="12√3">
+        <label for="soal41j2">B. \(12\sqrt{3}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41j3" name="soal41j" value="8√9">
+        <label for="soal41j3">C. \(8\sqrt{9}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal41j4" name="soal41j" value="9√8">
+        <label for="soal41j4">D. \(9\sqrt{8}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal41j', '6√2', 'hasil41j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil41j" class="font-semibold ml-2"></span>
+    </div>
+
+  </div>
+</div><br>
+  <!-- 4.2 Operasi Pada Bentuk Akar -->
+  <div id="4.2-Operasi-Pada-Bentuk-Akar">
+    <p class="text-lg font-semibold mt-6 mb-2 ml-2 text-[#4dd4a3]">4.2 Operasi Pada Bentuk Akar</p>
+    <p class="mt-2 ml-4">
+      Operasi yang dapat dilakukan pada bentuk akar mencakup penjumlahan, pengurangan, perkalian, dan pembagian. Operasi penjumlahan dan pengurangan hanya dapat dilakukan jika bentuk akar sejenis (memiliki radikand yang sama).
+    </p>
+
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+      <p class="font-semibold">Contoh Penjumlahan dan Pengurangan:</p>
+      <ul class="ml-8 mt-2 list-disc">
+        <li>\( 3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2} \)</li>
+        <li>\( 7\sqrt{3} - 2\sqrt{3} = 5\sqrt{3} \)</li>
+      </ul>
+    </div>
+
+    <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+      <p class="font-semibold">Contoh Perkalian dan Pembagian:</p>
+      <ul class="ml-8 mt-2 list-disc">
+        <li>\( \sqrt{2} \times \sqrt{3} = \sqrt{6} \)</li>
+        <li>\( \frac{\sqrt{8}}{\sqrt{2}} = \sqrt{4} = 2 \)</li>
+      </ul>
+    </div>
+  </div><br>
+<div id="Latihan-4-2" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 4.2</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <!-- Soal 1 -->
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Pilih jawaban yang benar dari operasi pada bentuk akar berikut:</p>
+    <p class="text-2xl mb-2"> \( \sqrt{8} + \sqrt{18} = ? \)</p>
+    <div class="flex flex-col gap-2 mb-4 ml-4">
+      <label><input type="radio" name="soal42-1" value="A"> A. \(5\sqrt{2}\)</label>
+      <label><input type="radio" name="soal42-1" value="B"> B. \(3\sqrt{6}\)</label>
+      <label><input type="radio" name="soal42-1" value="C"> C. \(7\sqrt{2}\)</label>
+      <label><input type="radio" name="soal42-1" value="D"> D. \(6\sqrt{3}\)</label>
+    </div>
+    <button onclick="cekPilihan('soal42-1', 'A', 'hasil42-1')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+    <span id="hasil42-1" class="font-semibold ml-4"></span>
+
+    <!-- Soal 2 -->
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+    <p class="text-2xl mb-2"> \( 3\sqrt{5} - 2\sqrt{5} = ? \)</p>
+    <div class="flex flex-col gap-2 mb-4 ml-4">
+      <label><input type="radio" name="soal42-2" value="A"> A. \(\sqrt{5}\)</label>
+      <label><input type="radio" name="soal42-2" value="B"> B. \(5\sqrt{5}\)</label>
+      <label><input type="radio" name="soal42-2" value="C"> C. \(6\sqrt{5}\)</label>
+      <label><input type="radio" name="soal42-2" value="D"> D. \(5\)</label>
+    </div>
+    <button onclick="cekPilihan('soal42-2', 'A', 'hasil42-2')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+    <span id="hasil42-2" class="font-semibold ml-4"></span>
+
+    <!-- Soal 3 -->
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+    <p class="text-2xl mb-2"> \( 2\sqrt{3} \times 4\sqrt{3} = ? \)</p>
+    <div class="flex flex-col gap-2 mb-4 ml-4">
+      <label><input type="radio" name="soal42-3" value="A"> A. \(8\sqrt{6}\)</label>
+      <label><input type="radio" name="soal42-3" value="B"> B. \(24\)</label>
+      <label><input type="radio" name="soal42-3" value="C"> C. \(12\sqrt{3}\)</label>
+      <label><input type="radio" name="soal42-3" value="D"> D. \(14\sqrt{3}\)</label>
+    </div>
+    <button onclick="cekPilihan('soal42-3', 'B', 'hasil42-3')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+    <span id="hasil42-3" class="font-semibold ml-4"></span>
+
+    <!-- Soal 4 -->
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+    <p class="text-2xl mb-2"> \( \frac{6\sqrt{10}}{3\sqrt{5}} = ? \)</p>
+    <div class="flex flex-col gap-2 mb-4 ml-4">
+      <label><input type="radio" name="soal42-4" value="A"> A. \(2\sqrt{2}\)</label>
+      <label><input type="radio" name="soal42-4" value="B"> B. \(3\sqrt{5}\)</label>
+      <label><input type="radio" name="soal42-4" value="C"> C. \(2\sqrt{5}\)</label>
+      <label><input type="radio" name="soal42-4" value="D"> D. \(3\sqrt{2}\)</label>
+    </div>
+    <button onclick="cekPilihan('soal42-4', 'A', 'hasil42-4')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+    <span id="hasil42-4" class="font-semibold ml-4"></span>
+
+    <!-- Soal 5 -->
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+    <p class="text-2xl mb-2"> \( (\sqrt{7})^2 = ? \)</p>
+    <div class="flex flex-col gap-2 mb-4 ml-4">
+      <label><input type="radio" name="soal42-5" value="A"> A. \(7\)</label>
+      <label><input type="radio" name="soal42-5" value="B"> B. \(\sqrt{14}\)</label>
+      <label><input type="radio" name="soal42-5" value="C"> C. \(14\)</label>
+      <label><input type="radio" name="soal42-5" value="D"> D. \(\sqrt{49}\)</label>
+    </div>
+    <button onclick="cekPilihan('soal42-5', 'A', 'hasil42-5')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+    <span id="hasil42-5" class="font-semibold ml-4"></span>
+<!-- Soal 6 (e) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 6</h2>
+<p class="text-2xl mb-2"> \( \sqrt{50} - \sqrt{18} = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-6" value="A"> A. \(2\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-6" value="B"> B. \(4\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-6" value="C"> C. \(3\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-6" value="D"> D. \(5\sqrt{2}\)</label>
+</div>
+<button onclick="cekPilihan('soal42-6', 'B', 'hasil42-6')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-6" class="font-semibold ml-4"></span>
+
+<!-- Soal 7 (f) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 7</h2>
+<p class="text-2xl mb-2"> \( \frac{\sqrt{45}}{\sqrt{5}} = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-7" value="A"> A. \(3\)</label>
+  <label><input type="radio" name="soal42-7" value="B"> B. \(9\)</label>
+  <label><input type="radio" name="soal42-7" value="C"> C. \(5\)</label>
+  <label><input type="radio" name="soal42-7" value="D"> D. \(6\)</label>
+</div>
+<button onclick="cekPilihan('soal42-7', 'A', 'hasil42-7')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-7" class="font-semibold ml-4"></span>
+
+<!-- Soal 8 (g) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 8</h2>
+<p class="text-2xl mb-2"> \( (5\sqrt{2}) \times (3\sqrt{8}) = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-8" value="A"> A. \(15\sqrt{16}\)</label>
+  <label><input type="radio" name="soal42-8" value="B"> B. \(60\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-8" value="C"> C. \(30\sqrt{4}\)</label>
+  <label><input type="radio" name="soal42-8" value="D"> D. \(15\sqrt{10}\)</label>
+</div>
+<button onclick="cekPilihan('soal42-8', 'B', 'hasil42-8')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-8" class="font-semibold ml-4"></span>
+
+<!-- Soal 9 (h) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 9</h2>
+<p class="text-2xl mb-2"> \( \sqrt{12} + 2\sqrt{27} = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-9" value="A"> A. \(8\sqrt{3}\)</label>
+  <label><input type="radio" name="soal42-9" value="B"> B. \(7\sqrt{3}\)</label>
+  <label><input type="radio" name="soal42-9" value="C"> C. \(9\sqrt{3}\)</label>
+  <label><input type="radio" name="soal42-9" value="D"> D. \(5\sqrt{3}\)</label>
+</div>
+<button onclick="cekPilihan('soal42-9', 'A', 'hasil42-9')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-9" class="font-semibold ml-4"></span>
+
+<!-- Soal 10 (i) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 10</h2>
+<p class="text-2xl mb-2"> \( (\sqrt{3} + \sqrt{12})^2 = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-10" value="A"> A. \(27\)</label>
+  <label><input type="radio" name="soal42-10" value="B"> B. \(15\)</label>
+  <label><input type="radio" name="soal42-10" value="C"> C. \(21\)</label>
+  <label><input type="radio" name="soal42-10" value="D"> D. \(18\)</label>
+</div>
+<button onclick="cekPilihan('soal42-10', 'A', 'hasil42-10')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-10" class="font-semibold ml-4"></span>
+
+<!-- Soal 11 (j) -->
+<h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 11</h2>
+<p class="text-2xl mb-2"> \( \sqrt{32} \div \sqrt{2} = ? \)</p>
+<div class="flex flex-col gap-2 mb-4 ml-4">
+  <label><input type="radio" name="soal42-11" value="A"> A. \(2\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-11" value="B"> B. \(4\)</label>
+  <label><input type="radio" name="soal42-11" value="C"> C. \(8\sqrt{2}\)</label>
+  <label><input type="radio" name="soal42-11" value="D"> D. \(16\)</label>
+</div>
+<button onclick="cekPilihan('soal42-11', 'B', 'hasil42-11')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded hover:bg-[#38c197]">Cek Jawaban</button>
+<span id="hasil42-11" class="font-semibold ml-4"></span>
+
+  </div>
+</div><br>
+  
+
+<div id="5.-Hubungan-Pangkat-dan-Akar">
+  <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">5. Hubungan Pangkat dan Akar</p>
+  <p class="mt-2 ml-4">
+    Pangkat dan akar merupakan dua konsep yang saling berkaitan dalam matematika. Akar sebenarnya merupakan kebalikan dari pangkat.
+  </p>
+  
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Hubungan Umum:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( \sqrt{a} = a^{\frac{1}{2}} \)</li>
+      <li>\( \sqrt[3]{a} = a^{\frac{1}{3}} \)</li>
+      <li>\( \sqrt[n]{a} = a^{\frac{1}{n}} \)</li>
+      <li>\( a^{\frac{m}{n}} = \sqrt[n]{a^m} \)</li>
+    </ul>
+  </div>
+
+  <p class="mt-4 ml-4">
+    Artinya, operasi akar dapat ditulis dalam bentuk pangkat pecahan, dan sebaliknya. Konversi ini sangat berguna dalam perhitungan aljabar dan kalkulasi eksponen.
+  </p>
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( \sqrt{9} = 9^{\frac{1}{2}} = 3 \)</li>
+      <li>\( \sqrt[3]{8} = 8^{\frac{1}{3}} = 2 \)</li>
+      <li>\( 27^{\frac{2}{3}} = \left(\sqrt[3]{27}\right)^2 = 3^2 = 9 \)</li>
+    </ul>
+  </div>
+
+  <br>
+
+
+</div><div id="Latihan-5-1" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 5.1</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Pilih jawaban yang tepat berdasarkan hubungan antara bentuk pangkat dan akar.</p>
+
+    <!-- 5.1a -->
+    <div class="mb-4">
+      <p class="font-semibold">1. Bentuk pangkat dari \(\sqrt{81}\) adalah:</p>
+      <div>
+        <input type="radio" id="soal51a1" name="soal51a" value="81^2">
+        <label for="soal51a1">A. \(81^2\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51a2" name="soal51a" value="81^{1/2}">
+        <label for="soal51a2">B. \(81^{1/2}\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51a3" name="soal51a" value="9^2">
+        <label for="soal51a3">C. \(9^4\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51a4" name="soal51a" value="3^4">
+        <label for="soal51a4">D. \(3^6\)</label>
+      </div>
+      <button onclick="cekPilihan('soal51a', '81^{1/2}', 'hasil51a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil51a" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 5.1b -->
+    <div class="mb-4">
+      <p class="font-semibold">2. Nilai dari \((\sqrt{5})^2\) adalah:</p>
+      <div>
+        <input type="radio" id="soal51b1" name="soal51b" value="25">
+        <label for="soal51b1">A. 25</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51b2" name="soal51b" value="5">
+        <label for="soal51b2">B. 5</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51b3" name="soal51b" value="10">
+        <label for="soal51b3">C. 10</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51b4" name="soal51b" value="√25">
+        <label for="soal51b4">D. \(5\sqrt{5}\)</label>
+      </div>
+      <button onclick="cekPilihan('soal51b', '5', 'hasil51b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil51b" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 5.1c -->
+    <div class="mb-4">
+      <p class="font-semibold">3. \((4^2)^{1/2}\) sama dengan:</p>
+      <div>
+        <input type="radio" id="soal51c1" name="soal51c" value="4">
+        <label for="soal51c1">A. 4</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51c2" name="soal51c" value="16">
+        <label for="soal51c2">B. 16</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51c3" name="soal51c" value="8">
+        <label for="soal51c3">C. 8</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51c4" name="soal51c" value="2">
+        <label for="soal51c4">D. 2</label>
+      </div>
+      <button onclick="cekPilihan('soal51c', '4', 'hasil51c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil51c" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 5.1d -->
+    <div class="mb-4">
+      <p class="font-semibold">4. Akar kuadrat dari \(x^2\) adalah:</p>
+      <div>
+        <input type="radio" id="soal51d1" name="soal51d" value="x">
+        <label for="soal51d1">A. x</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51d2" name="soal51d" value="2x">
+        <label for="soal51d2">B. 2x</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51d3" name="soal51d" value="x^2">
+        <label for="soal51d3">C. \(x^2\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51d4" name="soal51d" value="x^3">
+        <label for="soal51d4">D. \(x^3\)</label>
+      </div>
+      <button onclick="cekPilihan('soal51d', 'x', 'hasil51d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil51d" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 5.1e -->
+    <div class="mb-4">
+      <p class="font-semibold">5. \(\sqrt{a^2b^2} =\)</p>
+      <div>
+        <input type="radio" id="soal51e1" name="soal51e" value="ab">
+        <label for="soal51e1">A. ab</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51e2" name="soal51e" value="a^2b^2">
+        <label for="soal51e2">B. \(a^2b^2\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51e3" name="soal51e" value="(ab)^2">
+        <label for="soal51e3">C. \((ab)^2\)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal51e4" name="soal51e" value="a+b">
+        <label for="soal51e4">D. a + b</label>
+      </div>
+      <button onclick="cekPilihan('soal51e', 'ab', 'hasil51e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil51e" class="font-semibold ml-2"></span>
+    </div>
+<!-- 5.1f -->
+<div class="mb-4">
+  <p class="font-semibold">6. Nyatakan \(\sqrt{18x^2}\) dalam bentuk paling sederhana:</p>
+  <div>
+    <input type="radio" id="soal51f1" name="soal51f" value="3x√2">
+    <label for="soal51f1">A. \(3x\sqrt{2}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51f2" name="soal51f" value="6x">
+    <label for="soal51f2">B. \(6x\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51f3" name="soal51f" value="9x√2">
+    <label for="soal51f3">C. \(9x\sqrt{2}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51f4" name="soal51f" value="3√2x">
+    <label for="soal51f4">D. \(3\sqrt{2}x\)</label>
+  </div>
+  <button onclick="cekPilihan('soal51f', '3x√2', 'hasil51f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil51f" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 5.1g -->
+<div class="mb-4">
+  <p class="font-semibold">7. Sederhanakan bentuk \(\sqrt{45y^2}\):</p>
+  <div>
+    <input type="radio" id="soal51g1" name="soal51g" value="3y√5">
+    <label for="soal51g1">A. \(3y\sqrt{5}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51g2" name="soal51g" value="5y√3">
+    <label for="soal51g2">B. \(5y\sqrt{3}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51g3" name="soal51g" value="9y">
+    <label for="soal51g3">C. \(9y\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51g4" name="soal51g" value="3√5y">
+    <label for="soal51g4">D. \(3\sqrt{5}y\)</label>
+  </div>
+  <button onclick="cekPilihan('soal51g', '3y√5', 'hasil51g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil51g" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 5.1h -->
+<div class="mb-4">
+  <p class="font-semibold">8. Jika \(x = 4\), berapa nilai dari \(\sqrt{x^2 + 5}\)?</p>
+  <div>
+    <input type="radio" id="soal51h1" name="soal51h" value="3">
+    <label for="soal51h1">A. 3</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51h2" name="soal51h" value="4">
+    <label for="soal51h2">B. 4</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51h3" name="soal51h" value="5">
+    <label for="soal51h3">C. 5</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51h4" name="soal51h" value="√21">
+    <label for="soal51h4">D. \(\sqrt{21}\)</label>
+  </div>
+  <button onclick="cekPilihan('soal51h', '√21', 'hasil51h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil51h" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 5.1i -->
+<div class="mb-4">
+  <p class="font-semibold">9. Sederhanakan: \(\sqrt{12} \cdot \sqrt{3}\)</p>
+  <div>
+    <input type="radio" id="soal51i1" name="soal51i" value="√36">
+    <label for="soal51i1">A. \(\sqrt{24}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51i2" name="soal51i" value="2√9">
+    <label for="soal51i2">B. \(2\sqrt{9}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51i3" name="soal51i" value="6">
+    <label for="soal51i3">C. 6</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51i4" name="soal51i" value="√15">
+    <label for="soal51i4">D. \(\sqrt{15}\)</label>
+  </div>
+  <button onclick="cekPilihan('soal51i', '6', 'hasil51i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil51i" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 5.1j -->
+<div class="mb-4">
+  <p class="font-semibold">10. Bentuk paling sederhana dari \(\frac{\sqrt{27}}{\sqrt{3}}\) adalah:</p>
+  <div>
+    <input type="radio" id="soal51j1" name="soal51j" value="3">
+    <label for="soal51j1">A. 3</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51j2" name="soal51j" value="√9">
+    <label for="soal51j2">B. \(\sqrt{6}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51j3" name="soal51j" value="√3">
+    <label for="soal51j3">C. \(\sqrt{3}\)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal51j4" name="soal51j" value="9">
+    <label for="soal51j4">D. 9</label>
+  </div>
+  <button onclick="cekPilihan('soal51j', '3', 'hasil51j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil51j" class="font-semibold ml-2"></span>
+</div>
+
+  </div><br>
+</div>
+<div id="6.-Merasionalkan-Bentuk-Akar">
+  <p class="text-xl font-semibold mb-4 text-[#4dd4a3]">6. Merasionalkan Bentuk Akar</p>
+  <p class="mt-2 ml-4">
+    Merasionalkan bentuk akar adalah proses mengubah bentuk pecahan yang penyebutnya mengandung akar menjadi pecahan yang penyebutnya berupa bilangan rasional. Tujuan dari merasionalkan adalah menyederhanakan bentuk pecahan agar lebih mudah dihitung atau dibandingkan.
+  </p>
+  
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Cara Merasionalkan:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>Jika penyebutnya berupa akar tunggal, kalikan pembilang dan penyebut dengan akar tersebut.</li>
+      <li>Jika penyebutnya berupa bentuk akar dalam bentuk binomial (misalnya \(a + \sqrt{b}\)), kalikan dengan bentuk sekawan yaitu \(a - \sqrt{b}\).</li>
+    </ul>
+  </div>
+
+  <div class="p-4 bg-green-100 rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Contoh:</p>
+    <ul class="ml-8 mt-2 list-disc">
+      <li>\( \frac{5}{\sqrt{2}} = \frac{5}{\sqrt{2}} \times \frac{\sqrt{2}}{\sqrt{2}} = \frac{5\sqrt{2}}{2} \)</li>
+      <li>\( \frac{3}{2 + \sqrt{3}} = \frac{3}{2 + \sqrt{3}} \times \frac{2 - \sqrt{3}}{2 - \sqrt{3}} = \frac{3(2 - \sqrt{3})}{(2 + \sqrt{3})(2 - \sqrt{3})} = \frac{6 - 3\sqrt{3}}{4 - 3} = 6 - 3\sqrt{3} \)</li>
+    </ul>
+  </div>
+
+  <div class="p-4 bg-white rounded-lg shadow-md mt-4">
+    <p class="font-semibold">Video Penjelasan Merasionalkan Bentuk Akar:</p>
+    <div class="mt-2 ml-4">
+      <iframe class="w-full h-64 md:h-96" src="https://www.youtube.com/embed/-rq8dYrdWFw" 
+        title="Merasionalkan Bentuk Akar" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<div id="Latihan-6-1" class="mt-6">
+  <p class="text-2xl text-[#4dd4a3] font-semibold">Latihan 6.1</p>
+
+  <div class="p-6 bg-yellow-100 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+    <p class="mb-4"><strong>Petunjuk:</strong> Pilih jawaban yang tepat berdasarkan langkah merasionalkan bentuk akar.</p>
+
+    <!-- 6.1a -->
+    <div class="mb-4">
+      <p class="font-semibold">1. Hasil dari \( \frac{4}{\sqrt{3}} \) setelah dirasionalkan adalah:</p>
+      <div>
+        <input type="radio" id="soal61a1" name="soal61a" value="4/3">
+        <label for="soal61a1">A. \( \frac{4}{3} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61a2" name="soal61a" value="4√3">
+        <label for="soal61a2">B. \( 4\sqrt{3} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61a3" name="soal61a" value="4√3/3">
+        <label for="soal61a3">C. \( \frac{4\sqrt{3}}{3} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61a4" name="soal61a" value="3√4">
+        <label for="soal61a4">D. \( \frac{3\sqrt{4}}{3} \)</label>
+      </div>
+      <button onclick="cekPilihan('soal61a', '4√3/3', 'hasil61a')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil61a" class="font-semibold ml-2"></span>
+    </div>
+
+    <!-- 6.1b -->
+    <div class="mb-4">
+      <p class="font-semibold">2. Merasionalkan bentuk \( \frac{5}{2 - \sqrt{3}} \) menghasilkan:</p>
+      <div>
+        <input type="radio" id="soal61b1" name="soal61b" value="(10 + 5√3)">
+        <label for="soal61b1">A. \( 10 + 5\sqrt{3} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61b2" name="soal61b" value="(10 + 5√3)/4">
+        <label for="soal61b2">B. \( \frac{10 + 5\sqrt{3}}{4} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61b3" name="soal61b" value="(10 + 5√3)/1">
+        <label for="soal61b3">C. \( \frac{10 + 5\sqrt{3}}{2} \)</label>
+      </div>
+      <div>
+        <input type="radio" id="soal61b4" name="soal61b" value="(10 + 5√3)/2">
+        <label for="soal61b4">D. \( \frac{10 - 5\sqrt{3}}{2} \)</label>
+      </div>
+      <button onclick="cekPilihan('soal61b', '(10 + 5√3)', 'hasil61b')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+      <span id="hasil61b" class="font-semibold ml-2"></span>
+    </div>
+<!-- 6.1c -->
+<div class="mb-4">
+  <p class="font-semibold">3. Hasil dari \( \frac{1}{\sqrt{2}} \) setelah dirasionalkan adalah:</p>
+  <div>
+    <input type="radio" id="soal61c1" name="soal61c" value="√2/2">
+    <label for="soal61c1">A. \( \frac{\sqrt{2}}{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61c2" name="soal61c" value="2/√2">
+    <label for="soal61c2">B. \( \frac{2}{\sqrt{2}} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61c3" name="soal61c" value="1/2">
+    <label for="soal61c3">C. \( \frac{1}{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61c4" name="soal61c" value="2">
+    <label for="soal61c4">D. 2</label>
+  </div>
+  <button onclick="cekPilihan('soal61c', '√2/2', 'hasil61c')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61c" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1d -->
+<div class="mb-4">
+  <p class="font-semibold">4. Rasionalisasi dari \( \frac{2}{\sqrt{5}} \) adalah:</p>
+  <div>
+    <input type="radio" id="soal61d1" name="soal61d" value="2√5/5">
+    <label for="soal61d1">A. \( \frac{2\sqrt{5}}{5} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61d2" name="soal61d" value="2/5√5">
+    <label for="soal61d2">B. \( \frac{2}{5\sqrt{5}} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61d3" name="soal61d" value="√5/2">
+    <label for="soal61d3">C. \( \frac{\sqrt{5}}{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61d4" name="soal61d" value="5/2√5">
+    <label for="soal61d4">D. \( \frac{5}{2\sqrt{5}} \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61d', '2√5/5', 'hasil61d')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61d" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1e -->
+<div class="mb-4">
+  <p class="font-semibold">5. Hasil dari \( \frac{3}{\sqrt{3}} \) setelah dirasionalkan adalah:</p>
+  <div>
+    <input type="radio" id="soal61e1" name="soal61e" value="√3">
+    <label for="soal61e1">A. \( \sqrt{3} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61e2" name="soal61e" value="3√3">
+    <label for="soal61e2">B. \( 3\sqrt{3} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61e3" name="soal61e" value="3√3/2">
+    <label for="soal61e3">C. \( \frac{3\sqrt{3}}{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61e4" name="soal61e" value="3/3">
+    <label for="soal61e4">D. 1</label>
+  </div>
+  <button onclick="cekPilihan('soal61e', '√3', 'hasil61e')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61e" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1f -->
+<div class="mb-4">
+  <p class="font-semibold">6. Rasionalisasi dari \( \frac{1}{\sqrt{7} + 2} \) adalah:</p>
+  <div>
+    <input type="radio" id="soal61f1" name="soal61f" value="√7 - 2/3">
+    <label for="soal61f1">A. \( \frac{\sqrt{7} - 2}{3} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61f2" name="soal61f" value="√7 + 2">
+    <label for="soal61f2">B. \( \sqrt{7} + 2 \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61f3" name="soal61f" value="√7 - 2">
+    <label for="soal61f3">C. \( \sqrt{7} - 2 \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61f4" name="soal61f" value="1/(√7 - 2)">
+    <label for="soal61f4">D. \( \frac{1}{\sqrt{7} - 2} \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61f', '√7 - 2/3', 'hasil61f')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61f" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1g -->
+<div class="mb-4">
+  <p class="font-semibold">7. Hasil rasionalisasi dari \( \frac{4}{\sqrt{3} - 1} \) adalah:</p>
+  <div>
+    <input type="radio" id="soal61g1" name="soal61g" value="2√3 + 2">
+    <label for="soal61g1">A. \( 2\sqrt{3} + 2 \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61g2" name="soal61g" value="4√3 + 4">
+    <label for="soal61g2">B. \( 4\sqrt{3} + 4 \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61g3" name="soal61g" value="4√3 - 4">
+    <label for="soal61g3">C. \( 4\sqrt{3} - 4 \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61g4" name="soal61g" value="2√3 - 2">
+    <label for="soal61g4">D. \( 2\sqrt{3} - 2 \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61g', '2√3 + 2', 'hasil61g')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61g" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1h -->
+<div class="mb-4">
+  <p class="font-semibold">8. Untuk merasionalkan penyebut dari \( \frac{1}{2\sqrt{3}} \), kita kalikan pembilang dan penyebut dengan:</p>
+  <div>
+    <input type="radio" id="soal61h1" name="soal61h" value="√3">
+    <label for="soal61h1">A. \( \sqrt{3} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61h2" name="soal61h" value="2">
+    <label for="soal61h2">B. 2</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61h3" name="soal61h" value="√2">
+    <label for="soal61h3">C. \( \sqrt{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61h4" name="soal61h" value="1/√3">
+    <label for="soal61h4">D. \( \frac{1}{\sqrt{3}} \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61h', '√3', 'hasil61h')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61h" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1i -->
+<div class="mb-4">
+  <p class="font-semibold">9. Hasil dari \( \frac{\sqrt{2} + 1}{\sqrt{2} - 1} \) setelah dirasionalkan adalah:</p>
+  <div>
+    <input type="radio" id="soal61i1" name="soal61i" value="3 + 2√2">
+    <label for="soal61i1">A. \( 3 + 2\sqrt{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61i2" name="soal61i" value="2 + √2">
+    <label for="soal61i2">B. \( 2 + \sqrt{2} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61i3" name="soal61i" value="3">
+    <label for="soal61i3">C. 3</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61i4" name="soal61i" value="2√2">
+    <label for="soal61i4">D. \( 2\sqrt{2} \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61i', '3 + 2√2', 'hasil61i')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61i" class="font-semibold ml-2"></span>
+</div>
+
+<!-- 6.1j -->
+<div class="mb-4">
+  <p class="font-semibold">10. Rasionalisasi dari \( \frac{5}{\sqrt{2} + \sqrt{3}} \) adalah:</p>
+  <div>
+    <input type="radio" id="soal61j1" name="soal61j" value="5(√2 - √3)/(-1)">
+    <label for="soal61j1">A. \( 5(\sqrt{2} - \sqrt{3}) \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61j2" name="soal61j" value="5(√2 - √3)/(-1)">
+    <label for="soal61j2">B. \( -5(\sqrt{2} + \sqrt{3})  \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61j3" name="soal61j" value="5(√2 - √3)/(-1)">
+    <label for="soal61j3">C. \(5\sqrt{2} - 5\sqrt{3} \)</label>
+  </div>
+  <div>
+    <input type="radio" id="soal61j4" name="soal61j" value="5(√2 - √3)/(2 - 3)">
+    <label for="soal61j4">D. \( -5\sqrt{2} +5 \sqrt{3} \)</label>
+  </div>
+  <button onclick="cekPilihan('soal61j', '5(√2 - √3)/(2 - 3)', 'hasil61j')" class="bg-[#4dd4a3] text-white px-3 py-1 rounded mt-2 hover:bg-[#38c197]">Cek Jawaban</button>
+  <span id="hasil61j" class="font-semibold ml-2"></span>
+</div>
+  </div>
+</div><br>
+
+<div id="Review-Bilangan-Berpangkat-dan-Akar">
+    <p class="text-2xl text-[#4dd4a3] font-semibold">Review</p>
+
+    <!-- Soal 1 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 1</h2>
+        <p class="mt-4 text-lg">
+            Apa yang dimaksud dengan bilangan berpangkat?
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal1"> A. Bilangan yang hanya bisa dibagi 1 dan dirinya sendiri</li>
+            <li><input type="radio" name="soal1"> B. Perkalian berulang dari bilangan yang sama</li>
+            <li><input type="radio" name="soal1"> C. Bilangan yang memiliki nilai desimal</li>
+            <li><input type="radio" name="soal1"> D. Bilangan yang bisa dibulatkan ke atas</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no1')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no1" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Bilangan berpangkat adalah bentuk perkalian berulang dari suatu bilangan yang sama.</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <!-- Soal 2 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 2</h2>
+        <p class="mt-4 text-lg">
+            Hasil dari 2³ × 2² adalah ...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal2"> A. 2⁵</li>
+            <li><input type="radio" name="soal2"> B. 2⁶</li>
+            <li><input type="radio" name="soal2"> C. 6²</li>
+            <li><input type="radio" name="soal2"> D. 4⁵</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no2')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no2" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Jika bilangan pokok sama, pangkat dapat dijumlahkan: 2³ × 2² = 2⁵</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+        </div>
+    </div>
+
+    <!-- Soal 3 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 3</h2>
+        <p class="mt-4 text-lg">
+            Hasil dari 5⁶ ÷ 5² adalah ...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal3"> A. 5⁸</li>
+            <li><input type="radio" name="soal3"> B. 5⁴</li>
+            <li><input type="radio" name="soal3"> C. 3⁴</li>
+            <li><input type="radio" name="soal3"> D. 5²</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no3')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no3" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Jika bilangan pokok sama dan dibagi, pangkat dikurangkan: 5⁶ ÷ 5² = 5⁴</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <!-- Soal 4 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 4</h2>
+        <p class="mt-4 text-lg">
+            Hasil dari (3²)³ adalah ...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal4"> A. 3⁵</li>
+            <li><input type="radio" name="soal4"> B. 3⁶</li>
+            <li><input type="radio" name="soal4"> C. 6³</li>
+            <li><input type="radio" name="soal4"> D. 3³</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no4')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no4" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>Pangkat dipangkatkan, maka pangkat dikalikan: (3²)³ = 3⁶</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <!-- Soal 5 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 5</h2>
+        <p class="mt-4 text-lg">
+            Hasil dari \(\sqrt{49}\) adalah ...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal5"> A. 6</li>
+            <li><input type="radio" name="soal5"> B. 7</li>
+            <li><input type="radio" name="soal5"> C. 8</li>
+            <li><input type="radio" name="soal5"> D. 5</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no5')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no5" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>√49 = 7 karena 7 × 7 = 49</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+        </div>
+    </div>
+
+    <!-- Soal 6 -->
+    <div class="p-6 bg-green-100 rounded-lg shadow-md mt-6">
+        <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 6</h2>
+        <p class="mt-4 text-lg">
+            Bentuk sederhana dari \(\sqrt{4 \times 9}\) adalah ...
+        </p>
+
+        <ul class="mt-4 text-lg">
+            <li><input type="radio" name="soal6"> A. \(\sqrt{13}\)</li>
+            <li><input type="radio" name="soal6"> B. \(\sqrt{36}\)</li>
+            <li><input type="radio" name="soal6"> C. 6</li>
+            <li><input type="radio" name="soal6"> D. 5</li>
+        </ul>
+
+        <button onclick="togglePembahasan('pembahasan-latihan1-no6')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+        <div id="pembahasan-latihan1-no6" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+            <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+            <p>\[\sqrt{4\times 9}\ = \sqrt{36} = 6\]</p>
+            <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+        </div>
+    </div>
+
+<!-- Soal 11 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 11</h2>
+    <p class="mt-4 text-lg">
+        Jika \(a^3 \times a^5 = a^n\), maka nilai \(n\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal11"> A. 15</li>
+        <li><input type="radio" name="soal11"> B. 8</li>
+        <li><input type="radio" name="soal11"> C. 2</li>
+        <li><input type="radio" name="soal11"> D. 1</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no11')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no11" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        a^3 \times a^5 = a^{3+5} = a^8
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 12 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 12</h2>
+    <p class="mt-4 text-lg">
+        Jika \(\frac{x^7}{x^4} = x^m\), maka nilai \(m\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal12"> A. 11</li>
+        <li><input type="radio" name="soal12"> B. 3</li>
+        <li><input type="radio" name="soal12"> C. 28</li>
+        <li><input type="radio" name="soal12"> D. \(\frac{7}{4}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no12')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no12" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \frac{x^7}{x^4} = x^{7-4} = x^3
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 13 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 13</h2>
+    <p class="mt-4 text-lg">
+        Sederhanakan bentuk \(\left(3^2\right)^4\).
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal13"> A. \(3^{6}\)</li>
+        <li><input type="radio" name="soal13"> B. \(3^{8}\)</li>
+        <li><input type="radio" name="soal13"> C. \(3^{4}\)</li>
+        <li><input type="radio" name="soal13"> D. \(6^{8}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no13')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no13" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        (3^2)^4 = 3^{2 \times 4} = 3^8
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 14 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 14</h2>
+    <p class="mt-4 text-lg">
+        Bentuk akar \(\sqrt{50}\) yang paling sederhana adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal14"> A. \(5\sqrt{2}\)</li>
+        <li><input type="radio" name="soal14"> B. \(25\sqrt{2}\)</li>
+        <li><input type="radio" name="soal14"> C. \(10\sqrt{5}\)</li>
+        <li><input type="radio" name="soal14"> D. \(\sqrt{25} + \sqrt{2}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no14')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no14" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \sqrt{50} = \sqrt{25 \times 2} = \sqrt{25} \times \sqrt{2} = 5\sqrt{2}
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div>
+
+<!-- Soal 15 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 15</h2>
+    <p class="mt-4 text-lg">
+        Sederhanakan bentuk \(\sqrt{18} + \sqrt{8}\).
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal15"> A. \(3\sqrt{2} + 2\sqrt{2}\)</li>
+        <li><input type="radio" name="soal15"> B. \(5\sqrt{16}\)</li>
+        <li><input type="radio" name="soal15"> C. \(\sqrt{26}\)</li>
+        <li><input type="radio" name="soal15"> D. \(9\sqrt{2}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no15')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no15" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \sqrt{18} + \sqrt{8} = 3\sqrt{2} + 2\sqrt{2} = (3+2)\sqrt{2} = 5\sqrt{2}
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div>
+
+<!-- Soal 16 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 16</h2>
+    <p class="mt-4 text-lg">
+        Jika \(a^0 = b\), maka nilai dari \(b\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal16"> A. 0</li>
+        <li><input type="radio" name="soal16"> B. 1</li>
+        <li><input type="radio" name="soal16"> C. \(a\)</li>
+        <li><input type="radio" name="soal16"> D. \(a^1\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no16')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no16" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        a^0 = 1 \quad \text{(untuk } a \neq 0\text{)}
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 17 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 17</h2>
+    <p class="mt-4 text-lg">
+        Jika \(\sqrt{a^4} = a^n\), maka nilai \(n\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal17"> A. 4</li>
+        <li><input type="radio" name="soal17"> B. 2</li>
+        <li><input type="radio" name="soal17"> C. 1</li>
+        <li><input type="radio" name="soal17"> D. \(\frac{1}{2}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no17')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no17" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \sqrt{a^4} = a^{\frac{4}{2}} = a^2
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 18 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 18</h2>
+    <p class="mt-4 text-lg">
+        Sederhanakan bentuk \(\frac{1}{\sqrt{3}}\) dengan cara merasionalkan penyebutnya.
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal18"> A. \(\frac{1}{\sqrt{3}}\)</li>
+        <li><input type="radio" name="soal18"> B. \(\frac{\sqrt{3}}{3}\)</li>
+        <li><input type="radio" name="soal18"> C. \(\frac{3}{\sqrt{3}}\)</li>
+        <li><input type="radio" name="soal18"> D. \(\sqrt{3}\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no18')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no18" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \frac{1}{\sqrt{3}} \times \frac{\sqrt{3}}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+
+<!-- Soal 19 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 19</h2>
+    <p class="mt-4 text-lg">
+        Bentuk yang benar dari \(\sqrt{a^2 b^4}\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal19"> A. \(a b^2\)</li>
+        <li><input type="radio" name="soal19"> B. \(a^2 b^4\)</li>
+        <li><input type="radio" name="soal19"> C. \(a^2 b^2\)</li>
+        <li><input type="radio" name="soal19"> D. \(a b^4\)</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no19')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no19" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \sqrt{a^2 b^4} = a^{\frac{2}{2}} b^{\frac{4}{2}} = a b^2
+        \]</p>
+        <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+    </div>
+</div>
+
+<!-- Soal 20 -->
+<div class="p-6 bg-yellow-100 rounded-lg shadow-md mt-6">
+    <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 20</h2>
+    <p class="mt-4 text-lg">
+        Jika \(\sqrt{32} = a\sqrt{2}\), maka nilai \(a\) adalah ...
+    </p>
+
+    <ul class="mt-4 text-lg">
+        <li><input type="radio" name="soal20"> A. 8</li>
+        <li><input type="radio" name="soal20"> B. 4</li>
+        <li><input type="radio" name="soal20"> C. 2</li>
+        <li><input type="radio" name="soal20"> D. 5</li>
+    </ul>
+
+    <button onclick="togglePembahasan('pembahasan-latihan1-no20')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+
+    <div id="pembahasan-latihan1-no20" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+        <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+        <p>\[
+        \sqrt{32} = \sqrt{16 \times 2} = \sqrt{16} \times \sqrt{2} = 4\sqrt{2}
+        \]</p>
+         <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+    </div>
+</div>
+<!-- Soal 21 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 21</h2>
+  <p class="mt-4 text-lg">
+    Diketahui \( x = 2^{3} \times 2^{4} \). Jika \( x = 2^a \), maka nilai \( a \) adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal21"> A. 6</li>
+    <li><input type="radio" name="soal21"> B. 7</li>
+    <li><input type="radio" name="soal21"> C. 8</li>
+    <li><input type="radio" name="soal21"> D. 12</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no21')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no21" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      2^3 \times 2^4 = 2^{3+4} = 2^7
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+  </div>
+</div>
+
+<!-- Soal 22 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 22</h2>
+  <p class="mt-4 text-lg">
+    Jika \( \sqrt{18} + \sqrt{50} \) disederhanakan, hasilnya adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal22"> A. \( 5\sqrt{2} \)</li>
+    <li><input type="radio" name="soal22"> B. \( 7\sqrt{2} \)</li>
+    <li><input type="radio" name="soal22"> C. \( 8\sqrt{2} \)</li>
+    <li><input type="radio" name="soal22"> D. \( 9\sqrt{2} \)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no22')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no22" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      \sqrt{18} = \sqrt{9 \times 2} = 3\sqrt{2},\ \sqrt{50} = \sqrt{25 \times 2} = 5\sqrt{2}
+    \]</p>
+    <p>\[
+      3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+  </div>
+</div>
+
+<!-- Soal 23 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 23</h2>
+  <p class="mt-4 text-lg">
+    Tentukan hasil dari \( (3\sqrt{5})^2 \) ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal23"> A. 35</li>
+    <li><input type="radio" name="soal23"> B. 225</li>
+    <li><input type="radio" name="soal23"> C. 15</li>
+    <li><input type="radio" name="soal23"> D. 45</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no23')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no23" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      (3\sqrt{5})^2 = 3^2 \times (\sqrt{5})^2 = 9 \times 5 = 45
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: D</p>
+  </div>
+</div>
+
+<!-- Soal 24 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 24</h2>
+  <p class="mt-4 text-lg">
+    Bentuk sederhana dari \( \dfrac{3}{\sqrt{2}} \) setelah dirasionalkan adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal24"> A. \( \dfrac{3\sqrt{2}}{2} \)</li>
+    <li><input type="radio" name="soal24"> B. \( \dfrac{3\sqrt{2}}{4} \)</li>
+    <li><input type="radio" name="soal24"> C. \( \dfrac{2\sqrt{3}}{3} \)</li>
+    <li><input type="radio" name="soal24"> D. \( \dfrac{\sqrt{2}}{3} \)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no24')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no24" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      \dfrac{3}{\sqrt{2}} \times \dfrac{\sqrt{2}}{\sqrt{2}} = \dfrac{3\sqrt{2}}{2}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+  </div>
+</div>
+<!-- Soal 25 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 25</h2>
+  <p class="mt-4 text-lg">
+    Jika \( a = 2\sqrt{3} \) dan \( b = \sqrt{12} \), maka nilai \( a - b \) adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal25"> A. \( \sqrt{3} \)</li>
+    <li><input type="radio" name="soal25"> B. \( 0 \)</li>
+    <li><input type="radio" name="soal25"> C. \( 2\sqrt{3} \)</li>
+    <li><input type="radio" name="soal25"> D. \( \sqrt{6} \)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no25')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no25" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      \sqrt{12} = \sqrt{4 \times 3} = 2\sqrt{3},\ \text{maka } a - b = 2\sqrt{3} - 2\sqrt{3} = 0
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: B</p>
+  </div>
+</div>
+
+<!-- Soal 26 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 26</h2>
+  <p class="mt-4 text-lg">
+    Hasil dari \( \left(\sqrt{3} + \sqrt{2}\right)^2 \) adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal26"> A. \( 5 + 2\sqrt{6} \)</li>
+    <li><input type="radio" name="soal26"> B. \( 9 + \sqrt{6} \)</li>
+    <li><input type="radio" name="soal26"> C. \( 5 + \sqrt{6} \)</li>
+    <li><input type="radio" name="soal26"> D. \( 6 + 2\sqrt{6} \)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no26')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no26" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      (\sqrt{3} + \sqrt{2})^2 = 3 + 2 + 2\sqrt{6} = 5 + 2\sqrt{6}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+  </div>
+</div>
+
+<!-- Soal 27 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 27</h2>
+  <p class="mt-4 text-lg">
+    Jika \( (2^3)^4 = 2^x \), maka nilai \( x \) adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal27"> A. 7</li>
+    <li><input type="radio" name="soal27"> B. 8</li>
+    <li><input type="radio" name="soal27"> C. 12</li>
+    <li><input type="radio" name="soal27"> D. 24</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no27')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no27" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>\[
+      (2^3)^4 = 2^{3 \times 4} = 2^{12}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: C</p>
+  </div>
+</div>
+
+<!-- Soal 28 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 28</h2>
+  <p class="mt-4 text-lg">
+    Diketahui \( \sqrt{49x^2} = 7x \). Pernyataan ini benar jika ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal28"> A. \( x \geq 0 \)</li>
+    <li><input type="radio" name="soal28"> B. \( x \leq 0 \)</li>
+    <li><input type="radio" name="soal28"> C. \( x = 0 \)</li>
+    <li><input type="radio" name="soal28"> D. Semua nilai x</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no28')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no28" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Karena akar dari kuadrat hanya menghasilkan nilai positif atau nol, maka \( \sqrt{49x^2} = |7x| \), sehingga hasilnya 7x hanya jika \( x \geq 0 \).</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+  </div>
+</div>
+
+<!-- Soal 29 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 29</h2>
+  <p class="mt-4 text-lg">
+    Bentuk sederhana dari \( \dfrac{5}{\sqrt{2} + 2\sqrt{3}} \) setelah dirasionalkan adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal29"> A. \( \dfrac{5(\sqrt{2} - 2\sqrt{3})}{-10} \)</li>
+    <li><input type="radio" name="soal29"> B. \( \dfrac{5(\sqrt{2} - 2\sqrt{3})}{-8} \)</li>
+    <li><input type="radio" name="soal29"> C. \( \dfrac{5(\sqrt{2} - 2\sqrt{3})}{8} \)</li>
+    <li><input type="radio" name="soal29"> D. \( \dfrac{5(\sqrt{2} - 2\sqrt{3})}{10} \)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no29')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no29" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Kalikan pembilang dan penyebut dengan bentuk sekawan dari penyebut:</p>
+    <p>\[
+    \frac{5}{\sqrt{2} + 2\sqrt{3}} \times \frac{\sqrt{2} - 2\sqrt{3}}{\sqrt{2} - 2\sqrt{3}} = \frac{5(\sqrt{2} - 2\sqrt{3})}{(\sqrt{2} + 2\sqrt{3})(\sqrt{2} - 2\sqrt{3})}
+    \]</p>
+    <p>Gunakan identitas: \( (a + b)(a - b) = a^2 - b^2 \)</p>
+    <p>\[
+    = \frac{5(\sqrt{2} - 2\sqrt{3})}{2 - (4 \cdot 3)} = \frac{5(\sqrt{2} - 2\sqrt{3})}{2 - 12} = \frac{5(\sqrt{2} - 2\sqrt{3})}{-10}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: A</p>
+  </div>
+</div>
+
+<!-- Soal 30 -->
+<div class="p-6 bg-red-100 rounded-lg shadow-md mt-6">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mt-6">Soal 30</h2>
+  <p class="mt-4 text-lg">
+    Hasil dari \( \dfrac{\sqrt{3} + 5}{\sqrt{3} - 2} \) dalam bentuk paling sederhana adalah ...
+  </p>
+  <ul class="mt-4 text-lg">
+    <li><input type="radio" name="soal30"> A. \( -13 - 7\sqrt{3} \)</li>
+    <li><input type="radio" name="soal30"> B. \( -13 + 7\sqrt{3} \)</li>
+    <li><input type="radio" name="soal30"> C. \( 13 + 7\sqrt{3} \)</li>
+    <li><input type="radio" name="soal30"> D. \( 13 - 7\sqrt{3}\)</li>
+  </ul>
+  <button onclick="togglePembahasan('pembahasan-latihan1-no30')" class="mt-6 px-5 py-3 bg-[#4dd4a3] text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-all duration-300">Lihat Pembahasan</button>
+  <div id="pembahasan-latihan1-no30" class="mt-6 p-5 bg-white rounded-lg hidden transition-all duration-300">
+    <h3 class="font-semibold text-lg text-green-700">Pembahasan:</h3>
+    <p>Untuk merasionalkan pecahan \( \dfrac{\sqrt{3} + 5}{\sqrt{3} - 2} \), kalikan pembilang dan penyebut dengan sekawan penyebut \( \sqrt{3} + 2 \):</p>
+    <p>\[
+    \frac{\sqrt{3} + 5}{\sqrt{3} - 2} \cdot \frac{\sqrt{3} + 2}{\sqrt{3} + 2}
+    = \frac{(\sqrt{3} + 5)(\sqrt{3} + 2)}{(\sqrt{3} - 2)(\sqrt{3} + 2)}
+    \]</p>
+    <p>Penyebut:</p>
+    <p>\[
+    (\sqrt{3} - 2)(\sqrt{3} + 2) = 3 - 4 = -1
+    \]</p>
+    <p>Pembilang (gunakan distributif):</p>
+    <p>\[
+    (\sqrt{3} + 5)(\sqrt{3} + 2)
+    \]\[= \sqrt{3} \cdot \sqrt{3} + \sqrt{3} \cdot 2 + 5 \cdot \sqrt{3} + 5 \cdot 2 \\
+    \]\[= 3 + 2\sqrt{3} + 5\sqrt{3} + 10 
+\]\[= 13 + 7\sqrt{3}
+    \]</p>
+    <p>Karena penyebutnya -1, maka:</p>
+    <p>\[
+    \frac{13 + 7\sqrt{3}}{-1} = -13 - 7\sqrt{3}
+    \]</p>
+    <p class="font-medium mt-3 text-[#4dd4a3] text-lg">Jawaban: <strong>A</strong></p>
+  </div>
+</div>
+
+
+
+<script>
+  function cekDropdown(idSelect, jawabanBenar, idHasil) {
+    const selected = document.getElementById(idSelect).value.toLowerCase();
+    const hasil = document.getElementById(idHasil);
+    if (selected === jawabanBenar) {
+      hasil.innerText = "✅ Benar!";
+      hasil.className = "text-green-600 font-semibold";
+    } else {
+      hasil.innerText = "❌ Coba lagi!";
+      hasil.className = "text-red-600 font-semibold";
+    }
+  }
+
+  function cekInput(idInput, kunciJawaban, idHasil) {
+    const input = document.getElementById(idInput).value.trim().toLowerCase();
+    const hasil = document.getElementById(idHasil);
+    if (kunciJawaban.includes(input)) {
+      hasil.innerText = "✅ Benar!";
+      hasil.className = "text-green-600 font-semibold";
+    } else {
+      hasil.innerText = "❌ Coba lagi!";
+      hasil.className = "text-red-600 font-semibold";
+    }
+  }
+</script>
+
+
+
+<script>
+  function cekInput(inputId, kunciList, hasilId) {
+    const userJawabanRaw = document.getElementById(inputId).value.trim().toLowerCase();
+    const hasilEl = document.getElementById(hasilId);
+
+    if (userJawabanRaw === "") {
+      hasilEl.innerHTML = "Isi dulu ya!";
+      hasilEl.className = "font-semibold text-yellow-600";
+      return;
+    }
+
+    const userList = userJawabanRaw.split(',').map(x => x.trim()).filter(Boolean);
+    const kunciLower = kunciList.map(x => x.toLowerCase()).sort();
+    const userSorted = userList.sort();
+
+    const isCorrect = userSorted.length === kunciLower.length && userSorted.every((val, idx) => val === kunciLower[idx]);
+
+    if (isCorrect) {
+      hasilEl.innerHTML = "✅ Benar";
+      hasilEl.className = "font-semibold text-green-600";
+    } else {
+      hasilEl.innerHTML = "❌ Salah";
+      hasilEl.className = "font-semibold text-red-600";
+    }
+  }
+</script>
+</div><br>
+
+
+
+
+
+
+
+
+
+
+</div>
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+<script>
+function cekPilihan(name, jawabanBenar, idHasil) {
+  const pilihan = document.querySelector(`input[name="${name}"]:checked`);
+  const hasil = document.getElementById(idHasil);
+  if (!pilihan) {
+    hasil.textContent = "Pilih jawaban terlebih dahulu!";
+    hasil.style.color = "red";
+    return;
+  }
+  if (pilihan.value === jawabanBenar) {
+    hasil.textContent = "Jawaban benar!";
+    hasil.style.color = "green";
+  } else {
+    hasil.textContent = "Jawaban salah, coba lagi.";
+    hasil.style.color = "red";
+  }
+}
+</script>
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "Diza MTSN 1 Brebes 7", password: "semangatbelajar45" },
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
