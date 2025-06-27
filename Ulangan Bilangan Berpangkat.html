@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ulangan Bilangan Berpangkat</title>
+	 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f9ff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #1e88e5;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .menu-button, .timer {
+      background: white;
+      color: #1e88e5;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    .container {
+      display: flex;
+      height: calc(100vh - 60px);
+    }
+
+    .left-panel {
+      width: 25%;
+      background-color: #e3f2fd;
+      padding: 20px;
+      border-right: 1px solid #cfd8dc;
+      overflow-y: auto;
+    }
+
+    .right-panel {
+      width: 75%;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .question-buttons {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .question-buttons button {
+      padding: 6px;
+      font-size: 13px;
+      background-color: white;
+      border: 1.5px solid #1e88e5;
+      border-radius: 6px;
+      color: #1e88e5;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .question-buttons button:hover {
+      background-color: #bbdefb;
+    }
+
+    .question-buttons button.active {
+      background-color: #1565c0;
+      color: white;
+    }
+
+    .navigation {
+      margin-top: 30px;
+    }
+
+    .navigation button {
+      padding: 10px 18px;
+      margin: 5px;
+      background-color: #1e88e5;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .navigation button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .option {
+      display: block;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: 1.5px solid #90caf9;
+      border-radius: 6px;
+      background-color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .option:hover {
+      background-color: #e3f2fd;
+    }
+
+    .option input {
+      margin-right: 10px;
+    }
+
+    #scoreDisplay {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #1e88e5;
+      display: none;
+    }
+
+    #submitBtn {
+      padding: 10px 18px;
+      margin-top: 20px;
+      background-color: #43a047;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+    }
+
+    #submitBtn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+<!-- Form Login Peserta -->
+<div id="loginModal" style="position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:;">
+  <div style="background:white; padding:30px; border-radius:12px; width:300px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+    <h3 style="text-align:center; color:#1e88e5;">Login Peserta</h3>
+    <label>Nama:</label>
+    <input type="text" id="loginNama" placeholder="Masukkan Nama" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+    <label>Kelas:</label>
+    <input type="text" id="loginKelas" placeholder="Misal: 8A" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+    <label>Password:</label>
+    <input type="password" id="loginPassword" placeholder="Masukkan Password" style="width:100%; padding:8px; margin-bottom:10px;"><br>
+    <button onclick="checkLogin()" style="width:100%; padding:10px; background:#1e88e5; color:white; border:none; border-radius:8px; font-weight:bold;">Masuk</button>
+  </div>
+</div>
+
+  <h2>Ulangan Bilangan Berpangkat </h2>
+  
+<div>
+    <span class="timer" id="timer">60:00</span>
+  </div>
+<label for="namaPeserta">Nama Peserta:</label>
+<input type="text" id="namaPeserta" placeholder="Masukkan nama Anda" required>
+
+</header>
+
+<div class="container">
+  <div class="left-panel">
+    <h3>Soal</h3>
+    <div class="question-buttons" id="questionButtons"></div>
+    <div id="scoreDisplay"></div>
+<div id="rankingDisplay" style="margin-top: 30px;">
+  <h3>Ranking Peserta:</h3>
+  <table id="rankingTable" style="width:100%; border-collapse: collapse; margin-top: 10px; background-color: white;">
+    <thead>
+  <tr style="background-color: #1e88e5; color: white;">
+    <th style="padding: 10px; border: 1px solid #ccc;">Peringkat</th>
+    <th style="padding: 10px; border: 1px solid #ccc;">Kelas</th>
+    <th style="padding: 10px; border: 1px solid #ccc;">Nama Peserta</th>
+    <th style="padding: 10px; border: 1px solid #ccc;">Skor</th>
+  </tr>
+</thead>
+    <tbody id="rankingBody"></tbody>
+  </table>
+<button onclick="exportToExcel()" style="margin-top: 15px; padding: 10px 18px; background-color: #1e88e5; color: white; border: none; border-radius: 6px; font-weight: bold;">Unduh Excel</button>
+
+</div>
+
+  </div>
+
+  <div class="right-panel">
+    <div id="questionDisplay"></div>
+    <div class="navigation">
+      <button id="prevBtn">Sebelumnya</button>
+      <button id="nextBtn">Selanjutnya</button>
+      <button id="submitBtn">Submit</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const questions = [
+  {
+  "type": "mc",
+  "text": "Hasil dari operasi bilangan berpangkat berikut adalah \\( 2^3 \\times 2^4 \\). Berapakah hasilnya?",
+  "options": [
+    "\\( 2^{12} \\)",
+    "\\( 2^1 \\)",
+    "\\( 2^7 \\)",
+    "\\( 2^6 \\)",
+    "\\( 2^4 \\)"
+  ],
+  "correct": 2
+},
+
+{
+  "type": "mc",
+  "text": "Sederhanakan bentuk berikut: \\( x^5 \\div x^2 \\)",
+  "options": [
+    "\\( x^3 \\)",
+    "\\( x^7 \\)",
+    "\\( x^2 \\)",
+    "\\( x^{10} \\)",
+    "\\( x^5 \\)"
+  ],
+  "correct": 0
+},
+{
+  "type": "mc",
+  "text": "Ubah bentuk berpangkat negatif berikut ke dalam pangkat positif: \\( \\frac{1}{a^{-3}} \\)",
+  "options": [
+    "\\( a^{-3} \\)",
+    "\\( -a^3 \\)",
+    "\\( a^3 \\)",
+    "\\( \\frac{1}{a^3} \\)",
+    "\\( -\\frac{1}{a^3} \\)"
+  ],
+  "correct": 2
+},
+{
+  "type": "mc",
+  "text": "Hasil dari \\( 16^{\\frac{3}{4}} \\) adalah?",
+  "options": [
+    "4",
+    "8",
+    "16",
+    "64",
+    "2"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Sebuah persegi panjang memiliki panjang 21 cm dan diagonal 29 cm. Berapakah lebar persegi panjang tersebut?",
+  "options": [
+    "18 cm",
+    "20 cm",
+    "14 cm",
+    "15 cm",
+    "12 cm"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Sederhanakan bentuk berikut: \\( 2\\sqrt{12} + 3\\sqrt{27} - \\sqrt{75} \\)",
+  "options": [
+    "\\( 7\\sqrt{3} \\)",
+    "\\( 8\\sqrt{3} \\)",
+    "\\( 9\\sqrt{3} \\)",
+    "\\( 10\\sqrt{3} \\)",
+    "\\( 6\\sqrt{3} \\)"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Hitung hasil dari \\( \\sqrt{16} + 2\\sqrt{9} - \\sqrt{25} \\)",
+  "options": [
+    "3",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Luas sebuah persegi adalah \\( 49 \\) cm². Panjang sisi persegi tersebut adalah \\( \\sqrt{49} \\) cm. Jika Ani ingin membuat pagar di sekelilingnya, berapa panjang pagar yang dibutuhkan?",
+  "options": [
+    "28 cm",
+    "14 cm",
+    "21 cm",
+    "7 cm",
+    "49 cm"
+  ],
+  "correct": 0
+},
+{
+  "type": "mc",
+  "text": "Rasionalkan penyebut dari pecahan berikut: \\( \\frac{5}{\\sqrt{2}} \\)",
+  "options": [
+    "\\( \\frac{5\\sqrt{2}}{2} \\)",
+    "\\( \\frac{5}{2\\sqrt{2}} \\)",
+    "\\( \\frac{\\sqrt{2}}{5} \\)",
+    "\\( \\frac{10}{\\sqrt{2}} \\)",
+    "\\( 5\\sqrt{2} \\)"
+  ],
+  "correct": 0
+},
+{
+  "type": "mc",
+  "text": "Rasionalkan penyebut dari \\( \\frac{4}{\\sqrt{3} - 2} \\)",
+  "options": [
+    "\\( 4\\sqrt{3} + 8 \\)",
+    "\\( -4\\sqrt{3} + 8 \\)",
+    "\\( 4\\sqrt{3} - 8 \\)",
+    "\\( -4\\sqrt{3} - 8 \\)"
+  ],
+  "correct": 3
+},
+{
+  "type": "mc",
+  "text": "Sebuah pabrik menghasilkan 5.600.000 botol air minum setiap bulan. Tuliskan jumlah tersebut dalam bentuk baku.",
+  "options": [
+    "\\( 5{,}6 \\times 10^5 \\)",
+    "\\( 5{,}6 \\times 10^6 \\)",
+    "\\( 56 \\times 10^4 \\)",
+    "\\( 0{,}56 \\times 10^7 \\)",
+    "\\( 560 \\times 10^3 \\)"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Ubahlah bentuk baku \\( 3{,}2 \\times 10^{-3} \\) ke bentuk biasa.",
+  "options": [
+    "0,032",
+    "0,0032",
+    "0,00032",
+    "0,32",
+    "0,000032"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": " \\( 4^3 = \\) ",
+  "options": [
+    "\\( 4 \\times 3 \\)",
+    "\\( 3 \\times 4 \\)",
+    "\\( 4 \\times 4 \\times 3 \\)",
+    "\\( 4 \\times 4 \\times  \\)4",
+    "\\( 4 + 4 + 4 \\)"
+  ],
+  "correct": 3
+},
+{
+  "type": "mc",
+  "text": "Hasil dari \\( 3^2 \\times 3^3 \\div 3^2 \\) adalah...",
+  "options": [
+    "\\( 3^3 \\)",
+    "\\( 3^2 \\)",
+    "\\( 3^1 \\)",
+    "\\( 3^5 \\)",
+    "\\( 3^0 \\)"
+  ],
+  "correct": 0
+},
+{
+  "type": "mc",
+  "text": "Ubahlah \\( 7^{-2} \\) ke dalam bentuk berpangkat positif.",
+  "options": [
+    "\\( -7^2 \\)",
+    "\\( \\frac{1}{7^2} \\)",
+    "\\( \\frac{-1}{7^2} \\)",
+    "\\( \\frac{1}{-7^2} \\)",
+    "\\( 7^2 \\)"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Sederhanakan: \\( \\sqrt{20} + \\sqrt{45} - \\sqrt{5} \\)",
+  "options": [
+    "\\( 8\\sqrt{5} \\)",
+    "\\( 6\\sqrt{5} \\)",
+    "\\( 7\\sqrt{5} \\)",
+    "\\( 5\\sqrt{5} \\)",
+    "\\( 4\\sqrt{5} \\)"
+  ],
+  "correct": 4
+},
+{
+  "type": "mc",
+  "text": "Hitung hasil dari \\( 2 \\times (4 + 3\\sqrt{2}) + 4 - 2\\sqrt{2} \\)",
+  "options": [
+    "\\( 12 + 6\\sqrt{2} \\)",
+    "\\( 10 + 5\\sqrt{2} \\)",
+    "\\( 8 + 4\\sqrt{2} \\)",
+    "\\( 12 + 4\\sqrt{2} \\)",
+    "\\( 14 + 6\\sqrt{2} \\)"
+  ],
+  "correct": 3
+},
+{
+  "type": "mc",
+  "text": "Sebuah persegi panjang memiliki panjang \\( 2 + \\sqrt{2} \\) meter dan lebar \\( 2 - \\sqrt{2} \\) meter. Berapakah luas persegi panjang tersebut?",
+  "options": [
+    "\\( 4 \\text{ m}^2 \\)",
+    "\\( 2 \\text{ m}^2 \\)",
+    "\\( 5 \\text{ m}^2 \\)",
+    "\\( 3 \\text{ m}^2 \\)",
+    "\\( 6 \\text{ m}^2 \\)"
+  ],
+  "correct": 1
+},
+{
+  "type": "mc",
+  "text": "Rasionalkan penyebut dari \\( \\frac{4}{\\sqrt{5} - \\sqrt{3}} \\)",
+  "options": [
+    "\\( \\frac{4(\\sqrt{5} + \\sqrt{3})}{2} \\)",
+    "\\( \\frac{4(\\sqrt{5} - \\sqrt{3})}{2} \\)",
+    "\\( \\frac{4(\\sqrt{5} + \\sqrt{3})}{8} \\)",
+    "\\( \\frac{4(\\sqrt{5} - \\sqrt{3})}{8} \\)"
+  ],
+  "correct": 0
+},
+{
+  "type": "mc",
+  "text": "Jumlah penduduk sebuah negara adalah sekitar 320.000.000 jiwa. Tuliskan bilangan tersebut dalam bentuk baku.",
+  "options": [
+    "\\( 3{,}2 \\times 10^7 \\)",
+    "\\( 32 \\times 10^6 \\)",
+    "\\( 3{,}2 \\times 10^8 \\)",
+    "\\( 0{,}32 \\times 10^9 \\)",
+    "\\( 320 \\times 10^5 \\)"
+  ],
+  "correct": 2
+}
+
+
+
+
+
+];
+
+
+  
+
+  let answers = questions.map(q => (q.type === 'mc_multiple' ? [] : null));
+  let currentQuestion = 0;
+  let timerRunning = true;
+
+  const questionDisplay = document.getElementById('questionDisplay');
+  const questionButtonsContainer = document.getElementById('questionButtons');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const scoreDisplay = document.getElementById('scoreDisplay');
+  const timerDisplay = document.getElementById('timer');
+function renderQuestionButtons() {
+    questionButtonsContainer.innerHTML = '';
+    questions.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.textContent = i + 1;
+      if (i === currentQuestion) btn.classList.add('active');
+      // Tandai soal sudah dijawab
+      if (answers[i] !== null && (Array.isArray(answers[i]) ? answers[i].length > 0 : true)) {
+        btn.style.backgroundColor = '#43a047'; // hijau tanda sudah jawab
+        btn.style.color = 'white';
+      }
+      btn.addEventListener('click', () => {
+        currentQuestion = i;
+        renderQuestion(currentQuestion);
+        updateNavigationButtons();
+      });
+      questionButtonsContainer.appendChild(btn);
+    });
+  }
+
+  function renderQuestion(index) {
+  const q = questions[index];
+  let html = `<h3>Soal ${index + 1}</h3><p>${q.text}</p>`;
+
+  if (q.type === 'mc') {
+    q.options.forEach((opt, i) => {
+      const checked = answers[index] === i ? 'checked' : '';
+      html += `
+        <label class="option">
+          <input type="radio" name="option" value="${i}" ${checked}>
+          ${opt}
+        </label>
+      `;
+    });
+  } else if (q.type === 'mc_multiple') {
+    q.options.forEach((opt, i) => {
+      const checked = (answers[index] && answers[index].includes(i)) ? 'checked' : '';
+      html += `
+        <label class="option">
+          <input type="checkbox" name="option" value="${i}" ${checked}>
+          ${opt}
+        </label>
+      `;
+    });
+  } else if (q.type === 'dropdown') {
+    html += `<select id="dropdownAnswer">`;
+    html += `<option value="">--Pilih jawaban--</option>`;
+    q.options.forEach((opt, i) => {
+      const selected = answers[index] === i ? 'selected' : '';
+      html += `<option value="${i}" ${selected}>${opt}</option>`;
+    });
+    html += `</select>`;
+  } else if (q.type === 'input') {
+    const val = answers[index] || '';
+    html += `<input type="text" id="textAnswer" value="${val}" placeholder="Jawaban Anda">`;
+  }
+
+  questionDisplay.innerHTML = html;
+
+  if (window.MathJax) {
+    MathJax.typesetPromise([questionDisplay]).catch(err => console.error('MathJax error:', err));
+  }
+
+  // Event Listener
+  const options = document.querySelectorAll('input[name="option"]');
+  options.forEach(option => {
+    option.addEventListener('change', (e) => {
+      if (q.type === 'mc') {
+        answers[index] = parseInt(e.target.value);
+      } else if (q.type === 'mc_multiple') {
+        if (!answers[index]) answers[index] = [];
+        const val = parseInt(e.target.value);
+        if (e.target.checked) {
+          if (!answers[index].includes(val)) answers[index].push(val);
+        } else {
+          answers[index] = answers[index].filter(v => v !== val);
+        }
+      }
+      renderQuestionButtons();
+    });
+  });
+
+  if (q.type === 'dropdown') {
+    document.getElementById('dropdownAnswer').addEventListener('change', (e) => {
+      answers[index] = parseInt(e.target.value);
+      renderQuestionButtons();
+    });
+  }
+
+  if (q.type === 'input') {
+    document.getElementById('textAnswer').addEventListener('input', (e) => {
+      answers[index] = e.target.value.trim();
+      renderQuestionButtons();
+    });
+  }
+
+  updateButtons();
+  updateNavButtons();
+}
+
+
+  function updateButtons() {
+    const buttons = document.querySelectorAll('.question-buttons button');
+    buttons.forEach((btn, idx) => {
+      btn.classList.toggle('active', idx === currentQuestion);
+    });
+  }
+
+  function updateNavButtons() {
+    prevBtn.disabled = currentQuestion === 0;
+    nextBtn.disabled = currentQuestion === questions.length - 1;
+    submitBtn.style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
+  }
+
+  function initButtons() {
+    for (let i = 1; i <= questions.length; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      btn.addEventListener('click', () => {
+        currentQuestion = i - 1;
+        renderQuestion(currentQuestion);
+      });
+      questionButtonsContainer.appendChild(btn);
+    }
+  }
+
+  function arraysEqual(a, b) {
+  if (!Array.isArray(a) || !Array.isArray(b)) return false;
+  if (a.length !== b.length) return false;
+  const sortedA = [...a].sort();
+  const sortedB = [...b].sort();
+  return sortedA.every((val, idx) => val === sortedB[idx]);
+}
+function calculateScore() {
+  let score = 0;
+  questions.forEach((q, i) => {
+    if (q.type === 'mc') {
+      if (answers[i] === q.correct) score++;
+    } else if (q.type === 'mc_multiple') {
+      if (arraysEqual(answers[i], q.correct)) score++;
+    } else if (q.type === 'dropdown') {
+      if (answers[i] === q.correct) score++;
+    } else if (q.type === 'input') {
+      if (typeof answers[i] === 'string' && answers[i].toLowerCase() === q.correct.toLowerCase()) {
+        score++;
+      }
+    }
+  });
+
+  const finalScore = score * 5; // ⬅️ Skor dikali 5
+  scoreDisplay.textContent = `Skor Anda: ${finalScore} dari maksimum ${questions.length * 5}`;
+  scoreDisplay.style.display = 'block';
+}
+
+
+  function disableAll() {
+    document.querySelectorAll('button').forEach(btn => btn.disabled = true);
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = true);
+  }
+function simpanSkorKeLocalStorage(nama, skor) {
+  let hasil = JSON.parse(localStorage.getItem('rankingPeserta')) || [];
+  hasil.push({ nama: namaPesertaGlobal, kelas: kelasPesertaGlobal, skor });
+  localStorage.setItem('rankingPeserta', JSON.stringify(hasil));
+}
+
+function tampilkanRanking() {
+  const rankingBody = document.getElementById('rankingBody');
+  let hasil = JSON.parse(localStorage.getItem('rankingPeserta')) || [];
+
+  hasil.sort((a, b) => b.skor - a.skor);
+
+  rankingBody.innerHTML = '';
+  hasil.forEach((peserta, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td style="padding: 10px; border: 1px solid #ccc; text-align: center;">${index + 1}</td>
+      <td style="padding: 10px; border: 1px solid #ccc; text-align: center;">${peserta.kelas}</td>
+      <td style="padding: 10px; border: 1px solid #ccc;">${peserta.nama}</td>
+      <td style="padding: 10px; border: 1px solid #ccc; text-align: center;">${peserta.skor}</td>
+    `;
+    rankingBody.appendChild(row);
+  });
+}
+
+
+  function endTryout() {
+  if (timerRunning) {
+    calculateScore();
+    disableAll();
+    timerRunning = false;
+
+    const namaPeserta = document.getElementById('namaPeserta').value.trim();
+    if (!namaPeserta) {
+      alert("Nama peserta harus diisi untuk menyimpan skor.");
+      return;
+    }
+
+    const skorBenar = questions.reduce((acc, q, i) => {
+  if (q.type === 'mc' && answers[i] === q.correct) return acc + 1;
+  if (q.type === 'mc_multiple' && arraysEqual(answers[i], q.correct)) return acc + 1;
+  if (q.type === 'dropdown' && answers[i] === q.correct) return acc + 1;
+  if (q.type === 'input' && typeof answers[i] === 'string' && answers[i].toLowerCase() === q.correct.toLowerCase()) return acc + 1;
+  return acc;
+}, 0);
+
+const skor = skorBenar * 5; // ⬅️ Skor dikali 5
+
+simpanSkorKeLocalStorage(namaPeserta, skor);
+tampilkanRanking();
+
+  }
+}
+
+
+  submitBtn.addEventListener('click', () => {
+    endTryout();
+    submitBtn.disabled = true;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentQuestion > 0) {
+      currentQuestion--;
+      renderQuestion(currentQuestion);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      renderQuestion(currentQuestion);
+    }
+  });
+
+  function startTimer(duration) {
+    let timer = duration;
+    const interval = setInterval(() => {
+      if (!timerRunning) {
+        clearInterval(interval);
+        return;
+      }
+
+      const minutes = Math.floor(timer / 60);
+      const seconds = timer % 60;
+      timerDisplay.textContent =
+        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+      if (--timer < 0) {
+        clearInterval(interval);
+        endTryout();
+        alert("Waktu habis! Jawaban Anda telah disubmit.");
+      }
+    }, 1000);
+  }
+
+  initButtons();
+  renderQuestion(currentQuestion);
+  startTimer(60 * 60); // 60 menit
+// Data Peserta
+let namaPesertaGlobal = '';
+let kelasPesertaGlobal = '';
+const PASSWORD = "sasmts2025"; // Ganti dengan password yang kamu inginkan
+
+function checkLogin() {
+  const nama = document.getElementById('loginNama').value.trim();
+  const kelas = document.getElementById('loginKelas').value.trim();
+  const password = document.getElementById('loginPassword').value.trim();
+
+  if (!nama || !kelas || !password) {
+    alert("Semua kolom harus diisi.");
+    return;
+  }
+
+  if (password !== PASSWORD) {
+    alert("Password salah!");
+    return;
+  }
+
+  const namaLengkap = `${nama} (${kelas})`;
+
+  // Cek apakah nama sudah pernah mengerjakan
+  const hasil = JSON.parse(localStorage.getItem('rankingPeserta')) || [];
+  const sudahAda = hasil.some(p => p.nama === namaLengkap);
+
+  if (sudahAda) {
+    alert("Anda sudah pernah mengerjakan. Tidak dapat mengerjakan ulang.");
+    return;
+  }
+
+  // Sukses login
+  namaPesertaGlobal = nama;
+  kelasPesertaGlobal = kelas;
+  document.getElementById('loginModal').style.display = 'none';
+  document.getElementById('namaPeserta').value = namaLengkap;
+}
+
+function exportToExcel() {
+  const data = JSON.parse(localStorage.getItem('rankingPeserta')) || [];
+
+  const exportData = [
+    ["Peringkat", "Kelas", "Nama Peserta", "Skor"],
+    ...data
+      .sort((a, b) => b.skor - a.skor)
+      .map((item, index) => [index + 1, item.kelas, item.nama, item.skor])
+  ];
+
+  const worksheet = XLSX.utils.aoa_to_sheet(exportData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Ranking");
+
+  XLSX.writeFile(workbook, "Ranking_Peserta_Ulangan_Sains.xlsx");
+}
+
+</script>
+
+</body>
+</html>
