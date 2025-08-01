@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Interaktif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+            position: relative;
+	    justify-content: center;
+	    align-items: center;
+	    min-height: 100vh
+	
+	}
+        body::before,
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: white;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        body::before {
+            top: -30%;
+            right: -30%;
+        }
+        body::after {
+            bottom: -50%;
+            left: -30%;
+        }
+	html, body {
+    overflow-x: hidden;
+}
+
+.login-box {
+    background: linear-gradient(135deg, #ce9ffc, #f9c7d9); /* Ganti background */
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Ganti background tombol */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-box button:hover {
+    background: linear-gradient(135deg, #5e0dca, #1d60e7); /* Hover efek */
+}
+    .hidden {
+      display: none;
+    }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #4dd4a3;
+            position: fixed;
+            left: -250px;
+            transition: left 0.3s ease-in-out;
+            padding-top: 20px;
+            z-index: 1300;
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 5px;
+            text-align: left;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: block;
+        }
+        .sidebar ul li:hover {
+            background: #f8d444;
+        }
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            z-index: 1400;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: #f8d444;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .header {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-radius: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header span {
+            flex: 80%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+	    color: #4dd4a3;
+        }
+        .header img {
+            flex: 20%;
+            max-width: 60px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .content {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+                }
+	
+    </style>
+</head>
+<body>
+<div class="login-box" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" id="username" placeholder="Username" /><br><br>
+  <input type="password" id="password" placeholder="Password" /><br><br>
+  <button onclick="checkLogin()">Masuk</button>
+  <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<div id="content22" class="hidden">
+
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h2 class=" text-2xl text-semibold ">Menu</h2>
+        <ul>
+            <li ><a href="persamaan garis lurus.html" ▶️ Persamaan Garis Lurus</a></li>
+	    <li ><a href="Peluang.html" ">▶️ Peluang</a></li>
+	    <li ><a href="#Relasi dan Fungsi" >▶️ Relasi dan Fungsi</a></li>
+	    <li ><a href="Statistika.html" >▶️ Statistika</a></li>
+	    <li ><a href="Segitiga dan Segi Empat.html" >▶️ Segitiga dan Segi Empat</a></li>
+	    <li ><a href="Aljabar.html" >▶️ Aljabar</a></li>
+
+        </ul>
+    </div>
+    
+    <div class="toggle-btn" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </div>
+    
+    <div class="header">
+        <span>Media Pembelajaran Interaktif</span>
+        <img src="logo.png" alt="Logo">
+    </div>
+    
+    <!-- Konten Utama -->
+<div class="ml-0 w-full max-w-7xl mx-auto bg-white p-8 rounded-lg shadow-2xl" style="margin-right: 10px;">
+    <h1 class="text-3xl font-bold text-center text-[#4dd4a3] mb-6">Matematika SMP</h1>
+
+    <!-- Materi Lingkaran -->
+    <div id="LingkaranKelas9" class="mb-8">
+        <h1 class="text-2xl font-bold mb-4 text-[#4dd4a3]">Lingkaran</h1>
+        <ul class="text-black p-6 bg-[#4dd4a3] rounded-lg shadow-md">
+            <li class="mb-3">
+                <a href="#1-Pengertian-Lingkaran" class="hover:text-white">1. Pengertian Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#2-Bagian-Bagian-Lingkaran" class="hover:text-white">2. Bagian-Bagian Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#3-Rumus-Lingkaran" class="hover:text-white">3. Rumus Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#4-Keliling-dan-Luas-Lingkaran" class="hover:text-white">4. Keliling dan Luas Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#5-Sudut-pada-Lingkaran" class="hover:text-white">5. Sudut pada Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#6-Hubungan-Sudut-Pusat-dan-Keliling" class="hover:text-white">6. Hubungan antara Sudut Pusat dan Sudut Keliling</a>
+            </li>
+            <li class="mb-3">
+                <a href="#7-Garis-Singgung-Lingkaran" class="hover:text-white">7. Garis Singgung Lingkaran</a>
+            </li>
+            <li class="mb-3">
+                <a href="#8-Penerapan-Lingkaran" class="hover:text-white">8. Penerapan Lingkaran dalam Kehidupan Sehari-hari</a>
+            </li>
+        </ul>
+
+<br>
+
+ <!-- 1. Pengertian Lingkaran -->
+        <div id="1-Pengertian-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">1. Pengertian Lingkaran</h2>
+            <p class="text-gray-700">Lingkaran adalah himpunan semua titik yang berjarak sama dari satu titik tertentu di bidang datar. Titik ini disebut titik pusat, dan jarak dari titik pusat ke titik pada lingkaran disebut jari-jari.</p>
+        </div>
+
+        <!-- 2. Bagian-Bagian Lingkaran -->
+        <div id="2-Bagian-Bagian-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">2. Bagian-Bagian Lingkaran</h2>
+<svg width="400" height="400" viewBox="0 0 400 400">
+  <!-- Lingkaran -->
+  <circle cx="200" cy="200" r="150" stroke="blue" stroke-width="3" fill="none" />
+<polygon points="200,200 200,50 350,200" fill="orange" />
+<path d="M350,200 A150,150 0 0,0 200,50" stroke="red" stroke-width="2" fill="orange" />
+<text x="300" y="70" font-size="14" fill="orange">Juring</text>
+  <!-- Pusat -->
+  <circle cx="200" cy="200" r="4" fill="red" />
+  <text x="205" y="195" font-size="14" fill="black">Pusat (O)</text>
+
+  <!-- Jari-jari -->
+  <line x1="200" y1="200" x2="200" y2="50" stroke="green" stroke-width="2" />
+  <text x="205" y="125" font-size="14" fill="green">Jari-jari (r)</text>
+  <line x1="200" y1="200" x2="120" y2="325" stroke="green" stroke-width="2" />
+  <line x1="200" y1="200" x2="280" y2="325" stroke="green" stroke-width="2" />
+
+
+  <!-- Diameter -->
+  <line x1="50" y1="200" x2="350" y2="200" stroke="orange" stroke-width="2" />
+  <text x="110" y="215" font-size="14" fill="orange">Diameter (d)</text>
+
+  <!--Apotema  -->
+  <line x1="120" y1="325" x2="280" y2="325" stroke="purple" stroke-width="2" />
+  <text x="210" y="250" font-size="14" fill="blue">Apotema</text>
+
+<!-- Tali busur-->
+  <line x1="200" y1="200" x2="200" y2="325" stroke="blue" stroke-width="2" />
+  <text x="220" y="310" font-size="14" fill="purple">Tali busur</text>
+  
+<!-- Busur dan Temberng -->
+  <path d="M120,325 A150,150 0 0,0 280,325" stroke="red" stroke-width="2" fill="yellow" />
+<text x="270" y="350" font-size="14" fill="yellow">Tembereng</text>
+
+  <text x="180" y="370" font-size="14" fill="red">Busur</text>
+  
+  
+</svg>
+
+
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Pusat</strong>: Titik tengah lingkaran (biasanya dilambangkan dengan O).</li>
+                <li><strong>Jari-jari (r)</strong>: Jarak dari pusat ke titik pada lingkaran.</li>
+                <li><strong>Diameter (d)</strong>: Garis lurus yang melalui pusat dan menghubungkan dua titik pada lingkaran (d = 2r).</li>
+                <li><strong>Busur</strong>: Bagian dari keliling lingkaran.</li>
+                <li><strong>Tali Busur</strong>: Garis yang menghubungkan dua titik pada lingkaran tanpa melalui pusat.</li>
+                <li><strong>Juring</strong>: Daerah yang dibatasi oleh dua jari-jari dan busur.</li>
+                <li><strong>Tembereng</strong>: Daerah yang dibatasi oleh busur dan tali busur.</li>
+                <li><strong>Apotema</strong>: Garis tegak lurus dari pusat ke tali busur.</li>
+            </ul>
+        </div><br>
+<!-- LATIHAN SOAL LINGKARAN - 1 GAMBAR, BANYAK SOAL -->
+<div class="w-full max-w-5xl mx-auto bg-white p-6 mt-8 rounded-xl shadow-xl">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mb-4 text-center">Latihan Interaktif: Bagian-Bagian Lingkaran</h2>
+
+  <!-- Gambar -->
+  <div class="flex justify-center mb-6">
+    <img src="https://quizizz.com/media/resource/gs/quizizz-media/quizzes/3d56f683-c745-4661-a047-c2661a0fc48a" alt="Gambar Lingkaran A-J" class="rounded shadow-md">
+  </div>
+
+  <!-- Daftar Soal -->
+  <div class="space-y-6">
+
+    <!-- Soal 1 -->
+    <div>
+      <p class="mb-2">1. Titik <strong>O</strong> adalah …</p>
+      <div class="flex gap-4 items-center">
+        <select id="jawaban1" class="border rounded p-2 text-gray-700">
+          <option value="">-- Pilih jawaban --</option>
+          <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+          <option value="jari-jari">Jari-jari</option>
+          <option value="diameter">Diameter</option>
+          <option value="busur">Busur</option>
+          <option value="tali busur">Tali busur</option>
+          <option value="juring">Juring</option>
+          <option value="tembereng">Tembereng</option>
+          <option value="apotema">Apotema</option>
+        </select>
+        <button onclick="cekJawaban(1, 'titik pusat lingkaran')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+      </div>
+      <p id="feedback1" class="mt-1 font-semibold"></p>
+    </div>
+
+    <!-- Soal 2 -->
+    <div>
+      <p class="mb-2">2. Garis <strong>OB</strong> adalah …</p>
+      <div class="flex gap-4 items-center">
+        <select id="jawaban2" class="border rounded p-2 text-gray-700">
+          <option value="">-- Pilih jawaban --</option>
+          <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+          <option value="jari-jari">Jari-jari</option>
+          <option value="diameter">Diameter</option>
+          <option value="busur">Busur</option>
+          <option value="tali busur">Tali busur</option>
+          <option value="juring">Juring</option>
+          <option value="tembereng">Tembereng</option>
+          <option value="apotema">Apotema</option>
+        </select>
+        <button onclick="cekJawaban(2, 'jari-jari')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+      </div>
+      <p id="feedback2" class="mt-1 font-semibold"></p>
+    </div>
+
+    <!-- Soal 3 -->
+    <div>
+      <p class="mb-2">3. Garis <strong>AC</strong> adalah …</p>
+      <div class="flex gap-4 items-center">
+        <select id="jawaban3" class="border rounded p-2 text-gray-700">
+          <option value="">-- Pilih jawaban --</option>
+          <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+          <option value="jari-jari">Jari-jari</option>
+          <option value="diameter">Diameter</option>
+          <option value="busur">Busur</option>
+          <option value="tali busur">Tali busur</option>
+          <option value="juring">Juring</option>
+          <option value="tembereng">Tembereng</option>
+          <option value="apotema">Apotema</option>
+        </select>
+        <button onclick="cekJawaban(3, 'tali busur')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+      </div>
+      <p id="feedback3" class="mt-1 font-semibold"></p>
+    </div>
+
+    <!-- Soal 4 -->
+    <div>
+      <p class="mb-2">4. Garis <strong>AB</strong> yang melewati pusat adalah …</p>
+      <div class="flex gap-4 items-center">
+        <select id="jawaban4" class="border rounded p-2 text-gray-700">
+          <option value="">-- Pilih jawaban --</option>
+          <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+          <option value="jari-jari">Jari-jari</option>
+          <option value="diameter">Diameter</option>
+          <option value="busur">Busur</option>
+          <option value="tali busur">Tali busur</option>
+          <option value="juring">Juring</option>
+          <option value="tembereng">Tembereng</option>
+          <option value="apotema">Apotema</option>
+        </select>
+        <button onclick="cekJawaban(4, 'diameter')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+      </div>
+      <p id="feedback4" class="mt-1 font-semibold"></p>
+    </div>
+
+    <!-- Soal 5 -->
+    <div>
+      <p class="mb-2">5. Daerah yang dibatasi oleh garis <strong>OC</strong> dan <strong>OB</strong> serta busur <strong>BC</strong> disebut …</p>
+      <div class="flex gap-4 items-center">
+        <select id="jawaban5" class="border rounded p-2 text-gray-700">
+          <option value="">-- Pilih jawaban --</option>
+          <option value="juring">Juring</option>
+          <option value="tali busur">Tali busur</option>
+          <option value="busur">Busur</option>
+          <option value="tembereng">Tembereng</option>
+          <option value="jari-jari">Jari-jari</option>
+          <option value="apotema">Apotema</option>
+          <option value="diameter">Diameter</option>
+          <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+        </select>
+        <button onclick="cekJawaban(5, 'juring')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+      </div>
+      <p id="feedback5" class="mt-1 font-semibold"></p>
+    </div>
+<!-- Soal 6 -->
+<div>
+  <p class="mb-2">6. Daerah yang dibatasi oleh tali busur <strong>AC</strong> dan busur <strong>AC</strong> disebut …</p>
+  <div class="flex gap-4 items-center">
+    <select id="jawaban6" class="border rounded p-2 text-gray-700">
+      <option value="">-- Pilih jawaban --</option>
+      <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+      <option value="jari-jari">Jari-jari</option>
+      <option value="diameter">Diameter</option>
+      <option value="busur">Busur</option>
+      <option value="tali busur">Tali busur</option>
+      <option value="juring">Juring</option>
+      <option value="tembereng">Tembereng</option>
+      <option value="apotema">Apotema</option>
+    </select>
+    <button onclick="cekJawaban(6, 'tembereng')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+  </div>
+  <p id="feedback6" class="mt-1 font-semibold"></p>
+</div>
+
+<!-- Soal 7 -->
+<div>
+  <p class="mb-2">7. Garis dari pusat lingkaran <strong>O</strong> yang tegak lurus ke tali busur <strong>AC</strong> disebut …</p>
+  <div class="flex gap-4 items-center">
+    <select id="jawaban7" class="border rounded p-2 text-gray-700">
+      <option value="">-- Pilih jawaban --</option>
+      <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+      <option value="jari-jari">Jari-jari</option>
+      <option value="diameter">Diameter</option>
+      <option value="busur">Busur</option>
+      <option value="tali busur">Tali busur</option>
+      <option value="juring">Juring</option>
+      <option value="tembereng">Tembereng</option>
+      <option value="apotema">Apotema</option>
+    </select>
+    <button onclick="cekJawaban(7, 'apotema')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+  </div>
+  <p id="feedback7" class="mt-1 font-semibold"></p>
+</div>
+
+<!-- Soal 8 -->
+<div>
+  <p class="mb-2">8. Lengkungan antara titik <strong>A</strong> dan <strong>B</strong> pada lingkaran disebut …</p>
+  <div class="flex gap-4 items-center">
+    <select id="jawaban8" class="border rounded p-2 text-gray-700">
+      <option value="">-- Pilih jawaban --</option>
+      <option value="titik pusat lingkaran">Titik pusat lingkaran</option>
+      <option value="jari-jari">Jari-jari</option>
+      <option value="diameter">Diameter</option>
+      <option value="busur">Busur</option>
+      <option value="tali busur">Tali busur</option>
+      <option value="juring">Juring</option>
+      <option value="tembereng">Tembereng</option>
+      <option value="apotema">Apotema</option>
+    </select>
+    <button onclick="cekJawaban(8, 'busur')" class="bg-[#4dd4a3] hover:bg-green-500 text-white px-4 py-2 rounded shadow">Cek Jawaban</button>
+  </div>
+  <p id="feedback8" class="mt-1 font-semibold"></p>
+</div>
+
+    <!-- Tambahkan soal-soal lainnya sesuai kebutuhan -->
+  </div>
+</div>
+
+<!-- Script Cek Jawaban -->
+<script>
+  function cekJawaban(nomor, kunci) {
+    const select = document.getElementById("jawaban" + nomor);
+    const feedback = document.getElementById("feedback" + nomor);
+    const value = select.value;
+
+    if (value === "") {
+      feedback.textContent = "⚠️ Pilih jawaban terlebih dahulu.";
+      feedback.className = "text-yellow-600 mt-1 font-semibold";
+    } else if (value === kunci) {
+      feedback.textContent = "✅ Benar!";
+      feedback.className = "text-green-600 mt-1 font-semibold";
+    } else {
+      feedback.textContent = "❌ Salah. Coba lagi.";
+      feedback.className = "text-red-600 mt-1 font-semibold";
+    }
+  }
+</script>
+
+        <!-- 3. Rumus Lingkaran -->
+        <div id="3-Rumus-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">3. Rumus Lingkaran</h2>
+            <p class="text-gray-700"><strong>Keliling:</strong></p>
+            <p class="text-gray-700 ml-4">K = 2 × π × r atau K = π × d</p>
+            <p class="text-gray-700 mt-2"><strong>Luas:</strong></p>
+            <p class="text-gray-700 ml-4">L = π × r²</p>
+            <p class="text-gray-700 mt-2">Dengan π (pi) ≈ 3,14 atau 22/7, r = jari-jari, dan d = diameter.</p>
+        </div>
+
+        <!-- 4. Keliling dan Luas Lingkaran -->
+        <div id="4-Keliling-dan-Luas-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">4. Keliling dan Luas Lingkaran</h2>
+            <p class="text-gray-700">Contoh soal:</p>
+            <p class="text-gray-700 ml-4">Jika jari-jari lingkaran adalah 7 cm, maka:</p>
+            <ul class="text-gray-700 list-disc ml-8">
+                <li>Keliling = 2 × 22/7 × 7 = 44 cm</li>
+                <li>Luas = 22/7 × 7 × 7 = 154 cm²</li>
+            </ul>
+        </div><br>
+<section class="bg-white shadow-lg p-6 rounded-xl mt-10 max-w-3xl mx-auto border border-gray-200">
+  <h2 class="text-2xl font-bold text-center text-blue-700 mb-6">Latihan Soal 3</h2>
+
+  <!-- SOAL 1 -->
+  <div class="mb-6 p-4 border-l-4 border-blue-500 bg-blue-50 rounded">
+    <p class="text-lg font-medium text-gray-800">1. Sebuah lingkaran memiliki jari-jari <strong>7 cm</strong>. Hitunglah keliling lingkaran tersebut! (Gunakan π = 22/7)</p>
+    <div class="flex flex-wrap items-center gap-4 mt-3">
+      <input type="text" id="jawabanK1" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <button onclick="cekJawabanKeliling(1, 44)" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+    </div>
+    <p id="feedbackK1" class="mt-2 font-semibold"></p>
+  </div>
+
+  <!-- SOAL 2 -->
+  <div class="mb-6 p-4 border-l-4 border-green-500 bg-green-50 rounded">
+    <p class="text-lg font-medium text-gray-800">2. Sebuah lingkaran memiliki diameter <strong>14 cm</strong>. Hitunglah keliling lingkaran tersebut! (Gunakan π = 22/7)</p>
+    <div class="flex flex-wrap items-center gap-4 mt-3">
+      <input type="text" id="jawabanK2" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400">
+      <button onclick="cekJawabanKeliling(2, 44)" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+    </div>
+    <p id="feedbackK2" class="mt-2 font-semibold"></p>
+  </div>
+
+  <!-- SOAL 3 -->
+  <div class="mb-4 p-4 border-l-4 border-purple-500 bg-purple-50 rounded">
+    <p class="text-lg font-medium text-gray-800">3. Sebuah lingkaran memiliki jari-jari <strong>10 cm</strong>. Hitunglah keliling lingkaran tersebut! (Gunakan π = 3,14)</p>
+    <div class="flex flex-wrap items-center gap-4 mt-3">
+      <input type="text" id="jawabanK3" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+      <button onclick="cekJawabanKeliling(3, 62.8)" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+    </div>
+    <p id="feedbackK3" class="mt-2 font-semibold"></p>
+  </div>
+<!-- SOAL 4 -->
+<div class="mb-6 p-4 border-l-4 border-yellow-500 bg-yellow-50 rounded">
+  <p class="text-lg font-medium text-gray-800">4. Sebuah lingkaran memiliki jari-jari <strong>7 cm</strong>. Hitunglah luas lingkaran tersebut! (Gunakan π = 22/7)</p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanL4" placeholder="Jawaban dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+    <button onclick="cekJawabanLuas(4, 154)" class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackL4" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 5 -->
+<div class="mb-6 p-4 border-l-4 border-pink-500 bg-pink-50 rounded">
+  <p class="text-lg font-medium text-gray-800">5. Sebuah lingkaran memiliki diameter <strong>14 cm</strong>. Hitunglah luas lingkaran tersebut! (Gunakan π = 22/7)</p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanL5" placeholder="Jawaban dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+    <button onclick="cekJawabanLuas(5, 154)" class="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackL5" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 6 -->
+<div class="mb-4 p-4 border-l-4 border-teal-500 bg-teal-50 rounded">
+  <p class="text-lg font-medium text-gray-800">6. Sebuah lingkaran memiliki jari-jari <strong>10 cm</strong>. Hitunglah luas lingkaran tersebut! (Gunakan π = 3,14)</p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanL6" placeholder="Jawaban dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400">
+    <button onclick="cekJawabanLuas(6, 314)" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackL6" class="mt-2 font-semibold"></p>
+</div>
+<!-- SOAL 7 -->
+<div class="mb-6 p-4 border-l-4 border-indigo-500 bg-indigo-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    7. Sebuah lingkaran memiliki keliling <strong>62,8 cm</strong>. Hitunglah jari-jarinya! (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB7" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <button onclick="cekJawabanBalik(7, 10)" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB7" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 8 -->
+<div class="mb-6 p-4 border-l-4 border-purple-500 bg-purple-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    8. Sebuah lingkaran memiliki luas <strong>154 cm²</strong>. Hitunglah jari-jarinya! (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB8" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+    <button onclick="cekJawabanBalik(8, 7)" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB8" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 9 -->
+<div class="mb-6 p-4 border-l-4 border-rose-500 bg-rose-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    9. Sebuah lingkaran memiliki keliling <strong>44 cm</strong>. Hitunglah diameternya! (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB9" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-rose-300 focus:outline-none focus:ring-2 focus:ring-rose-400">
+    <button onclick="cekJawabanBalik(9, 14)" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB9" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 10 -->
+<div class="mb-6 p-4 border-l-4 border-cyan-500 bg-cyan-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    10. Sebuah lingkaran memiliki luas <strong>314 cm²</strong>. Hitunglah diameternya! (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB10" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+    <button onclick="cekJawabanBalik(10, 20)" class="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB10" class="mt-2 font-semibold"></p>
+</div>
+<!-- SOAL 11 -->
+<div class="mb-6 p-4 border-l-4 border-yellow-500 bg-yellow-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    11. Sebuah lingkaran memiliki <strong>diameter 14 cm</strong>. Hitunglah luas lingkaran tersebut! (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB11" placeholder="Jawaban dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+    <button onclick="cekJawabanBalik(11, 154)" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB11" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 12 -->
+<div class="mb-6 p-4 border-l-4 border-green-600 bg-green-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    12. Sebuah lingkaran memiliki <strong>jari-jari 10 cm</strong>. Hitunglah keliling lingkaran tersebut! (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB12" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-green-300 focus:outline-none focus:ring-2 focus:ring-green-400">
+    <button onclick="cekJawabanBalik(12, 62.8)" class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB12" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 13 -->
+<div class="mb-6 p-4 border-l-4 border-pink-600 bg-pink-50 rounded">
+  <p class="text-lg font-medium text-gray-800">
+    13. Sebuah lingkaran memiliki <strong>diameter 10 cm</strong>. Hitunglah keliling lingkaran tersebut! (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanB13" placeholder="Jawaban dalam cm" class="w-60 px-4 py-2 rounded border-2 border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+    <button onclick="cekJawabanBalik(13, 31.4)" class="bg-pink-600 hover:bg-pink-700 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackB13" class="mt-2 font-semibold"></p>
+</div>
+<!-- SOAL 14 -->
+<div class="mb-6 p-4 border-l-4 border-blue-700 bg-blue-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    14. Seorang tukang taman membuat kolam berbentuk lingkaran dengan diameter 4 meter. Ia ingin menghias pinggir kolam dengan batu kecil. Jika setiap meter membutuhkan 5 batu, berapa banyak batu yang dibutuhkan untuk menghiasi keliling kolam? (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC14" placeholder="Jumlah batu" class="w-60 px-4 py-2 rounded border-2 border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+    <button onclick="cekJawabanCerita(14, 62.8)" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC14" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 15 -->
+<div class="mb-6 p-4 border-l-4 border-purple-700 bg-purple-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    15. Sebuah roda sepeda memiliki jari-jari 35 cm. Jika roda tersebut berputar penuh sebanyak 10 kali, berapa meter jarak yang ditempuh sepeda? (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC15" placeholder="Jarak dalam meter" class="w-60 px-4 py-2 rounded border-2 border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-400">
+    <button onclick="cekJawabanCerita(15, 22)" class="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC15" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 16 -->
+<div class="mb-6 p-4 border-l-4 border-teal-700 bg-teal-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    16. Sebuah piring berbentuk lingkaran memiliki diameter 20 cm. Jika piring tersebut akan dilapisi dengan kertas alas makan, berapa luas minimal kertas yang dibutuhkan? (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC16" placeholder="Luas dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-400">
+    <button onclick="cekJawabanCerita(16, 314)" class="bg-teal-700 hover:bg-teal-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC16" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 17 -->
+<div class="mb-6 p-4 border-l-4 border-indigo-700 bg-indigo-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    17. Sebuah lapangan bulat memiliki jari-jari 14 meter. Di sekeliling lapangan dipasang pagar besi. Jika satu batang pagar besi panjangnya 2 meter, berapa batang pagar minimal yang dibutuhkan? (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC17" placeholder="Jumlah batang pagar" class="w-60 px-4 py-2 rounded border-2 border-indigo-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+    <button onclick="cekJawabanCerita(17, 44)" class="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC17" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 18 -->
+<div class="mb-6 p-4 border-l-4 border-orange-700 bg-orange-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    18. Sebuah logo perusahaan dibuat dari lingkaran dengan jari-jari 7 cm. Jika ingin mencetak 100 logo tersebut, berapa luas total yang dibutuhkan? (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC18" placeholder="Luas total dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-400">
+    <button onclick="cekJawabanCerita(18, 15400)" class="bg-orange-700 hover:bg-orange-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC18" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 19 -->
+<div class="mb-6 p-4 border-l-4 border-lime-700 bg-lime-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    19. Rani membuat pizza bundar berdiameter 28 cm. Jika pizza dibagi menjadi 8 bagian yang sama besar, berapa luas satu potong pizza? (Gunakan π = 22/7)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC19" placeholder="Luas satu potong dalam cm²" class="w-60 px-4 py-2 rounded border-2 border-lime-300 focus:outline-none focus:ring-2 focus:ring-lime-400">
+    <button onclick="cekJawabanCerita(19, 77)" class="bg-lime-700 hover:bg-lime-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC19" class="mt-2 font-semibold"></p>
+</div>
+
+<!-- SOAL 20 -->
+<div class="mb-6 p-4 border-l-4 border-rose-700 bg-rose-50 rounded">
+  <p class="text-lg font-semibold text-gray-800">
+    20. Sebuah jam dinding berbentuk lingkaran memiliki jari-jari 15 cm. Berapa panjang garis tepi jam tersebut? (Gunakan π = 3,14)
+  </p>
+  <div class="flex flex-wrap items-center gap-4 mt-3">
+    <input type="text" id="jawabanC20" placeholder="Keliling dalam cm" class="w-60 px-4 py-2 rounded border-2 border-rose-300 focus:outline-none focus:ring-2 focus:ring-rose-400">
+    <button onclick="cekJawabanCerita(20, 94.2)" class="bg-rose-700 hover:bg-rose-800 text-white font-semibold px-5 py-2 rounded-xl">Cek Jawaban</button>
+  </div>
+  <p id="feedbackC20" class="mt-2 font-semibold"></p>
+</div>
+
+</section>
+
+<!-- Script Pengecekan Jawaban -->
+<script>
+  function cekJawabanKeliling(no, kunci) {
+    const input = document.getElementById(`jawabanK${no}`).value.trim();
+    const feedback = document.getElementById(`feedbackK${no}`);
+    const jawaban = parseFloat(input.replace(',', '.')); // handle koma dan titik
+
+    if (isNaN(jawaban)) {
+      feedback.innerText = "Masukkan angka yang valid.";
+      feedback.className = "text-red-600";
+      return;
+    }
+
+    // Bandingkan dua angka dengan toleransi kecil (karena desimal)
+    const benar = Math.abs(jawaban - kunci) < 0.1;
+    if (benar) {
+      feedback.innerText = "✅ Jawaban Benar!";
+      feedback.className = "text-green-600";
+    } else {
+      feedback.innerText = `❌ Jawaban Salah. Coba lagi.`;
+      feedback.className = "text-red-600";
+    }
+  }
+</script>
+<script>
+  function cekJawabanLuas(no, kunci) {
+    const input = document.getElementById(`jawabanL${no}`).value.trim();
+    const feedback = document.getElementById(`feedbackL${no}`);
+    const jawaban = parseFloat(input.replace(',', '.'));
+
+    if (isNaN(jawaban)) {
+      feedback.innerText = "Masukkan angka yang valid.";
+      feedback.className = "text-red-600";
+      return;
+    }
+
+    const benar = Math.abs(jawaban - kunci) < 0.1;
+    if (benar) {
+      feedback.innerText = "✅ Jawaban Benar!";
+      feedback.className = "text-green-600";
+    } else {
+      feedback.innerText = `❌ Jawaban Salah. Coba lagi.`;
+      feedback.className = "text-red-600";
+    }
+  }
+</script>
+<script>
+  function cekJawabanBalik(no, kunci) {
+    const input = document.getElementById(`jawabanB${no}`).value.trim();
+    const feedback = document.getElementById(`feedbackB${no}`);
+    const jawaban = parseFloat(input.replace(',', '.'));
+
+    if (isNaN(jawaban)) {
+      feedback.innerText = "Masukkan angka yang valid.";
+      feedback.className = "text-red-600";
+      return;
+    }
+
+    const benar = Math.abs(jawaban - kunci) < 0.1;
+    if (benar) {
+      feedback.innerText = "✅ Jawaban Benar!";
+      feedback.className = "text-green-600";
+    } else {
+      feedback.innerText = `❌ Jawaban Salah. Coba lagi.`;
+      feedback.className = "text-red-600";
+    }
+  }
+</script>
+<script>
+  function cekJawabanCerita(no, kunci) {
+    const input = document.getElementById(`jawabanC${no}`).value.trim();
+    const feedback = document.getElementById(`feedbackC${no}`);
+    const jawaban = parseFloat(input.replace(',', '.'));
+
+    if (isNaN(jawaban)) {
+      feedback.innerText = "Masukkan angka yang valid.";
+      feedback.className = "text-red-600";
+      return;
+    }
+
+    const benar = Math.abs(jawaban - kunci) < 0.2;
+    if (benar) {
+      feedback.innerText = "✅ Jawaban Benar!";
+      feedback.className = "text-green-600";
+    } else {
+      feedback.innerText = `❌ Jawaban Salah. Coba lagi.`;
+      feedback.className = "text-red-600";
+    }
+  }
+</script>
+
+
+        <!-- 5. Sudut pada Lingkaran -->
+        <div id="5-Sudut-pada-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">5. Sudut pada Lingkaran</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li><strong>Sudut pusat:</strong> sudut yang dibentuk oleh dua jari-jari.</li>
+                <li><strong>Sudut keliling:</strong> sudut yang dibentuk oleh dua tali busur.</li>
+                <li><strong>Sudut antara jari-jari dan garis singgung:</strong> 90° (siku-siku).</li>
+            </ul>
+        </div>
+
+        <!-- 6. Hubungan antara Sudut Pusat dan Sudut Keliling -->
+        <div id="6-Hubungan-Sudut-Pusat-dan-Keliling" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">6. Hubungan antara Sudut Pusat dan Sudut Keliling</h2>
+            <p class="text-gray-700">Sudut pusat = 2 × sudut keliling</p>
+            <p class="text-gray-700 mt-2">Contoh: Jika sudut keliling = 40°, maka sudut pusat = 80°</p>
+        </div><br>
+<h2 class="text-3xl font-bold text-center text-[#16a34a] mb-6 drop-shadow">Latihan 6 - </h2>
+
+  <!-- Gambar -->
+  <div class="flex justify-center mb-6">
+    <img src="https://d1e4pidl3fu268.cloudfront.net/1f36a83c-b12a-4a91-822c-7d28f9361a79/Angleatthecentre.png" 
+         alt="Sudut Diarsir" 
+         class="rounded-lg shadow-lg w-full max-w-md border-4 border-green-300">
+  </div>
+
+  <!-- Petunjuk -->
+  <p class="text-center text-lg text-gray-800 font-medium mb-8">
+    Tentukan besar sudut yang diarsir pada gambar di atas!.
+  </p>
+
+  <!-- Daftar Soal -->
+  <div class="space-y-6 max-w-2xl mx-auto">
+
+    <!-- Soal 1 -->
+    <div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+      <span class="text-lg font-semibold">1.</span>
+      <input type="number" id="jawabanSudut1" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+      <span class="text-gray-600">°</span>
+      <button onclick="cekSudut('1', 60)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+    </div>
+    <p id="feedbackSudut1" class="text-center font-semibold"></p>
+
+    <!-- Soal 2 -->
+    <div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+      <span class="text-lg font-semibold">2.</span>
+      <input type="number" id="jawabanSudut2" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+      <span class="text-gray-600">°</span>
+      <button onclick="cekSudut('2', 55)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+    </div>
+    <p id="feedbackSudut2" class="text-center font-semibold"></p>
+
+    <!-- Soal 3 -->
+    <div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+      <span class="text-lg font-semibold">3.</span>
+      <input type="number" id="jawabanSudut3" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+      <span class="text-gray-600">°</span>
+      <button onclick="cekSudut('3', 145)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+    </div>
+    <p id="feedbackSudut3" class="text-center font-semibold"></p>
+<!-- Soal 4 -->
+<div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+  <span class="text-lg font-semibold">4.</span>
+  <input type="number" id="jawabanSudut4" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600">°</span>
+  <button onclick="cekSudut('4', 55)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut4" class="text-center font-semibold"></p>
+
+<!-- Soal 5 -->
+<div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+  <span class="text-lg font-semibold">5.</span>
+  <input type="number" id="jawabanSudut5" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600">°</span>
+  <button onclick="cekSudut('5', 130)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut5" class="text-center font-semibold"></p>
+
+<!-- Soal 6 -->
+<div class="flex items-center gap-4 bg-white shadow p-4 rounded-xl">
+  <span class="text-lg font-semibold">6.</span>
+  <input type="number" id="jawabanSudut6" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600">°</span>
+  <button onclick="cekSudut('6', 310)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut6" class="text-center font-semibold"></p>
+
+  </div>
+<section class="bg-gradient-to-br from-green-50 to-emerald-100 py-12 px-4">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Judul Section -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl sm:text-4xl font-bold text-green-700 drop-shadow flex justify-center items-center gap-3">
+        <img src="https://cdn-icons-png.flaticon.com/512/3429/3429294.png" class="w-8 h-8" alt="icon">
+        Latihan Sudut 
+      </h2>
+      <p class="text-lg text-gray-700 mt-2">Tentukan besar sudut yang belum diketahui!</p>
+    </div>
+
+    <!-- Gambar Soal -->
+    <div class="flex justify-center mb-8">
+      <img src="https://mathmonks.com/wp-content/uploads/2020/12/Angle-Properties-of-Circles-Worksheet.jpg" 
+           alt="Gambar Sudut Diarsir" 
+           class="rounded-xl border-4 border-green-400 shadow-xl w-full max-w-md hover:scale-105 transition duration-300">
+    </div>
+
+    <!-- Daftar Soal -->
+    <div class="space-y-6">
+
+      <!-- Soal 7 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">1. sudut ACB</span>
+  <input type="number" id="jawabanSudut7" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('7', 94)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut7" class="text-center font-semibold"></p>
+
+<!-- Soal 8 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">2. Sudut ACD</span>
+  <input type="number" id="jawabanSudut8" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('8', 54)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut8" class="text-center font-semibold"></p>
+
+<!-- Soal 9 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">3. Sudut PAQ</span>
+  <input type="number" id="jawabanSudut9" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('9', 72)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut9" class="text-center font-semibold"></p>
+
+<!-- Soal 10 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">4. Sudut OFG</span>
+  <input type="number" id="jawabanSudut10" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('10', 32,5)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut10" class="text-center font-semibold"></p>
+
+<!-- Soal 11 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">5. Sudut ODB</span>
+  <input type="number" id="jawabanSudut11" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('11', 38,5)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut11" class="text-center font-semibold"></p>
+
+<!-- Soal 12 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">6. Sudut PRQ</span>
+  <input type="number" id="jawabanSudut12" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('12', 40)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut12" class="text-center font-semibold"></p>
+<!-- Soal 13 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">7. Sudut OAB</span>
+  <input type="number" id="jawabanSudut13" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('13', 90)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut13" class="text-center font-semibold"></p>
+
+<!-- Soal 14 -->
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">8a. Sudut BOC </span>
+  <input type="number" id="jawabanSudut14" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('14', 190)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut14" class="text-center font-semibold"></p>
+<div class="flex items-center gap-4 bg-white shadow-lg p-5 rounded-2xl">
+  <span class="text-lg font-semibold text-green-700">8b. Sudut BDC </span>
+  <input type="number" id="jawabanSudut14b" class="flex-1 border border-green-300 rounded px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-400" placeholder="Masukkan sudut">
+  <span class="text-gray-600 font-medium">°</span>
+  <button onclick="cekSudut('14b', 85)" class="bg-green-400 hover:bg-green-500 text-white px-4 py-2 rounded shadow transition">Cek Jawaban</button>
+</div>
+<p id="feedbackSudut14b" class="text-center font-semibold"></p>
+
+
+    </div>
+  </div>
+</section>
+
+  <!-- Script -->
+  <script>
+    function cekSudut(nomor, kunci) {
+      const input = document.getElementById("jawabanSudut" + nomor);
+      const feedback = document.getElementById("feedbackSudut" + nomor);
+      const value = Number(input.value);
+
+      if (!input.value.trim()) {
+        feedback.textContent = "⚠️ Masukkan besar sudut terlebih dahulu.";
+        feedback.className = "text-yellow-600 text-center font-semibold";
+      } else if (value === kunci) {
+        feedback.textContent = "✅ Benar!";
+        feedback.className = "text-green-600 text-center font-semibold";
+      } else {
+        feedback.textContent = `❌ Salah. Jawaban yang benar adalah ${kunci}°.`;
+        feedback.className = "text-red-600 text-center font-semibold";
+      }
+    }
+  </script>
+        <!-- 7. Garis Singgung Lingkaran -->
+        <div id="7-Garis-Singgung-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">7. Garis Singgung Lingkaran</h2>
+            <p class="text-gray-700">Garis singgung hanya menyentuh lingkaran di satu titik dan selalu tegak lurus dengan jari-jari pada titik singgung tersebut.</p>
+        </div>
+
+        <!-- 8. Penerapan Lingkaran -->
+        <div id="8-Penerapan-Lingkaran" class="mt-10">
+            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">8. Penerapan Lingkaran dalam Kehidupan Sehari-hari</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>Roda sepeda atau motor</li>
+                <li>Jam dinding</li>
+                <li>Koin atau uang logam</li>
+                <li>Piring atau tutup toples</li>
+            </ul>
+        </div>
+    </div>
+</div>	
+
+
+
+
+<script>
+  function cekInput(inputId, kunciList, hasilId) {
+    const userJawabanRaw = document.getElementById(inputId).value.trim().toLowerCase();
+    const hasilEl = document.getElementById(hasilId);
+
+    if (userJawabanRaw === "") {
+      hasilEl.innerHTML = "Isi dulu ya!";
+      hasilEl.className = "font-semibold text-yellow-600";
+      return;
+    }
+
+    const userList = userJawabanRaw.split(',').map(x => x.trim()).filter(Boolean);
+    const kunciLower = kunciList.map(x => x.toLowerCase()).sort();
+    const userSorted = userList.sort();
+
+    const isCorrect = userSorted.length === kunciLower.length && userSorted.every((val, idx) => val === kunciLower[idx]);
+
+    if (isCorrect) {
+      hasilEl.innerHTML = "✅ Benar";
+      hasilEl.className = "font-semibold text-green-600";
+    } else {
+      hasilEl.innerHTML = "❌ Salah";
+      hasilEl.className = "font-semibold text-red-600";
+    }
+  }
+</script>
+
+</div><br>
+
+
+
+
+
+
+
+
+
+
+</div>
+    <script>
+    function togglePembahasan(id) {
+        var x = document.getElementById(id);
+        if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+<script>
+    function togglePembahasan(id) {
+        var pembahasan = document.getElementById(id);
+        pembahasan.classList.toggle("hidden");
+    }
+</script>
+
+<script>
+function cekPilihan(name, jawabanBenar, idHasil) {
+  const pilihan = document.querySelector(`input[name="${name}"]:checked`);
+  const hasil = document.getElementById(idHasil);
+  if (!pilihan) {
+    hasil.textContent = "Pilih jawaban terlebih dahulu!";
+    hasil.style.color = "red";
+    return;
+  }
+  if (pilihan.value === jawabanBenar) {
+    hasil.textContent = "Jawaban benar!";
+    hasil.style.color = "green";
+  } else {
+    hasil.textContent = "Jawaban salah, coba lagi.";
+    hasil.style.color = "red";
+  }
+}
+</script>
+    <script>
+        function toggleSidebar() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+    </script>
+<script>
+  function checkLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+
+    // Akun yang sudah disediakan
+    const validAccounts = [
+      { username: "admin", password: "12345" },
+      { username: "user1", password: "abcde" },
+      { username: "Diza MTSN 1 Brebes 7", password: "semangatbelajar45" },
+    ];
+
+    const found = validAccounts.find(acc => acc.username === user && acc.password === pass);
+
+    if (found) {
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("content22").classList.remove("hidden");
+    } else {
+      document.getElementById("errorMsg").innerText = "Username atau password salah!";
+    }
+  }
+</script>
+
+</body>
+</html>
