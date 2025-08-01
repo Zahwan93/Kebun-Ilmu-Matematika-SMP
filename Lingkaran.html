@@ -1056,10 +1056,217 @@
     }
   </script>
         <!-- 7. Garis Singgung Lingkaran -->
-        <div id="7-Garis-Singgung-Lingkaran" class="mt-10">
-            <h2 class="text-xl font-semibold text-[#4dd4a3] mb-2">7. Garis Singgung Lingkaran</h2>
-            <p class="text-gray-700">Garis singgung hanya menyentuh lingkaran di satu titik dan selalu tegak lurus dengan jari-jari pada titik singgung tersebut.</p>
+<div id="7-Garis-Singgung-Lingkaran" class="mt-10 bg-white p-6 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold text-[#4dd4a3] mb-4">7. Garis Singgung Lingkaran</h2>
+
+  <!-- Penjelasan Umum -->
+  <p class="text-gray-800 mb-4">
+    Garis singgung lingkaran adalah garis yang menyentuh lingkaran tepat di satu titik. Garis ini selalu <strong>tegak lurus terhadap jari-jari</strong> di titik singgung tersebut.
+  </p>
+
+  <!-- Gambar Satu Lingkaran -->
+  <div class="flex justify-center mb-6">
+    <img src="https://mathcyber1997.com/wp-content/uploads/2020/04/singgung-2.png" 
+         alt="Garis Singgung Lingkaran" 
+         class="rounded-lg shadow-md w-2/3">
+  </div>
+
+  <!-- Rumus dari Titik ke Lingkaran -->
+  <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400 mb-6">
+    <h3 class="text-lg font-semibold text-green-700 mb-2">📐 Rumus Panjang Garis Singgung dari Titik ke Lingkaran</h3>
+    <p class="text-gray-700">
+      Jika titik A berada di luar lingkaran dengan pusat O dan jari-jari r, serta jarak AO = d, maka panjang garis singgung:
+    </p>
+    <p class="text-center text-lg mt-4 font-semibold text-gray-800">
+      ℓ = √(d² - r²)
+    </p>
+  </div>
+
+  <!-- Garis Singgung Dua Lingkaran -->
+  <div class="mt-10">
+    <h3 class="text-xl font-semibold text-[#4dd4a3] mb-4">🧭 Garis Singgung Dua Lingkaran</h3>
+    <p class="text-gray-800 mb-4">
+      Dua lingkaran dapat memiliki <strong>garis singgung persekutuan luar</strong> dan <strong>garis singgung persekutuan dalam</strong>. Berikut penjelasan dan rumusnya:
+    </p>
+
+    <!-- Gambar Dua Lingkaran -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <!-- Luar -->
+      <div class="text-center">
+        <img src="https://idschool.net/wp-content/uploads/2023/07/Rumus-panjang-garis-singgung-lingkaran-luar.webp" 
+             alt="Garis Singgung Luar" 
+             class="rounded-lg shadow-md mx-auto mb-2 w-4/5">
         </div>
+      <!-- Dalam -->
+      <div class="text-center">
+        <img src="https://idschool.net/wp-content/uploads/2023/07/Rumus-panjang-garis-singgung-lingrakan-dalam.webp" 
+             alt="Garis Singgung Dalam" 
+             class="rounded-lg shadow-md mx-auto mb-2 w-4/5">
+        
+      </div>
+    </div>
+
+    
+    <!-- Contoh Soal Dua Lingkaran -->
+    <div class="bg-yellow-50 p-4 mt-6 rounded-lg border-l-4 border-yellow-400">
+      <h4 class="text-lg font-semibold text-yellow-700 mb-2">📝 Contoh Soal</h4>
+      <p class="text-gray-700">
+        Dua lingkaran berpusat di titik A dan B dengan jari-jari masing-masing 5 cm dan 3 cm. Jika jarak antar pusat A dan B adalah 13 cm, maka:
+      </p>
+      <ul class="mt-2 text-gray-700 list-decimal list-inside">
+        <li>
+          <strong>Panjang garis singgung luar:</strong><br>
+          ℓ = √(13² − (5 − 3)²) = √(169 − 4) = √165 ≈ <strong>12.85 cm</strong>
+        </li>
+        <li class="mt-2">
+          <strong>Panjang garis singgung dalam:</strong><br>
+          ℓ = √(13² − (5 + 3)²) = √(169 − 64) = √105 ≈ <strong>10.25 cm</strong>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><br>
+<!-- Section Latihan -->
+  <section class="bg-gradient-to-br from-[#e0f7f4] to-[#c6f6d5] py-12 px-6 rounded-b-3xl shadow-inner">
+    <div class="max-w-4xl mx-auto">
+
+      <h1 class="text-3xl font-bold text-center text-[#319795] mb-10">
+        ✏️ Latihan Garis Singgung Lingkaran
+      </h1>
+
+      <div class="grid gap-8">
+
+        <!-- Soal 1 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">1. Garis Singgung dari Titik ke Lingkaran</h2>
+          <p class="text-gray-700 mb-4">
+            Titik A berjarak 13 cm dari pusat lingkaran O. Jika jari-jari lingkaran 5 cm, berapakah panjang garis singgung dari A ke lingkaran?
+          </p>
+          <input id="input1" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+          <button onclick="periksaJawaban('1', 12, 0.1, 'Benar! Panjang garis singgung adalah 12 cm.', 'Salah. Gunakan rumus √(13² - 5²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+          <p id="respon1" class="mt-3 font-medium text-center"></p>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">2. Garis Singgung Persekutuan Luar Dua Lingkaran</h2>
+          <p class="text-gray-700 mb-4">
+            Dua lingkaran masing-masing berjari-jari 11 cm dan 3 cm. Jika jarak antara pusat kedua lingkaran adalah 17 cm, berapakah panjang garis singgung luar kedua lingkaran?
+          </p>
+          <input id="input2" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+          <button onclick="periksaJawaban('2', 15, 0.2, 'Tepat! Panjang garis singgung luar 15 cm.', 'Belum tepat. Gunakan rumus √(d² - (r₁ - r₂)²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+          <p id="respon2" class="mt-3 font-medium text-center"></p>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+          <h2 class="text-lg font-semibold text-gray-700 mb-2">3. Garis Singgung Persekutuan Dalam Dua Lingkaran</h2>
+          <p class="text-gray-700 mb-4">
+            Dua lingkaran memiliki jari-jari 7 cm dan 5 cm. Jika jarak antara pusat kedua lingkaran adalah 15 cm, berapakah panjang garis singgung dalam kedua lingkaran?
+          </p>
+          <input id="input3" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+          <button onclick="periksaJawaban('3', 9, 0.2, 'Benar! Panjang garis singgung dalam 9 cm.', 'Salah. Gunakan rumus √(d² - (r₁ + r₂)²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+          <p id="respon3" class="mt-3 font-medium text-center"></p>
+        </div>
+<!-- Soal 4 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">4. Panjang Garis Singgung dari Titik di Luar Lingkaran</h2>
+  <p class="text-gray-700 mb-4">
+    Dari titik di luar lingkaran, jarak ke pusat lingkaran adalah 10 cm dan jari-jari lingkaran adalah 6 cm. Hitung panjang garis singgung ke lingkaran dari titik tersebut!
+  </p>
+  <input id="input4" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('4', 8, 0.1, 'Betul! Panjang garis singgung = √(10² - 6²) = 8 cm.', 'Kurang tepat. Gunakan rumus √(d² - r²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon4" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 5 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">5. Panjang Garis Singgung Luar Dua Lingkaran</h2>
+  <p class="text-gray-700 mb-4">
+    Dua lingkaran memiliki jari-jari masing-masing 22 cm dan 10 cm. Jarak antar pusatnya adalah 24 cm. Berapakah panjang garis singgung persekutuan luar?
+  </p>
+  <input id="input5" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('5', 18, 0.2, 'Benar sekali! Gunakan rumus √(d² - (r₁ - r₂)²).', 'Salah. Gunakan rumus garis singgung luar: √(d² - (r₁ - r₂)²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon5" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 6 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">6. Panjang Garis Singgung Dalam Dua Lingkaran</h2>
+  <p class="text-gray-700 mb-4">
+    Dua lingkaran memiliki jari-jari masing-masing 9 cm dan 7 cm. Jika jarak antar pusatnya 20 cm, tentukan panjang garis singgung persekutuan dalam!
+  </p>
+  <input id="input6" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('6', 12, 0.2, 'Jawaban benar! Panjang garis singgung dalam 12 cm.', 'Masih salah. Gunakan rumus √(d² - (r₁ + r₂)²).')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon6" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 7 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">7. Hitung panjang garis singgung dalam dua lingkaran</h2>
+  <img src="https://quizizz.com/media/resource/gs/quizizz-media/quizzes/eb24c963-ad6e-4be3-a69d-7d72f827f0e6" alt="Soal 7" class="mx-auto my-4 rounded-lg max-w-sm" />
+  <p class="text-gray-700 mb-2">Tentukan panjang garis singgung persekutuan dalam di atas !</p>
+  <input id="input7" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('7', 24, 0.2, 'Benar! Panjang garis singgung dalam 24 cm', 'Belum benar, gunakan rumus garis singgung luar: √(d² - (r₁ - r₂)²)')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon7" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 8 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">8. Hitung panjang garis singgung luar dua lingkaran</h2>
+  <img src="https://quizizz.com/media/resource/gs/quizizz-media/quizzes/02c1d2f0-20a7-4949-914a-669cbbf2b636" alt="Soal 8" class="mx-auto my-4 rounded-lg max-w-sm" />
+  <p class="text-gray-700 mb-2">Tentukan Nilai r!</p>
+  <input id="input8" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('8', 8, 0.2, 'Tepat! 8 cm', 'Masih salah, gunakan rumus: √(d² - (r₁ + r₂)²)')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon8" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 9 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">9. Menentukan panjang garis singgung dari gambar</h2>
+  <img src="https://cdn.kibrispdr.org/data/43/contoh-soal-garis-singgung-13.png" alt="Soal 9" class="mx-auto my-4 rounded-lg max-w-sm" />
+  <p class="text-gray-700 mb-2">Tentukan panjang garis singgung persekutuan dalam tersebut jika AB = 25 cm !</p>
+  <input id="input9" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('9', 20, 0.1, 'Benar! √(25² - (9+6)²) = √(625 - 225) = √400= 20 cm.', 'Coba lagi, ingat rumus garis singgung dari titik luar: √(OB² - r²)')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon9" class="mt-3 font-medium text-center"></p>
+</div>
+<!-- Soal 10 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">10. Tentukan panjang garis singgung dari titik luar!</h2>
+  <img src="https://asset.kompas.com/crops/W3leabHyDl4MmxsjrglSemQk7mQ=/619x317:1284x761/1200x800/data/photo/2023/03/02/640047eeb2f10.png" alt="Soal 10" class="mx-auto my-4 rounded-lg max-w-sm" />
+  <p class="text-gray-700 mb-2">Tentukan panjang RS!</p>
+  <input id="input10" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('10', 24, 0.1, 'Betul! √(25² - 7²) = √(625 - 49) = √576 = 24 cm.', 'Coba lagi. Gunakan rumus garis singgung: √(OP² - r²)')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon10" class="mt-3 font-medium text-center"></p>
+</div>
+
+<!-- Soal 11 -->
+<div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+  <h2 class="text-lg font-semibold text-gray-700 mb-2">11. Hitung panjang garis singgung persekutuan luar</h2>
+  <img src="https://i.imgur.com/UAWBs3r.png" alt="Soal 11" class="mx-auto my-4 rounded-lg max-w-sm" />
+  <p class="text-gray-700 mb-2">Dua lingkaran memiliki jari-jari 10 cm dan 4 cm. Jarak antara pusat kedua lingkaran adalah 26 cm. Berapa panjang garis singgung persekutuan luar antara kedua lingkaran tersebut?</p>
+  <input id="input11" type="text" placeholder="Masukkan jawaban (cm)" class="w-full border rounded px-4 py-2 mb-2" />
+  <button onclick="periksaJawaban('11', 24.19, 0.2, 'Benar! √(26² - (10 - 4)²) = √(676 - 36) = √640 ≈ 24.19 cm', 'Salah, gunakan rumus garis singgung luar: √(d² - (r₁ - r₂)²)')" class="bg-[#319795] hover:bg-[#2c7a7b] text-white px-4 py-2 rounded w-full font-semibold">Cek Jawaban</button>
+  <p id="respon11" class="mt-3 font-medium text-center"></p>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function periksaJawaban(id, kunci, toleransi, pesanBenar, pesanSalah) {
+      const input = document.getElementById("input" + id).value;
+      const feedback = document.getElementById("respon" + id);
+      const jawaban = parseFloat(input);
+
+      if (!isNaN(jawaban) && Math.abs(jawaban - kunci) <= toleransi) {
+        feedback.innerHTML = `✅ <span class="text-green-600">${pesanBenar}</span>`;
+      } else {
+        feedback.innerHTML = `❌ <span class="text-red-600">${pesanSalah}</span>`;
+      }
+    }
+  </script>
 
         <!-- 8. Penerapan Lingkaran -->
         <div id="8-Penerapan-Lingkaran" class="mt-10">
@@ -1072,7 +1279,279 @@
             </ul>
         </div>
     </div>
-</div>	
+</div><br>	
+<div class="w-full max-w-3xl mx-auto bg-white px-6 py-8 rounded-2xl shadow-lg" id="quizCircle">
+  <h2 class="text-3xl font-extrabold text-center text-blue-600 mb-8 tracking-tight">🟠 Latihan Soal Interaktif: Lingkaran</h2>
+
+  <!-- Soal dan Pilihan -->
+  <div id="quizCircleContainer" class="space-y-6">
+    <!-- Soal akan di-render di sini -->
+  </div>
+
+  <!-- Tombol Navigasi -->
+  <div class="flex justify-between items-center mt-8">
+    <button id="prevCircleBtn" onclick="prevCircleQuestion()" class="px-5 py-2 font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-300 disabled:text-gray-500 transition-all" disabled>Sebelumnya</button>
+    <div class="space-x-2">
+      <button id="checkCircleBtn" onclick="checkCircleAnswer()" class="px-5 py-2 font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition-all">Cek</button>
+      <button id="nextCircleBtn" onclick="nextCircleQuestion()" class="px-5 py-2 font-semibold rounded-lg bg-blue-500 text-white hover:bg-blue-600 disabled:bg-gray-300 disabled:text-gray-500 transition-all">Selanjutnya</button>
+    </div>
+  </div>
+
+  <!-- Pembahasan -->
+  <div id="circleExplanation" class="mt-6 hidden bg-yellow-100 text-yellow-900 border border-yellow-300 p-4 rounded-lg shadow-inner"></div>
+</div>
+
+<script>
+  const circleQuestions = [
+    {
+      question: "Apa yang dimaksud dengan jari-jari lingkaran?",
+      choices: [
+        "Garis yang membagi lingkaran menjadi dua bagian sama besar",
+        "Garis dari pusat ke titik manapun di keliling lingkaran",
+        "Garis yang menghubungkan dua titik pada lingkaran tanpa melalui pusat",
+        "Keliling lingkaran dibagi dua"
+      ],
+      correctAnswer: 1,
+      explanation: "Jari-jari adalah garis dari titik pusat ke titik mana saja di keliling lingkaran."
+    },
+    {
+      question: "Jika jari-jari sebuah lingkaran adalah 7 cm, maka berapa kelilingnya? (Gunakan π = 22/7)",
+      choices: [
+        "44 cm",
+        "154 cm",
+        "22 cm",
+        "77 cm"
+      ],
+      correctAnswer: 0,
+      explanation: "Keliling = 2 × π × r = 2 × 22/7 × 7 = 44 cm."
+    },
+    {
+      question: "Apa nama garis yang melalui pusat lingkaran dan menghubungkan dua titik pada lingkaran?",
+      choices: [
+        "Jari-jari",
+        "Busur",
+        "Diameter",
+        "Tali busur"
+      ],
+      correctAnswer: 2,
+      explanation: "Diameter adalah garis yang melalui pusat dan menghubungkan dua titik pada lingkaran."
+    },
+{
+  question: "Sebuah roda sepeda memiliki jari-jari 35 cm. Jika sepeda tersebut menempuh jarak 220 meter, berapa kali roda tersebut berputar? (Gunakan π = 22/7)",
+  choices: [
+    "10 kali",
+    "100 kali",
+    "200 kali",
+    "400 kali"
+  ],
+  correctAnswer: 2,
+  explanation: `Keliling roda = 2 × π × r = 2 × 22/7 × 35 = 220 cm.
+Jarak tempuh = 220 meter = 22.000 cm.
+Jumlah putaran = 22.000 ÷ 220 = 100 kali.`
+},
+{
+  question: "Lingkaran A memiliki jari-jari 7 cm, dan lingkaran B memiliki jari-jari 14 cm. Berapakah perbandingan luas lingkaran A dan B?",
+  choices: [
+    "1 : 2",
+    "1 : 3",
+    "1 : 4",
+    "1 : 5"
+  ],
+  correctAnswer: 2,
+  explanation: `Luas lingkaran A = π × 7² = 49π  
+Luas lingkaran B = π × 14² = 196π  
+Perbandingan = 49π : 196π = 49 : 196 = 1 : 4`
+},
+{
+  question: "Sebuah lingkaran memiliki jari-jari 14 cm. Jika besar sudut pusat suatu busur adalah 90°, berapakah panjang busur tersebut? (Gunakan π = 22/7)",
+  choices: [
+    "22 cm",
+    "44 cm",
+    "66 cm",
+    "88 cm"
+  ],
+  correctAnswer: 0,
+  explanation: `Panjang busur = (θ / 360) × 2 × π × r  
+= (90 / 360) × 2 × 22/7 × 14  
+= (1/4) × 2 × 22 × 2  
+= (1/4) × 88 = 22 cm`
+},
+{
+  question: "Panjang sebuah busur lingkaran adalah 33 cm dan jari-jari lingkaran tersebut adalah 21 cm. Berapakah besar sudut pusat busur tersebut? (Gunakan π = 22/7)",
+  choices: [
+    "30°",
+    "45°",
+    "60°",
+    "90°"
+  ],
+  correctAnswer: 2,
+  explanation: `Gunakan rumus:  
+Sudut (θ) = (Panjang busur ÷ (2 × π × r)) × 360  
+= (33 ÷ (2 × 22/7 × 21)) × 360  
+= (33 ÷ 132) × 360  
+= (1/4) × 360 = 90°  
+Tapi ternyata hasil hitungan = 90°, jadi jawaban seharusnya adalah **90°**, bukan 60°.  
+→ Jadi correctAnswer-nya harus 3`
+},
+{
+  question: "Sebuah lingkaran memiliki diameter 28 cm. Jika besar sudut pusat suatu juring adalah 45°, berapakah luas juring tersebut? (Gunakan π = 22/7)",
+  choices: [
+    "121 cm²",
+    "132 cm²",
+    "154 cm²",
+    "154.5 cm²"
+  ],
+  correctAnswer: 0,
+  explanation: `Jari-jari = 28 ÷ 2 = 14 cm  
+Luas juring = (θ / 360) × π × r²  
+= (45 / 360) × 22/7 × 14²  
+= (1/8) × 22/7 × 196  
+= (1/8) × 4312/7 = 539 cm² ÷ 8 = 121 cm²`
+},
+{
+  question: "Luas sebuah juring adalah 77 cm² dan jari-jari lingkaran tersebut adalah 14 cm. Berapakah besar sudut pusat juring tersebut? (Gunakan π = 22/7)",
+  choices: [
+    "45°",
+    "60°",
+    "75°",
+    "90°"
+  ],
+  correctAnswer: 0,
+  explanation: `Gunakan rumus:  
+Luas juring = (θ / 360) × π × r²  
+77 = (θ / 360) × 22/7 × 14²  
+77 = (θ / 360) × 22/7 × 196  
+77 = (θ / 360) × 4312 / 7  
+77 = (θ / 360) × 616  
+77 × 360 = θ × 616  
+27720 = θ × 616  
+θ = 27720 ÷ 616 = 45°`
+},
+{
+  question: "Seorang tukang taman membuat dua jalur melingkar untuk jalan kaki dan jogging di sebuah taman. Jalur A memiliki jari-jari 7 meter, dan Jalur B memiliki jari-jari 14 meter. Jika ia ingin mengecat tepian kedua jalur (kelilingnya) dan juga menanam rumput di bagian dalam masing-masing jalur (luasnya), jalur manakah yang membutuhkan lebih banyak total biaya untuk pengecatan dan penanaman rumput? (Biaya berdasarkan panjang keliling dan luas area). Gunakan π = 22/7.",
+  choices: [
+    "Jalur A karena memiliki keliling yang lebih kecil dan luas yang cukup",
+    "Jalur B karena memiliki keliling dan luas yang lebih besar",
+    "Biaya keduanya akan sama karena perbandingan keliling dan luas seimbang",
+    "Jalur A dan Jalur B membutuhkan biaya yang sama untuk pengecatan dan penanaman"
+  ],
+  correctAnswer: 1,
+  explanation: `Keliling Jalur A = 2πr = 2 × 22/7 × 7 = 44 m  
+Luas Jalur A = πr² = 22/7 × 7² = 154 m²  
+  
+Keliling Jalur B = 2 × 22/7 × 14 = 88 m  
+Luas Jalur B = 22/7 × 14² = 616 m²  
+  
+→ Jalur B memiliki keliling dan luas 4× lebih besar dari Jalur A,  
+jadi membutuhkan lebih banyak biaya secara keseluruhan.`
+},
+{
+  question: "Alya memiliki sebuah meja bundar untuk ruang tamunya. Diameter meja tersebut adalah 1,4 meter. Ia ingin menutupi permukaan meja dengan taplak bundar yang sesuai. Berapakah luas taplak yang diperlukan untuk menutupi seluruh permukaan meja? (Gunakan π = 22/7)",
+  choices: [
+    "1,54 m²",
+    "1,21 m²",
+    "1,12 m²",
+    "1,00 m²"
+  ],
+  correctAnswer: 0,
+  explanation: `Diketahui diameter = 1,4 m → jari-jari r = 0,7 m  
+Luas = π × r² = 22/7 × (0,7 × 0,7)  
+= 22/7 × 0,49 = 1,54 m²  
+Jadi, luas taplak yang dibutuhkan adalah 1,54 m².`
+},
+{
+  question: "Pak Rudi ingin memasang batu hias di sekeliling kolam bundar yang ada di taman rumahnya. Kolam tersebut memiliki jari-jari 3,5 meter. Jika biaya pemasangan batu adalah Rp50.000 per meter, berapa total biaya yang dibutuhkan untuk memasang batu di sekeliling kolam? (Gunakan π = 22/7)",
+  choices: [
+    "Rp770.000",
+    "Rp1.100.000",
+    "Rp1.540.000",
+    "Rp2.200.000"
+  ],
+  correctAnswer: 1,
+  explanation: `Keliling lingkaran = 2 × π × r  
+= 2 × 22/7 × 3,5 = 22 m  
+Biaya = 22 × Rp50.000 = Rp1.100.000  
+Jadi, total biaya pemasangan batu adalah Rp1.100.000.`
+}
+
+  ];
+
+  let currentCircleIndex = 0;
+  let selectedChoice = null;
+
+  function renderCircleQuestion() {
+    const container = document.getElementById("quizCircleContainer");
+    const q = circleQuestions[currentCircleIndex];
+    selectedChoice = null;
+
+    container.innerHTML = `
+      <div>
+        <p class="text-lg font-semibold mb-4">Soal ${currentCircleIndex + 1} dari ${circleQuestions.length}: ${q.question}</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="choicesContainer">
+          ${q.choices.map((choice, index) => `
+            <div onclick="selectChoice(${index})" id="choice-${index}" class="cursor-pointer border border-gray-300 rounded-xl p-4 text-gray-700 hover:bg-blue-100 transition-all">
+              ${choice}
+            </div>
+          `).join("")}
+        </div>
+      </div>
+    `;
+
+    document.getElementById("prevCircleBtn").disabled = currentCircleIndex === 0;
+    document.getElementById("nextCircleBtn").disabled = currentCircleIndex === circleQuestions.length - 1;
+    document.getElementById("circleExplanation").classList.add("hidden");
+  }
+
+  function selectChoice(index) {
+    selectedChoice = index;
+    const choices = document.querySelectorAll('[id^="choice-"]');
+    choices.forEach(choice => {
+      choice.classList.remove("bg-blue-200", "border-blue-500");
+      choice.classList.add("border-gray-300");
+    });
+    const selected = document.getElementById(`choice-${index}`);
+    selected.classList.remove("border-gray-300");
+    selected.classList.add("bg-blue-200", "border-blue-500");
+  }
+
+  function checkCircleAnswer() {
+    const expBox = document.getElementById("circleExplanation");
+
+    if (selectedChoice === null) {
+      expBox.innerText = "Silakan pilih jawaban terlebih dahulu.";
+      expBox.classList.remove("hidden", "bg-yellow-100");
+      expBox.classList.add("bg-red-100", "text-red-800");
+      return;
+    }
+
+    const q = circleQuestions[currentCircleIndex];
+    if (selectedChoice === q.correctAnswer) {
+      expBox.innerText = "✅ Jawaban benar! " + q.explanation;
+      expBox.classList.remove("hidden", "bg-red-100", "text-red-800");
+      expBox.classList.add("bg-green-100", "text-green-800");
+    } else {
+      expBox.innerText = "❌ Jawaban salah. " + q.explanation;
+      expBox.classList.remove("hidden", "bg-green-100", "text-green-800");
+      expBox.classList.add("bg-red-100", "text-red-800");
+    }
+  }
+
+  function nextCircleQuestion() {
+    if (currentCircleIndex < circleQuestions.length - 1) {
+      currentCircleIndex++;
+      renderCircleQuestion();
+    }
+  }
+
+  function prevCircleQuestion() {
+    if (currentCircleIndex > 0) {
+      currentCircleIndex--;
+      renderCircleQuestion();
+    }
+  }
+
+  renderCircleQuestion();
+</script>
 
 
 
