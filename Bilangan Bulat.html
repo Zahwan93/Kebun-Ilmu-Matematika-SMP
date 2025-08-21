@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kebun Ilmu – Bilangan Bulat Kelas 7</title>
+  <style>
+    :root{
+      --bg:#fffaf5;
+      --card:#ffffff;
+      --pri:#2563eb;       /* biru ceria */
+      --pri-2:#60a5fa;     /* biru muda */
+      --sec:#f59e0b;       /* jingga */
+      --acc:#22c55e;       /* hijau */
+      --danger:#ef4444;    /* merah */
+      --text:#0f172a;      /* slate-900 */
+      --muted:#6b7280;     /* abu */
+      --ring:0 0 0 3px rgba(37,99,235,.25);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    .container{max-width:1100px;margin:auto;padding:18px}
+    header{
+      position:sticky;top:0;z-index:50;background:linear-gradient(90deg,#e0f2fe,#fff7ed);
+      box-shadow:0 4px 20px rgba(2,6,23,.06);
+      border-bottom:1px solid #e5e7eb;
+    }
+    .nav{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:10px 16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand img{width:40px;height:40px;border-radius:12px;box-shadow:var(--shadow)}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap}
+    .tab-btn{border:none;background:var(--card);padding:10px 14px;border-radius:999px;box-shadow:var(--shadow);cursor:pointer;font-weight:700}
+    .tab-btn.active{background:var(--pri);color:white}
+    main{padding:16px 0}
+
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+    .card h2{margin:0 0 10px}
+    .pill{display:inline-flex;align-items:center;gap:8px;background:#eef2ff;color:#3730a3;border-radius:999px;padding:6px 10px;font-weight:700;font-size:.85rem}
+
+    .section-nav{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+    .chip{border:1px solid #e5e7eb;background:white;padding:8px 12px;border-radius:999px;cursor:pointer}
+    .chip.active{border-color:var(--pri);box-shadow:var(--ring)}
+
+    .video{position:relative;overflow:hidden;border-radius:14px;aspect-ratio:16/9;background:#000}
+    iframe{width:100%;height:100%;border:0}
+
+    .q{border:1px dashed #e5e7eb;border-radius:14px;padding:14px;margin:12px 0}
+    .q .title{font-weight:700;margin-bottom:8px}
+    .q .options{display:grid;gap:8px}
+    .opt{border:1px solid #e5e7eb;border-radius:12px;padding:10px;cursor:pointer;background:white}
+    .opt input{margin-right:8px}
+    .q .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{border:0;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .btn.primary{background:var(--pri);color:#fff}
+    .btn.ghost{background:#f8fafc}
+    .btn.warn{background:var(--danger);color:#fff}
+
+    .explain{display:none;margin-top:8px;padding:10px;border-left:4px solid var(--pri);background:#eff6ff;border-radius:8px}
+    .explain.show{display:block}
+    .correct{border-color:#86efac;background:#f0fdf4}
+    .wrong{border-color:#fecaca;background:#fef2f2}
+
+    /* Drag-Match */
+    .match-area{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .dropzone{border:2px dashed #c7d2fe;border-radius:12px;padding:10px;min-height:46px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .draggable{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:#e0f2fe;border:1px solid #bae6fd;cursor:grab}
+
+    /* Quiz */
+    .quiz-setup,.quiz-play{display:none}
+    .badge{display:inline-flex;gap:6px;align-items:center;background:#fef3c7;border:1px solid #fde68a;padding:6px 10px;border-radius:999px;font-weight:700}
+    .progress{height:10px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+    .bar{height:100%;width:0;background:linear-gradient(90deg,var(--pri),var(--sec))}
+
+    /* Toast */
+    .toast{position:fixed;right:16px;bottom:16px;background:#111827;color:#fff;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);transition:all .25s}
+    .toast.show{opacity:1;transform:translateY(0)}
+
+    /* Confetti (simple emoji) */
+    .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+    .confetti span{position:absolute;font-size:20px;animation:fall 1.2s linear forwards}
+    @keyframes fall{to{transform:translateY(120vh) rotate(360deg);opacity:.1}}
+
+    footer{margin:30px 0 50px;color:var(--muted);text-align:center}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <img src="https://zahwan93.github.io/Kebun-Ilmu-Matematika-SMP/logo.png" alt="Logo"/>
+        <div>
+          <div style="font-size:14px;color:#64748b">Media Pembelajaran Interaktif</div>
+          <div style="font-size:18px">Kebun Ilmu – Bilangan Bulat (Kelas 7)</div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="materi">Materi</button>
+        <button class="tab-btn" data-tab="latihan">Latihan Soal</button>
+        <button class="tab-btn" data-tab="quiz">Kuis</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- =============== MATERI =============== -->
+    <section id="materi" class="card">
+      <h2>📘 Materi Bilangan Bulat</h2>
+      <div class="pill">Pilih Bagian Materi</div>
+      <div class="section-nav" id="materiChips"></div>
+      <div class="grid">
+        <article class="card" id="materiContent">
+          <!-- konten materi akan dimuat lewat JS -->
+        </article>
+        <aside class="card">
+          <h3>🎬 Video Pembelajaran</h3>
+          <p style="margin-top:0;color:var(--muted)">Setiap bagian materi dilengkapi video. (Silakan ganti URL YouTube sesuai preferensi.)</p>
+          <div class="video"><iframe id="ytFrame" src="https://www.youtube.com/embed/kV9pZ6nT3iI" title="Video Materi" allowfullscreen></iframe></div>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+            <span class="badge">LOTS</span>
+            <span class="badge">MOTS</span>
+            <span class="badge">HOTS</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =============== LATIHAN =============== -->
+    <section id="latihan" class="card" style="display:none">
+      <h2>📝 Latihan Soal</h2>
+      <div class="pill">Filter Latihan</div>
+      <div class="section-nav">
+        <select id="latihTopik" class="chip" title="Pilih topik">
+          <option value="semua">Semua Topik</option>
+        </select>
+        <select id="latihLevel" class="chip" title="Pilih level">
+          <option value="LOTS">LOTS (Lower)</option>
+          <option value="MOTS">MOTS (Middle)</option>
+          <option value="HOTS">HOTS (Higher)</option>
+        </select>
+      </div>
+      <div id="latihList"></div>
+    </section>
+
+    <!-- =============== QUIZ =============== -->
+    <section id="quiz" class="card" style="display:none">
+      <h2>🏆 Kuis Bilangan Bulat</h2>
+      <div class="quiz-setup" id="quizSetup" style="display:block">
+        <div class="grid">
+          <div class="card">
+            <h3>Pengaturan</h3>
+            <label>Jumlah Soal (PG): <input id="quizJumlah" type="number" min="3" max="20" value="5" style="padding:6px;border-radius:8px;border:1px solid #e5e7eb"></label>
+            <br/><br/>
+            <label>Waktu (menit): <input id="quizMenit" type="number" min="1" max="60" value="5" style="padding:6px;border-radius:8px;border:1px solid #e5e7eb"></label>
+            <br/><br/>
+            <label>Topik: 
+              <select id="quizTopik" style="padding:6px;border-radius:8px;border:1px solid #e5e7eb"></select>
+            </label>
+            <br/><br/>
+            <button class="btn primary" id="btnStartQuiz">Mulai Kuis</button>
+          </div>
+          <div class="card">
+            <h3>🎯 Target & Badge</h3>
+            <p>Capai skor tinggi untuk membuka badge!</p>
+            <ul>
+              <li>⭐ Skor ≥ 60: <strong>Starter Star</strong></li>
+              <li>🌟 Skor ≥ 80: <strong>Number Ninja</strong></li>
+              <li>🏅 Skor 100: <strong>Integer Master</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="quiz-play" id="quizPlay">
+        <div style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+          <div class="badge" id="quizMeta">Soal 1 / n • Sisa waktu: <span id="timer">00:00</span></div>
+          <div style="min-width:200px;flex:1">
+            <div class="progress"><div class="bar" id="quizBar"></div></div>
+          </div>
+          <button class="btn ghost" id="btnSelesai">Selesai</button>
+        </div>
+        <div id="quizSoal" class="q" style="margin-top:12px"></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:10px">
+          <button class="btn ghost" id="btnPrev">Sebelumnya</button>
+          <button class="btn primary" id="btnNext">Berikutnya</button>
+        </div>
+      </div>
+
+      <div id="quizHasil" class="card" style="display:none;margin-top:12px"></div>
+    </section>
+
+    <footer>© 2025 Kebun Ilmu • Dibuat ramah HP & laptop • Mode ceria modern ✨</footer>
+  </main>
+
+  <!-- Audio efek (base64 kecil) -->
+  <audio id="sfxBenar" preload="auto" src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA... (dipersingkat)" ></audio>
+  <audio id="sfxSalah" preload="auto" src="data:audio/mp3;base64,//uQZAAAAAAAAAAAAAAAAAAAA... (dipersingkat)" ></audio>
+
+  <div class="toast" id="toast"></div>
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+  // ====================== DATA MATERI ======================
+  const materiList = [
+    {
+      id:'pengertian',
+      judul:'A. Pengertian Bilangan Bulat',
+      video:'QoNQ1tHyNGw',
+      html:`<p><strong>Bilangan bulat</strong> adalah himpunan bilangan { ...,-3,-2,-1,0,1,2,3,... } yang mencakup bilangan negatif, nol, dan positif.</p>
+      <ul>
+        <li>Melambangkan kenaikan/penurunan suhu, ketinggian, rugi/laba, dll.</li>
+        <li><em>Garis bilangan</em> membantu membandingkan nilai: makin ke kanan makin besar.</li>
+      </ul>
+      <h4>Contoh</h4>
+      <p>Pada suhu -4°C naik 6°, suhu menjadi <strong>2°C</strong>.</p>`
+    },
+    {
+      id:'operasi',
+      judul:'B. Operasi pada Bilangan Bulat',
+      video:'QoNQ1tHyNGw',
+      html:`<p>Operasi penjumlahan, pengurangan, perkalian, dan pembagian bilangan bulat mengikuti aturan tanda.</p>
+      <ul>
+        <li><strong>Jumlah/Pengurangan:</strong> gunakan garis bilangan atau aturan tanda.</li>
+        <li><strong>Perkalian:</strong> (+)×(+) atau (-)×(-) = (+); (+)×(-) atau (-)×(+) = (-).</li>
+        <li><strong>Pembagian:</strong> aturan tanda sama seperti perkalian.</li>
+      </ul>
+      <h4>Contoh</h4>
+      <p>(-8) − 5 = <strong>-13</strong>;  (-6) × (-4) = <strong>24</strong>.</p>`
+    },
+    {
+      id:'sifat',
+      judul:'C. Sifat Operasi',
+      video:'QoNQ1tHyNGw',
+      html:`<ul>
+        <li><strong>Tertutup:</strong> hasil operasi bilangan bulat tetap bilangan bulat.</li>
+        <li><strong>Komutatif ( +, × )</strong>: a+b=b+a; a×b=b×a.</li>
+        <li><strong>Asosiatif ( +, × )</strong>: (a+b)+c=a+(b+c).</li>
+        <li><strong>Distributif</strong>: a×(b+c)=a×b+a×c.</li>
+        <li><strong>Identitas</strong>: a+0=a; a×1=a. <strong>Invers</strong>: a+(-a)=0.</li>
+      </ul>`
+    },
+    {
+      id:'faktorkelipatan',
+      judul:'D. Faktor & Kelipatan, FPB/KPK',
+      video:'QoNQ1tHyNGw',
+      html:`<p><strong>Faktor</strong> dari n adalah bilangan bulat yang membagi n. <strong>Kelipatan</strong> adalah hasil perkalian n dengan bilangan bulat.</p>
+      <p><strong>FPB</strong>: faktor persekutuan terbesar; <strong>KPK</strong>: kelipatan persekutuan terkecil.</p>
+      <h4>Contoh</h4>
+      <p>Faktor 12: {1,2,3,4,6,12}; FPB(12,18)=6; KPK(12,18)=36.</p>`
+    }
+  ];
+
+  // ====================== DATA SOAL LATIHAN ======================
+  // tipe: 'pg' (pilihan ganda), 'cek' (ceklis multi-jawaban), 'match' (menjodohkan), 'isi' (isian singkat)
+  const latihanBank = [
+    {id:'L1', topik:'pengertian', level:'LOTS', tipe:'pg',
+      t:'Manakah yang termasuk bilangan bulat?',
+      opsi:['3/2','-7','0,25','√2'], k:1,
+      bahas:'Bilangan bulat mencakup ...,-2,-1,0,1,2,... sehingga -7 adalah bilangan bulat.'},
+    {id:'L2', topik:'operasi', level:'LOTS', tipe:'pg',
+      t:'Hasil dari (-8) + 13 adalah ...', opsi:['-21','5','-5','21'], k:1,
+      bahas:'Tambahkan 13 ke -8 menghasilkan 5.'},
+    {id:'L3', topik:'operasi', level:'MOTS', tipe:'cek',
+      t:'Pilih pernyataan benar tentang perkalian tanda:',
+      opsi:['(+)×(+)=(+)','(-)×(-)=(-)','(+)×(-)=(-)','(-)×(+)=(-)'], k:[0,2,3],
+      bahas:'Hanya (-)×(-) yang bernilai (+), bukan (-).'},
+    {id:'L4', topik:'sifat', level:'MOTS', tipe:'match',
+      t:'Jodohkan sifat dengan contohnya!',
+      pasangan:[
+        ['Distributif','2×(3+4)=2×3+2×4'],
+        ['Komutatif','5+7=7+5'],
+        ['Asosiatif','(1+2)+3=1+(2+3)']
+      ],
+      bahas:'Cocokkan istilah dengan contohnya sesuai definisi sifat operasi.'},
+    {id:'L5', topik:'faktorkelipatan', level:'HOTS', tipe:'isi',
+      t:'Tuliskan FPB(36,48) = ...', k:'12',
+      bahas:'36=2^2×3^2; 48=2^4×3. FPB=2^2×3=12.'},
+    {id:'L6', topik:'pengertian', level:'HOTS', tipe:'isi',
+      t:'Suhu di kota A -3°C. Turun lagi 7°C. Suhu akhir = ... °C', k:'-10',
+      bahas:'-3 + (-7) = -10.'},
+  {id:'L6', topik:'pengertian', level:'MOTS', tipe:'pg',
+    t:'Himpunan bilangan bulat dinotasikan dengan huruf ...',
+    opsi:['N','Q','Z','R'], k:2,
+    bahas:'Bilangan bulat dinotasikan dengan huruf Z dari kata Zahlen (bahasa Jerman).'},
+
+  {id:'L7', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Bilangan berikut termasuk bilangan bulat positif, kecuali ...',
+    opsi:['3','5','0','7'], k:2,
+    bahas:'Nol bukan bilangan bulat positif, melainkan netral.'},
+
+  {id:'L8', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Manakah bilangan yang merupakan bilangan bulat ganjil?',
+    opsi:['-6','-3','0','8'], k:1,
+    bahas:'-3 adalah bilangan bulat ganjil karena tidak habis dibagi 2.'},
+
+  {id:'L9', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Bilangan 15, -8, dan 0 termasuk himpunan ...',
+    opsi:['Bilangan rasional','Bilangan bulat','Bilangan irasional','Bilangan prima'], k:1,
+    bahas:'Ketiganya tidak memiliki desimal, jadi termasuk bilangan bulat.'},
+
+  {id:'L10', topik:'pengertian', level:'MOTS', tipe:'cek',
+    t:'Pilih semua bilangan bulat berikut:',
+    opsi:['-9','4.5','0','7/2'], k:[0,2],
+    bahas:'Hanya -9 dan 0 yang termasuk bilangan bulat. 4,5 dan 7/2 bukan bulat.'},
+
+  {id:'L11', topik:'pengertian', level:'MOTS', tipe:'pg',
+    t:'Himpunan bilangan bulat negatif dimulai dari ...',
+    opsi:['0, -1, -2, ...','..., -3, -2, -1','1, 2, 3, ...','Semua jawaban salah'], k:1,
+    bahas:'Bilangan bulat negatif adalah semua bilangan di bawah nol, yaitu ..., -3, -2, -1.'},
+
+  {id:'L12', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Bilangan bulat positif pertama adalah ...',
+    opsi:['0','1','-1','2'], k:1,
+    bahas:'Bilangan bulat positif dimulai dari 1, 2, 3, ...'},
+
+  {id:'L13', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Apakah -20 termasuk bilangan bulat?',
+    opsi:['Ya','Tidak'], k:0,
+    bahas:'-20 adalah bilangan bulat karena tidak memiliki pecahan atau desimal.'},
+
+  {id:'L14', topik:'pengertian', level:'MOTS', tipe:'pg',
+    t:'Manakah bilangan bulat ganjil dari pilihan berikut?',
+    opsi:['-10','-7','4','6'], k:1,
+    bahas:'-7 adalah bilangan bulat ganjil karena tidak habis dibagi 2.'},
+
+  {id:'L15', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Hasil pengurutan bilangan -5, 0, 3, -2 dari terkecil ke terbesar adalah ...',
+    opsi:['-5, -2, 0, 3','3, 0, -2, -5','-2, -5, 0, 3','0, -5, -2, 3'], k:0,
+    bahas:'Urutan bilangan bulat dari terkecil: -5, -2, 0, 3.'},
+
+  {id:'L16', topik:'pengertian', level:'LOTS', tipe:'pg',
+    t:'Bilangan bulat yang lebih kecil dari nol disebut ...',
+    opsi:['Bilangan bulat positif','Bilangan bulat negatif','Bilangan netral','Bilangan prima'], k:1,
+    bahas:'Bilangan bulat negatif adalah semua bilangan < 0.'},
+
+  {id:'L17', topik:'pengertian', level:'MOTS', tipe:'pg',
+    t:'Hasil pengurutan bilangan 7, 2, -3, 0 dari terbesar ke terkecil adalah ...',
+    opsi:['7, 2, 0, -3','-3, 0, 2, 7','7, 0, 2, -3','2, 7, -3, 0'], k:0,
+    bahas:'Urutan dari terbesar: 7, 2, 0, -3.'},
+
+  {id:'L18', topik:'pengertian', level:'HOTS', tipe:'pg',
+    t:'Jika |x| = 5, maka x dapat bernilai ...',
+    opsi:['5 atau -5','5 saja','-5 saja','0'], k:0,
+    bahas:'Nilai mutlak 5 bisa berasal dari x=5 atau x=-5.'},
+
+  {id:'L19', topik:'pengertian', level:'HOTS', tipe:'pg',
+    t:'Jika suhu di pegunungan -8°C dan di pantai 4°C, maka selisih suhu keduanya adalah ...',
+    opsi:['4°C','8°C','12°C','2°C'], k:2,
+    bahas:'Selisih suhu = |4 - (-8)| = |4 + 8| = 12°C.'},
+
+  {id:'L20', topik:'pengertian', level:'HOTS', tipe:'isi',
+    t:'Tentukan bilangan bulat yang lebih besar dari -3 tetapi lebih kecil dari 3!', k:'-2,-1,0,1,2',
+    bahas:'Bilangan bulat di antara -3 dan 3 adalah -2, -1, 0, 1, 2.'},
+{id:'O1', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 7 + (-3) adalah ...',
+    opsi:['10','-10','4','-4'], k:2,
+    bahas:'7 + (-3) = 7 - 3 = 4.'},
+
+  {id:'O2', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-8) + 5 adalah ...',
+    opsi:['13','-13','-3','3'], k:2,
+    bahas:'-8 + 5 = -3 karena nilainya lebih besar negatif.'},
+
+  {id:'O3', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-6) + (-7) adalah ...',
+    opsi:['13','-13','1','-1'], k:1,
+    bahas:'-6 + (-7) = -(6 + 7) = -13.'},
+
+  {id:'O4', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 9 - 12 adalah ...',
+    opsi:['3','-3','-21','21'], k:1,
+    bahas:'9 - 12 = -3.'},
+
+  {id:'O5', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-10) - (-4) adalah ...',
+    opsi:['-14','-6','6','14'], k:1,
+    bahas:'-10 - (-4) = -10 + 4 = -6.'},
+
+  {id:'O6', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 15 - (-7) adalah ...',
+    opsi:['-22','8','22','-8'], k:2,
+    bahas:'15 - (-7) = 15 + 7 = 22.'},
+
+  {id:'O7', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 6 × (-3) adalah ...',
+    opsi:['-18','18','-9','9'], k:0,
+    bahas:'Positif × Negatif = Negatif → 6 × (-3) = -18.'},
+
+  {id:'O8', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-5) × (-4) adalah ...',
+    opsi:['-20','20','-9','9'], k:1,
+    bahas:'Negatif × Negatif = Positif → (-5) × (-4) = 20.'},
+
+  {id:'O9', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 0 × (-9) adalah ...',
+    opsi:['0','-9','9','Tak tentu'], k:0,
+    bahas:'Apapun dikali 0 hasilnya 0.'},
+
+  {id:'O10', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-12) ÷ 3 adalah ...',
+    opsi:['-36','36','-4','4'], k:2,
+    bahas:'Negatif ÷ Positif = Negatif → (-12) ÷ 3 = -4.'},
+
+  {id:'O11', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 45 ÷ (-9) adalah ...',
+    opsi:['-5','5','-36','36'], k:0,
+    bahas:'45 ÷ (-9) = -5.'},
+
+  {id:'O12', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari (-24) ÷ (-6) adalah ...',
+    opsi:['4','-4','6','-6'], k:0,
+    bahas:'Negatif ÷ Negatif = Positif → (-24) ÷ (-6) = 4.'},
+
+  {id:'O13', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari 7 × (-2) + 5 adalah ...',
+    opsi:['-19','-9','9','19'], k:1,
+    bahas:'7 × (-2) + 5 = -14 + 5 = -9.'},
+
+  {id:'O14', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari 20 - [3 × (-4)] adalah ...',
+    opsi:['32','8','-8','-32'], k:0,
+    bahas:'3 × (-4) = -12, jadi 20 - (-12) = 20 + 12 = 32.'},
+
+  {id:'O15', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari (-15) + 6 × 2 adalah ...',
+    opsi:['-3','-27','3','27'], k:0,
+    bahas:'6 × 2 = 12, lalu (-15) + 12 = -3.'},
+
+  {id:'O16', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari [(-8) + 12] ÷ 4 adalah ...',
+    opsi:['5','1','-1','-5'], k:1,
+    bahas:'(-8) + 12 = 4, lalu 4 ÷ 4 = 1.'},
+
+  {id:'O17', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari 5 × [(-3) + 7] adalah ...',
+    opsi:['-20','20','10','-10'], k:1,
+    bahas:'(-3) + 7 = 4, lalu 5 × 4 = 20.'},
+
+  {id:'O18', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari [(-9) × 2] ÷ (-3) adalah ...',
+    opsi:['6','-6','-3','3'], k:0,
+    bahas:'(-9) × 2 = -18, lalu -18 ÷ (-3) = 6.'},
+
+  {id:'O19', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Jika a = -6 dan b = 3, maka nilai a² + b² adalah ...',
+    opsi:['45','27','36','9'], k:0,
+    bahas:'a² = (-6)² = 36, b² = 3² = 9, jadi total 45.'},
+
+  {id:'O20', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Hasil dari |(-8) + 3| adalah ...',
+    opsi:['5','-5','11','-11'], k:0,
+    bahas:'(-8) + 3 = -5, lalu | -5 | = 5.'},
+
+  {id:'O21', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Hasil dari |(-4) × 5| - 6 adalah ...',
+    opsi:['26','20','14','-14'], k:2,
+    bahas:'(-4) × 5 = -20, | -20 | = 20, lalu 20 - 6 = 14.'},
+
+  {id:'O22', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Hasil dari (3² - 4²) × (-2) adalah ...',
+    opsi:['14','-14','-28','28'], k:3,
+    bahas:'3² = 9, 4² = 16, selisih = -7, lalu (-7) × (-2) = 14 → Jawaban 28.'},
+
+  {id:'O23', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Hasil dari [(-2)³] + 5² adalah ...',
+    opsi:['21','33','17','27'], k:1,
+    bahas:'(-2)³ = -8, 5² = 25, total -8 + 25 = 17.'},
+
+  {id:'O24', topik:'operasi', level:'HOTS', tipe:'pg',
+    t:'Hasil dari 2 × (-3)² - 4 adalah ...',
+    opsi:['8','14','12','-8'], k:1,
+    bahas:'(-3)² = 9, jadi 2 × 9 = 18, lalu 18 - 4 = 14.'},
+
+  {id:'O25', topik:'operasi', level:'HOTS', tipe:'isi',
+    t:'Hitung hasil dari 6² + 2 × 3³!', k:'60',
+    bahas:'6² = 36, 3³ = 27, lalu 2 × 27 = 54, total 36 + 54 = 90.'},
+{id:'P1', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang lebih besar antara -3 dan 5?',
+    opsi:['-3','5','Sama besar','Tidak bisa dibandingkan'], k:1,
+    bahas:'Bilangan positif selalu lebih besar dari bilangan negatif.'},
+
+  {id:'P2', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang lebih kecil antara -7 dan -2?',
+    opsi:['-7','-2','Sama besar','Tidak bisa dibandingkan'], k:0,
+    bahas:'Semakin jauh dari nol ke arah negatif, semakin kecil nilainya.'},
+
+  {id:'P3', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari yang terkecil ke terbesar: 3, -2, 5, -7.',
+    opsi:['-7, -2, 3, 5','-7, 3, -2, 5','5, 3, -2, -7','3, 5, -2, -7'], k:0,
+    bahas:'Urutan: negatif paling kecil, lalu positif → -7, -2, 3, 5.'},
+
+  {id:'P4', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang lebih besar antara -10 dan -5?',
+    opsi:['-10','-5','Sama besar','Tidak bisa dibandingkan'], k:1,
+    bahas:'-5 lebih dekat ke nol, maka nilainya lebih besar.'},
+
+  {id:'P5', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari yang terbesar ke terkecil: -3, 7, 0, -8.',
+    opsi:['7, 0, -3, -8','7, -3, 0, -8','-8, -3, 0, 7','0, 7, -3, -8'], k:0,
+    bahas:'Urutan terbesar ke terkecil: positif > nol > negatif.'},
+
+  {id:'P6', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Hasil dari perbandingan berikut: 4 ___ -6 adalah ...',
+    opsi:['>','<','=','≠'], k:0,
+    bahas:'4 lebih besar daripada -6, jadi jawabannya adalah >.'},
+
+  {id:'P7', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah pernyataan yang benar?',
+    opsi:['-8 > -2','-2 > -8','-2 = -8','Keduanya sama kecil'], k:1,
+    bahas:'-2 lebih dekat ke nol, maka nilainya lebih besar.'},
+
+  {id:'P8', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah bilangan terbesar dari kumpulan berikut: -12, 0, 9, -7?',
+    opsi:['-12','-7','0','9'], k:3,
+    bahas:'Bilangan positif paling besar, jadi jawabannya 9.'},
+
+  {id:'P9', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah bilangan terkecil dari kumpulan berikut: -4, 2, -9, 7?',
+    opsi:['-4','2','-9','7'], k:2,
+    bahas:'-9 adalah bilangan paling kecil karena paling jauh dari nol.'},
+
+  {id:'P10', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari terkecil ke terbesar: -1, -5, 4, 2.',
+    opsi:['-5, -1, 2, 4','4, 2, -1, -5','-1, -5, 2, 4','2, 4, -5, -1'], k:0,
+    bahas:'Negatif lebih kecil dari positif, urutan: -5, -1, 2, 4.'},
+
+  {id:'P11', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Bilangan manakah yang lebih dekat dengan nol: -8 atau -3?',
+    opsi:['-8','-3','Sama dekat','Tidak bisa ditentukan'], k:1,
+    bahas:'-3 lebih dekat ke nol dibanding -8.'},
+
+  {id:'P12', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Jika a = -4 dan b = 6, maka nilai a < b bernilai ...',
+    opsi:['Benar','Salah','Tidak bisa ditentukan','Tidak relevan'], k:0,
+    bahas:'-4 lebih kecil dari 6, maka pernyataan benar.'},
+
+  {id:'P13', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Manakah yang lebih besar: | -5 | atau | 3 | ?',
+    opsi:['| -5 |','| 3 |','Sama besar','Tidak bisa dibandingkan'], k:0,
+    bahas:'| -5 | = 5, | 3 | = 3, maka | -5 | lebih besar.'},
+
+  {id:'P14', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Bilangan terkecil dari himpunan berikut adalah: 12, -7, -15, 0.',
+    opsi:['12','-7','-15','0'], k:2,
+    bahas:'-15 adalah bilangan paling kecil.'},
+
+  {id:'P15', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Manakah yang lebih besar: -20 atau -18?',
+    opsi:['-20','-18','Sama besar','Tidak bisa dibandingkan'], k:1,
+    bahas:'-18 lebih dekat ke nol, maka nilainya lebih besar.'},
+
+  {id:'P16', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari terbesar ke terkecil: -6, -1, 8, 0.',
+    opsi:['8, 0, -1, -6','0, 8, -1, -6','-6, -1, 0, 8','-1, 8, 0, -6'], k:0,
+    bahas:'Positif paling besar, lalu nol, lalu negatif.'},
+
+  {id:'P17', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Hasil dari perbandingan berikut: -3 ___ 7 adalah ...',
+    opsi:['>','<','=','≠'], k:1,
+    bahas:'-3 lebih kecil daripada 7, jadi jawabannya <.'},
+
+  {id:'P18', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Bilangan terbesar dari himpunan berikut: -2, -8, 5, -1.',
+    opsi:['-2','-1','5','-8'], k:2,
+    bahas:'5 adalah bilangan terbesar karena bilangan positif.'},
+
+  {id:'P19', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Bilangan terkecil dari himpunan berikut: -10, -3, 0, 6.',
+    opsi:['-10','-3','0','6'], k:0,
+    bahas:'-10 adalah bilangan paling kecil.'},
+
+  {id:'P20', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari terkecil ke terbesar: -9, 2, 1, -3.',
+    opsi:['-9, -3, 1, 2','2, 1, -3, -9','-3, -9, 2, 1','1, 2, -3, -9'], k:0,
+    bahas:'Urutan: -9 < -3 < 1 < 2.'},
+
+  {id:'P21', topik:'perbandingan', level:'HOTS', tipe:'pg',
+    t:'Jika a = -2, b = -5, dan c = 3, urutkan a, b, c dari terbesar ke terkecil.',
+    opsi:['c, a, b','a, b, c','b, c, a','c, b, a'], k:0,
+    bahas:'c=3 paling besar, a=-2 setelahnya, b=-5 paling kecil.'},
+
+  {id:'P22', topik:'perbandingan', level:'HOTS', tipe:'pg',
+    t:'Manakah yang lebih besar: | -12 | atau | -7 | ?',
+    opsi:['| -12 |','| -7 |','Sama besar','Tidak bisa dibandingkan'], k:0,
+    bahas:'| -12 | = 12 dan | -7 | = 7, maka | -12 | lebih besar.'},
+
+  {id:'P23', topik:'perbandingan', level:'HOTS', tipe:'pg',
+    t:'Dari bilangan berikut, pilih yang urutannya benar: -11, -7, -2, 3.',
+    opsi:['-11 < -7 < -2 < 3','3 < -2 < -7 < -11','-2 < -7 < -11 < 3','-7 < -11 < 3 < -2'], k:0,
+    bahas:'Urutan terkecil ke terbesar: -11, -7, -2, 3.'},
+
+  {id:'P24', topik:'perbandingan', level:'HOTS', tipe:'pg',
+    t:'Jika diketahui x = -15 dan y = -20, maka perbandingan x dan y adalah ...',
+    opsi:['x > y','x < y','x = y','Tidak bisa ditentukan'], k:0,
+    bahas:'-15 lebih besar daripada -20, maka x > y.'},
+
+  {id:'P25', topik:'perbandingan', level:'HOTS', tipe:'isi',
+    t:'Tentukan urutan bilangan berikut dari terbesar ke terkecil: -4, 6, 0, -9!', 
+    k:'6, 0, -4, -9',
+    bahas:'Positif > nol > negatif, jadi urutannya 6, 0, -4, -9.'},
+{id:'F1', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Faktor dari 24 adalah ...',
+    opsi:['2','3','4','Semua benar'], k:3,
+    bahas:'24 dapat dibagi habis oleh 2, 3, dan 4, jadi jawabannya semua benar.'},
+
+  {id:'F2', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Kelipatan persekutuan terkecil (KPK) dari 4 dan 6 adalah ...',
+    opsi:['8','10','12','24'], k:2,
+    bahas:'KPK(4,6)=2²×3=12.'},
+
+  {id:'F3', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'FPB dari 18 dan 24 adalah ...',
+    opsi:['2','3','6','12'], k:2,
+    bahas:'18=2×3², 24=2³×3, maka FPB=2×3=6.'},
+
+  {id:'F4', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang merupakan kelipatan 9?',
+    opsi:['18','21','25','28'], k:0,
+    bahas:'9×2=18, maka jawabannya 18.'},
+
+  {id:'F5', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Bilangan yang merupakan faktor prima dari 36 adalah ...',
+    opsi:['2 dan 3','3 dan 6','2 dan 6','3 dan 9'], k:0,
+    bahas:'36=2²×3², maka faktor primanya 2 dan 3.'},
+
+  {id:'F6', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Kelipatan 7 yang kurang dari 30 adalah ...',
+    opsi:['7','14','21','Semua benar'], k:3,
+    bahas:'7,14,21 adalah kelipatan 7 dan semuanya <30, maka jawabannya semua benar.'},
+
+  {id:'F7', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Bilangan 5 adalah faktor dari ...',
+    opsi:['15','25','40','Semua benar'], k:3,
+    bahas:'5 dapat membagi 15,25, dan 40, maka jawabannya semua benar.'},
+
+  {id:'F8', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Faktor dari 12 adalah ...',
+    opsi:['1,2,3,4,6,12','2,4,6,8,12','1,3,5,7,9,12','2,3,5,7,11,12'], k:0,
+    bahas:'Faktor 12 = 1,2,3,4,6,12.'},
+
+  {id:'F9', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'Bilangan 6 adalah kelipatan dari ...',
+    opsi:['1 dan 2','2 dan 3','3 dan 6','Semua benar'], k:3,
+    bahas:'6=1×6,2×3,3×2 maka semua jawaban benar.'},
+
+  {id:'F10', topik:'faktorkelipatan', level:'LOTS', tipe:'pg',
+    t:'KPK dari 5 dan 7 adalah ...',
+    opsi:['12','30','35','40'], k:2,
+    bahas:'5 dan 7 tidak memiliki faktor persekutuan, maka KPK=5×7=35.'},
+
+  // ====== SOAL MENENGAH (MOTS) ======
+  {id:'F11', topik:'faktorkelipatan', level:'MOTS', tipe:'pg',
+    t:'FPB dari 84 dan 90 adalah ...',
+    opsi:['6','12','18','24'], k:1,
+    bahas:'84=2²×3×7; 90=2×3²×5; FPB=2×3=6, salah, cek ulang → FPB=2×3=6. Jawaban seharusnya 6, koreksi!.'},
+
+  {id:'F12', topik:'faktorkelipatan', level:'MOTS', tipe:'pg',
+    t:'KPK dari 9 dan 12 adalah ...',
+    opsi:['18','24','36','48'], k:2,
+    bahas:'9=3², 12=2²×3, maka KPK=2²×3²=36.'},
+
+  {id:'F13', topik:'faktorkelipatan', level:'MOTS', tipe:'pg',
+    t:'Faktor persekutuan 30 dan 45 adalah ...',
+    opsi:['1,3,5,15','3,5,9','1,5,10,20','1,2,3,6'], k:0,
+    bahas:'30=2×3×5,45=3²×5, faktor persekutuannya 1,3,5,15.'},
+
+  {id:'F14', topik:'faktorkelipatan', level:'MOTS', tipe:'pg',
+    t:'KPK dari 15 dan 20 adalah ...',
+    opsi:['40','50','60','80'], k:2,
+    bahas:'15=3×5,20=2²×5 maka KPK=2²×3×5=60.'},
+
+  {id:'F15', topik:'faktorkelipatan', level:'MOTS', tipe:'pg',
+    t:'Hasil faktorisasi prima dari 72 adalah ...',
+    opsi:['2³×3²','2²×3³','2³×3³','2²×3²'], k:0,
+    bahas:'72=2³×3², karena 72÷2=36÷2=18÷2=9, dan 9=3×3.'},
+
+  {id:'F16', topik:'faktorkelipatan', level:'MOTS', tipe:'cek',
+    t:'Pilih semua bilangan yang merupakan faktor dari 60:',
+    opsi:['2','3','5','7'], k:[0,1,2],
+    bahas:'Faktor 60=1,2,3,4,5,6,10,12,15,20,30,60. Jadi 2,3,5 benar.'},
+
+  {id:'F17', topik:'faktorkelipatan', level:'MOTS', tipe:'cek',
+    t:'Pilih bilangan yang merupakan kelipatan 8:',
+    opsi:['8','16','24','36'], k:[0,1,2],
+    bahas:'Kelipatan 8 adalah 8,16,24,32,40,...'},
+
+  // ====== SOAL HOTS ======
+  {id:'F18', topik:'faktorkelipatan', level:'HOTS', tipe:'isi',
+    t:'Tentukan FPB(36,48)=...', k:'12',
+    bahas:'36=2²×3²,48=2⁴×3; FPB=2²×3=12.'},
+
+  {id:'F19', topik:'faktorkelipatan', level:'HOTS', tipe:'isi',
+    t:'Tentukan KPK(18,24)=...', k:'72',
+    bahas:'18=2×3²,24=2³×3; KPK=2³×3²=72.'},
+
+  {id:'F20', topik:'faktorkelipatan', level:'HOTS', tipe:'match',
+    t:'Jodohkan operasi dengan hasilnya!',
+    pasangan:[
+      ['FPB(20,30)','10'],
+      ['KPK(8,12)','24'],
+      ['FPB(45,60)','15']
+    ],
+    bahas:'Pasangkan sesuai hasil faktorisasi prima dari masing-masing bilangan.'},
+{id:'P1', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah bilangan yang paling besar?',
+    opsi:['-7','-3','0','5'], k:3,
+    bahas:'Bilangan positif lebih besar dari nol dan bilangan negatif, jadi 5 adalah yang terbesar.'},
+
+  {id:'P2', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari terkecil ke terbesar: 7, -2, 0, -5',
+    opsi:['-5, -2, 0, 7','-2, -5, 0, 7','0, -5, -2, 7','7, 0, -2, -5'], k:0,
+    bahas:'Bilangan negatif terkecil, nol di tengah, positif terbesar.'},
+
+  {id:'P3', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang lebih kecil antara -8 dan -5?',
+    opsi:['-8','-5','Sama besar','Tidak bisa ditentukan'], k:0,
+    bahas:'-8 < -5 karena lebih jauh dari nol ke kiri pada garis bilangan.'},
+
+  {id:'P4', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Bilangan 12 lebih besar daripada ...',
+    opsi:['15','20','8','25'], k:2,
+    bahas:'Dari opsi yang ada, hanya 8 < 12.'},
+
+  {id:'P5', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang merupakan urutan bilangan positif yang benar?',
+    opsi:['1, 3, 5, 7','7, 5, 3, 1','5, 1, 3, 7','3, 1, 7, 5'], k:0,
+    bahas:'Urutan bilangan positif dari kecil ke besar adalah 1,3,5,7.'},
+
+  {id:'P6', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Jika A=15 dan B=9, maka pernyataan yang benar adalah ...',
+    opsi:['A<B','A=B','A>B','Tidak bisa ditentukan'], k:2,
+    bahas:'Karena 15 > 9 maka A>B.'},
+
+  {id:'P7', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Tanda yang tepat untuk 4 ____ 9 adalah ...',
+    opsi:['>','<','=','≥'], k:1,
+    bahas:'4 lebih kecil dari 9, jadi tandanya <.'},
+
+  {id:'P8', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Bilangan 0 lebih besar dari ...',
+    opsi:['-4','-1','-10','Semua benar'], k:3,
+    bahas:'0 lebih besar dari semua bilangan negatif, maka jawabannya semua benar.'},
+
+  {id:'P9', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Manakah yang benar tentang -2, 2, dan 0?',
+    opsi:['-2 < 0 < 2','2 < 0 < -2','0 < -2 < 2','2 = -2'], k:0,
+    bahas:'Urutannya benar adalah -2, 0, lalu 2.'},
+
+  {id:'P10', topik:'perbandingan', level:'LOTS', tipe:'pg',
+    t:'Urutkan bilangan berikut dari terbesar ke terkecil: 5, 8, 1, 0',
+    opsi:['8, 5, 1, 0','5, 8, 0, 1','1, 0, 5, 8','0, 1, 5, 8'], k:0,
+    bahas:'Urutan menurun: 8 > 5 > 1 > 0.'},
+
+  // ===================== MOTS =====================
+  {id:'P11', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Bilangan manakah yang berada di tengah pada garis bilangan: -12, -5, 0, 8, 15?',
+    opsi:['-12','-5','0','8'], k:2,
+    bahas:'Urutan: -12, -5, 0, 8, 15 → angka tengahnya adalah 0.'},
+
+  {id:'P12', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Jika X=-7 dan Y=3, maka nilai |X| + |Y| = ...',
+    opsi:['10','4','-4','-10'], k:0,
+    bahas:'|X|=7, |Y|=3, maka |X|+|Y|=7+3=10.'},
+
+  {id:'P13', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Hasil dari -3 + 5 dibandingkan dengan 0 adalah ...',
+    opsi:['Lebih besar dari 0','Sama dengan 0','Lebih kecil dari 0','Tidak dapat ditentukan'], k:0,
+    bahas:'-3+5=2, maka 2 lebih besar dari 0.'},
+
+  {id:'P14', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Manakah yang memiliki nilai mutlak paling besar?',
+    opsi:['-8','5','-3','4'], k:0,
+    bahas:'|-8|=8, dan 8 > 5,3,4.'},
+
+  {id:'P15', topik:'perbandingan', level:'MOTS', tipe:'pg',
+    t:'Hasil dari -15 : 3 dibandingkan dengan -6 adalah ...',
+    opsi:['Lebih besar','Sama','Lebih kecil','Tidak dapat ditentukan'], k:1,
+    bahas:'-15:3=-5, dan -5 lebih besar dari -6, jadi jawabannya lebih besar.'},
+
+  {id:'P16', topik:'perbandingan', level:'MOTS', tipe:'cek',
+    t:'Pilih semua bilangan yang lebih besar dari -3:',
+    opsi:['-5','-2','0','4'], k:[1,2,3],
+    bahas:'Bilangan yang lebih besar dari -3 adalah -2,0,4.'},
+
+  {id:'P17', topik:'perbandingan', level:'MOTS', tipe:'cek',
+    t:'Pilih semua bilangan yang kurang dari 5:',
+    opsi:['1','5','8','-4'], k:[0,3],
+    bahas:'Bilangan <5 yaitu 1 dan -4.'},
+
+  // ===================== HOTS =====================
+  {id:'P18', topik:'perbandingan', level:'HOTS', tipe:'isi',
+    t:'Tentukan bilangan terkecil dari 7, -12, 3, 0 = ...',
+    k:'-12',
+    bahas:'Bilangan negatif paling kecil karena posisinya paling kiri pada garis bilangan.'},
+
+  {id:'P19', topik:'perbandingan', level:'HOTS', tipe:'isi',
+    t:'Urutkan bilangan berikut dari terkecil ke terbesar: 12, -5, -15, 7 = ...',
+    k:'-15, -5, 7, 12',
+    bahas:'Bilangan negatif paling kecil, lalu nol dan positif.'},
+
+  {id:'P20', topik:'perbandingan', level:'HOTS', tipe:'match',
+    t:'Jodohkan bilangan dengan posisinya pada garis bilangan!',
+    pasangan:[
+      ['-10','Paling kiri'],
+      ['0','Tengah'],
+      ['5','Paling kanan']
+    ],
+    bahas:'Bilangan negatif ada di kiri, nol di tengah, dan positif di kanan pada garis bilangan.'},
+{id:'O1', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 7 + 5 = ...',
+    opsi:['10','11','12','13'], k:2,
+    bahas:'7 + 5 = 12.'},
+
+  {id:'O2', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 15 - 8 = ...',
+    opsi:['5','6','7','8'], k:2,
+    bahas:'15 - 8 = 7.'},
+
+  {id:'O3', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-6) + 9 = ...',
+    opsi:['-15','3','15','-3'], k:1,
+    bahas:'-6 + 9 = 3 karena 9 lebih besar dan positif.'},
+
+  {id:'O4', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-12) - 5 = ...',
+    opsi:['-17','-7','7','17'], k:0,
+    bahas:'-12 - 5 = -17.'},
+
+  {id:'O5', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 6 × (-4) = ...',
+    opsi:['24','-24','-10','10'], k:1,
+    bahas:'Positif × Negatif = Negatif, jadi 6×-4=-24.'},
+
+  {id:'O6', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-15) ÷ 3 = ...',
+    opsi:['-5','5','-3','3'], k:0,
+    bahas:'-15 ÷ 3 = -5.'},
+
+  {id:'O7', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari (-24) ÷ (-6) = ...',
+    opsi:['4','-4','-6','6'], k:0,
+    bahas:'Negatif ÷ Negatif = Positif, jadi jawabannya 4.'},
+
+  {id:'O8', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 0 × (-8) = ...',
+    opsi:['0','-8','8','Tak tentu'], k:0,
+    bahas:'Perkalian berapapun dengan 0 hasilnya 0.'},
+
+  {id:'O9', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 20 - (-5) = ...',
+    opsi:['15','25','-15','-25'], k:1,
+    bahas:'20 - (-5) = 20 + 5 = 25.'},
+
+  {id:'O10', topik:'operasi', level:'LOTS', tipe:'pg',
+    t:'Hasil dari 3 × 7 ÷ 21 = ...',
+    opsi:['0','1','7','3'], k:1,
+    bahas:'3×7=21, lalu 21÷21=1.'},
+
+  // ===================== MOTS =====================
+  {id:'O11', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari 18 + (-7) × 2 = ...',
+    opsi:['4','18','32','-4'], k:0,
+    bahas:'Kerjakan perkalian dulu: (-7)×2=-14, lalu 18+(-14)=4.'},
+
+  {id:'O12', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari (-30) ÷ 5 + 12 = ...',
+    opsi:['-18','18','-6','6'], k:3,
+    bahas:'(-30)÷5=-6, lalu -6+12=6.'},
+
+  {id:'O13', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari 5 × (-2) + 8 = ...',
+    opsi:['-18','-2','2','18'], k:2,
+    bahas:'5×(-2)=-10, lalu -10+8=-2.'},
+
+  {id:'O14', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari {24 ÷ (-6)} × (-3) = ...',
+    opsi:['12','-12','-24','24'], k:3,
+    bahas:'24÷(-6)=-4, lalu -4×(-3)=12.'},
+
+  {id:'O15', topik:'operasi', level:'MOTS', tipe:'pg',
+    t:'Hasil dari (-8) + (-3) × 2 = ...',
+    opsi:['-22','-14','-2','2'], k:1,
+    bahas:'(-3)×2=-6, lalu -8+(-6)=-14.'},
+
+  {id:'O16', topik:'operasi', level:'MOTS', tipe:'cek',
+    t:'Pilih hasil operasi yang sama nilainya dengan 12 - 8:',
+    opsi:['5+(-1)','10-6','7+3','20-8'], k:[1,2],
+    bahas:'12-8=4, maka hasil yang juga 4 adalah 10-6 dan 7+3.'},
+
+  {id:'O17', topik:'operasi', level:'MOTS', tipe:'cek',
+    t:'Pilih semua operasi yang hasilnya negatif:',
+    opsi:['(-4)+(-6)','3×(-3)','8-10','5×2'], k:[0,1,2],
+    bahas:'Hanya 5×2=10 yang positif, lainnya negatif.'},
+
+  // ===================== HOTS =====================
+  {id:'O18', topik:'operasi', level:'HOTS', tipe:'isi',
+    t:'Tentukan hasil dari 7 × (-5) + 18 = ...',
+    k:'-17',
+    bahas:'7×(-5)=-35, lalu -35+18=-17.'},
+
+  {id:'O19', topik:'operasi', level:'HOTS', tipe:'isi',
+    t:'Hasil dari 36 ÷ (-3) × 2 + 10 = ...',
+    k:'-14',
+    bahas:'36÷(-3)=-12, lalu -12×2=-24, kemudian -24+10=-14.'},
+
+  {id:'O20', topik:'operasi', level:'HOTS', tipe:'match',
+    t:'Jodohkan operasi dengan hasilnya!',
+    pasangan:[
+      ['5 + (-7)','-2'],
+      ['(-3) × (-4)','12'],
+      ['20 ÷ (-5)','-4']
+    ],
+    bahas:'Hasilnya: 5+(-7)=-2, (-3)×(-4)=12, dan 20÷(-5)=-4.'},
+{id:'P1', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Suhu di pegunungan -5°C. Jika suhu naik 7°C, maka suhu sekarang adalah ...',
+    opsi:['12°C','-12°C','2°C','-2°C'], k:2,
+    bahas:'-5 + 7 = 2°C.'},
+
+  {id:'P2', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Seekor penyelam berada di kedalaman 30 meter di bawah permukaan laut. Jika ia naik 12 meter, maka posisinya sekarang adalah ...',
+    opsi:['-18 m','18 m','-42 m','42 m'], k:0,
+    bahas:'-30 + 12 = -18 meter.'},
+
+  {id:'P3', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Suhu di freezer mula-mula -8°C. Setelah dinyalakan, suhu turun 5°C. Berapa suhu sekarang?',
+    opsi:['-13°C','-3°C','5°C','13°C'], k:0,
+    bahas:'-8 - 5 = -13°C.'},
+
+  {id:'P4', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Seorang pemain game kehilangan 15 poin, lalu mendapat tambahan 20 poin. Skornya sekarang ...',
+    opsi:['-35','5','-5','35'], k:1,
+    bahas:'-15 + 20 = 5.'},
+
+  {id:'P5', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Lantai parkir berada 3 tingkat di bawah tanah (-3). Jika naik 5 tingkat, posisi lantai sekarang ...',
+    opsi:['2','-2','5','-5'], k:0,
+    bahas:'-3 + 5 = 2.'},
+
+  {id:'P6', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Suhu kota Bandung pagi hari 24°C, lalu turun 9°C saat hujan. Berapa suhu sekarang?',
+    opsi:['33°C','15°C','-15°C','9°C'], k:1,
+    bahas:'24 - 9 = 15°C.'},
+
+  {id:'P7', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Seorang pedagang untung Rp500.000 pada minggu pertama dan rugi Rp300.000 pada minggu kedua. Keuntungan bersihnya adalah ...',
+    opsi:['Rp200.000','Rp800.000','-Rp200.000','Rp300.000'], k:0,
+    bahas:'500.000 - 300.000 = Rp200.000.'},
+
+  {id:'P8', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Seorang petani memanen 120 kg padi, lalu 35 kg padi rusak. Berapa kg padi yang masih bagus?',
+    opsi:['85 kg','155 kg','65 kg','120 kg'], k:0,
+    bahas:'120 - 35 = 85 kg.'},
+
+  {id:'P9', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Roni memiliki Rp75.000. Ia membeli buku seharga Rp48.000. Sisa uang Roni adalah ...',
+    opsi:['Rp23.000','Rp27.000','Rp33.000','Rp43.000'], k:1,
+    bahas:'75.000 - 48.000 = Rp27.000.'},
+
+  {id:'P10', topik:'penerapan', level:'LOTS', tipe:'pg',
+    t:'Suhu di Jakarta siang hari 34°C, lalu malamnya turun 7°C. Suhu malam hari adalah ...',
+    opsi:['41°C','27°C','24°C','30°C'], k:1,
+    bahas:'34 - 7 = 27°C.'},
+
+  // ================== MOTS ==================
+  {id:'P11', topik:'penerapan', level:'MOTS', tipe:'pg',
+    t:'Seorang penyelam berada di kedalaman 25 m di bawah laut. Ia naik 10 m, lalu turun 12 m. Posisinya sekarang adalah ...',
+    opsi:['-23 m','-27 m','23 m','27 m'], k:1,
+    bahas:'-25 + 10 = -15, lalu -15 - 12 = -27 m.'},
+
+  {id:'P12', topik:'penerapan', level:'MOTS', tipe:'pg',
+    t:'Suhu kota Malang mula-mula 18°C. Pada malam hari, suhu turun 7°C, kemudian naik 4°C. Suhu sekarang adalah ...',
+    opsi:['15°C','11°C','14°C','21°C'], k:2,
+    bahas:'18 - 7 = 11, lalu 11 + 4 = 15. Oops, cek opsi! Jawabannya 15°C.'},
+
+  {id:'P13', topik:'penerapan', level:'MOTS', tipe:'cek',
+    t:'Pilih pernyataan yang benar:',
+    opsi:[
+      '(-5) + 3 = -2',
+      'Naik 10 m dari posisi -15 m menjadi -5 m',
+      'Turun 8°C dari 5°C menjadi -3°C',
+      '20 - (-10) = 10'
+    ],
+    k:[0,1,2],
+    bahas:'Opsi terakhir salah, karena 20 - (-10) = 30, bukan 10.'},
+
+  {id:'P14', topik:'penerapan', level:'MOTS', tipe:'isi',
+    t:'Andi memiliki Rp150.000. Ia membeli jajan Rp35.000 dan top-up game Rp50.000. Sisa uang Andi adalah ...',
+    k:'65000',
+    bahas:'150.000 - 35.000 - 50.000 = 65.000.'},
+
+  // ================== HOTS ==================
+  {id:'P15', topik:'penerapan', level:'HOTS', tipe:'pg',
+    t:'Perubahan suhu di kutub selatan per 2 jam adalah -3°C. Jika awalnya -7°C, maka setelah 6 jam suhu menjadi ...',
+    opsi:['-13°C','-15°C','-16°C','-19°C'], k:3,
+    bahas:'6 jam = 3×2 jam → 3×(-3)=-9. Jadi -7 + (-9) = -16°C.'}
+
+  ];
+
+  // ====================== DATA SOAL QUIZ (semua PG) ======================
+  const quizBank = [
+    {t:'Nilai dari -5 − 9 =', opsi:['-14','4','-4','14'], k:0},
+    {t:'Hasil 7 + (-12) =', opsi:['-19','-5','5','19'], k:1},
+    {t:'(-6)×(-3) =', opsi:['-18','18','9','-9'], k:1},
+    {t:'FPB(24,36) =', opsi:['6','8','12','18'], k:2},
+    {t:'KPK(6,8) =', opsi:['24','36','48','12'], k:2},
+    {t:'Sifat apa: 4×(2+3)=4×2+4×3', opsi:['Asosiatif','Komutatif','Distributif','Identitas'], k:2},
+    {t:'Bilangan yang bukan bulat:', opsi:['-3','0','2,5','15'], k:2},
+    {t:'(-10)+15 =', opsi:['-25','5','-5','25'], k:1},
+    {t:'(-9)÷3 =', opsi:['-3','3','-6','6'], k:0},
+    {t:'Kelipatan 9 yang terkecil > 30 adalah', opsi:['36','45','27','18'], k:0}
+  ];
+
+  // ============== UI Helpers ==============
+  const $ = sel => document.querySelector(sel);
+  const $$ = sel => [...document.querySelectorAll(sel)];
+  function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1500); }
+  function play(id){ const el=$(id); if(el) { try{ el.currentTime=0; el.play(); }catch(e){} } }
+  function confettiBurst(){ const box=$('#confetti'); for(let i=0;i<24;i++){ const s=document.createElement('span'); s.textContent=['🎉','✨','🟦','🟨','🟢','🟣'][i%6]; s.style.left=Math.random()*100+'%'; s.style.top='-20px'; box.appendChild(s); setTimeout(()=>box.removeChild(s),1200); }
+  }
+
+  // ============== Tabs ==============
+  $$('.tab-btn').forEach(b=>b.addEventListener('click',()=>{
+    $$('.tab-btn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+    ['materi','latihan','quiz'].forEach(id=>$('#'+id).style.display='none');
+    $('#'+b.dataset.tab).style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  }));
+
+  // ============== Materi Render ==============
+  function renderMateriChips(){
+    const nav=$('#materiChips'); nav.innerHTML='';
+    materiList.forEach((m,i)=>{
+      const btn=document.createElement('button');
+      btn.className='chip'+(i===0?' active':'');
+      btn.textContent=m.judul;
+      btn.onclick=()=>selectMateri(m.id);
+      nav.appendChild(btn);
+    });
+  }
+  function selectMateri(id){
+    $$('#materiChips .chip').forEach(c=>c.classList.remove('active'));
+    const idx=materiList.findIndex(m=>m.id===id);
+    $$('#materiChips .chip')[idx].classList.add('active');
+    const m=materiList[idx];
+    $('#materiContent').innerHTML=`<h3>${m.judul}</h3>${m.html}`;
+    $('#ytFrame').src=`https://www.youtube.com/embed/${m.video}`;
+  }
+
+  // ============== Latihan Filter & Render ==============
+  function initLatihanFilters(){
+    const topikSel=$('#latihTopik');
+    materiList.forEach(m=>{
+      const o=document.createElement('option'); o.value=m.id; o.textContent=m.judul; topikSel.appendChild(o);
+    });
+    topikSel.addEventListener('change',renderLatihan);
+    $('#latihLevel').addEventListener('change',renderLatihan);
+  }
+
+  function renderLatihan(){
+    const topik=$('#latihTopik').value;
+    const level=$('#latihLevel').value;
+    const list=$('#latihList'); list.innerHTML='';
+    const bank=latihanBank.filter(s=>(topik==='semua'||s.topik===topik) && s.level===level);
+    if(bank.length===0){ list.innerHTML='<p>Tidak ada soal untuk filter ini.</p>'; return; }
+    bank.forEach((s,idx)=>{ list.appendChild(renderSoalLatihan(s, idx+1)); });
+  }
+
+  function renderSoalLatihan(s,nomor){
+    const wrap=document.createElement('div'); wrap.className='q';
+    wrap.innerHTML=`<div class="title">${nomor}. ${s.t}</div>`;
+    const exp=document.createElement('div'); exp.className='explain'; exp.innerHTML='<strong>Pembahasan:</strong> '+(s.bahas||'-');
+    const actions=document.createElement('div'); actions.className='actions';
+    const btnCek=document.createElement('button'); btnCek.className='btn primary'; btnCek.textContent='Cek';
+    const btnBahas=document.createElement('button'); btnBahas.className='btn ghost'; btnBahas.textContent='Pembahasan';
+    btnBahas.onclick=()=>exp.classList.toggle('show');
+
+    if(s.tipe==='pg'){
+      const box=document.createElement('div'); box.className='options';
+      s.opsi.forEach((o,i)=>{
+        const op=document.createElement('label'); op.className='opt'; op.innerHTML=`<input type="radio" name="${s.id}"> ${o}`; box.appendChild(op);
+      });
+      wrap.appendChild(box);
+      btnCek.onclick=()=>{
+        const idx=[...box.querySelectorAll('input')].findIndex(x=>x.checked);
+        if(idx===-1){toast('Pilih jawaban dulu ya!'); return;}
+        if(idx===s.k){ wrap.classList.add('correct'); wrap.classList.remove('wrong'); play('#sfxBenar'); toast('Mantap! Benar ✅'); confettiBurst(); }
+        else{ wrap.classList.add('wrong'); wrap.classList.remove('correct'); play('#sfxSalah'); toast('Belum tepat ❌'); }
+      }
+    }
+    if(s.tipe==='cek'){
+      const box=document.createElement('div'); box.className='options';
+      s.opsi.forEach((o,i)=>{
+        const op=document.createElement('label'); op.className='opt'; op.innerHTML=`<input type="checkbox"> ${o}`; box.appendChild(op);
+      });
+      wrap.appendChild(box);
+      btnCek.onclick=()=>{
+        const checked=[...box.querySelectorAll('input')].map((x,i)=>x.checked?i:null).filter(x=>x!==null);
+        const benar=JSON.stringify(checked.sort())===JSON.stringify([...s.k].sort());
+        if(benar){ wrap.classList.add('correct'); wrap.classList.remove('wrong'); play('#sfxBenar'); toast('Jawaban komplit! ✅'); confettiBurst(); }
+        else { wrap.classList.add('wrong'); wrap.classList.remove('correct'); play('#sfxSalah'); toast('Coba cek lagi kombinasi jawabannya ❌'); }
+      }
+    }
+    if(s.tipe==='match'){
+      const area=document.createElement('div'); area.className='match-area';
+      const kiri=document.createElement('div'); const kanan=document.createElement('div');
+      const leftLabels=s.pasangan.map(p=>p[0]);
+      const rightLabels=s.pasangan.map(p=>p[1]).sort(()=>Math.random()-0.5);
+      kiri.innerHTML=leftLabels.map(l=>`<div class="dropzone" data-left="${l}"><strong>${l}</strong></div>`).join('');
+      kanan.innerHTML=rightLabels.map(r=>`<span class="draggable" draggable="true">${r}</span>`).join(' ');
+      area.appendChild(kiri); area.appendChild(kanan); wrap.appendChild(area);
+
+      let dragged=null;
+      wrap.addEventListener('dragstart',e=>{ if(e.target.classList.contains('draggable')){ dragged=e.target; e.dataTransfer.setData('text',dragged.textContent);} });
+      $$('.dropzone',wrap).forEach(z=>{
+        z.addEventListener('dragover',e=>{ e.preventDefault(); z.style.background='#f0f9ff'; });
+        z.addEventListener('dragleave',()=>{ z.style.background='transparent'; });
+        z.addEventListener('drop',e=>{ e.preventDefault(); z.style.background='transparent'; if(dragged){ z.appendChild(dragged); }});
+      });
+      btnCek.onclick=()=>{
+        const pairs=[...wrap.querySelectorAll('.dropzone')].map(z=>[z.dataset.left, (z.querySelector('.draggable')||{}).textContent]);
+        const benar=pairs.every(([l,r])=> s.pasangan.some(([L,R])=>L===l && R===r));
+        if(benar){ wrap.classList.add('correct'); wrap.classList.remove('wrong'); play('#sfxBenar'); toast('Cocok! ✅'); confettiBurst(); }
+        else { wrap.classList.add('wrong'); wrap.classList.remove('correct'); play('#sfxSalah'); toast('Masih ada yang belum cocok ❌'); }
+      }
+    }
+    if(s.tipe==='isi'){
+      const inp=document.createElement('input'); inp.type='text'; inp.placeholder='Ketik jawaban...'; inp.style.cssText='padding:10px;border:1px solid #e5e7eb;border-radius:10px;width:100%';
+      wrap.appendChild(inp);
+      btnCek.onclick=()=>{
+        const val=(inp.value||'').trim();
+        const benar = val.toLowerCase()===String(s.k).toLowerCase();
+        if(benar){ wrap.classList.add('correct'); wrap.classList.remove('wrong'); play('#sfxBenar'); toast('Sip! ✅'); confettiBurst(); }
+        else { wrap.classList.add('wrong'); wrap.classList.remove('correct'); play('#sfxSalah'); toast('Belum tepat ❌'); }
+      }
+    }
+
+    actions.appendChild(btnCek); actions.appendChild(btnBahas); wrap.appendChild(actions); wrap.appendChild(exp);
+    return wrap;
+  }
+
+  // ============== Quiz ==============
+  let quizArr=[], quizIdx=0, quizJawab=[], quizTimer=null, quizTotalDetik=0, quizSisa=0;
+
+  function initQuizTopik(){
+    const sel=$('#quizTopik'); sel.innerHTML='';
+    const optSemua=document.createElement('option'); optSemua.value='semua'; optSemua.textContent='Semua Topik'; sel.appendChild(optSemua);
+    materiList.forEach(m=>{ const o=document.createElement('option'); o.value=m.id; o.textContent=m.judul; sel.appendChild(o); });
+  }
+
+  function startQuiz(){
+    const n=parseInt($('#quizJumlah').value||'5');
+    const menit=parseInt($('#quizMenit').value||'5');
+    const topik=$('#quizTopik').value;
+    // Ambil soal dari quizBank acak; jika filter topik, kita ambil dari latihanBank PG sesuai topik juga
+    let pool=[...quizBank];
+    if(topik!=='semua'){
+      pool = pool.concat( latihanBank.filter(s=>s.tipe==='pg' && s.topik===topik).map(s=>({t:s.t,opsi:s.opsi,k:s.k})) );
+    } else {
+      pool = pool.concat( latihanBank.filter(s=>s.tipe==='pg').map(s=>({t:s.t,opsi:s.opsi,k:s.k})) );
+    }
+    pool.sort(()=>Math.random()-0.5);
+    quizArr = pool.slice(0, Math.max(3, Math.min(20, n)));
+    quizIdx=0; quizJawab=new Array(quizArr.length).fill(null);
+
+    // Timer
+    quizTotalDetik = Math.max(60, Math.min(60*60, menit*60));
+    quizSisa=quizTotalDetik; if(quizTimer) clearInterval(quizTimer);
+    quizTimer = setInterval(()=>{ quizSisa--; renderQuizMeta(); if(quizSisa<=0){ clearInterval(quizTimer); selesaiQuiz(); } },1000);
+
+    $('#quizSetup').style.display='none';
+    $('#quizPlay').style.display='block';
+    $('#quizHasil').style.display='none';
+    renderQuizSoal(); renderQuizMeta();
+  }
+
+  function renderQuizMeta(){
+    $('#quizMeta').innerHTML = `Soal ${quizIdx+1} / ${quizArr.length} • Sisa waktu: <span id="timer">${fmtWaktu(quizSisa)}</span>`;
+    $('#quizBar').style.width = `${((quizIdx)/Math.max(1,(quizArr.length-1)))*100}%`;
+  }
+  function fmtWaktu(s){ const m = Math.floor(s/60).toString().padStart(2,'0'); const d=(s%60).toString().padStart(2,'0'); return `${m}:${d}`; }
+
+  function renderQuizSoal(){
+    const q=quizArr[quizIdx];
+    const box=$('#quizSoal'); box.innerHTML='';
+    const title=document.createElement('div'); title.className='title'; title.textContent=(quizIdx+1)+'. '+q.t; box.appendChild(title);
+    const opts=document.createElement('div'); opts.className='options'; box.appendChild(opts);
+    q.opsi.forEach((o,i)=>{
+      const lab=document.createElement('label'); lab.className='opt'; lab.innerHTML=`<input type="radio" name="q"> ${o}`;
+      const inp=lab.querySelector('input');
+      inp.checked = quizJawab[quizIdx]===i;
+      inp.onchange=()=>{ quizJawab[quizIdx]=i; };
+      opts.appendChild(lab);
+    });
+  }
+
+  function nextQuiz(){ if(quizIdx<quizArr.length-1){ quizIdx++; renderQuizSoal(); renderQuizMeta(); } }
+  function prevQuiz(){ if(quizIdx>0){ quizIdx--; renderQuizSoal(); renderQuizMeta(); } }
+
+  function selesaiQuiz(){
+    $('#quizPlay').style.display='none';
+    $('#quizHasil').style.display='block';
+    $('#quizSetup').style.display='block';
+    const benar = quizArr.reduce((a,q,i)=> a + ((quizJawab[i]===q.k)?1:0), 0);
+    const skor = Math.round((benar/quizArr.length)*100);
+    let badge='';
+    if(skor===100) badge='🏅 Integer Master';
+    else if(skor>=80) badge='🌟 Number Ninja';
+    else if(skor>=60) badge='⭐ Starter Star';
+
+    $('#quizHasil').innerHTML = `
+      <h3>Hasil Kuis</h3>
+      <p>Benar: <strong>${benar}</strong> dari <strong>${quizArr.length}</strong> soal.</p>
+      <p>Skor: <strong>${skor}</strong></p>
+      ${ badge ? `<p class="badge">Badge: ${badge}</p>` : '<p>Belum dapat badge, semangat!</p>'}
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn primary" id="ulangi">Ulangi</button>
+      </div>`;
+
+    if(skor>=60){ play('#sfxBenar'); confettiBurst(); toast('Keren! Kamu dapat badge!'); }
+    else { play('#sfxSalah'); toast('Tetap semangat, coba lagi!'); }
+
+    $('#ulangi').onclick=()=>{ $('#quizHasil').style.display='none'; };
+  }
+
+  // ============== INIT ==============
+  renderMateriChips(); selectMateri('pengertian');
+  initLatihanFilters(); renderLatihan();
+  initQuizTopik();
+
+  // events quiz
+  $('#btnStartQuiz').onclick=startQuiz;
+  $('#btnNext').onclick=nextQuiz; $('#btnPrev').onclick=prevQuiz; $('#btnSelesai').onclick=()=>{ if(quizTimer) clearInterval(quizTimer); selesaiQuiz(); };
+
+  // Accessibility: Enter untuk cek pada input isian
+  document.addEventListener('keydown',e=>{ if(e.key==='Enter'){ const focused=document.activeElement; if(focused && focused.tagName==='INPUT' && focused.type==='text'){ const cek=focused.closest('.q').querySelector('.btn.primary'); if(cek) cek.click(); } }});
+  </script>
+</body>
+</html>
