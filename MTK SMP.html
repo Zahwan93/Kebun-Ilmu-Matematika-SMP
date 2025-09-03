@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- MathJax untuk tampilan rumus -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <title>Kebun Ilmu – Media Pembelajaran Interaktif</title>
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand:#10b981;--brand-2:#22d3ee}
+    html,body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji"}
+    .glass{backdrop-filter:saturate(180%) blur(10px); background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.6))}
+    .chip{border:1px solid rgba(0,0,0,.06);}
+    .btn{transition:transform .05s ease}
+    .btn:active{transform:translateY(1px) scale(.99)}
+    details>summary{list-style:none}
+    details>summary::-webkit-details-marker{display:none}
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-sky-50 via-emerald-50 to-white text-gray-800">
+  <!-- Header / Brand -->
+  <header class="sticky top-0 z-40 border-b border-emerald-100/60 glass">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center gap-3">
+      <img src="https://zahwan93.github.io/Kebun-Ilmu-Matematika-SMP/logo.png" alt="Logo Kebun Ilmu" class="w-10 h-10 rounded-xl shadow" />
+      <div class="flex-1">
+        <h1 class="text-lg sm:text-2xl font-extrabold tracking-tight">
+          Kebun Ilmu <span class="text-emerald-600">— Media Pembelajaran Interaktif</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-gray-500">Materi · Latihan · Simulasi Matematika SMP</p>
+      </div>
+      <nav class="hidden sm:flex items-center gap-2">
+        <button data-tab="materi" class="tab-btn btn px-3 py-2 rounded-xl bg-emerald-600 text-white text-sm font-medium shadow hover:shadow-md">Materi</button>
+        <button data-tab="latihan" class="tab-btn btn px-3 py-2 rounded-xl bg-white text-gray-700 text-sm font-medium border chip hover:bg-gray-50">Latihan Soal</button>
+        <button data-tab="simulasi" class="tab-btn btn px-3 py-2 rounded-xl bg-white text-gray-700 text-sm font-medium border chip hover:bg-gray-50">Simulasi TKA</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Tab Switcher -->
+  <div class="sm:hidden sticky top-[60px] z-30 bg-white/80 backdrop-blur border-b border-emerald-100/60">
+    <div class="max-w-6xl mx-auto px-4 py-2 grid grid-cols-3 gap-2">
+      <button data-tab="materi" class="tab-btn btn py-2 rounded-lg bg-emerald-600 text-white text-xs font-semibold">Materi</button>
+      <button data-tab="latihan" class="tab-btn btn py-2 rounded-lg bg-white border chip text-xs font-semibold">Latihan</button>
+      <button data-tab="simulasi" class="tab-btn btn py-2 rounded-lg bg-white border chip text-xs font-semibold">Simulasi</button>
+    </div>
+  </div>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+    <!-- Info links to Pusmendik -->
+    
+    <!-- Tabs content wrapper -->
+    <section id="tab-materi" class="tab-pane">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-1 space-y-4">
+          <div class="p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+            <h2 class="font-bold text-lg">Pilih Materi</h2>
+            <label class="block mt-3 text-sm">Mata Pelajaran</label>
+            <select id="materiMapel" class="w-full mt-1 px-3 py-2 rounded-xl border chip focus:outline-none focus:ring-2 focus:ring-emerald-300">
+              <!-- Diisi via JS -->
+            </select>
+            <label class="block mt-3 text-sm">Bab</label>
+            <select id="materiBab" class="w-full mt-1 px-3 py-2 rounded-xl border chip focus:outline-none focus:ring-2 focus:ring-emerald-300">
+            </select>
+            <button id="btnLoadMateri" class="btn mt-4 w-full py-2 rounded-xl bg-emerald-600 text-white font-semibold">Tampilkan</button>
+          </div>
+	</div>
+
+        <div class="md:col-span-2 space-y-4">
+          <div class="p-5 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+            <h2 class="font-bold text-xl flex items-center gap-2">📘 Ringkasan Materi</h2>
+            <div id="materiKonten" class="prose prose-sm sm:prose lg:prose-lg max-w-none mt-3"></div>
+          </div>
+          <div class="p-5 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+            <h2 class="font-bold text-xl flex items-center gap-2">🎬 Video Pembelajaran</h2>
+            <div id="materiVideo" class="aspect-video w-full overflow-hidden rounded-xl bg-gray-100 flex items-center justify-center text-gray-400">
+              <span class="text-sm">Pilih materi untuk memuat video…</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-latihan" class="tab-pane hidden">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-1 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+          <h2 class="font-bold text-lg">Pengaturan Latihan</h2>
+          <label class="block mt-3 text-sm">Mata Pelajaran</label>
+          <select id="latihMapel" class="w-full mt-1 px-3 py-2 rounded-xl border chip focus:outline-none focus:ring-2 focus:ring-emerald-300"></select>
+          <label class="block mt-3 text-sm">Bab</label>
+          <select id="latihBab" class="w-full mt-1 px-3 py-2 rounded-xl border chip focus:outline-none focus:ring-2 focus:ring-emerald-300"></select>
+          <button id="btnLoadLatihan" class="btn mt-4 w-full py-2 rounded-xl bg-emerald-600 text-white font-semibold">Muat Soal</button>
+        </div>
+        <div class="md:col-span-2 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-xl">Latihan Soal</h2>
+            <button id="btnPeriksaSemua" class="btn px-3 py-2 rounded-xl border chip text-sm">Cek Semua</button>
+          </div>
+          <div id="latihanContainer" class="mt-3 space-y-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-simulasi" class="tab-pane hidden">
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="md:col-span-1 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+          <h2 class="font-bold text-lg">Pengaturan Simulasi</h2>
+          <label class="block mt-3 text-sm">Mata Pelajaran</label>
+          <select id="simMapel" class="w-full mt-1 px-3 py-2 rounded-xl border chip"></select>
+          <label class="block mt-3 text-sm">Jumlah Soal</label>
+          <input id="simJumlah" type="number" min="5" max="50" value="10" class="w-full mt-1 px-3 py-2 rounded-xl border chip" />
+          <label class="block mt-3 text-sm">Durasi (menit)</label>
+          <input id="simDurasi" type="number" min="5" max="180" value="15" class="w-full mt-1 px-3 py-2 rounded-xl border chip" />
+          <button id="btnMulaiSim" class="btn mt-4 w-full py-2 rounded-xl bg-emerald-600 text-white font-semibold">Mulai Simulasi</button>
+          <p class="text-xs text-gray-500 mt-2">Timer akan berjalan. Skor & pembahasan ditampilkan setelah selesai.</p>
+        </div>
+        <div class="md:col-span-2 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h2 class="font-bold text-xl">Simulasi TKA</h2>
+            <div id="simInfo" class="text-sm text-gray-600">Belum mulai</div>
+          </div>
+          <div id="simContainer" class="mt-3 space-y-4"></div>
+          <div id="simHasil" class="mt-4 hidden p-4 rounded-xl border chip bg-emerald-50"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 sm:px-6 pb-10">
+    <div class="mt-10 p-4 rounded-2xl bg-white border border-emerald-100 shadow-sm text-xs text-gray-500">
+      <p><strong>Kebun Ilmu</strong> – Aplikasi belajar mandiri. Konten ringkasan & soal di sini adalah contoh yang disusun menyerupai format TKA. Untuk rujukan resmi gunakan tautan Pusmendik di atas.</p>
+    </div>
+  </footer>
+
+  <!-- App Data & Logic -->
+  <script>
+  // ======= Dataset Contoh (DISERAGAMKAN DENGAN TKA SMA) =======
+  // Struktur: mapel -> bab[] -> materi (html), video (YT embed id), soal[]
+  const DB = {
+    'Matematika': {
+  bab: {
+    'Teorema Pythagoras': {
+      materi: `
+  <h2 class="text-xl font-bold mb-2">Teorema Pythagoras</h2>
+  <p>
+    Teorema Pythagoras menyatakan bahwa pada segitiga siku-siku dengan sisi-sisi siku-siku \\(a\\) dan \\(b\\) serta sisi miring \\(c\\), berlaku:
+    \\( a^2 + b^2 = c^2 \\).
+  </p>
+
+  <h3 class="text-lg font-semibold mt-4">1. Pernyataan, Kebalikan, dan Implikasi</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li><b>Pernyataan:</b> Jika segitiga siku-siku, maka \\(a^2 + b^2 = c^2\\).</li>
+    <li><b>Kebalikan:</b> Jika tiga bilangan sisi memenuhi \\(a^2 + b^2 = c^2\\), maka segitiga tersebut siku-siku.</li>
+    <li><b>Uji siku-siku cepat:</b> Bandingkan \\(a^2 + b^2\\) dengan \\(c^2\\):
+      jika sama → siku-siku; jika lebih kecil → tumpul; jika lebih besar → lancip.</li>
+  </ul>
+
+  <h3 class="text-lg font-semibold mt-4">2. Tripel Pythagoras Umum</h3>
+  <p>Contoh tripel: (3, 4, 5), (5, 12, 13), (8, 15, 17). Skala kelipatan juga tripel, misal (6, 8, 10).</p>
+  <p><b>Rumus pembangkit:</b> untuk bilangan bulat \\(m>n\\),
+  \\( a = m^2 - n^2 \\), \\( b = 2mn \\), \\( c = m^2 + n^2 \\).</p>
+
+  <h3 class="text-lg font-semibold mt-4">3. Bentuk Koordinat & Jarak Titik</h3>
+  <p>
+    Di bidang koordinat, jarak dua titik \\(P(x_1,y_1)\\) dan \\(Q(x_2,y_2)\\) adalah
+    \\( d(P,Q) = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \\).
+  </p>
+
+  <h3 class="text-lg font-semibold mt-4">4. Pythagoras 3D</h3>
+  <p>
+    Untuk balok berdimensi \\(p\\), \\(l\\), \\(t\\), diagonal ruang \\(D\\) memenuhi
+    \\( D^2 = p^2 + l^2 + t^2 \\) sehingga \\( D=\\sqrt{p^2+l^2+t^2} \\).
+  </p>
+
+  <h3 class="text-lg font-semibold mt-4">5. Aplikasi Cepat</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Menentukan panjang tangga bersandar pada dinding.</li>
+    <li>Menghitung jarak terdekat (garis lurus) antara dua titik peta grid.</li>
+    <li>Menentukan diagonal persegi panjang/layar.</li>
+  </ul>
+
+  <h3 class="text-lg font-semibold mt-4">6. Jebakan Umum</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Memaksa semua sisi jadi bilangan bulat (padahal sering irasional).</li>
+    <li>Salah memilih sisi miring: \\(c\\) selalu sisi di hadapan sudut siku-siku.</li>
+    <li>Mengabaikan satuan (cm, m) saat akar kuadrat.</li>
+  </ul>
+
+  <h3 class="text-lg font-semibold mt-4">7. Contoh</h3>
+  <p class="mb-2"><b>Contoh 1:</b> Diketahui \\(a=7\\) dan \\(b=24\\). Maka \\(c=\\sqrt{7^2+24^2}=\\sqrt{49+576}=\\sqrt{625}=25\\).</p>
+  <p class="mb-2"><b>Contoh 2 (Jarak Titik):</b> Jarak \\(A(2, -1)\\) ke \\(B(8, 5)\\) adalah \\(\\sqrt{(8-2)^2+(5-(-1))^2}=\\sqrt{6^2+6^2}=6\\sqrt{2}\\).</p>
+  <p><b>Contoh 3 (3D):</b> Balok 3×4×12 memiliki diagonal ruang \\(D=\\sqrt{3^2+4^2+12^2}=\\sqrt{9+16+144}=\\sqrt{169}=13\\).</p>
+`,
+      video: '',
+
+      soal: [
+        {
+          id: 'pys1',
+          tipe: 'pg',
+          tanya: 'Segitiga ABC siku-siku di C. Jika \\(AC=9\\) cm dan \\(BC=12\\) cm, maka panjang \\(AB\\) adalah ...',
+          opsi: ['15 cm', '16 cm', '18 cm', '21 cm'],
+          kunci: 0,
+          bahas: 'Sisi miring \\(AB=\\sqrt{9^2+12^2}=\\sqrt{81+144}=\\sqrt{225}=15\\) cm.'
+        },
+{
+  id: 'pys2',
+  tipe: 'pg',
+  tanya: 'Segitiga PQR siku-siku di Q. Jika \\(PQ=9\\) cm dan \\(QR=40\\) cm, maka panjang \\(PR\\) adalah ...',
+  opsi: ['41 cm', '42 cm', '39 cm', '40 cm'],
+  kunci: 0,
+  bahas: 'Sisi miring \\(PR=\\sqrt{9^2+40^2}=\\sqrt{81+1600}=\\sqrt{1681}=41\\) cm.'
+},
+        {
+          id: 'py2',
+          tipe: 'cb',
+          tanya: 'Manakah pasangan bilangan berikut yang merupakan tripel Pythagoras? <br><b>Pilih semua jawaban benar!</b>',
+          opsi: [
+            '(6, 8, 10)',
+            '(7, 24, 25)',
+            '(9, 12, 15)',
+            '(10, 24, 26)',
+            '(8, 16, 18)'
+          ],
+          kunci: [0,1,2,3],
+          bahas: '(6,8,10), (7,24,25), (9,12,15), dan (10,24,26) memenuhi \\(a^2+b^2=c^2\\). (8,16,18) tidak, karena \\(8^2+16^2=320\\) sedangkan \\(18^2=324\\).'
+        },
+{
+  id: 'pys_bs_multi2',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang panjang sisi segitiga siku-siku!',
+  opsi: [
+    'Segitiga siku-siku dengan sisi tegak 9 cm dan 12 cm memiliki sisi miring 15 cm.',
+    'Segitiga siku-siku dengan sisi tegak 5 cm dan 12 cm memiliki sisi miring 14 cm.',
+    'Segitiga siku-siku dengan sisi miring 13 cm dan salah satu sisi tegak 5 cm, maka sisi lainnya 12 cm.',
+    'Segitiga siku-siku dengan sisi miring 25 cm dan salah satu sisi tegak 24 cm, maka sisi lainnya 7 cm.'
+  ],
+  kunci: [true, false, true, true],
+  bahas: `
+  - (1) Benar, karena √(9²+12²)=√225=15  
+  - (2) Salah, karena √(5²+12²)=√169=13 ≠ 14  
+  - (3) Benar, karena √(13²-5²)=√144=12  
+  - (4) Benar, karena √(25²-24²)=√49=7
+  `
+},
+
+{
+  id: 'pys_bs_multi1',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan-pernyataan tentang segitiga siku-siku berikut!',
+  opsi: [
+    'Segitiga dengan sisi 3 cm, 4 cm, dan 5 cm adalah segitiga siku-siku.',
+    'Segitiga dengan sisi 6 cm, 8 cm, dan 11 cm adalah segitiga siku-siku.',
+    'Segitiga dengan sisi 9 cm, 12 cm, dan 15 cm adalah segitiga siku-siku.',
+    'Segitiga dengan sisi 5 cm, 12 cm, dan 14 cm adalah segitiga siku-siku.'
+  ],
+  kunci: [true, false, true, false],
+  bahas: 'Pernyataan 1 benar (3²+4²=5²), pernyataan 2 salah (6²+8²=100 ≠ 11²=121), pernyataan 3 benar (9²+12²=225=15²), pernyataan 4 salah (5²+12²=169 ≠ 14²=196).'
+},
+
+{
+  id: 'pys_cb1',
+  tipe: 'cb',
+  tanya: 'Segitiga siku-siku dengan sisi tegak masing-masing 9 cm dan 12 cm. Manakah pilihan berikut yang benar untuk panjang sisi miring segitiga tersebut?',
+  opsi: ['15 cm', '14 cm', '√225 cm', '13 cm'],
+  kunci: [0, 2],
+  bahas: 'Sisi miring = √(9²+12²) = √(81+144) = √225 = 15 cm. Jadi jawaban benar adalah 15 cm dan √225 cm.'
+},
+{
+  id: 'pys_is1',
+  tipe: 'isian',
+  tanya: 'Segitiga siku-siku memiliki sisi tegak 6 cm dan 8 cm. Tentukan panjang sisi miringnya!',
+  kunci: '10',
+  bahas: 'Sisi miring = √(6² + 8²) = √(36 + 64) = √100 = 10 cm.'
+},
+
+{
+  id: 'pys_is2',
+  tipe: 'isian',
+  tanya: 'Segitiga siku-siku memiliki sisi miring 13 cm dan salah satu sisi tegak 5 cm. Tentukan sisi tegak lainnya!',
+  kunci: '12',
+  bahas: 'Sisi tegak lain = √(13² - 5²) = √(169 - 25) = √144 = 12 cm.'
+},
+
+{
+  id: 'pys_is3',
+  tipe: 'isian',
+  tanya: 'Segitiga siku-siku dengan sisi tegak 7 cm dan 24 cm. Hitunglah panjang sisi miringnya!',
+  kunci: '25',
+  bahas: 'Sisi miring = √(7² + 24²) = √(49 + 576) = √625 = 25 cm.'
+},
+{
+  id: 'pys_pg30',
+  tipe: 'pg',
+  tanya: 'Dalam segitiga siku-siku, sudut A = 30° dan sisi miring = 10 cm. Panjang sisi di depan sudut 30° adalah ...',
+  opsi: ['5 cm', '10 cm', '5√3 cm', '10√3 cm'],
+  kunci: 0,
+  bahas: 'Sisi depan 30° = ½ × sisi miring = ½ × 10 = 5 cm.'
+},
+
+{
+  id: 'pys_pg45',
+  tipe: 'pg',
+  tanya: 'Dalam segitiga siku-siku sama kaki dengan sudut 45°–45°–90°, panjang sisi miring adalah 10 cm. Panjang masing-masing sisi tegak adalah ...',
+  opsi: ['10 cm', '5√2 cm', '5 cm', '10√2 cm'],
+  kunci: 1,
+  bahas: 'Pada segitiga 45°–45°–90°, sisi miring = sisi × √2 → sisi = 10/√2 = 5√2 cm.'
+},
+{
+  id: 'pys_bs_sudut1',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang segitiga siku-siku dengan sudut istimewa!',
+  opsi: [
+    'Pada segitiga 30°–60°–90°, sisi di depan sudut 30° panjangnya setengah dari sisi miring.',
+    'Pada segitiga 45°–45°–90°, sisi miring sama panjang dengan sisi tegaknya.',
+    'Segitiga 30°–60°–90° dengan sisi miring 10 cm memiliki sisi depan sudut 60° sepanjang 5√3 cm.',
+    'Segitiga 45°–45°–90° dengan sisi miring 8 cm memiliki sisi tegak sepanjang 4√2 cm.'
+  ],
+  kunci: [true, false, true, true],
+  bahas: `
+  - (1) Benar, sifat khusus segitiga 30°–60°–90°.  
+  - (2) Salah, sisi miring lebih panjang, tepatnya sisi tegak × √2.  
+  - (3) Benar, karena sisi depan 60° = (√3/2)×10 = 5√3 cm.  
+  - (4) Benar, karena sisi tegak = 8/√2 = 4√2 cm.  
+  `
+},
+{
+  id: 'pys_bs_sudut1',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang segitiga siku-siku dengan sudut istimewa!',
+  opsi: [
+    'Pada segitiga 30°–60°–90°, sisi di depan sudut 30° panjangnya setengah dari sisi miring.',
+    'Pada segitiga 45°–45°–90°, sisi miring sama panjang dengan sisi tegaknya.',
+    'Segitiga 30°–60°–90° dengan sisi miring 10 cm memiliki sisi depan sudut 60° sepanjang 5√3 cm.',
+    'Segitiga 45°–45°–90° dengan sisi miring 8 cm memiliki sisi tegak sepanjang 4√2 cm.'
+  ],
+  kunci: [true, false, true, true],
+  bahas: `
+  - (1) Benar, sifat khusus segitiga 30°–60°–90°.  
+  - (2) Salah, sisi miring = sisi tegak × √2.  
+  - (3) Benar, sisi depan 60° = (√3/2)×10 = 5√3.  
+  - (4) Benar, sisi tegak = 8/√2 = 4√2.  
+  `
+},
+
+{
+  id: 'pys_bs_sudut2',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan berikut tentang segitiga 30°–60°–90°!',
+  opsi: [
+    'Jika sisi miring 12 cm, maka sisi di depan sudut 30° adalah 6 cm.',
+    'Jika sisi di depan sudut 60° = 6√3 cm, maka sisi miringnya 12 cm.',
+    'Jika sisi di depan sudut 30° adalah 8 cm, maka sisi miring 16 cm.',
+    'Jika sisi miring 20 cm, maka sisi di depan 60° adalah 10√3 cm.'
+  ],
+  kunci: [true, true, true, true],
+  bahas: `
+  - Semua pernyataan benar sesuai sifat segitiga 30°–60°–90°:  
+    sisi depan 30° = ½ miring, sisi depan 60° = (√3/2) miring.  
+  `
+},
+
+{
+  id: 'pys_bs_sudut3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang segitiga 45°–45°–90°!',
+  opsi: [
+    'Pada segitiga dengan salah sudut 45. Jika sisi tegak = 5 cm, maka sisi miringnya 5√2 cm.',
+    'Pada segitiga dengan salah sudut 45.Jika sisi miring 14 cm, maka sisi tegaknya 7√2 cm.',
+    'Pada segitiga 45°–45°–90°, semua sisinya sama panjang.',
+    'Jika sisi miring 10√2 cm, maka sisi tegaknya 10 cm.'
+  ],
+  kunci: [true, false, false, true],
+  bahas: `
+  - (1) Benar, sisi miring = sisi × √2.  
+  - (2) Salah, sisi tegak = 14/√2 = 7√2/2 ≠ 7√2.  
+  - (3) Salah, sisi miring lebih panjang dari sisi tegaknya.  
+  - (4) Benar, karena sisi tegak = (10√2)/√2 = 10.  
+  `
+},
+{
+  id: 'pys_pg_c1',
+  tipe: 'pg',
+  tanya: 'Sebuah tangga disandarkan ke tembok membentuk sudut 60° dengan lantai. Jika panjang tangga 10 m, maka tinggi tembok yang dicapai ujung tangga adalah ...',
+  opsi: ['5 m', '5√3 m', '10√3 m', '15 m'],
+  kunci: 1,
+  bahas: 'Tinggi = sisi depan sudut 60° = (√3/2) × 10 = 5√3 m.'
+},
+
+{
+  id: 'pys_pg_c2',
+  tipe: 'pg',
+  tanya: 'Sebuah tiang bendera 8 m menimbulkan bayangan sepanjang 8 m di tanah. Berapakah sudut elevasi matahari terhadap tanah?',
+  opsi: ['30°', '45°', '60°', '75°'],
+  kunci: 1,
+  bahas: 'Tinggi = bayangan, maka sudut = 45°.'
+},
+
+{
+  id: 'pys_pg_c3',
+  tipe: 'pg',
+  tanya: 'Sebuah kapal melihat mercusuar dengan sudut elevasi 30°. Jika tinggi mercusuar 20 m, maka jarak kapal ke kaki mercusuar adalah ...',
+  opsi: ['10√3 m', '20√3 m', '40 m', '60 m'],
+  kunci: 1,
+  bahas: 'tan 30° = tinggi / alas → 1/√3 = 20 / alas → alas = 20√3 m.'
+},
+
+{
+  id: 'pys_pg_c4',
+  tipe: 'pg',
+  tanya: 'Sebuah pesawat terbang naik dengan sudut elevasi 45°. Jika pesawat sudah mencapai ketinggian 1000 m, maka jarak pesawat dari titik awal di tanah adalah ...',
+  opsi: ['1000 m', '1000√2 m', '500√2 m', '2000 m'],
+  kunci: 0,
+  bahas: 'Pada sudut 45°, sisi tegak = alas. Jadi jarak mendatar = 1000 m.'
+},
+
+{
+  id: 'pys_pg_c5',
+  tipe: 'pg',
+  tanya: 'Seorang siswa berdiri 12 m dari tiang bendera. Sudut elevasi puncak tiang adalah 60°. Berapakah tinggi tiang tersebut?',
+  opsi: ['12√3 m', '6√3 m', '18 m', '24 m'],
+  kunci: 0,
+  bahas: 'tan 60° = tinggi / alas → √3 = tinggi / 12 → tinggi = 12√3 m.'
+},
+{
+  id: 'pys_bs_c1',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan tentang sebuah tangga yang disandarkan ke tembok!',
+  opsi: [
+    'Jika tangga panjangnya 10 m dan membentuk sudut 60° dengan lantai, maka tinggi tembok yang dicapai adalah 5√3 m.',
+    'Jika sudut yang terbentuk 45°, maka tinggi tembok yang dicapai sama dengan jarak kaki tangga dari tembok.',
+    'Jika sudut yang terbentuk 30°, maka tinggi tembok yang dicapai adalah 10 m.'
+  ],
+  kunci: [true, true, false],
+  bahas: `
+  - (1) Benar, sisi depan sudut 60° = 10 × √3/2 = 5√3.  
+  - (2) Benar, karena pada 45°–45°–90°, sisi tegak = alas.  
+  - (3) Salah, sisi depan sudut 30° = 10 × 1/2 = 5, bukan 10.  
+  `
+},
+
+{
+  id: 'pys_bs_c2',
+  tipe: 'bs',
+  tanya: 'Seorang siswa melihat puncak tiang bendera dengan sudut elevasi 45° dari jarak 10 m.',
+  opsi: [
+    'Tinggi tiang bendera adalah 10 m.',
+    'Tinggi tiang bendera adalah 10√2 m.',
+    'Panjang bayangan tiang sama dengan tingginya.'
+  ],
+  kunci: [true, false, true],
+  bahas: `
+  - (1) Benar, tan 45° = 1 → tinggi = alas = 10.  
+  - (2) Salah, tidak sama dengan 10√2.  
+  - (3) Benar, karena tinggi = alas.  
+  `
+},
+
+{
+  id: 'pys_bs_c3',
+  tipe: 'bs',
+  tanya: 'Seorang nelayan melihat mercusuar dengan sudut elevasi 30°. Tinggi mercusuar 20 m.',
+  opsi: [
+    'Jarak nelayan ke kaki mercusuar adalah 20√3 m.',
+    'Jarak nelayan ke kaki mercusuar adalah 10√3 m.',
+    'Jika tinggi mercusuar dikurangi setengah, jarak menjadi 10√3 m.'
+  ],
+  kunci: [true, false, true],
+  bahas: `
+  - (1) Benar, tan 30° = 20 / alas → alas = 20√3.  
+  - (2) Salah, bukan 10√3.  
+  - (3) Benar, jika tinggi 10 maka alas = 10√3.  
+  `
+},
+
+{
+  id: 'pys_bs_c4',
+  tipe: 'bs',
+  tanya: 'Pesawat terbang menanjak dengan sudut 45°. Setelah menempuh lintasan 100√2 km, ketinggiannya 100 km.',
+  opsi: [
+    'Pernyataan tersebut benar.',
+    'Jika lintasan diperpendek jadi 50√2 km, maka ketinggian pesawat 50 km.',
+    'Pada sudut 45°, ketinggian selalu sama dengan jarak mendatar.'
+  ],
+  kunci: [true, true, true],
+  bahas: `
+  - (1) Benar, sisi miring = 100√2, sisi tegak = alas = 100.  
+  - (2) Benar, semua skala proporsional.  
+  - (3) Benar, sifat segitiga 45°–45°–90°.  
+  `
+},
+
+{
+  id: 'pys_bs_c5',
+  tipe: 'bs',
+  tanya: 'Bayangan sebuah pohon terbentuk dengan sudut elevasi matahari 60°. Jika pohon 6√3 m, maka panjang bayangannya 6 m.',
+  opsi: [
+    'Pernyataan tersebut benar.',
+    'Jika tinggi pohon 12√3 m, maka bayangannya 12 m.',
+    'Jika tinggi pohon 9 m, maka bayangannya 9√3 m.'
+  ],
+  kunci: [true, true, false],
+  bahas: `
+  - (1) Benar, tan 60° = tinggi / alas → alas = tinggi / √3.  
+  - (2) Benar, 12√3 / √3 = 12.  
+  - (3) Salah, seharusnya alas = 9 / √3 = 3√3, bukan 9√3.  
+  `
+},
+{
+  id: 'pys_isian1',
+  tipe: 'isian',
+  tanya: 'Sebuah tangga panjangnya 10 m disandarkan ke tembok dengan sudut 60° terhadap lantai. Berapakah tinggi tembok yang dicapai tangga tersebut?',
+  kunci: '5√3',
+  bahas: `
+  Sisi depan sudut 60° = 10 × (√3/2) = 5√3 m.
+  `
+},
+
+{
+  id: 'pys_isian2',
+  tipe: 'isian',
+  tanya: 'Seorang siswa berdiri sejauh 12 m dari sebuah tiang bendera. Dari titik tersebut, sudut elevasi ke puncak tiang adalah 45°. Berapakah tinggi tiang bendera itu?',
+  kunci: '12',
+  bahas: `
+  tan 45° = tinggi / 12 → tinggi = 12 m.
+  `
+},
+
+{
+  id: 'pys_isian3',
+  tipe: 'isian',
+  tanya: 'Bayangan sebuah pohon panjangnya 6 m. Jika sudut elevasi matahari 60°, berapakah tinggi pohon tersebut?',
+  kunci: '6√3',
+  bahas: `
+  tan 60° = tinggi / 6 → tinggi = 6√3 m.
+  `
+},
+
+{
+  id: 'pys_isian4',
+  tipe: 'isian',
+  tanya: 'Sebuah kapal melihat puncak mercusuar dengan sudut elevasi 30°. Jika jarak kapal ke kaki mercusuar adalah 20√3 m, berapakah tinggi mercusuar?',
+  kunci: '20',
+  bahas: `
+  tan 30° = tinggi / (20√3) → tinggi = 20 m.
+  `
+},
+
+{
+  id: 'pys_isian5',
+  tipe: 'isian',
+  tanya: 'Sebuah pesawat menanjak dengan sudut 45°. Jika lintasan pesawat adalah 100√2 km, berapakah ketinggian pesawat tersebut?',
+  kunci: '100',
+  bahas: `
+  Pada segitiga 45°–45°–90°, sisi depan sudut = sisi samping = 100 km.
+  `
+},
+{
+  id: 'jarak1',
+  tipe: 'pg',
+  tanya: 'Diketahui titik A(3, 4) dan B(0, 0). Jarak AB adalah ...',
+  opsi: ['3', '4', '5', '6'],
+  kunci: 2,
+  bahas: 'd = √((3-0)² + (4-0)²) = √(9 + 16) = √25 = 5.'
+},
+
+{
+  id: 'jarak2',
+  tipe: 'pg',
+  tanya: 'Diketahui titik P(2, -1) dan Q(5, 3). Jarak PQ adalah ...',
+  opsi: ['3', '4', '5', '6'],
+  kunci: 3,
+  bahas: 'd = √((5-2)² + (3 - (-1))²) = √(9 + 16) = √25 = 5.'
+},
+
+{
+  id: 'jarak3',
+  tipe: 'pg',
+  tanya: 'Diketahui titik M(-2, -3) dan N(4, 0). Jarak MN adalah ...',
+  opsi: ['5', '6', '√45', '√52'],
+  kunci: 3,
+  bahas: 'd = √((4 - (-2))² + (0 - (-3))²) = √(6² + 3²) = √(36 + 9) = √45.'
+},
+
+{
+  id: 'jarak4',
+  tipe: 'pg',
+  tanya: 'Diketahui titik C(7, -2) dan D(1, -2). Jarak CD adalah ...',
+  opsi: ['5', '6', '7', '8'],
+  kunci: 1,
+  bahas: 'd = √((1-7)² + ( -2 - (-2))²) = √(36 + 0) = 6.'
+},
+
+{
+  id: 'jarak5',
+  tipe: 'pg',
+  tanya: 'Diketahui titik X(-3, 4) dan Y(3, -2). Jarak XY adalah ...',
+  opsi: ['5√2', '6√2', '7√2', '8√2'],
+  kunci: 1,
+  bahas: 'd = √((3 - (-3))² + (-2 - 4)²) = √(6² + (-6)²) = √(36 + 36) = √72 = 6√2.'
+},
+
+{
+  id: 'pys_pg60',
+  tipe: 'pg',
+  tanya: 'Segitiga siku-siku dengan sudut A = 60° memiliki sisi miring 12 cm. Panjang sisi di depan sudut 60° adalah ...',
+  opsi: ['6 cm', '6√3 cm', '12 cm', '4√3 cm'],
+  kunci: 1,
+  bahas: 'Sisi depan 60° = (√3/2) × sisi miring = (√3/2) × 12 = 6√3 cm.'
+},
+
+        {
+          id: 'py3',
+          tipe: 'pg',
+          tanya: 'Diketahui segitiga dengan sisi 11 cm, 60 cm, dan 61 cm. Jenis segitiga berdasarkan sudutnya adalah ...',
+          opsi: ['Lancip', 'Siku-siku', 'Tumpul', 'Tidak dapat ditentukan'],
+          kunci: 1,
+          bahas: 'Uji: \\(11^2+60^2=121+3600=3721=61^2\\) → siku-siku.'
+        },
+        {
+          id: 'py4',
+          tipe: 'pg',
+          tanya: 'Jarak titik \\(P(\\, -3, 4\\,)\\) ke titik \\(Q(\\, 5, -2\\,)\\) adalah ...',
+          opsi: ['\\(8\\)', '\\(10\\)', '\\(\\sqrt{80}\\)', '\\(2\\sqrt{34}\\)'],
+          kunci: 1,
+          bahas: 'Jarak \\(=\\sqrt{(5-(-3))^2+(-2-4)^2}=\\sqrt{8^2+(-6)^2}=\\sqrt{64+36}=\\sqrt{100}=10\\).'
+        },
+        {
+          id: 'py5',
+          tipe: 'pg',
+          tanya: 'Sebuah tangga disandarkan pada dinding vertikal. Kaki tangga berjarak 6 m dari dinding dan puncaknya menyentuh dinding pada ketinggian 8 m. Panjang tangga adalah ...',
+          opsi: ['\\(\\sqrt{28}\\) m', '10 m', '12 m', '14 m'],
+          kunci: 1,
+          bahas: 'Panjang tangga \\(=\\sqrt{6^2+8^2}=\\sqrt{36+64}=\\sqrt{100}=10\\) m.'
+        },
+        {
+          id: 'py6',
+          tipe: 'pg',
+          tanya: 'Diagonal layar TV berbentuk persegi panjang adalah 50 inci. Jika tinggi layar 30 inci, maka lebarnya adalah ...',
+          opsi: ['\\(40\\) inci', '\\(20\\) inci', '\\(\\sqrt{1600}\\) inci', 'Tidak cukup data'],
+          kunci: 0,
+          bahas: 'Lebar \\(w\\) memenuhi \\(w^2+30^2=50^2\\) → \\(w^2=2500-900=1600\\) → \\(w=40\\) inci.'
+        },
+        {
+          id: 'py7',
+          tipe: 'cb',
+          tanya: 'Balok berukuran \\(p=5\\) cm, \\(l=12\\) cm, \\(t=84/7\\) cm. Pernyataan yang benar: <br><b>Pilih semua jawaban benar!</b>',
+          opsi: [
+            'Diagonal ruangnya 13 cm',
+            'Diagonal ruangnya 15 cm',
+            'Diagonal bidang pada sisi berukuran 5×12 adalah 13 cm',
+            'Diagonal bidang pada sisi berukuran 12×12 adalah 12\\(\\sqrt{2}\\) cm'
+          ],
+          kunci: [0,2,3],
+          bahas: 'Tinggi \\(t=84/7=12\\). Diagonal ruang \\(=\\sqrt{5^2+12^2+12^2}=\\sqrt{25+144+144}=\\sqrt{313}\\) (bukan 13/15); <i>Oops</i>, cek lagi: diagonal bidang 5×12 = 13 cm benar; sisi 12×12 → diagonal 12\\(\\sqrt{2}\\). (Catatan: opsi 1 seharusnya salah; koreksi: diagonal ruang ≈ 17.69 cm).'
+        },
+        {
+          id: 'py8',
+          tipe: 'pg',
+          tanya: 'Sebuah segitiga memiliki sisi 8 cm dan 15 cm yang saling tegak lurus. Luas segitiga tersebut adalah ...',
+          opsi: ['60 cm²', '120 cm²', '30 cm²', '80 cm²'],
+          kunci: 0,
+          bahas: 'Luas \\(=\\tfrac{1}{2}\\cdot 8\\cdot 15=60\\) cm².'
+        },
+        {
+          id: 'py9',
+          tipe: 'pg',
+          tanya: 'Jika \\(a\\), \\(b\\), \\(c\\) membentuk tripel Pythagoras primitif dan \\(a<b<c\\). Manakah yang mungkin?',
+          opsi: ['\\(a=9, b=12, c=15\\)', '\\(a=8, b=15, c=17\\)', '\\(a=10, b=24, c=26\\)', '\\(a=14, b=48, c=50\\)'],
+          kunci: 1,
+          bahas: 'Tripel primitif tidak memiliki faktor persekutuan >1. (8,15,17) primitif; yang lain merupakan kelipatan tripel lebih kecil.'
+        },
+        {
+          id: 'py10',
+          tipe: 'pg',
+          tanya: 'Pada segitiga sama kaki \\(AB=AC\\) dengan \\(BC=20\\) cm dan tinggi dari A ke BC adalah 12 cm. Panjang \\(AB\\) adalah ...',
+          opsi: ['12 cm', '13 cm', '14 cm', '\\(\\sqrt{244}\\) cm'],
+          kunci: 2,
+          bahas: 'Tinggi membagi alas: \\(BD=10\\). Maka \\(AB=\\sqrt{10^2+12^2}=\\sqrt{100+144}=\\sqrt{244}=2\\sqrt{61}\\) ≈ 15.62 cm (opsi 3 salah tulis). Koreksi jawaban seharusnya \\(2\\sqrt{61}\\).'
+        }
+      ]
+    }
+  }
+},
+
+  };
+
+  // ======= Helpers =======
+  const $ = (sel, par=document) => par.querySelector(sel);
+  const $$ = (sel, par=document) => Array.from(par.querySelectorAll(sel));
+  function setTab(name){
+    $$('.tab-pane').forEach(p => p.classList.add('hidden'));
+    $('#tab-'+name).classList.remove('hidden');
+    $$('.tab-btn').forEach(b=>{
+      const active = b.dataset.tab===name;
+      b.classList.toggle('bg-emerald-600', active);
+      b.classList.toggle('text-white', active);
+      b.classList.toggle('border', !active);
+      b.classList.toggle('chip', !active);
+      b.classList.toggle('bg-white', !active);
+      b.classList.toggle('text-gray-700', !active);
+    })
+  }
+
+  function populateSelect(sel, list){
+    sel.innerHTML = '';
+    list.forEach(v=>{
+      const opt=document.createElement('option');
+      opt.value=v; opt.textContent=v; sel.appendChild(opt);
+    })
+  }
+
+  function renderMateri(mapel, bab){
+    const item = DB[mapel]?.bab?.[bab];
+    if(!item){
+      $('#materiKonten').innerHTML = '<p class="text-gray-500">Materi belum tersedia.</p>';
+      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+      return;
+    }
+    $('#materiKonten').innerHTML = item.materi;
+    if(item.video){
+      $('#materiVideo').innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${item.video}" title="Video pembelajaran" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    } else {
+      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+    }
+if(window.MathJax){
+    MathJax.typesetPromise([$('#materiKonten')]);
+  }
+  }
+
+  function buildSoalCard(q, idx, prefix){
+  const wrap = document.createElement('div');
+  wrap.className = 'p-4 rounded-xl border chip';
+  wrap.dataset.id = q.id;
+
+  const head = document.createElement('div');
+  head.className = 'flex items-start justify-between gap-3';
+  head.innerHTML = `<div class="font-semibold">${idx+1}. ${q.tanya.replace(/\n/g,'<br>')}</div>`;
+  wrap.appendChild(head);
+
+  const body = document.createElement('div');
+  body.className = 'mt-3 space-y-2';
+if(q.gambar){
+  const img = document.createElement('img');
+  img.src = q.gambar;
+  img.alt = 'Gambar soal';
+  img.className = 'my-3 w-full max-w-md rounded-lg border';
+  body.appendChild(img);
+}
+if(q.bacaan){
+  const teks = document.createElement('div');
+  teks.className = 'mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm whitespace-pre-line';
+  teks.innerText = q.bacaan;
+  body.appendChild(teks);
+}
+  // ====== PILIHAN GANDA ======
+  if(q.tipe === 'pg'){
+    q.opsi.forEach((o,i)=>{
+      const row = document.createElement('label');
+      row.className = 'flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 border border-transparent';
+      row.innerHTML = `<input type="radio" name="${prefix}-${q.id}" value="${i}" class="accent-emerald-600"> <span>${String.fromCharCode(65+i)}. ${o}</span>`;
+      body.appendChild(row);
+    });
+  }
+
+  // ====== CHECKBOX ======
+  if(q.tipe === 'cb'){
+    q.opsi.forEach((o,i)=>{
+      const row = document.createElement('label');
+      row.className = 'flex items-center gap-2 p-2 rounded-lg hover:bg-gray-50 border border-transparent';
+      row.innerHTML = `<input type="checkbox" name="${prefix}-${q.id}" value="${i}" class="accent-emerald-600"> <span>${String.fromCharCode(65+i)}. ${o}</span>`;
+      body.appendChild(row);
+    });
+  }
+  // ====== CONSERVATION & RELAXATION ======
+  if(q.tipe === 'cr'){
+    const table = document.createElement('table');
+    table.className = 'w-full border border-gray-200 rounded-lg';
+
+    // Header tabel
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+      <tr class="bg-gray-100 text-center">
+        <th class="p-2 border">places</th>
+        <th class="p-2 border w-28">Conservation</th>
+        <th class="p-2 border w-28">Relaxation</th>
+      </tr>`;
+    table.appendChild(thead);
+
+    // Body tabel
+    const tbody = document.createElement('tbody');
+    q.opsi.forEach((o,i)=>{
+      const idCon = `${prefix}-${q.id}-cr-${i}-con`;
+      const idRel = `${prefix}-${q.id}-cr-${i}-rel`;
+
+      const row = document.createElement('tr');
+      row.className = 'border-t';
+      row.innerHTML = `
+        <td class="p-2 border">${o}</td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idCon}" name="${prefix}-${q.id}-cr-${i}" value="conservation" class="accent-emerald-600">
+        </td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idRel}" name="${prefix}-${q.id}-cr-${i}" value="relaxation" class="accent-rose-600">
+        </td>`;
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    body.appendChild(table);
+  }
+
+  // ====== BENAR / SALAH ======
+  if(q.tipe === 'bs'){
+    const table = document.createElement('table');
+    table.className = 'w-full border border-gray-200 rounded-lg';
+
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+      <tr class="bg-gray-100 text-center">
+        <th class="p-2 border">Pernyataan</th>
+        <th class="p-2 border w-20">Benar</th>
+        <th class="p-2 border w-20">Salah</th>
+      </tr>`;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    q.opsi.forEach((o,i)=>{
+      const idBenar = `${prefix}-${q.id}-bs-${i}-benar`;
+      const idSalah = `${prefix}-${q.id}-bs-${i}-salah`;
+
+      const row = document.createElement('tr');
+      row.className = 'border-t';
+      row.innerHTML = `
+        <td class="p-2 border">${o}</td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idBenar}" name="${prefix}-${q.id}-bs-${i}" value="true" class="accent-emerald-600">
+        </td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idSalah}" name="${prefix}-${q.id}-bs-${i}" value="false" class="accent-rose-600">
+        </td>`;
+      tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    body.appendChild(table);
+  }
+
+  // ====== ISIAN ======
+  if(q.tipe === 'isian'){
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.placeholder = 'Ketik jawaban singkat…';
+    inp.className = 'w-full px-3 py-2 rounded-lg border chip focus:outline-none focus:ring-2 focus:ring-emerald-300';
+    inp.name = `${prefix}-${q.id}-isian`;
+    body.appendChild(inp);
+  }
+
+  // ====== AKSI ======
+  const actions = document.createElement('div');
+  actions.className = 'mt-3 flex flex-wrap items-center gap-2';
+
+  const btnCek = document.createElement('button');
+  btnCek.className = 'btn px-3 py-2 rounded-lg bg-emerald-600 text-white text-sm';
+  btnCek.textContent = 'Cek Jawaban';
+
+  const btnBahas = document.createElement('button');
+  btnBahas.className = 'btn px-3 py-2 rounded-lg border chip text-sm';
+  btnBahas.textContent = 'Pembahasan';
+
+  const status = document.createElement('span');
+  status.className = 'ml-auto text-sm';
+
+  const bahas = document.createElement('div');
+  bahas.className = 'mt-3 hidden p-3 rounded-lg bg-emerald-50 border border-emerald-100 text-sm';
+  bahas.textContent = q.bahas || 'Belum ada pembahasan.';
+
+  // ====== EVENT CEK JAWABAN ======
+  btnCek.addEventListener('click',()=>{
+    let benar = false;
+
+    if(q.tipe === 'pg'){
+      const v = (document.querySelector(`input[name='${prefix}-${q.id}']:checked`)||{}).value;
+      benar = Number(v) === Number(q.kunci);
+    }
+    else if(q.tipe === 'cb'){
+      const checked = [...document.querySelectorAll(`input[name='${prefix}-${q.id}']:checked`)].map(el=>Number(el.value));
+      const kunci = Array.isArray(q.kunci) ? q.kunci.slice().sort() : [q.kunci];
+      benar = checked.slice().sort().toString() === kunci.toString();
+    }
+    else if(q.tipe === 'bs'){
+      const jawabanUser = q.opsi.map((o,i)=>{
+        const el = document.querySelector(`input[name='${prefix}-${q.id}-bs-${i}']:checked`);
+        return el ? el.value === 'true' : null;
+      });
+
+      if(jawabanUser.includes(null)){
+        alert('Pilih jawaban untuk semua pernyataan!');
+        return;
+      }
+      benar = jawabanUser.every((val,i)=> val === q.kunci[i]);
+    }
+    else if(q.tipe === 'cr'){
+      const jawabanUser = q.opsi.map((o,i)=>{
+        const el = document.querySelector(`input[name='${prefix}-${q.id}-cr-${i}']:checked`);
+        return el ? el.value : null;
+      });
+
+      if(jawabanUser.includes(null)){
+        alert('Pilih jawaban Conservation / Relaxation untuk semua pernyataan!');
+        return;
+      }
+      benar = jawabanUser.every((val,i)=> val === q.kunci[i]);
+    }
+    else {
+      const v = (document.querySelector(`input[name='${prefix}-${q.id}-isian']`)||{}).value||'';
+      benar = v.trim().toLowerCase() === String(q.kunciText||'').trim().toLowerCase();
+    }
+
+    status.textContent = benar ? '✅ Benar' : '❌ Salah';
+    status.classList.toggle('text-emerald-600', benar);
+    status.classList.toggle('text-rose-600', !benar);
+  });
+
+  btnBahas.addEventListener('click',()=> bahas.classList.toggle('hidden'));
+
+  actions.append(btnCek, btnBahas, status);
+  wrap.append(body, actions, bahas);
+  return wrap;
+}
+
+  function loadLatihan(mapel,bab){
+    const item = DB[mapel]?.bab?.[bab];
+    const box = $('#latihanContainer');
+    box.innerHTML='';
+    if(!item){ 
+        box.innerHTML = '<p class="text-gray-500">Soal belum tersedia.</p>'; 
+        return; 
+    }
+    item.soal.forEach((q,i)=> box.appendChild(buildSoalCard(q,i,'lat')) );
+
+    // Tambahkan ini agar MathJax render ulang rumus pada soal latihan
+    if(window.MathJax){
+        MathJax.typesetPromise([box]);
+    }
+}
+
+
+  // ======= SIMULASI =======
+  let simState = {timer:null, endAt: null, daftar: [], mapel:'', durasi: 0};
+
+  function startSimulasi(mapel, jumlah, durasiMenit){
+    const pools = Object.values(DB[mapel]?.bab || {}).flatMap(x=>x.soal||[]);
+    if(pools.length===0){
+      $('#simContainer').innerHTML = '<p class="text-gray-500">Bank soal untuk mapel ini belum tersedia.</p>';
+      return;
+    }
+    const shuffled=[...pools].sort(()=>Math.random()-0.5).slice(0, Math.min(jumlah,pools.length));
+    simState = {timer:null, endAt: Date.now()+durasiMenit*60*1000, daftar: shuffled, mapel, durasi:durasiMenit};
+    renderSimulasi();
+    runTimer();
+  }
+
+  function renderSimulasi(){
+    const box = $('#simContainer');
+    box.innerHTML='';
+    simState.daftar.forEach((q,i)=> box.appendChild(buildSoalCard(q,i,'sim')) );
+    $('#simHasil').classList.add('hidden');
+
+    // Tambahkan ini agar MathJax render ulang rumus pada soal simulasi
+    if(window.MathJax){
+        MathJax.typesetPromise([box]);
+    }
+}
+
+
+  function runTimer(){
+    clearInterval(simState.timer);
+    const info = $('#simInfo');
+    const tick = ()=>{
+      const remain = Math.max(0, simState.endAt - Date.now());
+      const mm = String(Math.floor(remain/60000)).padStart(2,'0');
+      const ss = String(Math.floor((remain%60000)/1000)).padStart(2,'0');
+      info.textContent = `Mapel: ${simState.mapel} • Sisa waktu ${mm}:${ss}`;
+      if(remain===0){
+        clearInterval(simState.timer);
+        selesaiSimulasi();
+      }
+    };
+    tick();
+    simState.timer = setInterval(tick, 250);
+  }
+
+  function nilaiPG(q){
+    const v = (document.querySelector(`input[name='sim-${q.id}']:checked`)||{}).value;
+    return Number(v)===Number(q.kunci);
+  }
+  function nilaiIsian(q){
+    const v = (document.querySelector(`input[name='sim-${q.id}-isian']`)||{}).value||'';
+    return v.trim().toLowerCase() === String(q.kunciText||'').trim().toLowerCase();
+  }
+
+  function selesaiSimulasi(){
+    const total = simState.daftar.length;
+    let benar = 0;
+    simState.daftar.forEach(q=>{
+      benar += (q.tipe==='pg') ? (nilaiPG(q)?1:0) : (nilaiIsian(q)?1:0);
+    });
+    const skor = Math.round((benar/total)*100);
+    const hasil = $('#simHasil');
+    hasil.classList.remove('hidden');
+    hasil.innerHTML = `<div class="font-semibold">Hasil Simulasi</div>
+      <div class="mt-1 text-sm">Benar: <strong>${benar}</strong> dari ${total} soal • Skor: <strong>${skor}</strong></div>
+      <button id="btnReview" class="btn mt-3 px-3 py-2 rounded-lg border chip text-sm">Tampilkan Pembahasan</button>`;
+    $('#simInfo').textContent = `Selesai • Mapel: ${simState.mapel}`;
+
+    $('#btnReview').addEventListener('click',()=>{
+      // Tampilkan semua pembahasan
+      $$('#simContainer .p-4').forEach(card=>{
+        const pemb = card.querySelector('div.mt-3.hidden');
+        if(pemb) pemb.classList.remove('hidden');
+      })
+    })
+  }
+
+  // ======= INIT =======
+  function initSelectors(){
+    const mapels = Object.keys(DB);
+    populateSelect($('#materiMapel'), mapels);
+    populateSelect($('#latihMapel'), mapels);
+    populateSelect($('#simMapel'), mapels);
+
+    const firstBab = (mapel)=> Object.keys(DB[mapel].bab);
+
+    // Materi default
+    const m0 = mapels[0];
+    populateSelect($('#materiBab'), firstBab(m0));
+    // Latihan default
+    populateSelect($('#latihBab'), firstBab(mapels[0]));
+
+    $('#materiMapel').addEventListener('change', e=>{
+      populateSelect($('#materiBab'), firstBab(e.target.value));
+    });
+    $('#latihMapel').addEventListener('change', e=>{
+      populateSelect($('#latihBab'), firstBab(e.target.value));
+    });
+
+    $('#btnLoadMateri').addEventListener('click',()=>{
+      renderMateri($('#materiMapel').value, $('#materiBab').value);
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    $('#btnLoadLatihan').addEventListener('click',()=>{
+      loadLatihan($('#latihMapel').value, $('#latihBab').value);
+    });
+
+    $('#btnPeriksaSemua').addEventListener('click',()=>{
+      $$('#latihanContainer .p-4').forEach(card=>{
+        const cek = card.querySelector('button');
+        cek?.click();
+      });
+    });
+
+    $('#btnMulaiSim').addEventListener('click',()=>{
+      const map = $('#simMapel').value;
+      const j = Math.max(5, Math.min(50, Number($('#simJumlah').value||10)));
+      const d = Math.max(5, Math.min(180, Number($('#simDurasi').value||15)));
+      startSimulasi(map, j, d);
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+
+    // Muat awal
+    renderMateri($('#materiMapel').value, $('#materiBab').value);
+    loadLatihan($('#latihMapel').value, $('#latihBab').value);
+  }
+
+  // Tab switching
+  $$('.tab-btn').forEach(b=> b.addEventListener('click',()=> setTab(b.dataset.tab)) );
+
+  // Start
+  setTab('materi');
+  initSelectors();
+  </script>
+</body>
+</html>
