@@ -254,21 +254,26 @@ bab: {
     'Menyimpan cadangan kalsium',
     'Sebagai indera peraba'
   ],
-  jawaban: [
+  bahas: [
     'Melindungi organ dalam',
     'Membantu mengatur suhu tubuh',
     'Sebagai indera peraba'
   ]
 },
 
-// Benar/Salah (BS)
 {
   id: 'se7',
   tipe: 'bs',
-  tanya: 'Kulit berfungsi sebagai indera peraba.',
-  jawaban: 'Benar'
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang kulit:',
+  opsi: [
+    'Kulit berfungsi sebagai indera peraba',
+    'Kulit tidak memiliki reseptor sama sekali',
+    'Kulit dapat merasakan sentuhan, tekanan, suhu, dan nyeri',
+    'Kulit hanya berfungsi melindungi tubuh secara fisik tanpa peran sensorik'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Kulit berfungsi sebagai indera peraba karena memiliki reseptor yang mampu merasakan sentuhan, tekanan, suhu, dan nyeri. Jadi pernyataan 1 dan 3 benar, sedangkan 2 dan 4 salah.'
 },
-// Pilihan Ganda (PG)
 {
   id: 'se8',
   tipe: 'pg',
@@ -279,18 +284,22 @@ bab: {
     'Asam laktat',
     'Keratin'
   ],
-  jawaban: 'Empedu'
+  kunci: 1,
+  bahas: 'Hati berperan sebagai organ ekskresi karena menghasilkan empedu yang merupakan hasil penguraian hemoglobin.'
 },
-
-// Benar/Salah (BS)
 {
   id: 'se9',
   tipe: 'bs',
-  tanya: 'Salah satu fungsi hati adalah mengubah amonia menjadi urea yang kemudian dibuang melalui urin.',
-  jawaban: 'Benar'
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang hati:',
+  opsi: [
+    'Hati mengubah amonia menjadi urea',
+    'Urea hasil dari hati akan dibuang melalui urin oleh ginjal',
+    'Hati berfungsi sebagai tempat pertukaran gas O₂ dan CO₂',
+    'Hati menghasilkan empedu sebagai salah satu zat sisa metabolisme'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Hati mengubah amonia menjadi urea (benar). Urea kemudian dibuang oleh ginjal melalui urin (benar). Pertukaran gas tidak terjadi di hati (salah). Hati juga menghasilkan empedu (benar).'
 },
-
-// Checklist (CB)
 {
   id: 'se10',
   tipe: 'cb',
@@ -301,20 +310,16 @@ bab: {
     'Ureum',
     'Hemoglobin'
   ],
-  jawaban: [
-    'Empedu',
-    'Bilirubin'
-  ]
+  kunci: [0,1],
+  bahas: 'Hati menghasilkan empedu yang mengandung bilirubin. Ureum dibentuk di hati tetapi dikeluarkan lewat ginjal. Hemoglobin bukan zat ekskresi.'
 },
-
-// Isian
 {
   id: 'se11',
   tipe: 'isian',
   tanya: 'Zat sisa hasil pemecahan hemoglobin yang dikeluarkan hati melalui empedu adalah ....',
-  jawaban: 'Bilirubin'
+  kunciText: 'Bilirubin',
+  bahas: 'Bilirubin adalah hasil pemecahan hemoglobin yang diekskresikan hati melalui empedu.'
 },
-// Pilihan Ganda (PG)
 {
   id: 'se12',
   tipe: 'pg',
@@ -325,18 +330,23 @@ bab: {
     'Jarang berolahraga',
     'Mengabaikan tekanan darah tinggi'
   ],
-  jawaban: 'Minum air putih yang cukup setiap hari'
+  kunci: 1,
+  bahas: 'Kebiasaan minum air putih yang cukup setiap hari membantu menjaga kesehatan ginjal.'
 },
-
-// Benar/Salah (BS)
 {
   id: 'se13',
   tipe: 'bs',
-  tanya: 'Mengurangi konsumsi minuman bersoda dan beralkohol merupakan salah satu cara menjaga kesehatan ginjal.',
-  jawaban: 'Benar'
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang menjaga kesehatan ginjal:',
+  opsi: [
+    'Mengurangi konsumsi minuman bersoda dan beralkohol dapat menjaga kesehatan ginjal',
+    'Jarang minum air putih membuat ginjal bekerja lebih baik',
+    'Menjaga tekanan darah normal penting untuk kesehatan ginjal',
+    'Mengonsumsi obat tanpa resep secara berlebihan baik untuk ginjal'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Mengurangi minuman bersoda dan alkohol membantu meringankan kerja ginjal (benar). Kekurangan air putih justru membebani ginjal (salah). Menjaga tekanan darah normal baik untuk ginjal (benar). Konsumsi obat berlebihan dapat merusak ginjal (salah).'
 },
 
-// Checklist (CB)
 {
   id: 'se14',
   tipe: 'cb',
@@ -347,19 +357,15 @@ bab: {
     'Mengonsumsi obat tanpa resep secara berlebihan',
     'Mengontrol kadar gula darah'
   ],
-  jawaban: [
-    'Minum cukup air putih',
-    'Menjaga tekanan darah normal',
-    'Mengontrol kadar gula darah'
-  ]
+  kunci: [0,1,3],
+  bahas: 'Menjaga ginjal sehat dilakukan dengan minum cukup air, menjaga tekanan darah, dan mengontrol gula darah. Mengonsumsi obat berlebihan justru merusak ginjal.'
 },
-
-// Isian
 {
   id: 'se15',
   tipe: 'isian',
   tanya: 'Salah satu kebiasaan yang harus dilakukan setiap hari untuk menjaga kesehatan ginjal adalah rutin minum ....',
-  jawaban: 'air putih'
+  kunciText: 'air putih',
+  bahas: 'Kebiasaan minum air putih rutin sangat penting agar ginjal tetap berfungsi baik dalam menyaring darah.'
 },
   ]
 },
@@ -1140,47 +1146,329 @@ bab: {
 
   soal: [
     {
-      id: 'us1',
-      tipe: 'pg',
-      tanya: 'Usaha dalam fisika didefinisikan sebagai ...',
-      opsi: [
-        'Hasil kali gaya dengan massa benda',
-        'Hasil kali gaya dengan perpindahan searah gaya',
-        'Energi yang hilang karena gesekan',
-        'Perpindahan benda tanpa adanya gaya'
-      ],
-      kunci: 1,
-      bahas: 'Usaha adalah hasil kali gaya dengan perpindahan searah gaya (W = F × s × cos θ).'
-    },
-    {
-      id: 'us2',
-      tipe: 'bs',
-      tanya: 'Jika gaya tegak lurus terhadap perpindahan (θ = 90°), maka usaha yang dilakukan adalah nol.',
-      kunci: true,
-      bahas: 'Karena cos 90° = 0, maka W = F × s × 0 = 0.'
-    },
-    {
-      id: 'us3',
-      tipe: 'cb',
-      tanya: 'Pilihlah pernyataan yang benar tentang usaha!',
-      opsi: [
-        'Usaha bernilai negatif jika gaya berlawanan arah dengan perpindahan',
-        'Usaha tidak terjadi jika tidak ada perpindahan',
-        'Usaha selalu bernilai positif',
-        'Usaha terjadi hanya jika benda dalam keadaan diam'
-      ],
-      kunci: [0,1],
-      bahas: 'Usaha bernilai negatif jika gaya berlawanan arah dengan perpindahan, dan usaha tidak terjadi tanpa perpindahan.'
-    },
-    {
-      id: 'us4',
-      tipe: 'isian',
-      tanya: 'Tuliskan rumus umum usaha dalam fisika!',
-      kunciText: 'W = F × s × cos θ',
-      bahas: 'Usaha dihitung dengan rumus W = F × s × cos θ, dengan θ adalah sudut antara gaya dan perpindahan.'
-    }
+  id: 'us1',
+  tipe: 'pg',
+  tanya: 'Seorang siswa mendorong meja dengan gaya 50 N sejauh 2 meter di lantai datar. Berdasarkan deskripsi tersebut, definisi usaha yang benar adalah ...',
+  opsi: [
+    'Perpindahan benda yang disebabkan oleh adanya massa',
+    'Hasil kali gaya yang bekerja dengan waktu gaya itu diberikan',
+    'Hasil kali gaya dengan perpindahan searah gaya',
+    'Energi potensial yang dimiliki benda karena posisinya'
+  ],
+  kunci: 2,
+  bahas: 'Usaha dalam fisika didefinisikan sebagai hasil kali gaya dengan perpindahan searah gaya, ditulis W = F × s × cos θ.'
+},
+{
+  id: 'us2',
+  tipe: 'cb',
+  tanya: 'Seorang pekerja menarik kereta dengan gaya tertentu. Pernyataan yang benar tentang usaha adalah ...',
+  opsi: [
+    'Usaha terjadi jika ada gaya dan perpindahan',
+    'Usaha bernilai nol jika tidak terjadi perpindahan',
+    'Usaha tidak dipengaruhi arah gaya terhadap perpindahan',
+    'Usaha bernilai negatif jika gaya berlawanan arah dengan perpindahan'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Usaha hanya terjadi jika ada gaya dan perpindahan. Jika tidak ada perpindahan, usaha = 0. Usaha bernilai negatif bila gaya berlawanan arah dengan perpindahan.'
+},
+{
+  id: 'us3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang usaha:',
+  opsi: [
+    'Usaha selalu bernilai positif',
+    'Jika gaya tegak lurus terhadap perpindahan maka usaha = 0',
+    'Usaha dapat bernilai negatif',
+    'Usaha adalah energi yang ditransfer oleh gaya'
+  ],
+  kunci: [false,true,true,true],
+  bahas: 'Usaha tidak selalu positif (salah). Jika gaya tegak lurus perpindahan, W=0 (benar). Usaha bisa negatif bila gaya berlawanan arah dengan perpindahan (benar). Usaha adalah bentuk transfer energi (benar).'
+},
+{
+  id: 'us4',
+  tipe: 'isian',
+  tanya: 'Seorang siswa mendorong benda dengan gaya F sehingga benda berpindah sejauh s. Rumus umum usaha dalam fisika adalah ....',
+  kunciText: 'W = F × s × cos θ',
+  bahas: 'Usaha dihitung dengan rumus W = F × s × cos θ, di mana θ adalah sudut antara arah gaya dan perpindahan.'
+},
+// ======= US5: PG =======
+{
+  id: 'us5',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar berikut! Sebuah benda dikenai gaya F1=12 N ke kanan, F2=24 N ke kanan, dan F3=36 N ke kiri. Besarnya usaha total jika benda berpindah sejauh 5 m ke kanan adalah ...',
+  gambar: 'https://imgix2.ruangguru.com/assets/miscellaneous/png_lt9tbe_8541.png',
+  opsi: [
+    '0 J',
+    '30 J',
+    '60 J',
+    '150 J'
+  ],
+  kunci: 3,
+  bahas: 'Usaha total = ΣF × s = (F1 + F2 - F3) × s = (12 + 24 - 36) × 5 = 0 × 5 = 0 J. Jadi benda tidak melakukan usaha bersih ke kanan.'
+},
+
+// ======= US6: CB =======
+{
+  id: 'us6',
+  tipe: 'cb',
+  tanya: 'Pilihlah gaya-gaya yang searah dengan perpindahan benda pada gambar!',
+  gambar: 'https://imgix2.ruangguru.com/assets/miscellaneous/png_lt9tbe_8541.png',
+  opsi: [
+    'F1 = 12 N',
+    'F2 = 24 N',
+    'F3 = 36 N'
+  ],
+  kunci: [0,1],
+  bahas: 'Gaya yang searah perpindahan (kanan) adalah F1 dan F2. F3 ke kiri berlawanan arah sehingga tidak termasuk.'
+},
+
+// ======= US7: BS =======
+{
+  id: 'us7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang usaha pada gambar:',
+  gambar: 'https://imgix2.ruangguru.com/assets/miscellaneous/png_lt9tbe_8541.png',
+  opsi: [
+    'Usaha F1 searah perpindahan positif',
+    'Usaha F2 berlawanan arah dengan perpindahan',
+    'Usaha F3 negatif karena berlawanan arah dengan perpindahan',
+    'Usaha total benda selalu positif'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Usaha F1 searah dengan perpindahan → positif (benar). F2 searah → positif, bukan berlawanan (salah). F3 berlawanan arah → usaha negatif (benar). Usaha total = 0 J → tidak selalu positif (salah).'
+},
+
+// ======= US8: Isian =======
+{
+  id: 'us8',
+  tipe: 'isian',
+  tanya: 'Hitunglah usaha yang dilakukan oleh gaya F3 (36 N ke kiri) jika benda berpindah sejauh 5 m ke kanan!',
+  kunciText: '-180',
+  bahas: 'Usaha W = F × s × cosθ. Karena F3 berlawanan arah perpindahan, θ = 180°, cos180° = -1 → W = 36 × 5 × (-1) = -180 J.'
+}
+
   ]
 },
+'Energi': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Energi dalam Fisika</h2>
+<p>
+  <b>Energi</b> adalah kemampuan suatu benda untuk melakukan usaha. Energi dapat berbentuk berbagai jenis, 
+  antara lain energi kinetik, energi potensial, dan energi mekanik. Energi dapat berpindah dari satu benda ke benda lain 
+  atau berubah bentuk, tetapi jumlah total energi dalam sistem tertutup tetap (hukum kekekalan energi).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Energi Kinetik (EK)</h3>
+<p>
+  Energi kinetik adalah energi yang dimiliki benda karena geraknya. Besarnya energi kinetik suatu benda dihitung dengan rumus:
+</p>
+<p class="ml-6">EK = 1/2 × m × v²</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>m</b> = massa benda (kg)</li>
+  <li><b>v</b> = kecepatan benda (m/s)</li>
+  <li><b>EK</b> = energi kinetik (Joule, J)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Energi Potensial (EP)</h3>
+<p>
+  Energi potensial adalah energi yang dimiliki benda karena posisinya. Contoh paling umum adalah energi potensial gravitasi:
+</p>
+<p class="ml-6">EP = m × g × h</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>m</b> = massa benda (kg)</li>
+  <li><b>g</b> = percepatan gravitasi (m/s²)</li>
+  <li><b>h</b> = ketinggian benda dari titik acuan (m)</li>
+  <li><b>EP</b> = energi potensial (Joule, J)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Hubungan Energi Kinetik dan Potensial</h3>
+<p>
+  Dalam sistem mekanik, energi potensial dapat berubah menjadi energi kinetik dan sebaliknya. Total energi mekanik 
+  (EM) adalah jumlah energi kinetik dan energi potensial:
+</p>
+<p class="ml-6">EM = EK + EP</p>
+<p>Jika tidak ada gaya luar yang bekerja (gesekan diabaikan), total energi mekanik benda tetap.</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Hubungan Energi dengan Usaha</h3>
+<p>
+  Usaha yang dilakukan pada benda akan mengubah energi benda tersebut. Misalnya:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>Usaha positif → meningkatkan energi kinetik atau energi potensial</li>
+  <li>Usaha negatif → mengurangi energi benda</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Sebuah benda bermassa 2 kg jatuh bebas dari ketinggian 5 m. Hitung kecepatan benda saat menyentuh tanah (g = 10 m/s²)!</p>
+<p><i>Jawab:</i> EP awal = EK akhir → mgh = 1/2 m v² → 2×10×5 = 1/2×2×v² → 100 = v² → v = 10 m/s</p>
+
+<p><b>Contoh 2:</b> Sebuah mobil bermassa 1000 kg melaju dengan kecepatan 20 m/s. Hitung energi kinetiknya!</p>
+<p><i>Jawab:</i> EK = 1/2 m v² = 1/2 × 1000 × 20² = 200.000 J</p>
+`,
+  video: ['H0HgP5zC4wE'], // bisa diganti sesuai video energi
+
+  soal: [
+    // ======= E1: PG =======
+{
+  id: 'e1',
+  tipe: 'pg',
+  tanya: 'Sebuah benda bermassa 2 kg berada di atas meja setinggi 3 m dari lantai. Besarnya energi potensial benda terhadap lantai adalah ... (gunakan g = 10 m/s²)',
+  opsi: [
+    '5 J',
+    '20 J',
+    '30 J',
+    '60 J'
+  ],
+  kunci: 2,
+  bahas: 'EP = m × g × h = 2 × 10 × 3 = 60 J. Jadi energi potensial benda terhadap lantai adalah 60 J.'
+},
+// ======= E1: CB =======
+{
+  id: 'e1_cb',
+  tipe: 'cb',
+  tanya: 'Pilih pernyataan yang benar tentang energi potensial benda:',
+  opsi: [
+    'EP meningkat jika massa benda bertambah',
+    'EP menurun jika benda dinaikkan lebih tinggi',
+    'EP tergantung ketinggian dari titik acuan',
+    'EP tidak dipengaruhi oleh gravitasi'
+  ],
+  kunci: [0,2],
+  bahas: 'Energi potensial EP = m × g × h. Jadi EP bertambah jika massa bertambah dan tergantung tinggi. Gravitasi memengaruhi EP, jadi pernyataan 3 benar, 1 benar, 2 dan 4 salah.'
+},
+// ======= E1: BS =======
+{
+  id: 'e1_bs',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang energi potensial:',
+  opsi: [
+    'Semakin tinggi posisi benda, semakin besar EP',
+    'EP hanya bergantung pada massa benda',
+    'EP bernilai nol jika benda berada di titik acuan',
+    'EP dapat bernilai negatif jika benda berada di bawah titik acuan'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'EP = m × g × h. Semakin tinggi benda → EP lebih besar (benar). EP juga dipengaruhi g dan h, bukan hanya massa (salah). Di titik acuan → EP = 0 (benar). Di bawah titik acuan → h negatif → EP negatif (benar).'
+},
+// ======= E1: Isian =======
+{
+  id: 'e1_isian',
+  tipe: 'isian',
+  tanya: 'Sebuah benda bermassa 3 kg berada di ketinggian 4 m dari lantai. Hitung energi potensialnya (g = 10 m/s²)!',
+  kunciText: '120',
+  bahas: 'EP = m × g × h = 3 × 10 × 4 = 120 J.'
+},
+// ======= E2: PG =======
+{
+  id: 'e2',
+  tipe: 'pg',
+  tanya: 'Sebuah benda bermassa 2 kg jatuh bebas dari ketinggian 5 m. Jika g = 10 m/s², kecepatan benda saat menyentuh tanah adalah ...',
+  opsi: [
+    '5 m/s',
+    '10 m/s',
+    '15 m/s',
+    '20 m/s'
+  ],
+  kunci: 2,
+  bahas: 'Menggunakan hukum kekekalan energi: EP awal = EK akhir → mgh = 1/2 m v². \n2 × 10 × 5 = 1/2 × 2 × v² → 100 = v² → v = √100 = 10 m/s.\nJadi kecepatan saat menyentuh tanah adalah 10 m/s.'
+},
+
+// ======= E2: CB =======
+{
+  id: 'e2_cb',
+  tipe: 'cb',
+  tanya: 'Pilih pernyataan yang benar tentang benda jatuh bebas:',
+  opsi: [
+    'Energi potensial diubah menjadi energi kinetik saat jatuh',
+    'Kecepatan benda konstan selama jatuh bebas',
+    'Benda memiliki energi kinetik nol di permulaan jatuh',
+    'Energi mekanik total selalu berkurang'
+  ],
+  kunci: [0,2],
+  bahas: 'Saat jatuh bebas, EP berubah menjadi EK (benar). Di awal, kecepatan = 0 → EK = 0 (benar). Kecepatan bertambah selama jatuh (salah). Energi mekanik total tetap (salah).'
+},
+
+// ======= E2: BS =======
+{
+  id: 'e2_bs',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang benda jatuh:',
+  opsi: [
+    'Kecepatan benda saat menyentuh tanah dapat dihitung dari EP awal',
+    'Benda kehilangan energi mekanik saat jatuh bebas jika tidak ada gesekan udara',
+    'Energi potensial maksimum terjadi di posisi paling tinggi',
+    'Energi kinetik maksimum terjadi di posisi paling bawah'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Kecepatan dapat dihitung dari EP awal (benar). Tanpa gesekan → energi mekanik tetap (salah). EP maksimum di titik tertinggi (benar). EK maksimum di titik paling rendah (benar).'
+},
+
+// ======= E2: Isian =======
+{
+  id: 'e2_isian',
+  tipe: 'isian',
+  tanya: 'Sebuah benda bermassa 3 kg jatuh dari ketinggian 8 m. Hitung kecepatan benda saat menyentuh tanah (g = 10 m/s²)!',
+  kunciText: '12.65',
+  bahas: 'EP awal = EK akhir → mgh = 1/2 m v² → 3×10×8 = 1/2×3×v² → 240 = 1.5 v² → v² = 160 → v = √160 ≈ 12.65 m/s.'
+},
+// ======= E3: PG =======
+{
+  id: 'e3',
+  tipe: 'pg',
+  tanya: 'Manakah yang termasuk sumber energi tak terbarukan?',
+  opsi: [
+    'Minyak bumi',
+    'Tenaga surya',
+    'Angin',
+    'Air'
+  ],
+  kunci: 0,
+  bahas: 'Energi tak terbarukan adalah energi yang jumlahnya terbatas dan tidak dapat diperbarui dalam waktu singkat. Contohnya adalah minyak bumi, batu bara, dan gas alam.'
+},
+
+// ======= E3: CB =======
+{
+  id: 'e3_cb',
+  tipe: 'cb',
+  tanya: 'Pilih semua yang termasuk energi tak terbarukan!',
+  opsi: [
+    'Batu bara',
+    'Gas alam',
+    'Tenaga angin',
+    'Minyak bumi',
+    'Tenaga air'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Batu bara, gas alam, dan minyak bumi termasuk energi tak terbarukan. Tenaga angin dan air adalah energi terbarukan.'
+},
+
+// ======= E3: BS =======
+{
+  id: 'e3_bs',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang energi tak terbarukan:',
+  opsi: [
+    'Minyak bumi termasuk energi tak terbarukan',
+    'Tenaga surya termasuk energi tak terbarukan',
+    'Batu bara adalah contoh energi tak terbarukan',
+    'Gas alam tidak termasuk energi tak terbarukan'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Minyak bumi dan batu bara termasuk energi tak terbarukan. Tenaga surya adalah energi terbarukan. Gas alam termasuk energi tak terbarukan.'
+},
+
+// ======= E3: Isian =======
+{
+  id: 'e3_isian',
+  tipe: 'isian',
+  tanya: 'Sebutkan salah satu contoh energi tak terbarukan!',
+  kunciText: 'Minyak bumi',
+  bahas: 'Contoh energi tak terbarukan antara lain minyak bumi, batu bara, dan gas alam.'
+},
+
+  ]
+},
+
 
   }
 },
@@ -1842,7 +2130,7 @@ bab: {
     '\\(7,7 \\times 10^7\\)',
     '\\(3,65 \\times 10^5\\)'
   ],
-  kunci: 0,
+  kunciText: 0,
   bahas: 'Ubahlah kedua bilangan ke pangkat yang sama: \\(3,2 \\times 10^4 = 32.000\\), \\(4,5 \\times 10^3 = 4.500 = 0,45 \\times 10^4\\). Jumlah = \\((3,2 + 0,45) \\times 10^4 = 3,65 \\times 10^4\\).'
 },
 {
