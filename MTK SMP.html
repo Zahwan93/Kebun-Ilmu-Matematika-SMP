@@ -361,9 +361,6 @@ bab: {
   tanya: 'Salah satu kebiasaan yang harus dilakukan setiap hari untuk menjaga kesehatan ginjal adalah rutin minum ....',
   jawaban: 'air putih'
 },
-
-
-
   ]
 },
 'Sistem Pernapasan': {
@@ -1090,12 +1087,100 @@ bab: {
   kunciText: 'zat besi',
   bahas: 'Zat besi adalah mineral penting untuk pembentukan hemoglobin. Kekurangan zat besi menyebabkan anemia.'
 },
-
-
-
-
   ]
-}
+},
+'Usaha': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Usaha (Work) dalam Fisika</h2>
+<p>
+  Dalam fisika, <b>usaha</b> didefinisikan sebagai hasil kali gaya yang bekerja pada suatu benda dengan perpindahan 
+  benda tersebut, serta mempertimbangkan arah gaya dan perpindahan. Usaha bernilai positif jika gaya searah dengan 
+  perpindahan, dan bernilai negatif jika gaya berlawanan dengan perpindahan.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Rumus Usaha</h3>
+<p>
+  Rumus umum usaha:
+</p>
+<p class="ml-6">
+  W = F × s × cos θ
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>W</b> = usaha (Joule, J)</li>
+  <li><b>F</b> = gaya (Newton, N)</li>
+  <li><b>s</b> = perpindahan (meter, m)</li>
+  <li><b>θ</b> = sudut antara arah gaya dan perpindahan</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Ciri-ciri Usaha</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Terjadi gaya yang bekerja pada benda.</li>
+  <li>Terjadi perpindahan benda.</li>
+  <li>Ada komponen gaya yang searah dengan perpindahan.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh Usaha dalam Kehidupan Sehari-hari</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Menarik gerobak dengan gaya tertentu hingga berpindah sejauh beberapa meter.</li>
+  <li>Mendorong meja hingga bergeser.</li>
+  <li>Ketika seseorang membawa beban naik ke atas tangga.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Hubungan Usaha dengan Energi</h3>
+<p>
+  Usaha memiliki hubungan erat dengan energi. Usaha yang dilakukan pada benda dapat mengubah energi benda tersebut, 
+  baik berupa energi kinetik maupun energi potensial.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Sebuah gaya 20 N menggeser benda sejauh 5 m searah gaya. Usaha yang dilakukan adalah .... <i>Jawab: W = 20 × 5 = 100 J</i>.</p>
+<p><b>Contoh 2:</b> Seseorang menarik koper dengan gaya 50 N membentuk sudut 60° terhadap arah mendatar sejauh 10 m. Usaha yang dilakukan adalah .... <i>Jawab: W = 50 × 10 × cos 60° = 250 J</i>.</p>
+`,
+  video: ['H0HgP5zC4wE'],
+
+  soal: [
+    {
+      id: 'us1',
+      tipe: 'pg',
+      tanya: 'Usaha dalam fisika didefinisikan sebagai ...',
+      opsi: [
+        'Hasil kali gaya dengan massa benda',
+        'Hasil kali gaya dengan perpindahan searah gaya',
+        'Energi yang hilang karena gesekan',
+        'Perpindahan benda tanpa adanya gaya'
+      ],
+      kunci: 1,
+      bahas: 'Usaha adalah hasil kali gaya dengan perpindahan searah gaya (W = F × s × cos θ).'
+    },
+    {
+      id: 'us2',
+      tipe: 'bs',
+      tanya: 'Jika gaya tegak lurus terhadap perpindahan (θ = 90°), maka usaha yang dilakukan adalah nol.',
+      kunci: true,
+      bahas: 'Karena cos 90° = 0, maka W = F × s × 0 = 0.'
+    },
+    {
+      id: 'us3',
+      tipe: 'cb',
+      tanya: 'Pilihlah pernyataan yang benar tentang usaha!',
+      opsi: [
+        'Usaha bernilai negatif jika gaya berlawanan arah dengan perpindahan',
+        'Usaha tidak terjadi jika tidak ada perpindahan',
+        'Usaha selalu bernilai positif',
+        'Usaha terjadi hanya jika benda dalam keadaan diam'
+      ],
+      kunci: [0,1],
+      bahas: 'Usaha bernilai negatif jika gaya berlawanan arah dengan perpindahan, dan usaha tidak terjadi tanpa perpindahan.'
+    },
+    {
+      id: 'us4',
+      tipe: 'isian',
+      tanya: 'Tuliskan rumus umum usaha dalam fisika!',
+      kunciText: 'W = F × s × cos θ',
+      bahas: 'Usaha dihitung dengan rumus W = F × s × cos θ, dengan θ adalah sudut antara gaya dan perpindahan.'
+    }
+  ]
+},
 
   }
 },
