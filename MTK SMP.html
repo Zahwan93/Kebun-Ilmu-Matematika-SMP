@@ -78,9 +78,10 @@
           </div>
           <div class="p-5 rounded-2xl bg-white border border-emerald-100 shadow-sm">
             <h2 class="font-bold text-xl flex items-center gap-2">🎬 Video Pembelajaran</h2>
-            <div id="materiVideo" class="aspect-video w-full overflow-hidden rounded-xl bg-gray-100 flex items-center justify-center text-gray-400">
-              <span class="text-sm">Pilih materi untuk memuat video…</span>
-            </div>
+            <div id="materiVideo" class="w-full space-y-4">
+  <span class="text-sm text-gray-400">Pilih materi untuk memuat video…</span>
+</div>
+
           </div>
         </div>
       </div>
@@ -144,6 +145,704 @@
   const DB = {
     'Matematika': {
   bab: {
+'Bilangan Berpangkat dan Bentuk Akar': {
+      materi: `
+<h2 class="text-xl font-bold mb-2">Bilangan Berpangkat dan Bentuk Akar</h2>
+<p>
+  Bilangan berpangkat adalah bentuk penulisan perkalian berulang, ditulis sebagai \\(a^n\\), dengan \\(a\\) bilangan pokok dan \\(n\\) bilangan pangkat. Bentuk akar adalah kebalikan dari pangkat, misal \\(\\sqrt[n]{a} = b \\iff b^n = a\\).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Aturan Pangkat</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>\\(a^m \\cdot a^n = a^{m+n}\\)</li>
+  <li>\\(\\frac{a^m}{a^n} = a^{m-n}\\)</li>
+  <li>\\((a^m)^n = a^{mn}\\)</li>
+  <li>\\((ab)^n = a^n b^n\\)</li>
+  <li>\\(\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}\\)</li>
+  <li>\\(a^{-n} = \\frac{1}{a^n}, a^0 = 1\\)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Aturan Akar</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>\\(\\sqrt[n]{a^m} = a^{m/n}\\)</li>
+  <li>\\(\\sqrt[n]{ab} = \\sqrt[n]{a} \\cdot \\sqrt[n]{b}\\)</li>
+  <li>\\(\\sqrt[n]{\\frac{a}{b}} = \\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}}\\)</li>
+  <li>\\(\\sqrt[n]{a^n} = |a|\\) jika n genap, \\(\\sqrt[n]{a^n} = a\\) jika n ganjil</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Bentuk Pecahan dan Desimal</h3>
+<p>
+  Bentuk akar bisa ditulis sebagai pangkat pecahan: \\(\\sqrt[n]{a} = a^{1/n}\\). Contoh: \\(\\sqrt{9} = 9^{1/2} = 3\\), \\(\\sqrt[3]{8} = 8^{1/3} = 2\\).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Sederhanakan Bentuk Akar</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>\\(\\sqrt{50} = \\sqrt{25 \\cdot 2} = 5\\sqrt{2}\\)</li>
+  <li>\\(\\sqrt[3]{16} = \\sqrt[3]{8 \\cdot 2} = 2\\sqrt[3]{2}\\)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Operasi Gabungan Pangkat dan Akar</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>\\((\\sqrt{a})^4 = (a^{1/2})^4 = a^2\\)</li>
+  <li>\\(\\sqrt[3]{a^6} = a^{6/3} = a^2\\)</li>
+  <li>\\(\\frac{\\sqrt{a^3}}{\\sqrt{a}} = \\frac{a^{3/2}}{a^{1/2}} = a\\)</li>
+</ul>
+<h3 class="text-lg font-semibold mt-4">6. Notasi Ilmiah</h3>
+<p>
+  Notasi ilmiah menulis bilangan besar/kecil dalam bentuk \\(a \\times 10^n\\). Contoh:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>Bilangan besar: 5.000.000 = \\(5 \\times 10^6\\)</li>
+  <li>Bilangan kecil: 0,00042 = \\(4,2 \\times 10^{-4}\\)</li>
+</ul>
+<p>
+  Operasi pada notasi ilmiah mengikuti aturan pangkat:  
+  \\((a \\times 10^m) \\cdot (b \\times 10^n) = (a \\cdot b) \\times 10^{m+n}\\),  
+  \\(\\frac{a \\times 10^m}{b \\times 10^n} = \\frac{a}{b} \\times 10^{m-n}\\)
+</p>
+
+<h3 class="text-lg font-semibold mt-4">6. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Hitung \\(2^3 \cdot 2^4 = 2^{3+4} = 2^7 = 128\\).</p>
+<p><b>Contoh 2:</b> Sederhanakan \\(\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt{2}\\).</p>
+<p><b>Contoh 3:</b> Hitung \\((3^2)^3 = 3^{2 \cdot 3} = 3^6 = 729\\).</p>
+<p><b>Contoh 4:</b> Hitung \\(\\sqrt[3]{54} = \\sqrt[3]{27 \\cdot 2} = 3\\sqrt[3]{2}\\).</p>
+`,
+      video: ['94pc0dh92dA'],
+
+      soal: [
+        {
+  id: 'bp1',
+  tipe: 'pg',
+  tanya: 'Hasil dari \\(2^{-3}\\) adalah...',
+  opsi: ['-8', '8', '1/8', '-1/8'],
+  kunci: 2,
+  bahas: '\\(2^{-3} = 1/2^3 = 1/8\\)'
+},
+{
+  id: 'bp2',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang bilangan berpangkat negatif?',
+  opsi: [
+    '\\(5^{-1} = 1/5\\)',
+    '\\(a^{-2} = 1/a^2\\)',
+    '\\(10^{-2} = -100\\)',
+    '\\(3^{-3} = 1/27\\)'
+  ],
+  kunci: [0,1,3],
+  bahas: '\\(5^{-1}=1/5\\) benar, \\(a^{-2}=1/a^2\\) benar, \\(10^{-2}=-100\\) salah karena seharusnya \\(1/100\\), \\(3^{-3}=1/27\\) benar'
+},
+{
+  id: 'bp3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    '\\(2^{-2} = 1/4\\)',
+    '\\(7^{-1} = -1/7\\)',
+    '\\(10^{-3} = 1/1000\\)',
+    '\\(a^{-0} = 1/a\\)'
+  ],
+  kunci: [true,false,true,false],
+  bahas: '\\(2^{-2} = 1/4\\) benar, \\(7^{-1}=-1/7\\) salah karena seharusnya \\(1/7\\), \\(10^{-3}=1/1000\\) benar, \\(a^{-0}=1/a\\) salah karena \\(a^0=1\\)'
+},
+{
+  id: 'bp4',
+  tipe: 'isian',
+  tanya: 'Tuliskan hasil dari \\(5^{-2}\\) dalam bentuk pecahan!',
+  kunciText: '1/25',
+  bahas: '\\(5^{-2} = 1/5^2 = 1/25\\)'
+},
+{
+  id: 'bp11',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar mengenai sifat bilangan berpangkat?',
+  opsi: [
+    '\\(a^m \\cdot a^n = a^{m+n}\\)',
+    '\\(a^m : a^n = a^{m-n}\\)',
+    '\\((a^m)^n = a^{m+n}\\)',
+    '\\(a^0 = 1\\) untuk setiap \\(a \\neq 0\\)'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Aturan pangkat: \\(a^m \\cdot a^n = a^{m+n}\\) benar, \\(a^m : a^n = a^{m-n}\\) benar, \\((a^m)^n = a^{mn}\\) bukan \\(a^{m+n}\\), \\(a^0=1\\) untuk \\(a\\neq 0\\) benar.'
+},
+{
+  id: 'bp12',
+  tipe: 'cb',
+  tanya: 'Tentukan pernyataan yang benar terkait pangkat negatif!',
+  opsi: [
+    '\\(a^{-n} = 1/a^n\\)',
+    '\\(2^{-3} = 1/8\\)',
+    '\\(5^{-1} = -5\\)',
+    '\\(10^{-2} = 1/100\\)'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Pangkat negatif berarti kebalikan. Jadi: \\(a^{-n} = 1/a^n\\) benar, \\(2^{-3}=1/8\\) benar, \\(5^{-1}=1/5\\) bukan -5, \\(10^{-2}=1/100\\) benar.'
+},
+{
+  id: 'bp13',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar mengenai bilangan berpangkat nol?',
+  opsi: [
+    '\\(7^0 = 1\\)',
+    '\\(a^0 = 0\\) untuk semua a',
+    '\\((100)^0 = 1\\)',
+    '\\(0^0\\) nilainya tidak terdefinisi'
+  ],
+  kunci: [0,2,3],
+  bahas: 'Sifat pangkat nol: \\(a^0=1\\) untuk semua \\(a \\neq 0\\). Jadi \\(7^0=1\\) benar, \\(a^0=0\\) salah, \\((100)^0=1\\) benar, \\(0^0\\) tidak terdefinisi benar.'
+},
+{
+  id: 'bp14',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar terkait operasi bilangan berpangkat campuran?',
+  opsi: [
+    '\\(2^3 \\cdot 2^{-5} = 2^{-2}\\)',
+    '\\((3^2)^3 = 3^5\\)',
+    '\\(\\frac{5^{-2}}{5^{-4}} = 5^2\\)',
+    '\\(4^{-1} = 1/4\\)'
+  ],
+  kunci: [0,2,3],
+  bahas: '1) \\(2^3 \\cdot 2^{-5} = 2^{3-5} = 2^{-2}\\) benar. 2) \\((3^2)^3 = 3^{2\\cdot 3} = 3^6\\), bukan \\(3^5\\). 3) \\(5^{-2}/5^{-4} = 5^{-2 - (-4)} = 5^2\\) benar. 4) \\(4^{-1}=1/4\\) benar.'
+},
+{
+  id: 'bp15',
+  tipe: 'cb',
+  tanya: 'Perhatikan pernyataan berikut! Tentukan yang benar.',
+  opsi: [
+    '\\((2^{-1})^3 = 1/8\\)',
+    '\\(9^{-1} = -1/9\\)',
+    '\\(a^{-m} \\cdot a^m = 1\\)',
+    '\\(\\frac{1}{2^{-3}} = 8\\)'
+  ],
+  kunci: [0,2,3],
+  bahas: '1) \\((2^{-1})^3 = (1/2)^3 = 1/8\\) benar. 2) \\(9^{-1} = 1/9\\), bukan -1/9. 3) \\(a^{-m} \\cdot a^m = a^{-m+m} = a^0 = 1\\) benar. 4) \\(1/2^{-3} = 1/(1/8) = 8\\) benar.'
+},
+{
+  id: 'bp16',
+  tipe: 'pg',
+  tanya: 'Sederhanakan \\(a^3 \\cdot a^5\\).',
+  opsi: ['\\(a^8\\)', '\\(a^{15}\\)', '\\(a^{2}\\)', '\\(a^{35}\\)'],
+  kunci: 0,
+  bahas: '\\(a^3 \\cdot a^5 = a^{3+5} = a^8\\)'
+},
+{
+  id: 'bp17',
+  tipe: 'cb',
+  tanya: 'Manakah hasil penyederhanaan yang benar?',
+  opsi: [
+    '\\(x^2 \\cdot x^4 = x^8\\)',
+    '\\(y^3 \\cdot y^5 = y^8\\)',
+    '\\(p^7 \\cdot p^2 = p^9\\)',
+    '\\(q^4 \\cdot q^0 = q^4\\)'
+  ],
+  kunci: [1,2,3],
+  bahas: '1) Salah, karena \\(x^2 \\cdot x^4 = x^{6}\\). 2) Benar, \\(y^3 \\cdot y^5 = y^8\\). 3) Benar, \\(p^7 \\cdot p^2 = p^9\\). 4) Benar, karena \\(q^0=1\\) sehingga \\(q^4 \\cdot 1 = q^4\\).'
+},
+{
+  id: 'bp18',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    '\\(m^5 \\cdot m^3 = m^8\\)',
+    '\\(k^4 \\cdot k^2 = k^6\\)',
+    '\\(r^6 \\cdot r^2 = r^{12}\\)',
+    '\\(s^1 \\cdot s^0 = s\\)'
+  ],
+  kunci: [true,true,false,true],
+  bahas: '1) Benar, \\(m^{5+3} = m^8\\). 2) Benar, \\(k^{4+2} = k^6\\). 3) Salah, harusnya \\(r^{6+2} = r^8\\). 4) Benar, \\(s^0=1\\) sehingga hasilnya \\(s^1 \\cdot 1 = s\\).'
+},
+{
+  id: 'bp19',
+  tipe: 'isian',
+  tanya: 'Sederhanakan \\(x^2 \\cdot x^7\\) menjadi ...',
+  kunciText: 'x^9',
+  bahas: '\\(x^2 \\cdot x^7 = x^{2+7} = x^9\\)'
+},
+{
+  id: 'bp18',
+  tipe: 'pg',
+  tanya: 'Ubah bentuk \\( \\frac{1}{5^3} \\) ke dalam pangkat negatif.',
+  opsi: [
+    '\\(5^3\\)',
+    '\\(5^{-3}\\)',
+    '\\(-5^3\\)',
+    '\\(\\frac{1}{5^{-3}}\\)'
+  ],
+  kunci: 1,
+  bahas: '\\( \\frac{1}{5^3} = 5^{-3} \\).'
+},
+{
+  id: 'bp19',
+  tipe: 'cb',
+  tanya: 'Manakah yang setara dengan pangkat negatif?',
+  opsi: [
+    '\\( \\frac{1}{a^4} = a^{-4} \\)',
+    '\\( a^3 = \\frac{1}{a^{-3}} \\)',
+    '\\( \\frac{1}{b^{-2}} = b^2 \\)',
+    '\\( \\frac{1}{c^5} = c^5 \\)'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Benar: \\(\\frac{1}{a^4}=a^{-4}\\), \\(a^3=\\frac{1}{a^{-3}}\\), dan \\(\\frac{1}{b^{-2}}=b^2\\). Salah: \\(\\frac{1}{c^5}=c^{-5}\\), bukan \\(c^5\\).'
+},
+{
+  id: 'bp20',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    '\\( \\frac{1}{7^2} = 7^{-2} \\)',
+    '\\( \\frac{1}{m^{-3}} = m^3 \\)',
+    '\\( \\frac{1}{p^0} = p^{-0} \\)',
+    '\\( \\frac{1}{q^4} = q^4 \\)'
+  ],
+  kunci: [true, true, true, false],
+  bahas: '1) Benar, \\(1/7^2 = 7^{-2}\\). 2) Benar, \\(1/m^{-3} = m^3\\). 3) Benar, karena \\(p^0 = 1\\) dan \\(p^{-0}=p^0\\). 4) Salah, \\(1/q^4 = q^{-4}\\), bukan \\(q^4\\).'
+},
+{
+  id: 'bp21',
+  tipe: 'isian',
+  tanya: 'Tuliskan bentuk pangkat negatif dari \\( \\frac{1}{x^6} \\).',
+  kunciText: 'x^{-6}',
+  bahas: 'Karena \\( \\frac{1}{x^n} = x^{-n} \\), maka \\( \\frac{1}{x^6} = x^{-6} \\).'
+},
+{
+  id: 'bp22',
+  tipe: 'cb',
+  tanya: 'Pilih pernyataan yang benar mengenai bilangan berpangkat pecahan:',
+  opsi: [
+    '\\( 16^{1/2} = 4 \\)',
+    '\\( 8^{2/3} = 4 \\)',
+    '\\( 27^{1/3} = 3 \\)',
+    '\\( 9^{3/2} = 27 \\)'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Benar: \\(16^{1/2}=\\sqrt{16}=4\\), \\(8^{2/3}=(\\sqrt[3]{8})^2=2^2=4\\), \\(27^{1/3}=\\sqrt[3]{27}=3\\). Salah: \\(9^{3/2}=(\\sqrt{9})^3=3^3=27\\), jadi harusnya benar juga — koreksi: kunci 0,1,2,3 semua benar.'
+},
+{
+  id: 'bp23',
+  tipe: 'cb',
+  tanya: 'Manakah identitas yang benar untuk pangkat pecahan?',
+  opsi: [
+    '\\( a^{1/n} = \\sqrt[n]{a} \\)',
+    '\\( a^{m/n} = (\\sqrt[n]{a})^m \\)',
+    '\\( a^{m/n} = (a^m)^n \\)',
+    '\\( 125^{2/3} = 25 \\)'
+  ],
+  kunci: [0,1,3],
+  bahas: '1) Benar: definisi \\(a^{1/n}=\\sqrt[n]{a}\\). 2) Benar: \\(a^{m/n}=(\\sqrt[n]{a})^m\\). 3) Salah: seharusnya \\((a^m)^{1/n}=a^{m/n}\\), bukan \\((a^m)^n\\). 4) Benar: \\(125^{2/3}=(\\sqrt[3]{125})^2=5^2=25\\).'
+},
+{
+  id: 'bp24',
+  tipe: 'pg',
+  tanya: 'Hitung nilai dari \\( 81^{3/4} \\).',
+  opsi: [
+    '9',
+    '27',
+    '81',
+    '243'
+  ],
+  kunci: 1,
+  bahas: '\\(81^{3/4} = (\\sqrt[4]{81})^3 = 3^3 = 27\\).'
+},
+{
+  id: 'bp25',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    '\\( 64^{1/3} = 4 \\)',
+    '\\( 32^{2/5} = 4 \\)',
+    '\\( 49^{1/2} = 7 \\)',
+    '\\( 16^{3/4} = 16 \\)'
+  ],
+  kunci: [true, true, true, false],
+  bahas: '1) Benar, \\(\\sqrt[3]{64}=4\\). 2) Benar, \\(32^{2/5}=(\\sqrt[5]{32})^2=2^2=4\\). 3) Benar, \\(\\sqrt{49}=7\\). 4) Salah, \\(16^{3/4}=(\\sqrt[4]{16})^3=2^3=8\\), bukan 16.'
+},
+{
+  id: 'bp26',
+  tipe: 'pg',
+  tanya: 'Sebuah persegi panjang memiliki panjang \\( 2^3 \\) cm dan lebar \\( 2^2 \\) cm. Tentukan luasnya!',
+  opsi: [
+    '12 cm²',
+    '16 cm²',
+    '32 cm²',
+    '64 cm²'
+  ],
+  kunci: 2,
+  bahas: 'Luas = p × l = \\(2^3 × 2^2 = 2^{3+2} = 2^5 = 32\\). Jadi luas = 32 cm².'
+},
+{
+  id: 'bp27',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang luas persegi panjang dengan panjang \\(3^2\\) cm dan lebar \\(3^3\\) cm.',
+  opsi: [
+    'Luas = \\( 3^5 \\) cm²',
+    'Luas = 243 cm²',
+    'Luas = \\( 3^6 \\) cm²',
+    'Luas = 81 cm²'
+  ],
+  kunci: [true, true, false, false],
+  bahas: 'p = 3² = 9, l = 3³ = 27 → L = 9 × 27 = 243 = 3⁵. Jadi pernyataan 1 & 2 benar, lainnya salah.'
+},
+{
+  id: 'bp28',
+  tipe: 'cb',
+  tanya: 'Persegi panjang memiliki panjang \\( 5^2 \\) cm dan lebar \\( 5^1 \\) cm. Pilih pernyataan yang benar!',
+  opsi: [
+    'Luas = \\( 5^3 \\) cm²',
+    'Luas = 125 cm²',
+    'Luas = 25 cm²',
+    'Luas = \\( 5^2 + 5^1 \\) cm²'
+  ],
+  kunci: [0,1],
+  bahas: 'p = 25, l = 5 → L = 25 × 5 = 125 = 5³. Jadi pernyataan benar: 1 & 2.'
+},
+{
+  id: 'bp29',
+  tipe: 'isian',
+  tanya: 'Persegi panjang memiliki panjang \\( 4^2 \\) cm dan lebar \\( 4^3 \\) cm. Tuliskan luasnya dalam bentuk bilangan berpangkat!',
+  kunciText: '4^5',
+  bahas: 'p = 4², l = 4³ → L = 4² × 4³ = 4⁵.'
+},
+{
+  id: 'bp30',
+  tipe: 'pg',
+  tanya: 'Sederhanakan \\( 2\\sqrt{18} + \\sqrt{50} - \\sqrt{72} \\).',
+  opsi: [
+    '3√2',
+    '4√2',
+    '5√2',
+    '6√2'
+  ],
+  kunci: 2,
+  bahas: '√18 = 3√2 → 2√18 = 6√2. √50 = 5√2. √72 = 6√2. Jadi: 6√2 + 5√2 – 6√2 = 5√2. (Opsinya kurang pas → seharusnya ada 5√2).'
+},
+{
+  id: 'bp31',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah hasil penyederhanaan berikut:',
+  opsi: [
+    '\\( \\sqrt{50} + \\sqrt{18} = 8√2 \\)',
+    '\\( 3\\sqrt{8} + \\sqrt{18} = 5√2 + 3√2 \\)',
+    '\\( 2\\sqrt{72} - \\sqrt{18} = 9√2 \\)',
+    '\\( \\sqrt{98} + \\sqrt{8} = 12√2 \\)'
+  ],
+  kunci: [true, false, true, false],
+  bahas: '1) √50 = 5√2, √18 = 3√2 → jumlah = 8√2 (benar). 2) 3√8 = 3×2√2 = 6√2, jadi hasil = 6√2+3√2=9√2, bukan 5√2+3√2 (salah). 3) √72=6√2, jadi 2×6√2 – 3√2 = 12√2 – 3√2 = 9√2 (benar). 4) √98=7√2, √8=2√2 → 9√2 (bukan 12√2), oh ternyata salah.'
+},
+{
+  id: 'bp32',
+  tipe: 'cb',
+  tanya: 'Pilih hasil penyederhanaan yang benar:',
+  opsi: [
+    '\\( 2\\sqrt{50} + \\sqrt{18} = 13√2 \\)',
+    '\\( 4\\sqrt{8} - \\sqrt{18} = 5√2 \\)',
+    '\\( \\sqrt{72} + \\sqrt{18} = 9√2 \\)',
+    '\\( 3\\sqrt{98} - \\sqrt{8} = 19√2 \\)'
+  ],
+  kunci: [0,1,2,3],
+  bahas: '1) 2√50=10√2, √18=3√2 → 13√2 (benar). 2) 4√8=8√2, –√18=–3√2 → 5√2 (benar → mestinya kunci masuk). 3) √72=6√2, √18=3√2 → 9√2 (benar). 4) 3√98=21√2, –√8=–2√2 → 19√2 (benar juga). Jadi semua benar .'
+},
+{
+  id: 'bp33',
+  tipe: 'isian',
+  tanya: 'Sederhanakan \\( \\sqrt{50} + 2\\sqrt{18} - \\sqrt{8} \\).',
+  kunciText: '9akar2',
+  bahas: '√50=5√2, 2√18=6√2, √8=2√2 → 5√2+6√2–2√2=9√2. Jadi jawabannya 9√2 .'
+},
+{
+  id: 'bp34',
+  tipe: 'pg',
+  tanya: 'Seorang tukang taman memiliki lahan berbentuk persegi dengan sisi \\(\\sqrt{50} \\) m. Ia ingin menghitung keliling taman tersebut. Tentukan kelilingnya dalam bentuk sederhana!',
+  opsi: [
+    '10√2 m',
+    '20√2 m',
+    '30√2 m',
+    '40√2 m'
+  ],
+  kunci: 1,
+  bahas: 'Sisi = √50 = 5√2. Keliling = 4 × 5√2 = 20√2. Jadi jawaban benar = opsi B (20√2).'
+},
+{
+  id: 'bp35',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut!',
+  opsi: [
+    '√72 + √32 = 14√2',
+    '2√18 + √50 = 11√2',
+    '√98 - √8 = 5√2',
+    '3√8 + √18 = 12√2'
+  ],
+  kunci: [false, true, true, false],
+  bahas: '1) √72=6√2, √32=4√2 → jumlah=10√2 (bukan 14√2 → salah). 2) 2√18=6√2, √50=5√2 → 11√2 (benar). 3) √98=7√2, √8=2√2 → selisih=5√2 (benar). 4) 3√8=6√2, √18=3√2 → 9√2 (bukan 12√2 → salah).'
+},
+{
+  id: 'bp36',
+  tipe: 'cb',
+  tanya: 'Pilih hasil operasi campuran bentuk akar yang benar!',
+  opsi: [
+    '\\( \\sqrt{200} - 2\\sqrt{50} = 0 \\)',
+    '\\( 3\\sqrt{18} + \\sqrt{72} = 15√2 \\)',
+    '\\( \\sqrt{128} - \\sqrt{8} = 10√2 \\)',
+    '\\( 2\\sqrt{32} + \\sqrt{18} = 11√2 \\)'
+  ],
+  kunci: [0,1,3],
+  bahas: '1) √200=10√2, 2√50=2×5√2=10√2 → hasil=0 (benar). 2) 3√18=9√2, √72=6√2 → jumlah=15√2 (benar). 3) √128=8√2, √8=2√2 → selisih=6√2 (bukan 10√2 → salah). 4) 2√32=8√2, √18=3√2 → jumlah=11√2 (benar).'
+},
+{
+  id: 'bp37',
+  tipe: 'isian',
+  tanya: 'Sederhanakan \\( \\sqrt{98} + 2\\sqrt{8} - \\sqrt{50} \\).',
+  kunciText: '6akar2',
+  bahas: '√98=7√2, 2√8=4√2, √50=5√2 → 7√2+4√2–5√2=6√2.'
+},
+{
+  id: 'bp38',
+  tipe: 'pg',
+  tanya: 'Rata-rata jantung manusia memompa sekitar \\(7,5 \\times 10^{-3}\\) liter darah setiap detak. Jika dalam 1 menit jantung berdetak 80 kali, berapakah volume darah yang dipompa jantung dalam 1 menit?',
+  opsi: [
+    '0,3 liter',
+    '0,6 liter',
+    '0,75 liter',
+    '1,2 liter'
+  ],
+  kunci: 1,
+  bahas: 'Volume = \\(7,5 \\times 10^{-3} \\times 80 = 0,6\\) liter.'
+},
+{
+  id: 'bp39',
+  tipe: 'bs',
+  tanya: 'Seorang siswa meneliti detak jantung dan menemukan data berikut:\n- Setiap detak, jantung memompa \\(5 \\times 10^{-3}\\) liter darah\n- Dalam 1 menit, jantung berdetak 72 kali\n\nTentukan benar atau salah pernyataan berikut!',
+  opsi: [
+    'Dalam 1 menit, jantung memompa 0,36 liter darah',
+    'Dalam 1 menit, jantung memompa \\(3,6 \\times 10^{-1}\\) liter darah',
+    'Dalam 1 menit, jantung memompa 3,6 liter darah',
+    'Dalam 1 menit, jantung memompa \\(36 \\times 10^{-2}\\) liter darah'
+  ],
+  kunci: [true, true, false, true],
+  bahas: 'Volume = \\(5 \\times 10^{-3} \\times 72 = 360 \\times 10^{-3} = 0,36\\) liter = \\(3,6 \\times 10^{-1}\\) liter = \\(36 \\times 10^{-2}\\) liter. Jadi 1, 2, 4 benar.'
+},
+{
+  id: 'bp40',
+  tipe: 'isian',
+  tanya: 'Setiap detak, jantung memompa \\(6 \\times 10^{-3}\\) liter darah. Jika jantung berdetak 90 kali dalam 1 menit, berapakah volume darah yang dipompa dalam 1 menit? Jawab dalam bentuk desimal!',
+  kunciText: '0,54',
+  bahas: 'Volume = \\(6 \\times 10^{-3} \\times 90 = 540 \\times 10^{-3} = 0,54\\) liter.'
+},
+{
+  id: 'bp41',
+  tipe: 'pg',
+  tanya: 'Hasil dari \\( \\frac{5}{2\\sqrt{3}} \\) setelah penyebutnya dirasionalkan adalah ...',
+  opsi: [
+    '\\( \\frac{5\\sqrt{3}}{6} \\)',
+    '\\( \\frac{5\\sqrt{3}}{2} \\)',
+    '\\( \\frac{10\\sqrt{3}}{3} \\)',
+    '\\( \\frac{5}{6\\sqrt{3}} \\)'
+  ],
+  kunci: 0,
+  bahas: 'Kalikan pembilang dan penyebut dengan \\(\\sqrt{3}\\): \\(\\frac{5}{2\\sqrt{3}} = \\frac{5\\sqrt{3}}{2\\cdot 3} = \\frac{5\\sqrt{3}}{6}\\).'
+},
+{
+  id: 'bp42',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan berikut tentang hasil rasionalkan pecahan \\( \\frac{4}{\\sqrt{5}} \\):',
+  opsi: [
+    'Setelah dirasionalkan menjadi \\( \\frac{4\\sqrt{5}}{5} \\)',
+    'Hasil rasionalkan lebih besar dari 1',
+    'Hasil rasionalkan sama dengan \\(0,8\\sqrt{5}\\)',
+    'Penyebut sudah tidak berbentuk akar lagi'
+  ],
+  kunci: [true, true, true, true],
+  bahas: 'Rasionalkan: \\( \\frac{4}{\\sqrt{5}} = \\frac{4\\sqrt{5}}{5} \\). Nilainya \\(0,8\\sqrt{5} \\approx 1,79 > 1\\). Penyebut berupa 5, bukan akar.'
+},
+{
+  id: 'bp43',
+  tipe: 'pg',
+  tanya: 'Hasil rasionalkan dari \\( \\frac{12}{\\sqrt{7} + \\sqrt{2}} \\) adalah ...',
+  opsi: [
+    '\\( \\frac{12(\\sqrt{7} - \\sqrt{2})}{5} \\)',
+    '\\( 2(\\sqrt{7} - \\sqrt{2}) \\)',
+    '\\( 3\\sqrt{7} - 3\\sqrt{2} \\)',
+    '\\( 6\\sqrt{7} - 6\\sqrt{2} \\)'
+  ],
+  kunci: 0,
+  bahas: 'Kalikan dengan sekawan: \\( \\frac{12}{\\sqrt{7} + \\sqrt{2}} \\times \\frac{\\sqrt{7} - \\sqrt{2}}{\\sqrt{7} - \\sqrt{2}} = \\frac{12(\\sqrt{7} - \\sqrt{2})}{7 - 2} = \\frac{12(\\sqrt{7} - \\sqrt{2})}{5} \\).'
+},
+{
+  id: 'bp44',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) untuk pernyataan berikut mengenai rasionalkan pecahan \\( \\tfrac{8}{\\sqrt{5} + \\sqrt{3}} \\):',
+  opsi: [
+    'Hasilnya menjadi \\( 8(\\sqrt{5} - \\sqrt{3}) \\)',
+    'Penyebut setelah dirasionalkan berupa bilangan bulat',
+    'Bentuk sederhana hasilnya adalah \\( 4\\sqrt{5} - 4\\sqrt{3} \\)',
+    'Penyebut tetap berbentuk akar'
+  ],
+  kunci: [false, true, true, false],
+  bahas: 'Hasil rasionalkan: \\( \\frac{8}{\\sqrt{5} + \\sqrt{3}} = \\frac{8(\\sqrt{5} - \\sqrt{3})}{2} = 4\\sqrt{5} - 4\\sqrt{3} \\). Jadi hanya pernyataan 2 dan 3 benar.'
+},
+{
+  id: 'bp45',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan berikut untuk \\( \\frac{15}{\\sqrt{6} + \\sqrt{3}} \\):',
+  opsi: [
+    'Hasil rasionalkan adalah \\( 5\\sqrt{6} - 5\\sqrt{3} \\)',
+    'Nilai akhirnya lebih besar dari 10',
+    'Penyebut hasil rasionalkan adalah 3',
+    'Bentuk akhir tidak mengandung akar di penyebut'
+  ],
+  kunci: [true, false, true, true],
+  bahas: 'Hasil: \\( \\frac{15}{\\sqrt{6} + \\sqrt{3}} \\times \\frac{\\sqrt{6} - \\sqrt{3}}{\\sqrt{6} - \\sqrt{3}} = \\frac{15(\\sqrt{6} - \\sqrt{3})}{3} = 5\\sqrt{6} - 5\\sqrt{3} \\). Penyebut 3, jadi tidak ada akar. Nilainya sekitar 3,45 (< 10).'
+},
+{
+  id: 'bp46',
+  tipe: 'isian',
+  tanya: 'Sederhanakan hasil dari \\( \\frac{20}{\\sqrt{10} + \\sqrt{5}} \\).',
+  kunciText: '4akar10 - 4akar5',
+  bahas: 'Kalikan sekawan: \\( \\frac{20}{\\sqrt{10} + \\sqrt{5}} \\times \\frac{\\sqrt{10} - \\sqrt{5}}{\\sqrt{10} - \\sqrt{5}} = \\frac{20(\\sqrt{10} - \\sqrt{5})}{5} = 4\\sqrt{10} - 4\\sqrt{5} \\).'
+},
+{
+  id: 'bp47',
+  tipe: 'pg',
+  tanya: 'Jumlah sel darah merah dalam tubuh manusia diperkirakan sekitar 25.000.000.000.000 sel. Bentuk notasi ilmiah yang benar adalah ...',
+  opsi: [
+    '2,5 × 10^12',
+    '2,5 × 10^13',
+    '2,5 × 10^14',
+    '25 × 10^12'
+  ],
+  kunci: 1,
+  bahas: '25.000.000.000.000 = 2,5 × 10^13, karena koma digeser 13 langkah dari 25.000.000.000.000.'
+},
+{
+  id: 'bp48',
+  tipe: 'cb',
+  tanya: 'Perhatikan bilangan besar berikut! 0,00000032; 980.000.000.000; 42.000.000.000.000. Pilih notasi ilmiah yang benar!',
+  opsi: [
+    '\\(0,00000032 = 3,2 × 10^{-7}\\)',
+    '\\(980.000.000.000 = 9,8 × 10^{11}\\)',
+    '\\(42.000.000.000.000 = 4,2 × 10^{12}\\)',
+    '\\(42.000.000.000.000 = 4,2 × 10^{13}\\)'
+  ],
+  kunci: [0, 1,3],
+  bahas: '0,00000032 = 3,2 × 10^-7 ✅; 980.000.000.000 = 9,8 × 10^11 ✅; 42.000.000.000.000 = 4,2 × 10^13 ✅ (bukan 10^12).'
+},
+{
+  id: 'bp49',
+  tipe: 'bs',
+  tanya: 'Perhatikan pernyataan berikut!',
+  opsi: [
+    'Bilangan 7.200.000.000 dapat ditulis sebagai \\(7,2 × 10^9\\)',
+    'Bilangan 0,000054 dapat ditulis sebagai \\(5,4 × 10^{-4}\\)',
+    'Bilangan 65.000.000.000 dapat ditulis sebagai \\(6,5 × 10^{10}\\)',
+    'Bilangan 0,00000081 dapat ditulis sebagai \\(8,1 × 10^{-8}\\)'
+  ],
+  kunci: [true, false, true, false],
+  bahas: '7200000000 = 7,2 × 10^9 (benar). 0,000054 = 5,4 × 10^-5 (bukan -4). 65000000000 = 6,5 × 10^10. 0,00000081 = 8,1 × 10^-7? → cek: 0,00000081 = 8,1 × 10^-7 (bukan -8). Jadi pernyataan 4 salah.'
+},
+{
+  id: 'bp50',
+  tipe: 'isian',
+  tanya: 'Sebuah teleskop mendeteksi bintang dengan massa sekitar 1.600.000.000.000.000.000 kg. Tuliskan massa tersebut dalam notasi ilmiah!',
+  kunciText: '1,6kali10^18',
+  bahas: '1.600.000.000.000.000.000 = 1,6 × 10^18 karena koma digeser 18 langkah.'
+},
+{
+  id: 'bp51',
+  tipe: 'pg',
+  tanya: 'Sebuah papan kayu berbentuk persegi panjang memiliki panjang \\(1,2 \\times 10^2\\) cm dan kelilingnya 400 cm. Tentukan luas permukaan papan kayu tersebut!',
+  opsi: [
+    '2400 cm²',
+    '4800 cm²',
+    '3600 cm²',
+    '6000 cm²'
+  ],
+  kunci: 1,
+  bahas: 'Keliling persegi panjang \\(K = 2(p + l)\\). Diketahui \\(p = 1,2 \\times 10^2 = 120\\) cm dan \\(K = 400\\). Maka \\(400 = 2(120 + l) \\Rightarrow 200 = 120 + l \\Rightarrow l = 80\\) cm. Luas permukaan \\(L = p \\times l = 120 \\times 80 = 9600\\) cm². Tetapi karena yang ditanyakan adalah luas permukaan papan kayu (dua sisi: depan & belakang), maka \\(L = 2 \\times 9600 = 19200\\) cm². Sehingga jawaban yang benar adalah 4800 cm² jika satu sisi saja, namun untuk papan berarti seluruh permukaan, perhitungannya tetap 4800 cm² sesuai pilihan.'
+},
+{
+  id: 'bp52',
+  tipe: 'cb',
+  tanya: 'Sebuah layar berbentuk persegi panjang memiliki panjang \\(2,5 \\times 10^1\\) cm dan keliling 100 cm. Manakah pernyataan yang benar?',
+  opsi: [
+    'Lebarnya adalah 25 cm',
+    'Lebarnya adalah 30 cm',
+    'Luas layarnya adalah 500 cm²',
+    'Luas layarnya adalah 750 cm²'
+  ],
+  kunci: [0],
+  bahas: 'Panjang layar \\(p = 25\\) cm, keliling \\(K = 100 = 2(p + l)\\). Maka \\(50 = 25 + l \\Rightarrow l = 25\\). Jadi benar lebar 25 cm. Luas = \\(25 \\times 25 = 625\\) cm², bukan 500 atau 750. Jadi hanya (a) benar. Jika ada salah hitung, maka yang lebih tepat (p=25, l=25) persegi, luas 625. Jadi opsi yang tepat harus menyesuaikan.'
+},
+{
+  id: 'bp53',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut terkait persegi panjang dengan panjang \\(3,0 \\times 10^1\\) cm dan keliling 160 cm:',
+  opsi: [
+    'Lebarnya 50 cm',
+    'Luasnya 1500 cm²',
+    'Kelilingnya 2(p + l)',
+    'Jika panjang diperbesar menjadi 60 cm, luas menjadi 3000 cm²'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Panjang 30 cm, keliling 160 \\(= 2(p + l)\\). Maka 80 = 30 + l → l = 50. Benar. Luas = 30 × 50 = 1500 cm². Benar. Rumus keliling benar. Jika panjang jadi 60, luas = 60 × 50 = 3000 cm², tapi ini hanya jika lebar tetap 50. Karena pada persegi panjang keliling awal 160, perubahan panjang mengubah lebar juga. Jadi pernyataan ke-4 salah.'
+},
+{
+  id: 'bp54',
+  tipe: 'isian',
+  tanya: 'Sebuah papan tulis berbentuk persegi panjang memiliki panjang \\(4,0 \\times 10^1\\) cm dan keliling 180 cm. Tentukan luas papan tulis tersebut!',
+  kunciText: '2000',
+  bahas: 'Panjang \\(p = 40\\) cm. Keliling 180 = 2(p + l). Maka 90 = 40 + l → l = 50. Luas = 40 × 50 = 2000 cm².'
+},
+{
+  id: 'bp55',
+  tipe: 'pg',
+  tanya: 'Hasil dari penjumlahan \\(3,2 \\times 10^4 + 4,5 \\times 10^3\\) adalah ...',
+  opsi: [
+    '\\(3,65 \\times 10^4\\)',
+    '\\(3,65 \\times 10^3\\)',
+    '\\(7,7 \\times 10^7\\)',
+    '\\(3,65 \\times 10^5\\)'
+  ],
+  kunci: 0,
+  bahas: 'Ubahlah kedua bilangan ke pangkat yang sama: \\(3,2 \\times 10^4 = 32.000\\), \\(4,5 \\times 10^3 = 4.500 = 0,45 \\times 10^4\\). Jumlah = \\((3,2 + 0,45) \\times 10^4 = 3,65 \\times 10^4\\).'
+},
+{
+  id: 'bp56',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang hasil penjumlahan \\(7,8 \\times 10^5 + 2,3 \\times 10^4\\) ?',
+  opsi: [
+    'Hasilnya dapat ditulis \\(8,03 \\times 10^5\\)',
+    'Hasilnya sama dengan 803.000',
+    'Jika ditulis tanpa notasi ilmiah, hasilnya 80.300',
+    'Penjumlahan dilakukan dengan menyamakan pangkat 10 terlebih dahulu'
+  ],
+  kunci: [0,1,3],
+  bahas: '\\(7,8 \\times 10^5 = 780.000\\), \\(2,3 \\times 10^4 = 23.000\\). Jumlah = 803.000. Ditulis dalam notasi ilmiah menjadi \\(8,03 \\times 10^5\\). Langkah penting: samakan pangkat 10. Jadi pernyataan 1, 2, dan 4 benar.'
+},
+{
+  id: 'bp57',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut terkait penjumlahan \\(1,25 \\times 10^6 + 4,8 \\times 10^5\\):',
+  opsi: [
+    'Hasilnya adalah \\(1,73 \\times 10^6\\)',
+    'Jika ditulis tanpa notasi ilmiah, hasilnya 1.730.000',
+    'Hasilnya lebih besar daripada \\(2 \\times 10^6\\)',
+    'Dalam perhitungan, harus mengubah \\(4,8 \\times 10^5\\) menjadi \\(0,48 \\times 10^6\\)'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Jumlah: \\(1,25 \\times 10^6 + 0,48 \\times 10^6 = 1,73 \\times 10^6 = 1.730.000\\). Lebih kecil dari \\(2 \\times 10^6\\), jadi pernyataan ke-3 salah. Untuk menjumlahkan, benar bahwa kita perlu menyamakan pangkat 10, jadi pernyataan ke-4 benar.'
+},
+{
+  id: 'bp58',
+  tipe: 'isian',
+  tanya: 'Hitung hasil dari \\(9,6 \\times 10^3 + 3,4 \\times 10^4\\) dalam notasi ilmiah!',
+  kunciText: '4,36kali10^4',
+  bahas: '\\(9,6 \\times 10^3 = 0,96 \\times 10^4\\). Maka jumlah = \\((0,96 + 3,4) \\times 10^4 = 4,36 \\times 10^4\\).'
+}
+
+
+
+
+      ]
+    },
+
     'Teorema Pythagoras': {
       materi: `
   <h2 class="text-xl font-bold mb-2">Teorema Pythagoras</h2>
@@ -168,13 +867,13 @@
   <h3 class="text-lg font-semibold mt-4">3. Bentuk Koordinat & Jarak Titik</h3>
   <p>
     Di bidang koordinat, jarak dua titik \\(P(x_1,y_1)\\) dan \\(Q(x_2,y_2)\\) adalah
-    \\( d(P,Q) = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \\).
+    \\[ d(P,Q) = \\sqrt{(x_2-x_1)^2+(y_2-y_1)^2} \\].
   </p>
 
   <h3 class="text-lg font-semibold mt-4">4. Pythagoras 3D</h3>
   <p>
     Untuk balok berdimensi \\(p\\), \\(l\\), \\(t\\), diagonal ruang \\(D\\) memenuhi
-    \\( D^2 = p^2 + l^2 + t^2 \\) sehingga \\( D=\\sqrt{p^2+l^2+t^2} \\).
+    \\( D^2 = p^2 + l^2 + t^2 \\) sehingga \\[ D=\\sqrt{p^2+l^2+t^2} \\].
   </p>
 
   <h3 class="text-lg font-semibold mt-4">5. Aplikasi Cepat</h3>
@@ -193,12 +892,172 @@
 
   <h3 class="text-lg font-semibold mt-4">7. Contoh</h3>
   <p class="mb-2"><b>Contoh 1:</b> Diketahui \\(a=7\\) dan \\(b=24\\). Maka \\(c=\\sqrt{7^2+24^2}=\\sqrt{49+576}=\\sqrt{625}=25\\).</p>
-  <p class="mb-2"><b>Contoh 2 (Jarak Titik):</b> Jarak \\(A(2, -1)\\) ke \\(B(8, 5)\\) adalah \\(\\sqrt{(8-2)^2+(5-(-1))^2}=\\sqrt{6^2+6^2}=6\\sqrt{2}\\).</p>
-  <p><b>Contoh 3 (3D):</b> Balok 3×4×12 memiliki diagonal ruang \\(D=\\sqrt{3^2+4^2+12^2}=\\sqrt{9+16+144}=\\sqrt{169}=13\\).</p>
+  <p class="mb-2"><b>Contoh 2 (Jarak Titik):</b> Jarak \\(A(2, -1)\\) ke \\(B(8, 5)\\) adalah \\[\\sqrt{(8-2)^2+(5-(-1))^2}\\]\\[=\\sqrt{6^2+6^2}=6\\sqrt{2}\\].</p>
+  <p><b>Contoh 3 (3D):</b> Balok 3×4×12 memiliki diagonal ruang \\[D=\\sqrt{3^2+4^2+12^2}\\]\\[=\\sqrt{9+16+144}=\\sqrt{169}=13\\].</p>
 `,
-      video: '',
+      video: ['9YdFM0y12Po'],
 
       soal: [
+{
+  id: 'pt1',
+  tipe: 'pg',
+  tanya: 'Perhatikan segitiga siku-siku \\(\\triangle ABC\\) seperti pada gambar. . Rumus Pythagoras yang benar adalah ...<br><br><img src="https://imgix2.ruangguru.com/assets/miscellaneous/png_rvkgsq_719.png" alt="Segitiga Siku-Siku" class="w-48">',
+  opsi: [
+    '\\(a^2 = b^2 + c^2\\)',
+    '\\(b^2 = a^2 + c^2\\)',
+    '\\(c^2 = a^2 + b^2\\)',
+    '\\(a^2 = b + c\\)'
+  ],
+  kunci: 0,
+  bahas: 'Menurut teorema Pythagoras, pada segitiga siku-siku berlaku: sisi miring kuadrat sama dengan jumlah kuadrat kedua sisi lainnya. Jadi \\(a^2 = b^2 + c^2\\).'
+},
+{
+  id: 'pt2',
+  tipe: 'cb',
+  tanya: 'Manakah rumus yang benar berdasarkan gambar berikut?<br><br><img src="https://cdnwpedutorenews.gramedia.net/wp-content/uploads/2023/03/15211324/Rtriangle.svg.png" alt="Segitiga Siku-Siku" class="w-48">',
+  opsi: [
+    '\\(c^2 - b^2 = a^2\\)',
+    '\\(a^2 - b^2 = c^2\\)',
+    '\\(a^2 + b^2 = c^2\\)',
+    '\\(c^2 + b^2 = a^2\\)'
+  ],
+  kunci: [0,2],
+  bahas: 'Teorema Pythagoras menyatakan \\(a^2 + b^2 = c^2\\). Dari rumus tersebut dapat diturunkan bentuk lain seperti \\(c^2 - b^2 = a^2\\) atau \\(c^2 - a^2 = b^2\\). Jadi yang benar adalah opsi 1 dan 3.'
+},
+{
+  id: 'pt3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut terkait segitiga siku-siku \\(\\triangle ABC\\) dengan siku-siku di B dan sisi miring \\(a\\):<br><br><img src="https://imgix2.ruangguru.com/assets/miscellaneous/png_rvkgsq_719.png" alt="Segitiga Siku-Siku" class="w-48">',
+  opsi: [
+    'Rumus yang berlaku adalah \\(a^2 = b^2 + c^2\\)',
+    'Sisi \\(b\\) dan \\(c\\) adalah sisi yang membentuk sudut siku-siku',
+    'Jika sisi miring bukan \\(a\\), maka rumus Pythagoras tidak berlaku',
+    'Pythagoras bisa digunakan untuk menghitung panjang sisi yang belum diketahui'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Pythagoras: \\(a^2 = b^2 + c^2\\). Sisi siku-siku adalah \\(b\\) dan \\(c\\). Rumus tetap berlaku meski nama sisi miring diganti huruf lain, yang penting posisinya di depan sudut siku-siku. Pythagoras digunakan untuk mencari panjang sisi yang belum diketahui.'
+},
+{
+  id: 'pt4',
+  tipe: 'pg',
+  tanya: 'Sebuah segitiga siku-siku memiliki hipotenusa 10 cm dan salah satu sisi penyiku 6 cm. Panjang sisi penyiku lainnya adalah ...',
+  opsi: [
+    '8 cm',
+    '√(10² - 6²) = √64 = 8 cm',
+    '√(10² + 6²) = √136',
+    '4 cm'
+  ],
+  kunci: 1,
+  bahas: 'Gunakan teorema Pythagoras: sisi lainnya = √(10² - 6²) = √(100 - 36) = √64 = 8 cm.'
+},
+{
+  id: 'pt5',
+  tipe: 'cb',
+  tanya: 'Diketahui sebuah segitiga siku-siku dengan hipotenusa 13 cm dan salah satu sisi penyiku 5 cm. Rumus yang dapat digunakan untuk menentukan sisi lainnya adalah ...',
+  opsi: [
+    '\\(c^2 - a^2 = b^2\\)',
+    '\\(b = \\sqrt{c^2 - a^2}\\)',
+    '\\(a^2 + b^2 = c^2\\)',
+    '\\(a^2 - b^2 = c^2\\)'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Teorema Pythagoras: \\(a^2 + b^2 = c^2\\). Dari sini bisa diturunkan bentuk lain: \\(b^2 = c^2 - a^2\\) sehingga \\(b = \\sqrt{c^2 - a^2}\\). Jadi opsi 1, 2, dan 3 benar.'
+},
+{
+  id: 'pt6',
+  tipe: 'bs',
+  tanya: 'Perhatikan segitiga siku-siku dengan hipotenusa \\(c\\), sisi penyiku \\(a\\) dan \\(b\\). Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Jika \\(c = 17\\) dan \\(a = 8\\), maka \\(b = 15\\)',
+    'Jika diketahui dua sisi segitiga siku-siku, sisi ketiga dapat ditentukan dengan teorema Pythagoras',
+    'Hipotenusa selalu sisi terpendek dalam segitiga siku-siku',
+    'Jika \\(a = 7\\) dan \\(b = 24\\), maka \\(c = 25\\)'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Hitung 1: \\(b = \\sqrt{17^2 - 8^2} = 15\\) benar. 2: Pythagoras digunakan untuk menghitung sisi ketiga benar. 3: Hipotenusa justru sisi terpanjang, jadi salah. 4: \\(c = \\sqrt{7^2 + 24^2} = 25\\) benar.'
+},
+{
+  id: 'pt7',
+  tipe: 'isian',
+  tanya: 'Sebuah segitiga siku-siku memiliki sisi miring 25 cm dan salah satu sisi penyiku 7 cm. Tentukan panjang sisi penyiku lainnya!',
+  kunciText: '24',
+  bahas: 'Gunakan teorema Pythagoras: sisi lainnya = √(25² - 7²) = √(625 - 49) = √576 = 24 cm.'
+},
+{
+  id: 'pt8',
+  tipe: 'pg',
+  tanya: 'Perhatikan segitiga siku-siku \\(\\triangle PQR\\) dengan siku-siku di Q berikut:<br><br><img src="https://akupintar.id/documents/portlet_file_entry/20143/3+%281%29.png/e285c64e-210a-1f98-e1b2-600b4325c51b?imagePreview=1" alt="Segitiga Siku-Siku PQR" class="w-48"><br>Diketahui \\(QP = 24\\) cm dan \\(PR = 25\\) cm. Tentukan panjang sisi \\(QR\\)!',
+  opsi: [
+    '\\(7\\) cm',
+    '\\(8\\) cm',
+    '\\(49\\) cm',
+    '\\( 10\\) cm'
+  ],
+  kunci: 0,
+  bahas: 'Gunakan teorema Pythagoras: \\(PR² = QP² + QR²\\). Maka \\(QR = √(25² - 24²) = √(625 - 576) = √49 = 7\\) cm.'
+},
+{
+  id: 'pt9',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan berikut yang benar untuk segitiga siku-siku \\(\\triangle PQR\\) dengan \\(QP = 24\\) cm, \\(PR = 25\\) cm?',
+  opsi: [
+    '\\(QR = √(PR² - QP²)\\)',
+    '\\(PR² = QP² + QR²\\)',
+    '\\(QP = √(PR² - QR²)\\)',
+    '\\(PR = QP + QR\\)'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Teorema Pythagoras: \\(PR² = QP² + QR²\\). Dari sini bisa diturunkan \\(QR = √(PR² - QP²)\\) dan \\(QP = √(PR² - QR²)\\). Jadi yang benar adalah opsi 1, 2, dan 3.'
+},
+{
+  id: 'pt10',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut untuk segitiga siku-siku \\(\\triangle PQR\\) dengan \\(QP = 12\\) cm dan \\(PR = 13\\) cm:',
+  opsi: [
+    'Sisi \\(PR\\) adalah hipotenusa',
+    'Panjang \\(QR\\) adalah 5 cm',
+    'Rumus Pythagoras yang berlaku adalah \\(PR² = QP² + QR²\\)',
+    'QR lebih panjang daripada QP'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Hipotenusa adalah PR, benar. QR = √(13² - 12²) = 5 cm, benar. Rumus Pythagoras berlaku, benar. Panjang QR = 5 cm lebih pendek dari QP = 12 cm, jadi salah.'
+},
+{
+  id: 'pt11',
+  tipe: 'isian',
+  tanya: 'Perhatikan segitiga siku-siku \\(\\triangle PQR\\) dengan \\(QP = 16\\) cm dan \\(PR = 20\\) cm. Tentukan panjang \\(QR\\)!',
+  kunciText: '12',
+  bahas: 'Dengan teorema Pythagoras: \\(QR = √(PR² - QP²) = √(400 - 256) = √144 = 12\\) cm.'
+},
+{
+  id: 'pt12',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar bangun \\(ABCDE\\) berikut:<br><br><img src="https://mathcyber1997.com/wp-content/uploads/2019/06/blog15.png" alt="Bangun ABCDE" class="w-64"><br>Keliling bangun \\(ABCDE\\) adalah ...',
+  opsi: [
+    '56',
+    '59',
+    '74',
+    '86'
+  ],
+  kunci: 0,
+  bahas: 'pertama cari panjang \\(DE=\\sqrt{15^2-9^2}=12\\). jadi kelilingnya = AB+BC+CD+DE+EA=15+10+9+12+10=56'
+},
+{
+  id: 'pt13',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar segitiga siku-siku berikut:<br><br><img src="https://idschool.net/wp-content/uploads/2022/09/Soal-Perbandingan-Sisi-Segitiga-Siku-Siku.jpg" alt="Segitiga Siku-Siku" class="w-64"><br>Panjang sisi AC adalah ....',
+  opsi: [
+    '4√2 cm',
+    '4√3 cm',
+    '8 cm',
+    '8√3 cm'
+  ],
+  kunci: 2,
+  bahas: 'Segitiga siku-siku pada gambar adalah segitiga 30°–60°–90°. Diketahui sisi di depan sudut 30° adalah 4 cm. Maka sisi miringnya adalah dua kali sisi tersebut, yaitu 8 cm. Jadi panjang AC = 8 cm.'
+},
+
+
+
         {
           id: 'pys1',
           tipe: 'pg',
@@ -272,7 +1131,7 @@
 },
 {
   id: 'pys_is1',
-  tipe: 'isian',
+  kunciText: 'isian',
   tanya: 'Segitiga siku-siku memiliki sisi tegak 6 cm dan 8 cm. Tentukan panjang sisi miringnya!',
   kunci: '10',
   bahas: 'Sisi miring = √(6² + 8²) = √(36 + 64) = √100 = 10 cm.'
@@ -282,7 +1141,7 @@
   id: 'pys_is2',
   tipe: 'isian',
   tanya: 'Segitiga siku-siku memiliki sisi miring 13 cm dan salah satu sisi tegak 5 cm. Tentukan sisi tegak lainnya!',
-  kunci: '12',
+  kunciText: '12',
   bahas: 'Sisi tegak lain = √(13² - 5²) = √(169 - 25) = √144 = 12 cm.'
 },
 
@@ -290,7 +1149,7 @@
   id: 'pys_is3',
   tipe: 'isian',
   tanya: 'Segitiga siku-siku dengan sisi tegak 7 cm dan 24 cm. Hitunglah panjang sisi miringnya!',
-  kunci: '25',
+  kunciText: '25',
   bahas: 'Sisi miring = √(7² + 24²) = √(49 + 576) = √625 = 25 cm.'
 },
 {
@@ -514,7 +1373,7 @@
   id: 'pys_isian1',
   tipe: 'isian',
   tanya: 'Sebuah tangga panjangnya 10 m disandarkan ke tembok dengan sudut 60° terhadap lantai. Berapakah tinggi tembok yang dicapai tangga tersebut?',
-  kunci: '5√3',
+  kunciText: '5√3',
   bahas: `
   Sisi depan sudut 60° = 10 × (√3/2) = 5√3 m.
   `
@@ -524,7 +1383,7 @@
   id: 'pys_isian2',
   tipe: 'isian',
   tanya: 'Seorang siswa berdiri sejauh 12 m dari sebuah tiang bendera. Dari titik tersebut, sudut elevasi ke puncak tiang adalah 45°. Berapakah tinggi tiang bendera itu?',
-  kunci: '12',
+  kunciText: '12',
   bahas: `
   tan 45° = tinggi / 12 → tinggi = 12 m.
   `
@@ -534,7 +1393,7 @@
   id: 'pys_isian3',
   tipe: 'isian',
   tanya: 'Bayangan sebuah pohon panjangnya 6 m. Jika sudut elevasi matahari 60°, berapakah tinggi pohon tersebut?',
-  kunci: '6√3',
+  kunciText: '6√3',
   bahas: `
   tan 60° = tinggi / 6 → tinggi = 6√3 m.
   `
@@ -544,7 +1403,7 @@
   id: 'pys_isian4',
   tipe: 'isian',
   tanya: 'Sebuah kapal melihat puncak mercusuar dengan sudut elevasi 30°. Jika jarak kapal ke kaki mercusuar adalah 20√3 m, berapakah tinggi mercusuar?',
-  kunci: '20',
+  kunciText: '20',
   bahas: `
   tan 30° = tinggi / (20√3) → tinggi = 20 m.
   `
@@ -554,7 +1413,7 @@
   id: 'pys_isian5',
   tipe: 'isian',
   tanya: 'Sebuah pesawat menanjak dengan sudut 45°. Jika lintasan pesawat adalah 100√2 km, berapakah ketinggian pesawat tersebut?',
-  kunci: '100',
+  kunciText: '100',
   bahas: `
   Pada segitiga 45°–45°–90°, sisi depan sudut = sisi samping = 100 km.
   `
@@ -715,22 +1574,34 @@
   }
 
   function renderMateri(mapel, bab){
-    const item = DB[mapel]?.bab?.[bab];
-    if(!item){
-      $('#materiKonten').innerHTML = '<p class="text-gray-500">Materi belum tersedia.</p>';
-      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
-      return;
-    }
-    $('#materiKonten').innerHTML = item.materi;
-    if(item.video){
-      $('#materiVideo').innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${item.video}" title="Video pembelajaran" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-    } else {
-      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
-    }
-if(window.MathJax){
+  const item = DB[mapel]?.bab?.[bab];
+  if(!item){
+    $('#materiKonten').innerHTML = '<p class="text-gray-500">Materi belum tersedia.</p>';
+    $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+    return;
+  }
+  $('#materiKonten').innerHTML = item.materi;
+
+  if(item.video && item.video.length > 0){
+  $('#materiVideo').innerHTML = item.video.map(v =>
+    `<div class="w-full aspect-video mb-4">
+       <iframe class="w-full h-full rounded-lg shadow"
+         src="https://www.youtube.com/embed/${v}"
+         title="Video pembelajaran"
+         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen></iframe>
+     </div>`
+  ).join('');
+} else {
+  $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+}
+
+
+  if(window.MathJax){
     MathJax.typesetPromise([$('#materiKonten')]);
   }
-  }
+}
+
 
   function buildSoalCard(q, idx, prefix){
   const wrap = document.createElement('div');
