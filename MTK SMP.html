@@ -143,6 +143,134 @@
   // ======= Dataset Contoh (DISERAGAMKAN DENGAN TKA SMA) =======
   // Struktur: mapel -> bab[] -> materi (html), video (YT embed id), soal[]
   const DB = {
+'IPA': {
+  bab: {
+    'Sistem Pencernaan': {
+      materi: `
+<h2 class="text-xl font-bold mb-2">Sistem Pencernaan</h2>
+<p>
+  Sistem pencernaan adalah sistem organ pada manusia yang berfungsi mengolah makanan menjadi zat gizi yang dapat diserap tubuh 
+  dan membuang sisa yang tidak diperlukan. Proses pencernaan melibatkan organ-organ pencernaan utama dan organ pencernaan tambahan.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Organ Pencernaan Utama</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Mulut</b>: tempat makanan masuk, terjadi pencernaan mekanik (oleh gigi) dan kimiawi (oleh enzim amilase dalam air liur).</li>
+  <li><b>Kerongkongan</b>: menyalurkan makanan ke lambung dengan gerakan peristaltik.</li>
+  <li><b>Lambung</b>: mencerna protein dengan bantuan enzim pepsin dan asam lambung (HCl).</li>
+  <li><b>Usus Halus</b>: terjadi pencernaan kimiawi lengkap dan penyerapan zat gizi (glukosa, asam amino, asam lemak, vitamin, mineral).</li>
+  <li><b>Usus Besar</b>: menyerap air dan mineral, membentuk feses.</li>
+  <li><b>Anus</b>: tempat keluarnya sisa pencernaan.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Organ Pencernaan Tambahan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Hati</b>: menghasilkan empedu untuk mengemulsikan lemak.</li>
+  <li><b>Pankreas</b>: menghasilkan enzim lipase, amilase, dan tripsin untuk membantu pencernaan lemak, karbohidrat, dan protein.</li>
+  <li><b>Kelenjar ludah</b>: menghasilkan air liur yang mengandung enzim amilase.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Proses Pencernaan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Pencernaan mekanik</b>: penghancuran makanan secara fisik (pengunyahan, pengadukan di lambung).</li>
+  <li><b>Pencernaan kimiawi</b>: pemecahan zat makanan kompleks menjadi sederhana oleh enzim.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Enzim Pencernaan</h3>
+<table class="table-auto border-collapse border border-gray-500 my-4">
+  <thead>
+    <tr>
+      <th class="border border-gray-500 px-2 py-1">Enzim</th>
+      <th class="border border-gray-500 px-2 py-1">Substrat</th>
+      <th class="border border-gray-500 px-2 py-1">Produk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-500 px-2 py-1">Amilase</td>
+      <td class="border border-gray-500 px-2 py-1">Amilum</td>
+      <td class="border border-gray-500 px-2 py-1">Maltosa</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-500 px-2 py-1">Pepsin</td>
+      <td class="border border-gray-500 px-2 py-1">Protein</td>
+      <td class="border border-gray-500 px-2 py-1">Peptida</td>
+    </tr>
+    <tr>
+      <td class="border border-gray-500 px-2 py-1">Lipase</td>
+      <td class="border border-gray-500 px-2 py-1">Lemak</td>
+      <td class="border border-gray-500 px-2 py-1">Asam lemak + Gliserol</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 class="text-lg font-semibold mt-4">5. Gangguan pada Sistem Pencernaan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Gastritis</b>: peradangan lambung akibat kelebihan asam.</li>
+  <li><b>Diare</b>: gangguan usus besar, feses cair karena penyerapan air terganggu.</li>
+  <li><b>Konstipasi</b>: sulit buang air besar karena penyerapan air berlebih di usus besar.</li>
+  <li><b>Hepatitis</b>: peradangan hati akibat virus.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">6. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Enzim apa yang berfungsi memecah protein menjadi peptida? <i>Jawab: Pepsin</i>.</p>
+<p><b>Contoh 2:</b> Apa fungsi empedu dalam pencernaan? <i>Jawab: Mengemulsikan lemak</i>.</p>
+`,
+      video: ['3DbA6B5FYyQ'],
+
+      soal: [
+        {
+  id: 'sp1',
+  tipe: 'pg',
+  tanya: 'Di dalam lambung, makanan mengalami pencernaan kimiawi dengan bantuan enzim dan asam lambung. Enzim pepsin berfungsi untuk ...',
+  opsi: [
+    'Mengubah amilum menjadi maltosa',
+    'Mengubah protein menjadi pepton',
+    'Mengubah lemak menjadi asam lemak dan gliserol',
+    'Mengemulsikan lemak menjadi butiran halus'
+  ],
+  kunci: 1,
+  bahas: 'Enzim pepsin dalam lambung berfungsi memecah protein menjadi pepton. Amilum dipecah di mulut, lemak dipecah oleh lipase di usus halus.'
+},
+{
+  id: 'sp2',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang proses kimiawi di lambung?',
+  opsi: [
+    'HCl berfungsi membunuh kuman pada makanan',
+    'Pepsin mengubah protein menjadi pepton',
+    'Renin menggumpalkan protein susu',
+    'Lipase memecah amilum menjadi glukosa'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Di lambung terdapat HCl (membunuh kuman), pepsin (mengubah protein menjadi pepton), dan renin (menggumpalkan kasein pada susu). Lipase berperan di usus halus, bukan di lambung.'
+},
+{
+  id: 'sp3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang lambung:',
+  opsi: [
+    'HCl dalam lambung membantu kerja enzim pepsin',
+    'Pencernaan di lambung hanya berupa pencernaan mekanik',
+    'Enzim pepsin aktif pada suasana asam',
+    'Enzim renin berfungsi menggumpalkan protein susu'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'HCl membantu mengaktifkan pepsin (benar). Di lambung ada pencernaan mekanik dan kimiawi (jadi pernyataan salah). Pepsin aktif di suasana asam (benar). Renin menggumpalkan kasein pada susu (benar).'
+},
+{
+  id: 'sp4',
+  tipe: 'isian',
+  tanya: 'Enzim utama yang berperan dalam mencerna protein di lambung adalah ....',
+  kunciText: 'Pepsin',
+  bahas: 'Enzim pepsin memecah protein menjadi pepton di lambung.'
+},
+
+      ]
+    }
+  }
+},
+
     'Matematika': {
   bab: {
 'Bilangan Berpangkat dan Bentuk Akar': {
