@@ -144,7 +144,228 @@
   // Struktur: mapel -> bab[] -> materi (html), video (YT embed id), soal[]
   const DB = {
 'IPA': {
-  bab: {
+bab: {
+'Sistem Ekskresi': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Sistem Ekskresi</h2>
+<p>
+  Sistem ekskresi adalah sistem yang berfungsi membuang zat-zat sisa metabolisme yang tidak diperlukan tubuh dan 
+  bersifat racun apabila menumpuk. Organ utama dalam sistem ekskresi manusia adalah ginjal, kulit, paru-paru, dan hati.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Organ Ekskresi dan Fungsinya</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Ginjal</b>: menyaring darah untuk membuang zat sisa metabolisme (urea, garam, air) dalam bentuk urin.</li>
+  <li><b>Paru-paru</b>: mengeluarkan karbon dioksida (CO<sub>2</sub>) dan uap air hasil respirasi.</li>
+  <li><b>Kulit</b>: menghasilkan keringat yang mengandung air, garam, dan sedikit urea.</li>
+  <li><b>Hati</b>: menguraikan zat beracun, menghasilkan urea dari amonia, serta menghancurkan sel darah merah tua.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Proses Pembentukan Urin</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Filtrasi</b>: penyaringan darah di glomerulus, menghasilkan urin primer.</li>
+  <li><b>Reabsorpsi</b>: penyerapan kembali zat-zat berguna di tubulus kontortus proksimal.</li>
+  <li><b>Augmentasi</b>: penambahan zat sisa di tubulus kontortus distal, menghasilkan urin sesungguhnya.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Gangguan pada Sistem Ekskresi</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Batu ginjal</b>: endapan garam kalsium di saluran ginjal.</li>
+  <li><b>Nefritis</b>: peradangan pada nefron ginjal.</li>
+  <li><b>Albuminuria</b>: ditemukannya protein dalam urin karena kerusakan ginjal.</li>
+  <li><b>Uremia</b>: penumpukan urea dalam darah akibat gagal ginjal.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Organ yang menghasilkan urin adalah .... <i>Jawab: Ginjal</i>.</p>
+<p><b>Contoh 2:</b> Tahap penyaringan darah di ginjal yang terjadi pada glomerulus disebut .... <i>Jawab: Filtrasi</i>.</p>
+`,
+  video: ['Fz2xw4A7r5k'], 
+
+  soal: [
+    {
+  id: 'se1',
+  tipe: 'pg',
+  tanya: 'Seorang anak terbiasa bernapas melalui mulut karena pilek berkepanjangan. Apa dampak yang paling mungkin terjadi pada sistem pernapasannya?',
+  opsi: [
+    'Pertukaran gas akan lebih cepat terjadi',
+    'Udara yang masuk tidak tersaring dengan baik',
+    'Udara lebih lembap dan bersih dibanding lewat hidung',
+    'Tidak ada perbedaan karena mulut juga menyaring udara'
+  ],
+  kunci: 1,
+  bahas: 'Bernapas melalui mulut menyebabkan udara tidak disaring oleh rambut hidung, tidak dilembapkan, dan tidak dihangatkan, sehingga meningkatkan risiko gangguan pernapasan.'
+},
+{
+  id: 'se2',
+  tipe: 'cb',
+  tanya: 'Seorang perokok berat mengalami sesak napas. Analisislah penyebabnya berdasarkan fungsi alveolus!',
+  opsi: [
+    'Tar merusak dinding alveolus sehingga luas permukaan pertukaran gas berkurang',
+    'Nikotin menyebabkan alveolus semakin tipis sehingga gas sulit berdifusi',
+    'Emfisema mengurangi elastisitas alveolus sehingga udara terjebak di paru-paru',
+    'Alveolus tetap normal karena rokok hanya memengaruhi hidung'
+  ],
+  kunci: [0,2],
+  bahas: 'Tar merusak alveolus sehingga luas difusi berkurang, sedangkan emfisema membuat alveolus kehilangan elastisitasnya. Nikotin bersifat adiktif, bukan merusak alveolus langsung.'
+},
+{
+  id: 'se3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait gangguan alveolus:',
+  opsi: [
+    'Emfisema menyebabkan pertukaran gas terganggu',
+    'Bronkitis langsung merusak alveolus',
+    'Kerusakan alveolus dapat menyebabkan tubuh kekurangan oksigen',
+    'Alveolus tetap bekerja normal meskipun paru-paru terinfeksi TBC'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Emfisema merusak alveolus (benar). Bronkitis menyerang bronkus, bukan alveolus (salah). Kerusakan alveolus mengurangi oksigen (benar). Infeksi TBC juga bisa merusak alveolus, jadi pernyataan terakhir salah.'
+},
+{
+  id: 'se4',
+  tipe: 'isian',
+  tanya: 'Seorang pendaki gunung merasa cepat lelah dan sulit bernapas di ketinggian. Hal ini terjadi karena kadar .... di udara semakin rendah sehingga pertukaran gas di alveolus berkurang.',
+  kunciText: 'oksigen',
+  bahas: 'Di dataran tinggi, tekanan parsial oksigen rendah sehingga difusi oksigen ke dalam darah di alveolus berkurang.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'se5',
+  tipe: 'pg',
+  tanya: 'Kulit merupakan organ terluar tubuh manusia. Salah satu fungsi penting kulit adalah ...',
+  opsi: [
+    'Menghasilkan sel darah merah',
+    'Melindungi tubuh dari kuman dan cedera',
+    'Mengatur denyut jantung',
+    'Menghasilkan enzim pencernaan'
+  ],
+  jawaban: 'Melindungi tubuh dari kuman dan cedera'
+},
+
+// Checklist (CB)
+{
+  id: 'se6',
+  tipe: 'cb',
+  tanya: 'Pilihlah fungsi kulit yang benar!',
+  opsi: [
+    'Melindungi organ dalam',
+    'Membantu mengatur suhu tubuh',
+    'Menyimpan cadangan kalsium',
+    'Sebagai indera peraba'
+  ],
+  jawaban: [
+    'Melindungi organ dalam',
+    'Membantu mengatur suhu tubuh',
+    'Sebagai indera peraba'
+  ]
+},
+
+// Benar/Salah (BS)
+{
+  id: 'se7',
+  tipe: 'bs',
+  tanya: 'Kulit berfungsi sebagai indera peraba.',
+  jawaban: 'Benar'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'se8',
+  tipe: 'pg',
+  tanya: 'Hati berperan sebagai organ ekskresi karena menghasilkan zat sisa berupa ...',
+  opsi: [
+    'Urea',
+    'Empedu',
+    'Asam laktat',
+    'Keratin'
+  ],
+  jawaban: 'Empedu'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'se9',
+  tipe: 'bs',
+  tanya: 'Salah satu fungsi hati adalah mengubah amonia menjadi urea yang kemudian dibuang melalui urin.',
+  jawaban: 'Benar'
+},
+
+// Checklist (CB)
+{
+  id: 'se10',
+  tipe: 'cb',
+  tanya: 'Pilihlah zat yang dihasilkan hati dalam proses ekskresi!',
+  opsi: [
+    'Empedu',
+    'Bilirubin',
+    'Ureum',
+    'Hemoglobin'
+  ],
+  jawaban: [
+    'Empedu',
+    'Bilirubin'
+  ]
+},
+
+// Isian
+{
+  id: 'se11',
+  tipe: 'isian',
+  tanya: 'Zat sisa hasil pemecahan hemoglobin yang dikeluarkan hati melalui empedu adalah ....',
+  jawaban: 'Bilirubin'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'se12',
+  tipe: 'pg',
+  tanya: 'Ginjal memiliki peran penting dalam menyaring darah dan menjaga keseimbangan cairan tubuh. Salah satu upaya yang tepat untuk menjaga kesehatan ginjal adalah ...',
+  opsi: [
+    'Mengonsumsi makanan tinggi garam secara berlebihan',
+    'Minum air putih yang cukup setiap hari',
+    'Jarang berolahraga',
+    'Mengabaikan tekanan darah tinggi'
+  ],
+  jawaban: 'Minum air putih yang cukup setiap hari'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'se13',
+  tipe: 'bs',
+  tanya: 'Mengurangi konsumsi minuman bersoda dan beralkohol merupakan salah satu cara menjaga kesehatan ginjal.',
+  jawaban: 'Benar'
+},
+
+// Checklist (CB)
+{
+  id: 'se14',
+  tipe: 'cb',
+  tanya: 'Pilihlah cara-cara yang benar untuk menjaga kesehatan ginjal!',
+  opsi: [
+    'Minum cukup air putih',
+    'Menjaga tekanan darah normal',
+    'Mengonsumsi obat tanpa resep secara berlebihan',
+    'Mengontrol kadar gula darah'
+  ],
+  jawaban: [
+    'Minum cukup air putih',
+    'Menjaga tekanan darah normal',
+    'Mengontrol kadar gula darah'
+  ]
+},
+
+// Isian
+{
+  id: 'se15',
+  tipe: 'isian',
+  tanya: 'Salah satu kebiasaan yang harus dilakukan setiap hari untuk menjaga kesehatan ginjal adalah rutin minum ....',
+  jawaban: 'air putih'
+},
+
+
+
+  ]
+},
 'Sistem Pernapasan': {
   materi: `
 <h2 class="text-xl font-bold mb-2">Sistem Pernapasan</h2>
