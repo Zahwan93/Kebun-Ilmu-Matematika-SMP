@@ -145,6 +145,245 @@
   const DB = {
 'IPA': {
   bab: {
+'Sistem Pernapasan': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Sistem Pernapasan</h2>
+<p>
+  Sistem pernapasan manusia berfungsi untuk pertukaran gas, yaitu mengambil oksigen (O<sub>2</sub>) dari udara dan 
+  mengeluarkan karbon dioksida (CO<sub>2</sub>) serta uap air dari tubuh. Oksigen digunakan dalam proses oksidasi 
+  biologis untuk menghasilkan energi.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Organ Pernapasan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Hidung</b>: menyaring, menghangatkan, dan melembapkan udara yang masuk.</li>
+  <li><b>Faring</b>: saluran persimpangan antara saluran pernapasan dan pencernaan.</li>
+  <li><b>Laring</b>: menghubungkan faring dengan trakea, terdapat pita suara.</li>
+  <li><b>Trakea</b>: saluran udara ke paru-paru, dilapisi silia untuk menyaring debu.</li>
+  <li><b>Bronkus</b>: cabang trakea menuju paru-paru kanan dan kiri.</li>
+  <li><b>Bronkiolus</b>: cabang kecil dari bronkus menuju alveolus.</li>
+  <li><b>Alveolus</b>: tempat pertukaran gas O<sub>2</sub> dan CO<sub>2</sub>.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Mekanisme Pernapasan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Pernapasan dada</b>: otot antar tulang rusuk berkontraksi → rongga dada membesar → udara masuk.</li>
+  <li><b>Pernapasan perut</b>: otot diafragma berkontraksi → diafragma mendatar → rongga dada membesar → udara masuk.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Pertukaran Gas</h3>
+<p>
+  Pertukaran gas terjadi di alveolus secara difusi: oksigen masuk ke dalam darah, karbon dioksida keluar dari darah 
+  ke alveolus untuk dikeluarkan.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Gangguan pada Sistem Pernapasan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Asma</b>: penyempitan saluran pernapasan akibat alergi atau faktor lain.</li>
+  <li><b>Bronkitis</b>: peradangan pada bronkus.</li>
+  <li><b>Emfisema</b>: kerusakan alveolus sehingga pertukaran gas terganggu.</li>
+  <li><b>TBC</b>: infeksi paru-paru akibat bakteri <i>Mycobacterium tuberculosis</i>.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Tempat pertukaran gas pada paru-paru adalah .... <i>Jawab: Alveolus</i>.</p>
+<p><b>Contoh 2:</b> Otot apa yang berperan pada pernapasan perut? <i>Jawab: Diafragma</i>.</p>
+`,
+  video: ['8NUxvVGvUuQ'],
+
+  soal: [
+    {
+  id: 'spn1',
+  tipe: 'pg',
+  tanya: 'Hidung merupakan organ pertama dalam sistem pernapasan. Fungsi utama hidung dalam proses pernapasan adalah ...',
+  opsi: [
+    'Tempat pertukaran gas O₂ dan CO₂',
+    'Menyaring, menghangatkan, dan melembapkan udara yang masuk',
+    'Menghubungkan rongga mulut dengan paru-paru',
+    'Membantu kontraksi otot diafragma'
+  ],
+  kunci: 1,
+  bahas: 'Hidung berfungsi sebagai pintu masuk udara yang menyaring debu dengan rambut hidung, menghangatkan, dan melembapkan udara sebelum menuju saluran pernapasan berikutnya.'
+},
+{
+  id: 'spn2',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang fungsi hidung dalam sistem pernapasan?',
+  opsi: [
+    'Menyaring debu dan kotoran dengan rambut hidung',
+    'Melembapkan udara yang masuk',
+    'Menghangatkan udara sebelum masuk paru-paru',
+    'Tempat pertukaran oksigen dan karbon dioksida',
+    'Menghasilkan enzim pencernaan'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Hidung berfungsi menyaring debu, melembapkan, dan menghangatkan udara. Pertukaran gas terjadi di alveolus, sedangkan enzim pencernaan bukan fungsi hidung.'
+},
+{
+  id: 'spn3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang hidung:',
+  opsi: [
+    'Rambut hidung menyaring debu dan partikel kotoran',
+    'Selaput lendir hidung membantu melembapkan udara',
+    'Hidung berfungsi sebagai tempat pertukaran oksigen dan karbon dioksida',
+    'Udara yang masuk melalui hidung dihangatkan sebelum ke paru-paru'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Rambut hidung menyaring debu (benar). Selaput lendir melembapkan udara (benar). Pertukaran gas tidak di hidung tapi di alveolus (salah). Udara dihangatkan di hidung (benar).'
+},
+{
+  id: 'spn4',
+  tipe: 'isian',
+  tanya: 'Sebutkan dua fungsi utama hidung dalam sistem pernapasan!',
+  kunciText: 'Menyaring udara dan menghangatkan/ melembapkan udara',
+  bahas: 'Hidung berfungsi menyaring debu dan kotoran serta menghangatkan dan melembapkan udara sebelum masuk ke paru-paru.'
+},
+{
+  id: 'spn5',
+  tipe: 'pg',
+  tanya: 'Paru-paru manusia terdiri atas jutaan alveolus. Fungsi utama alveolus dalam sistem pernapasan adalah ...',
+  opsi: [
+    'Menghasilkan energi dari oksigen',
+    'Menyaring debu dan kotoran dari udara',
+    'Sebagai tempat pertukaran gas oksigen dan karbon dioksida',
+    'Menggerakkan udara keluar-masuk paru-paru'
+  ],
+  kunci: 2,
+  bahas: 'Alveolus adalah gelembung udara di paru-paru yang berfungsi sebagai tempat pertukaran gas O₂ dan CO₂ secara difusi.'
+},
+{
+  id: 'spn6',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang alveolus?',
+  opsi: [
+    'Dinding alveolus tipis dan lembap untuk memudahkan difusi gas',
+    'Alveolus berhubungan langsung dengan pembuluh kapiler darah',
+    'Alveolus berfungsi menyaring udara yang masuk ke paru-paru',
+    'Pertukaran oksigen dan karbon dioksida terjadi di alveolus',
+    'Alveolus menghasilkan enzim untuk mencerna protein'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Alveolus berdinding tipis dan lembap, dikelilingi kapiler darah, dan merupakan tempat pertukaran gas. Fungsi penyaring ada di hidung, bukan alveolus. Alveolus juga tidak menghasilkan enzim.'
+},
+{
+  id: 'spn7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang alveolus:',
+  opsi: [
+    'Alveolus merupakan gelembung udara di paru-paru',
+    'Dinding alveolus tebal sehingga gas mudah berdifusi',
+    'Alveolus dikelilingi pembuluh darah kapiler',
+    'Pertukaran O₂ dan CO₂ terjadi melalui proses difusi'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Alveolus berbentuk gelembung udara (benar). Dindingnya tipis, bukan tebal (salah). Alveolus dikelilingi kapiler darah (benar). Pertukaran gas berlangsung dengan difusi (benar).'
+},
+{
+  id: 'spn8',
+  tipe: 'isian',
+  tanya: 'Fungsi utama alveolus dalam paru-paru adalah ....',
+  kunciText: 'Tempat pertukaran gas oksigen dan karbon dioksida',
+  bahas: 'Alveolus berfungsi sebagai tempat pertukaran gas O₂ dan CO₂ antara udara dengan darah.'
+},
+{
+  id: 'spn9',
+  tipe: 'pg',
+  tanya: 'Pada pernapasan dada, inspirasi terjadi ketika ...',
+  opsi: [
+    'Otot diafragma berkontraksi sehingga rongga dada membesar',
+    'Otot antar tulang rusuk (interkostal eksternal) berkontraksi sehingga tulang rusuk terangkat',
+    'Otot interkostal internal berkontraksi sehingga rongga dada mengecil',
+    'Tulang rusuk turun akibat relaksasi otot'
+  ],
+  kunci: 1,
+  bahas: 'Inspirasi pernapasan dada terjadi ketika otot interkostal eksternal berkontraksi, tulang rusuk terangkat, volume rongga dada membesar, dan udara masuk ke paru-paru.'
+},
+{
+  id: 'spn10',
+  tipe: 'cb',
+  tanya: 'Manakah yang benar tentang inspirasi pernapasan dada?',
+  opsi: [
+    'Otot interkostal eksternal berkontraksi',
+    'Tulang rusuk terangkat',
+    'Rongga dada mengecil',
+    'Tekanan udara dalam paru-paru menurun',
+    'Udara masuk ke dalam paru-paru'
+  ],
+  kunci: [0,1,3,4],
+  bahas: 'Pada inspirasi pernapasan dada: otot interkostal eksternal berkontraksi → tulang rusuk terangkat → volume rongga dada membesar → tekanan udara dalam paru menurun → udara masuk.'
+},
+{
+  id: 'spn11',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang inspirasi pernapasan dada:',
+  opsi: [
+    'Otot interkostal eksternal berkontraksi saat inspirasi dada',
+    'Tulang rusuk turun pada saat inspirasi dada',
+    'Rongga dada membesar pada saat inspirasi dada',
+    'Udara keluar dari paru-paru saat inspirasi dada'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Inspirasi dada: otot interkostal eksternal berkontraksi (benar), tulang rusuk naik bukan turun (salah), rongga dada membesar (benar), dan udara masuk bukan keluar (salah).'
+},
+{
+  id: 'spn12',
+  tipe: 'isian',
+  tanya: 'Saat inspirasi pernapasan dada, otot yang berkontraksi adalah ....',
+  kunciText: 'Otot interkostal eksternal',
+  bahas: 'Inspirasi pernapasan dada terjadi karena kontraksi otot interkostal eksternal yang mengangkat tulang rusuk sehingga rongga dada membesar.'
+},
+{
+  id: 'spn13',
+  tipe: 'pg',
+  tanya: 'Rokok mengandung nikotin. Akibat utama dari nikotin bagi tubuh adalah ...',
+  opsi: [
+    'Merusak fungsi hati',
+    'Menimbulkan ketergantungan (adiksi)',
+    'Mengiritasi lambung',
+    'Menyebabkan pendarahan'
+  ],
+  kunci: 1,
+  bahas: 'Nikotin bersifat adiktif sehingga menimbulkan ketergantungan bagi perokok.'
+},
+{
+  id: 'spn14',
+  tipe: 'cb',
+  tanya: 'Zat-zat berbahaya dalam rokok beserta akibatnya adalah ...',
+  opsi: [
+    'Nikotin → menimbulkan ketergantungan',
+    'Tar → menyebabkan kanker paru-paru',
+    'Karbon monoksida → mengikat hemoglobin sehingga mengurangi kadar oksigen dalam darah',
+    'Vitamin C → memperkuat daya tahan tubuh'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Nikotin menyebabkan adiksi, tar bersifat karsinogenik, karbon monoksida mengikat Hb sehingga mengurangi oksigen. Vitamin C bukan zat berbahaya dalam rokok.'
+},
+{
+  id: 'spn15',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang zat dalam rokok:',
+  opsi: [
+    'Nikotin dapat menyebabkan kecanduan',
+    'Tar dalam rokok meningkatkan risiko kanker paru-paru',
+    'Karbon monoksida meningkatkan jumlah oksigen dalam darah',
+    'Rokok aman dikonsumsi dalam jumlah sedikit karena tidak berbahaya'
+  ],
+  kunci: [true,true,false,false],
+  bahas: 'Nikotin membuat kecanduan, tar karsinogenik, karbon monoksida justru menurunkan oksigen, dan rokok tetap berbahaya meskipun sedikit.'
+},
+{
+  id: 'spn16',
+  tipe: 'isian',
+  tanya: 'Zat tar dalam rokok dapat menyebabkan penyakit ....',
+  kunciText: 'kanker paru-paru',
+  bahas: 'Tar bersifat karsinogenik (pemicu kanker) yang dapat menyebabkan kanker paru-paru pada perokok.'
+}
+
+
+  ]
+},
+
     'Sistem Pencernaan': {
       materi: `
 <h2 class="text-xl font-bold mb-2">Sistem Pencernaan</h2>
