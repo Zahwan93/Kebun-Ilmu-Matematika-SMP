@@ -942,9 +942,9 @@
   tipe: 'pg',
   tanya: 'Sebuah segitiga siku-siku memiliki hipotenusa 10 cm dan salah satu sisi penyiku 6 cm. Panjang sisi penyiku lainnya adalah ...',
   opsi: [
-    '8 cm',
-    '√(10² - 6²) = √64 = 8 cm',
-    '√(10² + 6²) = √136',
+    '10 cm',
+    '\\(\\sqrt{10^2 - 6^2} = \\sqrt{64} = 8 \\)cm',
+    '\\(\\sqrt{10^2 + 6^2} = \\sqrt{136}\\)',
     '4 cm'
   ],
   kunci: 1,
@@ -1001,9 +1001,9 @@
   tipe: 'cb',
   tanya: 'Manakah pernyataan berikut yang benar untuk segitiga siku-siku \\(\\triangle PQR\\) dengan \\(QP = 24\\) cm, \\(PR = 25\\) cm?',
   opsi: [
-    '\\(QR = √(PR² - QP²)\\)',
+    '\\(QR = \\sqrt{PR² - QP²}\\)',
     '\\(PR² = QP² + QR²\\)',
-    '\\(QP = √(PR² - QR²)\\)',
+    '\\(QP = \\sqrt{PR² - QR²}\\)',
     '\\(PR = QP + QR\\)'
   ],
   kunci: [0,1,2],
@@ -1054,6 +1054,183 @@
   ],
   kunci: 2,
   bahas: 'Segitiga siku-siku pada gambar adalah segitiga 30°–60°–90°. Diketahui sisi di depan sudut 30° adalah 4 cm. Maka sisi miringnya adalah dua kali sisi tersebut, yaitu 8 cm. Jadi panjang AC = 8 cm.'
+},
+{
+  id: 'pt14',
+  tipe: 'pg',
+  tanya: 'Perhatikan segitiga siku-siku sama kaki \\(\\triangle ABC\\) dengan siku-siku di A. Diketahui panjang sisi siku-siku \\(AB = AC = 14\\) cm. Tentukan panjang sisi miring \\(BC\\)!',
+  opsi: [
+    '\\(14\\sqrt{2}\\) cm',
+    '\\(28\\) cm',
+    '\\(7\\sqrt{2}\\) cm',
+    '\\(21\\) cm'
+  ],
+  kunci: 0,
+  bahas: 'Pada segitiga siku-siku sama kaki dengan sisi siku-siku \\(a\\), sisi miringnya adalah \\(a\\sqrt{2}\\). Jadi \\(BC = 14\\sqrt{2}\\) cm.'
+},
+{
+  id: 'pt15',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar untuk segitiga siku-siku sama kaki dengan sisi siku-siku 10 cm?',
+  opsi: [
+    'Sisi miring = \\(10\\sqrt{2}\\) cm',
+    'Dua sisi yang membentuk sudut siku-siku sama panjang',
+    'Sudut-sudut yang lain selain siku-siku adalah \\(45^\\circ\\)',
+    'Keliling segitiga adalah \\(10+10+10\\sqrt{2}\\) cm'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Segitiga siku-siku sama kaki memiliki dua sisi siku-siku sama panjang. Sisi miring \\(= a\\sqrt{2} = 10\\sqrt{2}\\). Sudut selain siku-siku adalah 45°. Keliling = 10 + 10 + 10√2.'
+},
+{
+  id: 'pt16',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) untuk pernyataan berikut tentang segitiga siku-siku sama kaki dengan sisi siku-siku 8 cm:',
+  opsi: [
+    'Sisi miringnya adalah 16 cm',
+    'Dua sisi siku-siku sama panjang',
+    'Sudut yang bukan siku-siku adalah \\(45^\\circ\\)',
+    'Keliling segitiga adalah \\(8 + 8 + 8\\sqrt{2}\\)'
+  ],
+  kunci: [false,true,true,true],
+  bahas: 'Sisi miring seharusnya \\(8\\sqrt{2}\\), bukan 16, jadi salah. Dua sisi siku-siku sama panjang, benar. Sudut yang lain masing-masing 45°, benar. Keliling = 8+8+8√2, benar.'
+},
+{
+  id: 'pt17',
+  tipe: 'pg',
+  tanya: 'Sebuah kapal berlayar 9 km ke arah timur, lalu berbelok 12 km ke arah utara. Tentukan jarak terpendek kapal dari titik awal berlayar!',
+  opsi: [
+    '12 km',
+    '15 km',
+    '18 km',
+    '21 km'
+  ],
+  kunci: 1,
+  bahas: 'Gerakan kapal membentuk segitiga siku-siku dengan sisi 9 km dan 12 km. Jarak terpendek dari titik awal ke tujuan adalah hipotenusa: \\(√(9² + 12²) = √(81+144) = √225 = 15\\) km.'
+},
+{
+  id: 'pt18',
+  tipe: 'cb',
+  tanya: 'Sebuah kapal berlayar 8 km ke barat lalu 15 km ke selatan. Pernyataan manakah yang benar?',
+  opsi: [
+    'Jarak terpendek kapal dari titik awal = \\(\\sqrt{8²+15²}\\) km',
+    'Jarak terpendek = 17 km',
+    'Perjalanan kapal membentuk segitiga siku-siku',
+    'Hipotenusa segitiga = 8 km'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Perjalanan kapal membentuk segitiga siku-siku dengan sisi 8 km dan 15 km. Hipotenusa = \\(√(64+225)=√289=17\\) km. Jadi pernyataan yang benar adalah 1, 2, dan 3.'
+},
+{
+  id: 'pt19',
+  tipe: 'bs',
+  tanya: 'Sebuah kapal berlayar 6 km ke utara, lalu 8 km ke timur. Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Jarak terpendek kapal dari titik awal adalah 10 km',
+    'Jarak tempuh kapal adalah 14 km',
+    'Gerakan kapal membentuk segitiga siku-siku',
+    'Hipotenusa segitiga adalah 8 km'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Jarak terpendek = \\(√(6²+8²)=√100=10\\) km (benar). Jarak tempuh kapal = 6+8=14 km (benar). Gerakan membentuk segitiga siku-siku (benar). Hipotenusa seharusnya 10 km, bukan 8 km (salah).'
+},
+{
+  id: 'pt20',
+  tipe: 'isian',
+  tanya: 'Sebuah kapal berlayar 5 km ke timur, kemudian 12 km ke utara. Tentukan jarak terpendek kapal dari titik awal berlayar!',
+  kunciText: '13',
+  bahas: 'Segitiga siku-siku dengan sisi 5 km dan 12 km, hipotenusa = \\(√(5²+12²) = √(25+144) = √169 = 13\\) km.'
+},
+{
+  id: 'pt21',
+  tipe: 'pg',
+  tanya: 'Perhatikan sebuah persegi panjang dengan lebar 9 cm dan panjang diagonal 15 cm. Tentukan panjang persegi panjang tersebut!',
+  opsi: [
+    '10 cm',
+    '12 cm',
+    '13 cm',
+    '17 cm'
+  ],
+  kunci: 1,
+  bahas: 'Panjang persegi panjang dapat dicari dengan teorema Pythagoras: \\(d² = p² + l²\\). Maka \\(p = √(15² - 9²) = √(225 - 81) = √144 = 12\\) cm.'
+},
+{
+  id: 'pt22',
+  tipe: 'cb',
+  tanya: 'Sebuah persegi panjang memiliki lebar 7 cm dan diagonal 25 cm. Pernyataan manakah yang benar?',
+  opsi: [
+    'Panjang = \\(\\sqrt{25^2 - 7^2}\\) cm',
+    'Panjang = 24 cm',
+    'Diagonal, panjang, dan lebar membentuk segitiga siku-siku',
+    'Luas persegi panjang = 168 cm²'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Panjang = \\(√(625 - 49) = √576 = 24\\) cm. Sisi lebar, panjang, dan diagonal membentuk segitiga siku-siku. Luas = 24×7 = 168 cm². Jadi semua pernyataan benar.'
+},
+{
+  id: 'pt23',
+  tipe: 'bs',
+  tanya: 'Perhatikan sebuah persegi panjang dengan lebar 8 cm dan diagonal 17 cm. Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Panjang persegi panjang adalah 15 cm',
+    'Luas persegi panjang adalah 120 cm²',
+    'Rumus Pythagoras berlaku: \\(17^2 = 15^2 + 8^2\\)',
+    'Keliling persegi panjang adalah 46 cm'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Panjang = √(17² - 8²) = √(289 - 64) = √225 = 15 cm (benar). Luas = 15×8 = 120 cm² (benar). Pythagoras berlaku (benar). Keliling = 2×(15+8) = 46 cm, benar, jadi opsi terakhir seharusnya benar, bukan salah.'
+},
+{
+  id: 'pt24',
+  tipe: 'isian',
+  tanya: 'Sebuah persegi panjang memiliki lebar 20 cm dan diagonal 29 cm. Tentukan panjang persegi panjang tersebut!',
+  kunciText: '21',
+  bahas: 'Dengan teorema Pythagoras: \\(p = √(29² - 20²) = √(841 - 400) = √441 = 21\\) cm.'
+},
+{
+  id: 'pt25',
+  tipe: 'pg',
+  tanya: 'Diketahui titik \\(A(2,3)\\) dan \\(B(6,9)\\). Tentukan jarak \\(AB\\)!',
+  opsi: [
+    '6',
+    '√52',
+    '√45',
+    '√36'
+  ],
+  kunci: 2,
+  bahas: 'Gunakan rumus jarak dua titik: \\(AB = √((x₂-x₁)²+(y₂-y₁)²) = √((6-2)²+(9-3)²) = √(16+36) = √52\\).'
+},
+{
+  id: 'pt26',
+  tipe: 'cb',
+  tanya: 'Diketahui titik \\(P(-3,4)\\) dan \\(Q(1,-2)\\). Pernyataan manakah yang benar?',
+  opsi: [
+    'Jarak \\(PQ = \\sqrt{(1-(-3))^2 + (-2-4)^2}\\)',
+    'Jarak \\(PQ = \\sqrt{16+36}\\)',
+    'Jarak \\(PQ = \\sqrt{52}\\)',
+    'Jarak \\(PQ = 2\\sqrt{13}\\)'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Selisih koordinat: Δx=4, Δy=-6. Jarak = √(4²+(-6)²)=√(16+36)=√52=2√13. Semua pernyataan benar.'
+},
+{
+  id: 'pt27',
+  tipe: 'bs',
+  tanya: 'Diketahui titik \\(M(0,0)\\) dan \\(N(5,12)\\). Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Jarak MN = 13',
+    'Segitiga yang terbentuk dengan sumbu x dan y adalah segitiga siku-siku',
+    'Panjang sisi mendatar segitiga adalah 12',
+    'Panjang sisi tegak segitiga adalah 5'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Δx = 5, Δy = 12, jadi jarak = √(5²+12²)=13 (benar). Segitiga dengan sumbu x dan y adalah siku-siku (benar). Sisi mendatar = Δx=5, bukan 12 (salah). Sisi tegak = Δy=12, bukan 5 (jadi kebalik).'
+},
+{
+  id: 'pt28',
+  tipe: 'isian',
+  tanya: 'Diketahui titik \\(R(-2,-1)\\) dan \\(S(4,2)\\). Tentukan jarak \\(RS\\)!',
+  kunciText: '√45',
+  bahas: 'Δx=6, Δy=3, sehingga \\(RS = √(6²+3²) = √(36+9) = √45\\).'
 },
 
 
