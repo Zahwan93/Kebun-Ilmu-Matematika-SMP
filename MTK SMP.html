@@ -394,7 +394,155 @@
 },
 
       ]
-    }
+    },
+'Sistem Peredaran Darah': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Sistem Peredaran Darah</h2>
+<p>
+  Sistem peredaran darah pada manusia berfungsi mengedarkan oksigen, zat makanan, hormon, dan membuang zat sisa metabolisme. 
+  Sistem ini melibatkan jantung, pembuluh darah, dan darah sebagai komponen utama.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Organ Utama Sistem Peredaran Darah</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Jantung</b>: organ pemompa darah yang terdiri atas serambi kanan-kiri dan bilik kanan-kiri.</li>
+  <li><b>Pembuluh darah</b>: terdiri dari arteri (mengalirkan darah keluar jantung), vena (mengalirkan darah kembali ke jantung), dan kapiler (tempat pertukaran zat).</li>
+  <li><b>Darah</b>: terdiri dari plasma darah, sel darah merah (eritrosit), sel darah putih (leukosit), dan keping darah (trombosit).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Jenis Peredaran Darah</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Peredaran darah kecil</b>: dari jantung → paru-paru → kembali ke jantung.</li>
+  <li><b>Peredaran darah besar</b>: dari jantung → seluruh tubuh → kembali ke jantung.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Fungsi Darah</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Mengangkut oksigen dan karbon dioksida.</li>
+  <li>Mengangkut zat makanan dari usus halus ke seluruh tubuh.</li>
+  <li>Mengangkut hormon ke organ sasaran.</li>
+  <li>Melawan infeksi melalui leukosit.</li>
+  <li>Membekukan darah dengan trombosit.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Golongan Darah</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>A, B, AB, dan O (berdasarkan antigen pada eritrosit).</li>
+  <li>Rhesus (+) dan (-).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Gangguan Sistem Peredaran Darah</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Anemia</b>: kekurangan hemoglobin atau sel darah merah.</li>
+  <li><b>Leukemia</b>: produksi sel darah putih berlebihan dan abnormal.</li>
+  <li><b>Hipertensi</b>: tekanan darah tinggi.</li>
+  <li><b>Stroke</b>: pecah atau tersumbatnya pembuluh darah otak.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">6. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Apa perbedaan utama antara peredaran darah besar dan kecil? <i>Jawab: Peredaran darah kecil melalui paru-paru, sedangkan peredaran darah besar ke seluruh tubuh.</i>.</p>
+<p><b>Contoh 2:</b> Sel darah apa yang berfungsi melawan infeksi? <i>Jawab: Leukosit</i>.</p>
+`,
+  video: ['H04d3J8gz-Q'],
+
+  soal: [
+    {
+  id: 'spd1',
+  tipe: 'pg',
+  tanya: 'Keping darah memiliki fungsi utama dalam sistem peredaran darah. Fungsi yang paling tepat dari keping darah adalah ...',
+  opsi: [
+    'Mengangkut oksigen ke seluruh tubuh',
+    'Menghancurkan kuman penyakit',
+    'Membantu proses pembekuan darah',
+    'Mengangkut hormon ke organ target'
+  ],
+  kunci: 2,
+  bahas: 'Keping darah (trombosit) berperan dalam proses pembekuan darah dengan membentuk sumbat sementara dan menghasilkan faktor pembekuan.'
+},
+{
+  id: 'spd2',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan berikut yang benar mengenai keping darah (trombosit)?',
+  opsi: [
+    'Jumlahnya normal sekitar 150.000–450.000 per mikroliter darah',
+    'Berperan dalam mencegah kehilangan darah saat terjadi luka',
+    'Mengandung hemoglobin untuk mengikat oksigen',
+    'Menghasilkan faktor yang memicu pembentukan fibrin'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Trombosit tidak mengandung hemoglobin, jadi tidak berfungsi mengangkut oksigen. Mereka berperan dalam pembekuan darah dengan menghasilkan faktor koagulasi yang memicu pembentukan fibrin.'
+},
+{
+  id: 'spd3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang keping darah:',
+  opsi: [
+    'Keping darah disebut juga trombosit',
+    'Keping darah berumur sekitar 8–12 hari',
+    'Kekurangan keping darah dapat menyebabkan hemofilia',
+    'Keping darah terbentuk di sumsum tulang merah'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Trombosit = keping darah (benar). Umurnya 8–12 hari (benar). Hemofilia disebabkan kelainan genetik faktor pembekuan, bukan jumlah trombosit (salah). Trombosit dibentuk di sumsum tulang merah (benar).'
+},
+{
+  id: 'spd4',
+  tipe: 'isian',
+  tanya: 'Sebutkan proses yang terjadi jika tubuh mengalami luka hingga terbentuk bekuan darah yang melibatkan keping darah!',
+  kunciText: 'Trombosit menempel pada luka → melepaskan faktor pembekuan → memicu pembentukan fibrin → terbentuk jaring fibrin yang menutup luka.',
+  bahas: 'Ketika terjadi luka, trombosit menempel di lokasi luka, melepaskan faktor pembekuan, memicu pembentukan benang fibrin, lalu terbentuk bekuan darah yang menutup luka.'
+},
+{
+  id: 'spd5',
+  tipe: 'pg',
+  tanya: 'Pembuluh darah yang membawa darah dari jantung ke seluruh tubuh dengan dinding tebal dan elastis disebut ...',
+  opsi: [
+    'Vena',
+    'Kapiler',
+    'Aorta',
+    'Arteri'
+  ],
+  kunci: 3,
+  bahas: 'Aorta adalah arteri terbesar yang keluar dari jantung. Arteri memiliki dinding tebal dan elastis untuk menahan tekanan darah tinggi dari jantung.'
+},
+{
+  id: 'spd6',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang pembuluh vena?',
+  opsi: [
+    'Membawa darah kembali ke jantung',
+    'Dindingnya tebal dan elastis',
+    'Memiliki katup untuk mencegah aliran balik darah',
+    'Darahnya selalu kaya oksigen'
+  ],
+  kunci: [0,2],
+  bahas: 'Vena mengalirkan darah kembali ke jantung dan memiliki katup untuk mencegah aliran balik. Dindingnya tipis (bukan tebal), dan tidak semua vena membawa darah kaya oksigen (contoh: vena pulmonalis membawa darah kaya oksigen).'
+},
+{
+  id: 'spd7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang pembuluh kapiler:',
+  opsi: [
+    'Pembuluh kapiler menghubungkan arteriol dengan venula',
+    'Dinding kapiler hanya setebal satu lapis sel',
+    'Pertukaran gas, nutrisi, dan sisa metabolisme terjadi di kapiler',
+    'Darah dalam kapiler selalu bertekanan tinggi'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Kapiler adalah pembuluh darah terkecil, dindingnya 1 lapis sel, berfungsi sebagai tempat pertukaran zat. Tekanan darahnya rendah, bukan tinggi.'
+},
+{
+  id: 'spd8',
+  tipe: 'isian',
+  tanya: 'Pembuluh darah yang membawa darah dari paru-paru menuju jantung adalah ....',
+  kunciText: 'Vena pulmonalis',
+  bahas: 'Vena pulmonalis adalah satu-satunya vena yang membawa darah kaya oksigen dari paru-paru ke jantung.'
+},
+
+
+  ]
+}
+
   }
 },
 
