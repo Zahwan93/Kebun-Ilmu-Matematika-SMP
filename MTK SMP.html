@@ -240,7 +240,8 @@ bab: {
     'Mengatur denyut jantung',
     'Menghasilkan enzim pencernaan'
   ],
-  jawaban: 'Melindungi tubuh dari kuman dan cedera'
+kunci:0,
+  bahas: 'Melindungi tubuh dari kuman dan cedera'
 },
 
 // Checklist (CB)
@@ -254,6 +255,7 @@ bab: {
     'Menyimpan cadangan kalsium',
     'Sebagai indera peraba'
   ],
+kunci:[0,1,3],
   bahas: [
     'Melindungi organ dalam',
     'Membantu mengatur suhu tubuh',
@@ -1203,49 +1205,27 @@ bab: {
     '60 J',
     '150 J'
   ],
-  kunci: 3,
+  kunci: 0,
   bahas: 'Usaha total = ΣF × s = (F1 + F2 - F3) × s = (12 + 24 - 36) × 5 = 0 × 5 = 0 J. Jadi benda tidak melakukan usaha bersih ke kanan.'
 },
 
-// ======= US6: CB =======
+// ======= Usaha Isian =======
 {
-  id: 'us6',
-  tipe: 'cb',
-  tanya: 'Pilihlah gaya-gaya yang searah dengan perpindahan benda pada gambar!',
-  gambar: 'https://imgix2.ruangguru.com/assets/miscellaneous/png_lt9tbe_8541.png',
-  opsi: [
-    'F1 = 12 N',
-    'F2 = 24 N',
-    'F3 = 36 N'
-  ],
-  kunci: [0,1],
-  bahas: 'Gaya yang searah perpindahan (kanan) adalah F1 dan F2. F3 ke kiri berlawanan arah sehingga tidak termasuk.'
-},
-
-// ======= US7: BS =======
-{
-  id: 'us7',
-  tipe: 'bs',
-  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang usaha pada gambar:',
-  gambar: 'https://imgix2.ruangguru.com/assets/miscellaneous/png_lt9tbe_8541.png',
-  opsi: [
-    'Usaha F1 searah perpindahan positif',
-    'Usaha F2 berlawanan arah dengan perpindahan',
-    'Usaha F3 negatif karena berlawanan arah dengan perpindahan',
-    'Usaha total benda selalu positif'
-  ],
-  kunci: [true,false,true,false],
-  bahas: 'Usaha F1 searah dengan perpindahan → positif (benar). F2 searah → positif, bukan berlawanan (salah). F3 berlawanan arah → usaha negatif (benar). Usaha total = 0 J → tidak selalu positif (salah).'
-},
-
-// ======= US8: Isian =======
-{
-  id: 'us8',
+  id: 'us_isian1',
   tipe: 'isian',
-  tanya: 'Hitunglah usaha yang dilakukan oleh gaya F3 (36 N ke kiri) jika benda berpindah sejauh 5 m ke kanan!',
-  kunciText: '-180',
-  bahas: 'Usaha W = F × s × cosθ. Karena F3 berlawanan arah perpindahan, θ = 180°, cos180° = -1 → W = 36 × 5 × (-1) = -180 J.'
-}
+  tanya: 'Perhatikan gambar berikut: <br><img src="http://4.bp.blogspot.com/-fWqPTq98cPU/T_Fdyrned8I/AAAAAAAABOw/U2IzvcFs4r0/s320/soal-usaha-smp-6.png" class="my-2 w-64"><br>Benda digerakkan sejauh 5 m ke kanan. Diketahui F1 = 36 N searah perpindahan, usaha total W = 120 J. Hitung besar F2 (gaya ke kiri)!',
+  kunciText: '12',
+  bahas: 'Usaha: W = (F1 - F2) × s → F2 = F1 - W/s = 36 - 120/5 = 36 - 24 = 12 N.'
+},
+// ======= Usaha Isian =======
+{
+  id: 'us_isian2',
+  tipe: 'isian',
+  tanya: 'Perhatikan gambar berikut: <br><img src="http://3.bp.blogspot.com/-4AqcMlRaIxo/T_FdyD4b7uI/AAAAAAAABOY/6nznVJ4FaTU/s320/soal-usaha-smp-4.png" class="my-2 w-64"><br>Dua buah gaya bekerja pada sebuah benda: F1 = 10 N dan F2 = 5 N ke kanan. Jika benda berpindah sejauh 5 m ke kanan, tentukan usaha total yang dilakukan kedua gaya tersebut!',
+  kunciText: '75',
+  bahas: 'Usaha total: W_total = F1 × s + F2 × s = (10 + 5) × 5 = 15 × 5 = 75 J.'
+},
+
 
   ]
 },
@@ -1319,7 +1299,7 @@ bab: {
     '30 J',
     '60 J'
   ],
-  kunci: 2,
+  kunci: 3,
   bahas: 'EP = m × g × h = 2 × 10 × 3 = 60 J. Jadi energi potensial benda terhadap lantai adalah 60 J.'
 },
 // ======= E1: CB =======
@@ -1369,7 +1349,7 @@ bab: {
     '15 m/s',
     '20 m/s'
   ],
-  kunci: 2,
+  kunci: 1,
   bahas: 'Menggunakan hukum kekekalan energi: EP awal = EK akhir → mgh = 1/2 m v². \n2 × 10 × 5 = 1/2 × 2 × v² → 100 = v² → v = √100 = 10 m/s.\nJadi kecepatan saat menyentuh tanah adalah 10 m/s.'
 },
 
@@ -1465,6 +1445,181 @@ bab: {
   kunciText: 'Minyak bumi',
   bahas: 'Contoh energi tak terbarukan antara lain minyak bumi, batu bara, dan gas alam.'
 },
+
+  ]
+},
+'Pesawat Sederhana': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Pesawat Sederhana</h2>
+<p>
+  <b>Pesawat sederhana</b> adalah alat mekanik yang digunakan untuk mempermudah melakukan usaha dengan mengubah besar gaya, arah gaya, atau jarak perpindahan gaya. Pesawat sederhana tidak mengurangi jumlah usaha, tetapi memudahkan pelaksanaannya.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Jenis-jenis Pesawat Sederhana</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Tuas (Lever)</b>: Alat yang digunakan untuk mengangkat atau memindahkan benda dengan cara memutar di titik tumpu.</li>
+  <li><b>Katrol (Pulley)</b>: Roda beralur dengan tali yang digunakan untuk mengangkat beban. Bisa tetap atau bergerak.</li>
+  <li><b>Bidang Miring (Inclined Plane)</b>: Permukaan miring yang memudahkan mengangkat benda dengan mengurangi gaya yang diperlukan.</li>
+  <li><b>Roda dan Poros (Wheel and Axle)</b>: Memudahkan memutar atau menggerakkan benda dengan gaya lebih kecil.</li>
+  <li><b>Wedge (Baji)</b>: Digunakan untuk membelah atau memotong benda dengan gaya yang lebih kecil.</li>
+  <li><b>Sekrup (Screw)</b>: Bidang miring yang melingkar digunakan untuk mengubah gaya putar menjadi gaya linier.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Prinsip Kerja Pesawat Sederhana</h3>
+<p>
+  Pesawat sederhana bekerja berdasarkan prinsip <b>keuntungan mekanis (mechanical advantage)</b>, yaitu perbandingan gaya beban terhadap gaya yang dikeluarkan:
+</p>
+<p class="ml-6">
+  Keuntungan mekanis = Gaya beban / Gaya kuasa
+</p>
+<p>
+  Keuntungan mekanis lebih dari 1 berarti gaya kuasa yang diberikan lebih kecil dari berat benda, tetapi jarak perpindahan lebih panjang.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh Penggunaan Pesawat Sederhana</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Mengangkat ember menggunakan katrol.</li>
+  <li>Mendorong batu besar ke atas menggunakan bidang miring.</li>
+  <li>Membuka tutup botol dengan tuas (lever).</li>
+  <li>Memotong kayu menggunakan baji (wedge).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Hubungan dengan Usaha</h3>
+<p>
+  Pesawat sederhana tidak mengurangi jumlah usaha yang dilakukan, tetapi memudahkan cara melakukan usaha. Usaha yang dilakukan tetap sama: 
+</p>
+<p class="ml-6">
+  W = F × s
+</p>
+<p>
+  Jika gaya berkurang, jarak yang ditempuh gaya menjadi lebih panjang agar usaha tetap sama.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Sebuah benda seberat 100 N diangkat menggunakan bidang miring dengan panjang 5 m dan tinggi 1 m. Gaya minimum yang diperlukan adalah ... <i>Jawab: F = 100 × (1/5) = 20 N</i>.</p>
+<p><b>Contoh 2:</b> Mengangkat ember menggunakan katrol tetap, berat ember 50 N. Jika tali ditarik sejauh 2 m, berapa usaha yang dilakukan? <i>Jawab: W = F × s = 50 × 2 = 100 J</i>.</p>
+`,
+  video: ['dQw4w9WgXcQ'], // bisa diganti dengan video pembelajaran pesawat sederhana
+
+  soal: [
+    
+// ===== Soal PG =====
+{
+  id: 'tuas_pg1',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar tuas berikut: <br><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCyVCq-Edor8u0sZ94N8su2mJsyG0nm3yfzXqq-qdcjsEhiOpvXYwbPGjr9mfC3PPUIzlI9LM0BPG3IXK258gEwIbkhT-9lqj7doTA0uL5PRUE7o2_reM-PkABqwNp6UhiU88_ZNgd5g5X/s320/contoh+soal+1+tuas+pengungkit.jpg" class="my-2 w-64"><br>Beban = 800 N, jarak titik tumpu ke beban = 4 cm, jarak kuasa ke tumpu = 160 cm. Besar gaya kuasa yang diperlukan adalah ...',
+  opsi: [
+    '\\(10\\,\\text{N}\\)',
+    '\\(20\\,\\text{N}\\)',
+    '\\(40\\,\\text{N}\\)',
+    '\\(80\\,\\text{N}\\)'
+  ],
+  kunci: 1,
+  bahas: 'Rumus tuas: \\(F_\\text{kuasa} \\times L_\\text{kuasa} = W \\times L_\\text{beban}\\). Jadi \\(F_\\text{kuasa} = \\frac{800 \\times 0.04}{1.6} = 20\\,\\text{N}\\).'
+},
+{
+  id: 'tuas_cb1',
+  tipe: 'cb',
+gambar:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCyVCq-Edor8u0sZ94N8su2mJsyG0nm3yfzXqq-qdcjsEhiOpvXYwbPGjr9mfC3PPUIzlI9LM0BPG3IXK258gEwIbkhT-9lqj7doTA0uL5PRUE7o2_reM-PkABqwNp6UhiU88_ZNgd5g5X/s320/contoh+soal+1+tuas+pengungkit.jpg',
+  tanya: 'Manakah pernyataan berikut yang benar tentang tuas pada soal di atas?',
+  opsi: [
+    '\\(F_\\text{kuasa} \\times L_\\text{kuasa} = W \\times L_\\text{beban}\\)',
+    'Jika jarak kuasa diperpendek, gaya kuasa meningkat',
+    'Jika jarak beban diperbesar, gaya kuasa tetap sama',
+    'Usaha yang dilakukan tetap sama meskipun gaya kuasa berbeda'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Rumus tuas: \\(F \\times L = W \\times L_b\\). Jika jarak kuasa lebih pendek, gaya meningkat. Usaha total tetap sama karena \\(W = F \\times s\\).'
+},
+
+// ===== Soal Isian =====
+{
+  id: 'tuas_isian1',
+  tipe: 'isian',
+  tanya: 'Hitung besar gaya kuasa yang diperlukan agar tuas seimbang (Jawaban dalam N):',
+  kunciText: '20',
+  bahas: '\\(F_\\text{kuasa} = \\frac{W \\times L_b}{L_k} = \\frac{800 \\times 0.04}{1.6} = 20\\,\\text{N}\\).'
+},
+// ===== Soal PG =====
+{
+  id: 'katrol_pg1',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar katrol berikut: <br><img src="https://www.quipper.com/id/blog/wp-content/uploads/2019/11/Yuk-Belajar-tentang-Katrol-Selengkapnya-di-Sini-15.png" class="my-2 w-64"><br> Besar gaya kuasa yang diperlukan adalah ...',
+  opsi: [
+    '\\(300\\,\\text{N}\\)',
+    '\\(600\\,\\text{N}\\)',
+    '\\(900\\,\\text{N}\\)',
+    '\\(1800\\,\\text{N}\\)'
+  ],
+  kunci: 1,
+  bahas: 'Pada katrol majemuk: \\(F_\\text{kuasa} = \\frac{W}{n} = \\frac{1800}{3} = 600\\,\\text{N}\\).'
+},
+
+{
+  id: 'katrol_cb2',
+  tipe: 'cb',
+  tanya: 'Perhatikan gambar katrol berikut: <br><img src="https://www.quipper.com/id/blog/wp-content/uploads/2019/11/Yuk-Belajar-tentang-Katrol-Selengkapnya-di-Sini-15.png" class="my-2 w-64"><br> . Pilih pernyataan yang benar terkait katrol tersebut:',
+  opsi: [
+    'Katrol ini termasuk katrol majemuk',
+    'Keuntungan mekanik katrol ini lebih dari 1',
+    'Beban dibagi rata pada jumlah tali yang menopang',
+    'Gaya kuasa yang diperlukan lebih kecil dari beban',
+    'Jumlah tali tidak memengaruhi gaya kuasa',
+    'Semua jenis katrol menghasilkan gaya sama dengan beban'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Katrol pada gambar adalah katrol majemuk. Katrol majemuk memiliki keuntungan mekanik > 1, sehingga gaya kuasa yang diperlukan lebih kecil dari beban. Beban dibagi sesuai jumlah tali yang menopang. Jumlah tali berpengaruh pada gaya kuasa. Tidak semua katrol menghasilkan gaya sama dengan beban.'
+},
+
+// ===== Soal Isian =====
+{
+  id: 'katrol_isian1',
+  tipe: 'isian',
+  tanya: 'Besar gaya kuasa yang diperlukan untuk mengangkat beban \\(1800\\,\\text{N}\\) dengan katrol majemuk 3 tali adalah ... (Jawaban dalam N)',
+  kunciText: '600',
+  bahas: 'F_\\text{kuasa} = W / n = 1800 / 3 = 600 N.'
+},
+// ===== Soal PG =====
+{
+  id: 'bidang_pg3',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar bidang miring berikut: <br><img src="https://roboguru-forum-cdn.ruangguru.com/811adf73-ca53-4093-8bb3-bb0643899bd5.JPG?convert=webp" class="my-2 w-64"><br>Benda dengan berat \\(W = 500\\,\\text{N}\\) berada pada bidang miring setinggi \\(2\\,\\text{m}\\) dan panjang bidang \\(s = 10\\,\\text{m}\\). Besar gaya yang diperlukan menggunakan keuntungan mekanik adalah ...',
+  opsi: [
+    '\\(80\\,\\text{N}\\)',
+    '\\(87\\,\\text{N}\\)',
+    '\\(100\\,\\text{N}\\)',
+    '\\(120\\,\\text{N}\\)'
+  ],
+  kunci: 2,
+  bahas: 'Keuntungan mekanik: \\(KM = s/h = 10/2 = 5\\). Gaya kuasa: \\(F = W/KM = 500/5 = 100\\,\\text{N}\\).'
+},
+
+
+// ===== Soal CB =====
+{
+  id: 'bidang_cb3',
+  tipe: 'cb',
+  tanya: 'Pernyataan yang benar tentang benda pada bidang miringberikut adalah ... <br><img src="https://roboguru-forum-cdn.ruangguru.com/811adf73-ca53-4093-8bb3-bb0643899bd5.JPG?convert=webp" class="my-2 w-64"><br>',
+  opsi: [
+    'Besar gaya kuasa < berat benda',
+    'Keuntungan mekanik = s / h > 1',
+    'Jika panjang bidang miring diperpendek, gaya kuasa meningkat',
+    'Gaya kuasa sama dengan berat benda',
+    'Bidang miring memungkinkan gaya lebih kecil dari berat'
+  ],
+  kunci: [0,1,2,4],
+  bahas: 'Gaya kuasa < berat benda. KM = s/h > 1. Jika bidang lebih pendek, KM berkurang → gaya kuasa meningkat. Bidang miring membantu mengurangi gaya yang diperlukan.'
+},
+
+// ===== Soal Isian =====
+{
+  id: 'bidang_isian3',
+  tipe: 'isian',
+  tanya: 'Besar gaya yang diperlukan untuk menaikkan benda \\(W = 500\\,\\text{N}\\) pada bidang miring \\(h = 2\\,\\text{m}, s = 10\\,\\text{m}\\) menggunakan keuntungan mekanik adalah ... (Jawaban dalam N)',
+  kunciText: '100',
+  bahas: 'KM = s/h = 10/2 = 5 → F = W/KM = 500/5 = 100 N.'
+}
+
 
   ]
 },
