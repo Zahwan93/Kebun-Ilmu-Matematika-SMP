@@ -197,65 +197,392 @@
       video: ['dQw4w9WgXcQ'], // contoh video
 
       soal: [
+
+        {
+            id: "cap1",
+            tipe: "pg",
+            bacaan: "Dialog:\nA: Can you play the guitar?\nB: Yes, ....",
+            tanya: "Which is the correct response?",
+            opsi: [
+              "Yes, I can play it.",
+              "Yes, I am play it.",
+              "Yes, I can to play it.",
+              "Yes, I playing it."
+            ],
+            kunci: 0,
+            bahas: "The correct form is 'Yes, I can play it.' to show capability."
+          },
+
+          // ========== CHECKBOX ==========
+          {
+            id: "cap2",
+            tipe: "cb",
+            bacaan: "Choose all correct expressions of incapability:",
+            opsi: [
+              "I can dance salsa.",
+              "She cannot cook.",
+              "We are unable to join the trip.",
+              "They can speak Korean."
+            ],
+            kunci: [1,2],
+            bahas: "'She cannot cook' and 'We are unable to join the trip' show incapability."
+          },
+
+          // ========== TRUE / FALSE ==========
+          {
+            id: "cap3",
+            tipe: "tf",
+            tanya: "Decide whether the statements are True or False:",
+            opsi: [
+              "We use 'can' to express capability.",
+              "We use 'cannot' to express capability.",
+              "We use 'unable to' to express incapability."
+            ],
+            kunci: [true, false, true],
+            bahas: "1. True, 'can' shows ability. 2. False, 'cannot' shows inability. 3. True, 'unable to' also shows incapability."
+          },
+
+          // ========== ISIAN ==========
+          {
+            id: "cap4",
+            tipe: "isian",
+            bacaan: "Dialog:\nA: Can your brother drive a car?\nB: No, ....",
+            tanya: "Complete the response correctly.",
+            kunciText: "he cannot",
+            bahas: "The correct response is 'No, he cannot.'"
+          },
 {
-          id: 'pg1',
-          tipe: 'pg',
-          bacaan: `Dialog: 
-A: Can you play the guitar? 
-B: Yes, I can play it very well.`,
-          tanya: 'Which sentence shows capability?',
-          opsi: [
-            'A: Can you play the guitar?',
-            'B: Yes, I can play it very well.',
-            'A: Do you like music?',
-            'B: I like music.'
-          ],
-          kunci: 1,
-          bahas: 'B expresses capability using "I can play it very well."'
-        },
-
-        // ===== TRUE / FALSE =====
-        {
-          id: 'tf1',
-          tipe: 'tf',
-          bacaan: `Dialog:
-A: Would you like to join the art club?
-B: Yes, I would love to join.`,
-          tanya: 'B shows willingness in this dialogue.',
-          opsi: ['B shows willingness', 'B does not show willingness'],
-          kunci: [true, false],
-          bahas: 'B expresses willingness using "I would love to join."'
-        },
-
-        // ===== CHECKBOX =====
-        {
-          id: 'cb1',
-          tipe: 'cb',
-          bacaan: `Dialog: 
-A: Can you help me with homework? 
-B: Sure, I can help you. I think it is fun.`,
-          tanya: 'Which sentences show capability? (choose all that apply)',
-          opsi: [
-            'A: Can you help me with homework?',
-            'B: Sure, I can help you.',
-            'B: I think it is fun.',
-            'A: Thank you for your help.'
-          ],
-          kunci: [1], // Only B shows capability
-          bahas: 'Capability is expressed by B saying "I can help you."'
-        },
-
-        // ===== ISIAN =====
-        {
-          id: 'is1',
-          tipe: 'isian',
-          bacaan: `Dialog:
-A: Can you speak French?
-B: Yes, I ___ speak French fluently.`,
-          tanya: 'Fill in the blank to show capability:',
-          kunciText: 'can',
-          bahas: 'The correct word is "can" to show capability: "I can speak French fluently."'
-        }
+      id: "cap5",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nMira: Can your sister ride a horse?\nDina: No, she can’t. But she can ride a bicycle very well.\nMira: Can she swim?\nDina: Yes, she can. She swims every weekend.\nMira: Can she cook?\nDina: No, she can’t cook.",
+      tanya: "What can Dina’s sister do?",
+      opsi: [
+        "She can ride a horse and cook.",
+        "She can ride a bicycle and swim.",
+        "She can swim and cook.",
+        "She can play badminton and ride a horse."
+      ],
+      kunci: 1,
+      bahas: "From the dialog, Dina’s sister can ride a bicycle and swim."
+    },
+    {
+      id: "cap6",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nTeacher: Can you speak Japanese?\nRiko: No, I can’t. But I can speak English and a little French.\nTeacher: Can you speak Arabic?\nRiko: No, I can’t.\nTeacher: What about Spanish?\nRiko: Sorry, I can’t.",
+      tanya: "Which languages can Riko speak?",
+      opsi: [
+        "Japanese",
+        "English",
+        "French",
+        "Spanish"
+      ],
+      kunci: [1,2],
+      bahas: "From the dialog, Riko can speak English and a little French."
+    },
+    {
+      id: "cap7",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nSami: Can you play basketball?\nAndi: Yes, I can. But I can’t play volleyball.\nSami: Can you play chess?\nAndi: Yes, I can. I usually play with my father.\nSami: Can you play football?\nAndi: No, I can’t.",
+      tanya: "Decide True or False based on the dialog.",
+      opsi: [
+        "Andi can play basketball and chess.",
+        "Andi can play volleyball and football."
+      ],
+      kunci: [true, false],
+      bahas: "Andi says he can play basketball and chess, but he can’t play volleyball or football."
+    },
+    {
+      id: "cap8",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nAyu: Can you sing this song?\nNina: Yes, I can. I love singing.\nAyu: Can you dance too?\nNina: Yes, I can dance, but just a little.\nAyu: Can you play the piano?\nNina: No, I can’t.",
+      tanya: "Mention two things Nina can do.",
+      kunciText: "sing and dance",
+      bahas: "From the dialog, Nina says she can sing and she can dance."
+    },
+{
+      id: "cap9",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nRani: Can your brother play the guitar?\nSinta: Yes, he can. He often plays in school events.\nRani: Can he play the piano?\nSinta: No, he can’t. But he can sing very well.\nRani: Can he dance?\nSinta: No, he can’t dance at all.",
+      tanya: "Based on the dialog, which activity can Sinta’s brother probably perform in a music concert?",
+      opsi: [
+        "Playing the piano and dancing",
+        "Playing the guitar and singing",
+        "Dancing and acting",
+        "Cooking and playing football"
+      ],
+      kunci: 1,
+      bahas: "He can play the guitar and sing. These are suitable for a music concert."
+    },
+    {
+      id: "cap10",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nArif: Can you swim, Tia?\nTia: Yes, I can. I swim twice a week.\nArif: Can you play badminton?\nTia: Yes, I can. I often play with my friends after school.\nArif: Can you ride a horse?\nTia: No, I can’t. It’s too difficult for me.",
+      tanya: "If the school will hold a 'Sports Day' event, which sports are suitable for Tia to join?",
+      opsi: [
+        "Swimming",
+        "Badminton",
+        "Horse riding",
+        "Running"
+      ],
+      kunci: [0,1],
+      bahas: "From the dialog, Tia can swim and play badminton. She cannot ride a horse."
+    },
+    {
+      id: "cap11",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nDina: Can your cousin cook Indonesian food?\nLina: Yes, she can. She loves cooking fried rice and soup.\nDina: Can she bake a cake?\nLina: No, she can’t. But she can make cookies.\nDina: Can she paint?\nLina: Yes, she can paint beautifully.",
+      tanya: "Decide True or False based on inference from the dialog.",
+      opsi: [
+        "Lina’s cousin is creative in art and cooking.",
+        "Lina’s cousin can bake a cake well."
+      ],
+      kunci: [true, false],
+      bahas: "She can cook, make cookies, and paint → shows creativity. But she cannot bake a cake."
+    },
+    {
+      id: "cap12",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nNana: Can you sing, Riko?\nRiko: No, I can’t. But I can play the violin.\nNana: Can you draw?\nRiko: Yes, I can. I love sketching landscapes.\nNana: Can you play football?\nRiko: Yes, I can play football quite well.",
+      tanya: "If Riko joins two extracurricular activities at school, which ones are the most suitable based on his abilities?",
+      kunciText: "Art club and football club",
+      bahas: "Riko can play the violin (music/art), draw (art), and play football. So the most suitable clubs are Art club and Football club."
+    },
+{
+      id: "will1",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nAyu: Will you help me with my homework?\nRina: Yes, I ____ help you after dinner.",
+      tanya: "Choose the correct word to complete the blank.",
+      opsi: ["will", "won’t", "am not willing to", "don’t"],
+      kunci: 0,
+      bahas: "Rina agrees to help, so the correct answer is 'will'."
+    },
+    {
+  id: "will2",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nBudi: Will you join us to play football tomorrow?\nAndi: Sorry, I won’t join. I have to visit my grandmother.\nBudi: Will you join us next week then?\nAndi: Yes, I will. I’ll be free by then.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Andi is willing to play football tomorrow.",
+    "Andi is willing to play football next week."
+  ],
+  kunci: [false, true],
+  bahas: "Andi says 'I won’t join' (tomorrow) → False. But he says 'Yes, I will' (next week) → True."
+},
+    {
+      id: "will3",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nTeacher: Will you submit your homework tomorrow?\nStudents: Yes, we ____ submit it. We are ready.\n\nWhich words can complete the blank correctly?",
+      tanya: "Select all correct answers.",
+      opsi: [
+        "will",
+        "won’t",
+        "are willing to",
+        "are not willing to"
+      ],
+      kunci: [0,2],
+      bahas: "The students agree → 'will' or 'are willing to' are correct."
+    },
+    {
+      id: "will4",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nDina: Will you lend me your pen?\nTono: No, I ____ lend it. I only have one.",
+      tanya: "Complete the blank with the correct word.",
+      kunciText: "won't",
+      bahas: "Tono refuses, so the correct answer is 'won’t'."
+    },
+{
+      id: "will9",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nSinta: Will you come to my birthday party tomorrow?\nLina: Yes, of course. ____\n\nWhich is the correct expression Lina should say?",
+      tanya: "Choose the correct expression.",
+      opsi: [
+        "I won’t come.",
+        "I’m willing to join.",
+        "I don’t like parties.",
+        "I can’t come."
+      ],
+      kunci: 1,
+      bahas: "Lina agrees happily, so the correct expression is 'I’m willing to join.'"
+    },
+    {
+      id: "will10",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nTeacher: Will you clean the classroom after school?\nStudents: ____\n\nWhich expressions show willingness?",
+      tanya: "Select all correct answers.",
+      opsi: [
+        "Yes, we will.",
+        "We are willing to do it.",
+        "No, we won’t.",
+        "We are not willing to do it."
+      ],
+      kunci: [0,1],
+      bahas: "The expressions that show willingness are 'Yes, we will.' and 'We are willing to do it.'"
+    },
+    {
+      id: "will11",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nRiko: Will you join the English club?\nAndi: Sorry, I won’t. I’m not interested.\n\nStatements:",
+      tanya: "Decide True or False.",
+      opsi: [
+        "Andi shows willingness to join the club.",
+        "Andi shows unwillingness to join the club."
+      ],
+      kunci: [false, true],
+      bahas: "Andi says 'I won’t' → unwillingness. So statement 1 is False, statement 2 is True."
+    },
+    {
+      id: "will12",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nMira: Will you help me carry this bag?\nDoni: Sure. ____.\n\nComplete Doni’s answer with the correct expression of willingness.",
+      tanya: "Fill in the blank.",
+      kunciText: "I will help you / I’m willing to help",
+      bahas: "The correct expressions are 'I will help you' or 'I’m willing to help.'"
+    },
+{
+      id: "op1",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nAyu: What do you think about the new library?\nRina: ____. It’s very comfortable and modern.\n\nWhich is the correct expression to complete Rina’s answer?",
+      tanya: "Choose the correct expression.",
+      opsi: [
+        "In my opinion, it is great.",
+        "I won’t go there.",
+        "I can ride a bicycle.",
+        "I am not willing to join."
+      ],
+      kunci: 0,
+      bahas: "The correct expression of giving opinion is 'In my opinion, it is great.'"
+    },
+    {
+      id: "op2",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nBudi: Do you like the new school canteen?\nSinta: ____. The food is delicious.\n\nWhich expressions can complete Sinta’s answer?",
+      tanya: "Select all correct answers.",
+      opsi: [
+        "I think it is nice.",
+        "In my opinion, it’s better than before.",
+        "I won’t eat there.",
+        "According to me, it is good."
+      ],
+      kunci: [0,1,3],
+      bahas: "All three ('I think...', 'In my opinion...', 'According to me...') express opinion. 'I won’t eat there' is not expressing opinion, it’s refusal."
+    },
+    {
+      id: "op3",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nRiko: What do you think of the new English teacher?\nAndi: I think she is very friendly.\n\nStatements:",
+      tanya: "Decide True or False.",
+      opsi: [
+        "Andi gives his opinion about the teacher.",
+        "Andi shows willingness to help the teacher."
+      ],
+      kunci: [true, false],
+      bahas: "Andi says 'I think she is very friendly' → opinion. He doesn’t talk about willingness."
+    },
+    {
+      id: "op4",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nMira: What do you think about the film we watched yesterday?\nDoni: ____. It was very exciting.\n\nComplete Doni’s answer with a correct opinion expression.",
+      tanya: "Fill in the blank.",
+      kunciText: "I think it was great / In my opinion, it was great",
+      bahas: "The correct expressions are 'I think it was great' or 'In my opinion, it was great.'"
+    },
+{
+      id: "op5",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nTono: What do you think about our school garden?\nDewi: I think it is clean and beautiful. The students take care of it every week.\n\nQuestion: What does Dewi think about the school garden?",
+      tanya: "Choose the correct answer.",
+      opsi: [
+        "It is dirty and small.",
+        "It is clean and beautiful.",
+        "It is big but dirty.",
+        "It is old and messy."
+      ],
+      kunci: 1,
+      bahas: "Dewi clearly says 'I think it is clean and beautiful.'"
+    },
+    {
+      id: "op6",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nAni: What do you think about the new cafeteria?\nLia: In my opinion, it is spacious and the food is delicious. But the drinks are too expensive.\n\nQuestion: What are Lia’s opinions about the cafeteria?",
+      tanya: "Select all correct answers.",
+      opsi: [
+        "It is spacious.",
+        "The food is delicious.",
+        "The drinks are too expensive.",
+        "The food is too salty."
+      ],
+      kunci: [0,1,2],
+      bahas: "Lia mentions three points explicitly: spacious, delicious food, and expensive drinks. She never says the food is salty."
+    },
+    {
+      id: "op7",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nArif: What do you think of our English class today?\nSusi: I think it was fun. We played a vocabulary game.\n\nStatements:",
+      tanya: "Decide True or False.",
+      opsi: [
+        "Susi thinks the class was fun.",
+        "Susi says they did a writing test."
+      ],
+      kunci: [true, false],
+      bahas: "Susi explicitly says 'I think it was fun' and 'We played a vocabulary game', not a writing test."
+    },
+    {
+      id: "op8",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nDoni: What do you think about the new computer lab?\nRani: I think it is modern. The computers are fast.\n\nQuestion: What does Rani think about the new computer lab?",
+      tanya: "Fill in the blank.",
+      kunciText: "It is modern / The computers are fast",
+      bahas: "Rani explicitly says 'I think it is modern' and 'The computers are fast.'"
+    },
+{
+      id: "op9",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nRika: What do you think about the new library?\nTari: In my opinion, it is comfortable. I really like the reading corner because it has big windows and natural light.\n\nQuestion: Which detail does Tari mention about the library?",
+      tanya: "Choose the correct answer.",
+      opsi: [
+        "It has many story books.",
+        "It has big windows and natural light.",
+        "It has free internet access.",
+        "It is noisy and crowded."
+      ],
+      kunci: 1,
+      bahas: "Tari explicitly mentions 'big windows and natural light.'"
+    },
+    {
+      id: "op10",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nAndi: What do you think of the new canteen?\nMira: I think the chairs are comfortable, the noodles are tasty, and the place is clean. But the queue is always long.\n\nQuestion: What details are mentioned by Mira?",
+      tanya: "Select all correct answers.",
+      opsi: [
+        "The chairs are comfortable.",
+        "The noodles are tasty.",
+        "The place is clean.",
+        "The queue is long.",
+        "The price is cheap."
+      ],
+      kunci: [0,1,2,3],
+      bahas: "Mira mentions 4 details: comfortable chairs, tasty noodles, clean place, and long queue. She never mentions cheap price."
+    },
+    {
+      id: "op11",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nReno: What do you think about the music festival yesterday?\nDina: In my opinion, it was exciting. The band played very well, but the sound system had a problem.\n\nStatements:",
+      tanya: "Decide True or False.",
+      opsi: [
+        "Dina thought the festival was exciting.",
+        "The sound system worked perfectly."
+      ],
+      kunci: [true, false],
+      bahas: "Dina said it was exciting, but also said the sound system had a problem, not perfect."
+    },
+    {
+      id: "op12",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nLina: What do you think of the science exhibition?\nRudi: I think it was very interesting. The robot demonstration was amazing, and the solar system model looked real.\n\nQuestion: Mention two details Rudi says about the exhibition.",
+      tanya: "Fill in the blank.",
+      kunciText: "The robot demonstration was amazing; The solar system model looked real",
+      bahas: "Rudi mentions two explicit details: robot demo and solar system model."
+    },
       ]
     }
   }
@@ -4580,7 +4907,7 @@ gambar:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCyVCq-Edor8u
 
   };
 
-  // ======= Helpers =======
+ // ======= Helpers =======
   const $ = (sel, par=document) => par.querySelector(sel);
   const $$ = (sel, par=document) => Array.from(par.querySelectorAll(sel));
   function setTab(name){
@@ -4606,60 +4933,65 @@ gambar:'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCyVCq-Edor8u
   }
 
   function renderMateri(mapel, bab){
-  const item = DB[mapel]?.bab?.[bab];
-  if(!item){
-    $('#materiKonten').innerHTML = '<p class="text-gray-500">Materi belum tersedia.</p>';
-    $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
-    return;
-  }
-  $('#materiKonten').innerHTML = item.materi;
-
-  if(item.video && item.video.length > 0){
-  $('#materiVideo').innerHTML = item.video.map(v =>
-    `<div class="w-full aspect-video mb-4">
-       <iframe class="w-full h-full rounded-lg shadow"
-         src="https://www.youtube.com/embed/${v}"
-         title="Video pembelajaran"
-         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-         allowfullscreen></iframe>
-     </div>`
-  ).join('');
-} else {
-  $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
-}
-
-
-  if(window.MathJax){
+    const item = DB[mapel]?.bab?.[bab];
+    if(!item){
+      $('#materiKonten').innerHTML = '<p class="text-gray-500">Materi belum tersedia.</p>';
+      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+      return;
+    }
+    $('#materiKonten').innerHTML = item.materi;
+    if(item.video){
+      $('#materiVideo').innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${item.video}" title="Video pembelajaran" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    } else {
+      $('#materiVideo').innerHTML = '<span class="text-sm">Video belum tersedia.</span>';
+    }
+if(window.MathJax){
     MathJax.typesetPromise([$('#materiKonten')]);
   }
-}
-
+  }
 
   function buildSoalCard(q, idx, prefix){
   const wrap = document.createElement('div');
   wrap.className = 'p-4 rounded-xl border chip';
   wrap.dataset.id = q.id;
 
+  // ===== HEAD: hanya nomor & tipe soal =====
   const head = document.createElement('div');
   head.className = 'flex items-start justify-between gap-3';
-  head.innerHTML = `<div class="font-semibold">${idx+1}. ${q.tanya.replace(/\n/g,'<br>')}</div>`;
+  head.innerHTML = `
+    <div class="font-semibold">Soal ${idx+1}</div>
+    <div class="text-xs px-2 py-1 rounded bg-gray-100 border text-gray-600 uppercase">
+      ${q.tipe}
+    </div>`;
   wrap.appendChild(head);
 
+  // ===== BODY: tanya, bacaan, gambar, opsi =====
   const body = document.createElement('div');
   body.className = 'mt-3 space-y-2';
-if(q.gambar){
-  const img = document.createElement('img');
-  img.src = q.gambar;
-  img.alt = 'Gambar soal';
-  img.className = 'my-3 w-full max-w-md rounded-lg border';
-  body.appendChild(img);
-}
-if(q.bacaan){
-  const teks = document.createElement('div');
-  teks.className = 'mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm whitespace-pre-line';
-  teks.innerText = q.bacaan;
-  body.appendChild(teks);
-}
+
+  // tampilkan pertanyaan
+  
+
+  if(q.gambar){
+    const img = document.createElement('img');
+    img.src = q.gambar;
+    img.alt = 'Gambar soal';
+    img.className = 'my-3 w-full max-w-md rounded-lg border';
+    body.appendChild(img);
+  }
+
+  if(q.bacaan){
+    const teks = document.createElement('div');
+    teks.className = 'mb-4 p-3 bg-gray-50 border border-gray-200 rounded-lg text-sm whitespace-pre-line text-justify';
+    teks.innerText = q.bacaan;
+    body.appendChild(teks);
+  }
+if(q.tanya){
+    const pertanyaan = document.createElement('div');
+    pertanyaan.className = 'text-base font-medium';
+    pertanyaan.innerHTML = q.tanya.replace(/\n/g,'<br>');
+    body.appendChild(pertanyaan);
+  }
   // ====== PILIHAN GANDA ======
   if(q.tipe === 'pg'){
     q.opsi.forEach((o,i)=>{
@@ -4716,41 +5048,41 @@ if(q.bacaan){
     table.appendChild(tbody);
     body.appendChild(table);
   }
-// ====== TRUE / FALSE ======
-if(q.tipe === 'tf'){
-  const table = document.createElement('table');
-  table.className = 'w-full border border-gray-200 rounded-lg';
+  // ====== TRUE / FALSE (English Version) ======
+  if(q.tipe === 'tf'){
+    const table = document.createElement('table');
+    table.className = 'w-full border border-gray-200 rounded-lg';
 
-  const thead = document.createElement('thead');
-  thead.innerHTML = `
-    <tr class="bg-gray-100 text-center">
-      <th class="p-2 border">Statement</th>
-      <th class="p-2 border w-20">True</th>
-      <th class="p-2 border w-20">False</th>
-    </tr>`;
-  table.appendChild(thead);
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+      <tr class="bg-gray-100 text-center">
+        <th class="p-2 border">Statement</th>
+        <th class="p-2 border w-20">True</th>
+        <th class="p-2 border w-20">False</th>
+      </tr>`;
+    table.appendChild(thead);
 
-  const tbody = document.createElement('tbody');
-  q.opsi.forEach((o,i)=>{
-    const idTrue = `${prefix}-${q.id}-tf-${i}-true`;
-    const idFalse = `${prefix}-${q.id}-tf-${i}-false`;
+    const tbody = document.createElement('tbody');
+    q.opsi.forEach((o,i)=>{
+      const idTrue = `${prefix}-${q.id}-tf-${i}-true`;
+      const idFalse = `${prefix}-${q.id}-tf-${i}-false`;
 
-    const row = document.createElement('tr');
-    row.className = 'border-t';
-    row.innerHTML = `
-      <td class="p-2 border">${o}</td>
-      <td class="p-2 text-center border">
-        <input type="radio" id="${idTrue}" name="${prefix}-${q.id}-tf-${i}" value="true" class="accent-emerald-600">
-      </td>
-      <td class="p-2 text-center border">
-        <input type="radio" id="${idFalse}" name="${prefix}-${q.id}-tf-${i}" value="false" class="accent-rose-600">
-      </td>`;
-    tbody.appendChild(row);
-  });
+      const row = document.createElement('tr');
+      row.className = 'border-t';
+      row.innerHTML = `
+        <td class="p-2 border">${o}</td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idTrue}" name="${prefix}-${q.id}-tf-${i}" value="true" class="accent-emerald-600">
+        </td>
+        <td class="p-2 text-center border">
+          <input type="radio" id="${idFalse}" name="${prefix}-${q.id}-tf-${i}" value="false" class="accent-rose-600">
+        </td>`;
+      tbody.appendChild(row);
+    });
 
-  table.appendChild(tbody);
-  body.appendChild(table);
-}
+    table.appendChild(tbody);
+    body.appendChild(table);
+  }
 
   // ====== BENAR / SALAH ======
   if(q.tipe === 'bs'){
@@ -4797,7 +5129,90 @@ if(q.tipe === 'tf'){
     inp.name = `${prefix}-${q.id}-isian`;
     body.appendChild(inp);
   }
+// ====== MATCHING ======
+    if(q.tipe === 'matching'){
+      const container = document.createElement('div');
+      container.className = 'relative flex gap-12 min-h-[150px]';
 
+      const leftCol = document.createElement('div');
+      leftCol.className = 'flex flex-col gap-3 z-10';
+      const rightCol = document.createElement('div');
+      rightCol.className = 'flex flex-col gap-3 z-10';
+
+      const svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
+      svg.setAttribute("class","absolute inset-0 w-full h-full pointer-events-none");
+      container.append(leftCol, rightCol, svg);
+      body.appendChild(container);
+
+      let startIdx = null;
+      const pairs = [];
+
+      q.opsi.kiri.forEach((o,i)=>{
+        const btn = document.createElement('button');
+        btn.className = 'px-3 py-2 border rounded bg-white hover:bg-gray-50';
+        btn.textContent = o;
+        btn.dataset.side = "left";
+        btn.dataset.idx = i;
+        leftCol.appendChild(btn);
+      });
+      q.opsi.kanan.forEach((o,i)=>{
+        const btn = document.createElement('button');
+        btn.className = 'px-3 py-2 border rounded bg-white hover:bg-gray-50';
+        btn.textContent = o;
+        btn.dataset.side = "right";
+        btn.dataset.idx = i;
+        rightCol.appendChild(btn);
+      });
+
+      container.addEventListener('click',e=>{
+        if(e.target.tagName!=='BUTTON') return;
+        const btn = e.target;
+        const side = btn.dataset.side;
+        const idx = Number(btn.dataset.idx);
+
+        if(side==="left"){
+          startIdx = idx;
+        } else if(side==="right" && startIdx!==null){
+          pairs.push([startIdx, idx]);
+          drawLine(startIdx, idx);
+
+          // highlight tombol kiri & kanan
+          leftCol.children[startIdx].classList.add("bg-emerald-100","border-emerald-500");
+          rightCol.children[idx].classList.add("bg-emerald-100","border-emerald-500");
+
+          // disable tombol biar gak dipakai ulang
+          leftCol.children[startIdx].disabled = true;
+          rightCol.children[idx].disabled = true;
+
+          startIdx = null;
+        }
+      });
+
+      function drawLine(li,ri){
+        const lbtn = leftCol.children[li];
+        const rbtn = rightCol.children[ri];
+        const lbox = lbtn.getBoundingClientRect();
+        const rbox = rbtn.getBoundingClientRect();
+        const cbox = container.getBoundingClientRect();
+
+        const x1 = lbox.right - cbox.left;
+        const y1 = lbox.top + lbox.height/2 - cbox.top;
+        const x2 = rbox.left - cbox.left;
+        const y2 = rbox.top + rbox.height/2 - cbox.top;
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg","line");
+        line.setAttribute("x1",x1);
+        line.setAttribute("y1",y1);
+        line.setAttribute("x2",x2);
+        line.setAttribute("y2",y2);
+        line.setAttribute("stroke","#10b981");
+        line.setAttribute("stroke-width","2");
+        svg.appendChild(line);
+      }
+
+      // simpan untuk cek jawaban
+      q._pairs = pairs;
+    }
   // ====== AKSI ======
   const actions = document.createElement('div');
   actions.className = 'mt-3 flex flex-wrap items-center gap-2';
@@ -4830,18 +5245,18 @@ if(q.tipe === 'tf'){
       const kunci = Array.isArray(q.kunci) ? q.kunci.slice().sort() : [q.kunci];
       benar = checked.slice().sort().toString() === kunci.toString();
     }
-else if(q.tipe === 'tf'){
-  const jawabanUser = q.opsi.map((o,i)=>{
-    const el = document.querySelector(`input[name='${prefix}-${q.id}-tf-${i}']:checked`);
-    return el ? el.value === 'true' : null;
-  });
+    else if(q.tipe === 'tf'){
+      const jawabanUser = q.opsi.map((o,i)=>{
+        const el = document.querySelector(`input[name='${prefix}-${q.id}-tf-${i}']:checked`);
+        return el ? el.value === 'true' : null;
+      });
 
-  if(jawabanUser.includes(null)){
-    alert('Pilih jawaban True / False untuk semua pernyataan!');
-    return;
-  }
-  benar = jawabanUser.every((val,i)=> val === q.kunci[i]);
-}
+      if(jawabanUser.includes(null)){
+        alert('Please select True/False for all statements!');
+        return;
+      }
+      benar = jawabanUser.every((val,i)=> val === q.kunci[i]);
+    }
 
     else if(q.tipe === 'bs'){
       const jawabanUser = q.opsi.map((o,i)=>{
@@ -4871,6 +5286,10 @@ else if(q.tipe === 'tf'){
       const v = (document.querySelector(`input[name='${prefix}-${q.id}-isian']`)||{}).value||'';
       benar = v.trim().toLowerCase() === String(q.kunciText||'').trim().toLowerCase();
     }
+if(q.tipe==='matching'){
+        const pairs = q._pairs||[];
+        benar = JSON.stringify(pairs.sort())===JSON.stringify(q.kunci.sort());
+      }
 
     status.textContent = benar ? '✅ Benar' : '❌ Salah';
     status.classList.toggle('text-emerald-600', benar);
@@ -5038,3 +5457,5 @@ else if(q.tipe === 'tf'){
   </script>
 </body>
 </html>
+
+
