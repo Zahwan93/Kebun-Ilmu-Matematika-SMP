@@ -143,8 +143,1378 @@
   // ======= Dataset Contoh (DISERAGAMKAN DENGAN TKA SMA) =======
   // Struktur: mapel -> bab[] -> materi (html), video (YT embed id), soal[]
   const DB = {
+'English': {
+  bab: {
+    'Expression of Capability, Willingness, and Opinion': {
+      materi: `
+<h2 class="text-xl font-bold mb-2">Expression of Capability, Willingness, and Opinion</h2>
+<p>
+  In English, we use different expressions to show what we can do (capability), what we want or are willing to do (willingness), and what we think or believe (opinion).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Expression of Capability</h3>
+<p>
+  To express capability, we often use modal verbs or phrases like <b>can, be able to, know how to</b>.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>I <b>can</b> swim very well. (Saya bisa berenang dengan baik.)</li>
+  <li>She is <b>able to</b> solve the problem quickly. (Dia mampu menyelesaikan masalah dengan cepat.)</li>
+  <li>They <b>know how to</b> use a computer. (Mereka tahu cara menggunakan komputer.)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Expression of Willingness</h3>
+<p>
+  To show willingness, we use phrases such as <b>will, would like to, want to</b>.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>I <b>will</b> help you with your homework. (Saya akan membantu pekerjaan rumahmu.)</li>
+  <li>She <b>would like to</b> join the meeting. (Dia ingin ikut rapat.)</li>
+  <li>We <b>want to</b> visit the museum. (Kami ingin mengunjungi museum.)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Expression of Opinion</h3>
+<p>
+  To give opinions, we often use phrases like <b>I think, I believe, In my opinion</b>.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>I think</b> this movie is very interesting. (Saya pikir film ini sangat menarik.)</li>
+  <li><b>I believe</b> everyone should exercise regularly. (Saya percaya semua orang harus berolahraga secara teratur.)</li>
+  <li><b>In my opinion</b>, reading books is important. (Menurut saya, membaca buku itu penting.)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples</h3>
+<p>
+  - Capability: "I can play the piano."  
+  - Willingness: "I would like to attend the workshop."  
+  - Opinion: "In my opinion, the environment should be protected."
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> I ___ swim very well. (Jawab: can)</p>
+<p><b>Contoh 2:</b> She ___ like to join the party. (Jawab: would)</p>
+<p><b>Contoh 3:</b> ___ you think learning English is important? (Jawab: Do)</p>
+`,
+      video: ['dQw4w9WgXcQ'], // contoh video
+
+      soal: [
+{
+          id: 'pg1',
+          tipe: 'pg',
+          bacaan: `Dialog: 
+A: Can you play the guitar? 
+B: Yes, I can play it very well.`,
+          tanya: 'Which sentence shows capability?',
+          opsi: [
+            'A: Can you play the guitar?',
+            'B: Yes, I can play it very well.',
+            'A: Do you like music?',
+            'B: I like music.'
+          ],
+          kunci: 1,
+          bahas: 'B expresses capability using "I can play it very well."'
+        },
+
+        // ===== TRUE / FALSE =====
+        {
+          id: 'tf1',
+          tipe: 'tf',
+          bacaan: `Dialog:
+A: Would you like to join the art club?
+B: Yes, I would love to join.`,
+          tanya: 'B shows willingness in this dialogue.',
+          opsi: ['B shows willingness', 'B does not show willingness'],
+          kunci: [true, false],
+          bahas: 'B expresses willingness using "I would love to join."'
+        },
+
+        // ===== CHECKBOX =====
+        {
+          id: 'cb1',
+          tipe: 'cb',
+          bacaan: `Dialog: 
+A: Can you help me with homework? 
+B: Sure, I can help you. I think it is fun.`,
+          tanya: 'Which sentences show capability? (choose all that apply)',
+          opsi: [
+            'A: Can you help me with homework?',
+            'B: Sure, I can help you.',
+            'B: I think it is fun.',
+            'A: Thank you for your help.'
+          ],
+          kunci: [1], // Only B shows capability
+          bahas: 'Capability is expressed by B saying "I can help you."'
+        },
+
+        // ===== ISIAN =====
+        {
+          id: 'is1',
+          tipe: 'isian',
+          bacaan: `Dialog:
+A: Can you speak French?
+B: Yes, I ___ speak French fluently.`,
+          tanya: 'Fill in the blank to show capability:',
+          kunciText: 'can',
+          bahas: 'The correct word is "can" to show capability: "I can speak French fluently."'
+        }
+      ]
+    }
+  }
+},
+
 'IPA': {
 bab: {
+'Hakikat Sains': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Hakikat Ilmu Sains dan Metode Ilmiah</h2>
+<p>
+  Ilmu sains adalah pengetahuan yang diperoleh melalui proses berpikir kritis, sistematis, dan logis tentang alam dan gejala-gejalanya. 
+  Sains berkembang berdasarkan pengamatan, eksperimen, serta analisis yang dapat diuji kebenarannya.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Hakikat Ilmu Sains</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Sains sebagai produk</b>: berupa kumpulan fakta, konsep, hukum, dan teori.</li>
+  <li><b>Sains sebagai proses</b>: berupa langkah-langkah sistematis untuk memperoleh pengetahuan, seperti observasi, hipotesis, eksperimen, dan analisis data.</li>
+  <li><b>Sains sebagai sikap</b>: bersikap objektif, jujur, terbuka terhadap data baru, dan selalu kritis.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Metode Ilmiah</h3>
+<p>
+  Metode ilmiah adalah cara sistematis yang dilakukan untuk memecahkan masalah dan mendapatkan pengetahuan baru.
+</p>
+<ol class="list-decimal ml-6 mb-4">
+  <li><b>Observasi</b>: mengamati fenomena atau masalah yang terjadi.</li>
+  <li><b>Merumuskan masalah</b>: menentukan pertanyaan yang ingin dijawab.</li>
+  <li><b>Menyusun hipotesis</b>: dugaan sementara yang akan diuji.</li>
+  <li><b>Eksperimen</b>: melakukan percobaan untuk menguji hipotesis.</li>
+  <li><b>Menganalisis data</b>: mengolah hasil percobaan.</li>
+  <li><b>Membuat kesimpulan</b>: menarik jawaban dari hasil penelitian.</li>
+  <li><b>Publikasi</b>: menyampaikan hasil penelitian agar dapat diuji dan digunakan orang lain.</li>
+</ol>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh Penerapan</h3>
+<p>
+  Seorang siswa ingin mengetahui pengaruh cahaya terhadap pertumbuhan tanaman. Ia melakukan observasi, menyusun hipotesis bahwa "tanaman yang terkena cahaya tumbuh lebih cepat", 
+  kemudian melakukan eksperimen dengan dua pot tanaman, satu diletakkan di tempat terang dan satu lagi di tempat gelap. Setelah beberapa minggu, hasilnya dianalisis dan disimpulkan bahwa cahaya memang memengaruhi pertumbuhan tanaman.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Langkah pertama dalam metode ilmiah adalah .... <i>Jawab: Observasi</i>.</p>
+<p><b>Contoh 2:</b> Dugaan sementara yang disusun untuk menjawab permasalahan disebut .... <i>Jawab: Hipotesis</i>.</p>
+`,
+  video: ['L0V6pVwWJ1c'], 
+
+  soal: [
+ // Pilihan Ganda (PG)
+{
+  id: 'ipa1',
+  tipe: 'pg',
+  tanya: 'Ilmu yang mempelajari makhluk hidup beserta interaksinya dengan lingkungan termasuk cabang IPA yang disebut ....',
+  opsi: [
+    'Fisika',
+    'Kimia',
+    'Biologi',
+    'Astronomi'
+  ],
+  kunci: 3,
+  bahas: 'Biologi adalah cabang IPA yang mempelajari makhluk hidup, struktur, fungsi, serta interaksinya dengan lingkungan.'
+},
+
+// Check Box (CB)
+{
+  id: 'ipa2',
+  tipe: 'cb',
+  tanya: 'Manakah yang termasuk cabang IPA?',
+  opsi: [
+    'Fisika',
+    'Kimia',
+    'Ekonomi',
+    'Biologi'
+  ],
+  kunci: [0,1,3],
+  bahas: 'IPA mencakup Fisika, Kimia, dan Biologi. Ekonomi termasuk ilmu sosial, bukan cabang IPA.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'ipa3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait cabang IPA:',
+  opsi: [
+    'Fisika mempelajari materi dan energi serta interaksinya',
+    'Kimia mempelajari susunan, struktur, dan sifat zat',
+    'Biologi hanya mempelajari tumbuhan',
+    'Astronomi mempelajari benda langit'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Fisika fokus pada energi dan materi (benar). Kimia fokus pada zat dan perubahannya (benar). Biologi mempelajari semua makhluk hidup, tidak hanya tumbuhan (salah). Astronomi mempelajari benda langit (benar).'
+},
+
+// Isian
+{
+  id: 'ipa4',
+  tipe: 'isian',
+  tanya: 'Ilmu yang mempelajari benda langit seperti planet, bintang, dan galaksi disebut ....',
+  kunciText: 'astronomi',
+  bahas: 'Astronomi adalah cabang IPA yang mempelajari benda langit dan fenomena luar angkasa.'
+},
+ {
+    id: 'ipa5',
+    tipe: 'pg',
+    tanya: 'Alat laboratorium yang digunakan untuk memanaskan cairan dengan nyala api adalah ....',
+    opsi: [
+      'Mikroskop',
+      'Bunsen',
+      'Tabung reaksi',
+      'Cawan petri'
+    ],
+    kunci: 1,
+    bahas: 'Bunsen adalah alat pemanas yang menghasilkan nyala api stabil untuk percobaan di laboratorium.'
+  },
+
+  // Check Box (CB)
+  {
+    id: 'ipa6',
+    tipe: 'cb',
+    tanya: 'Manakah fungsi dari gelas ukur dalam laboratorium?',
+    opsi: [
+      'Mengukur volume larutan dengan ketelitian sedang',
+      'Menimbang massa zat padat',
+      'Mencampur larutan dalam jumlah banyak',
+      'Menampung larutan dalam volume tertentu'
+    ],
+    kunci: [0,3],
+    bahas: 'Gelas ukur digunakan untuk mengukur volume larutan, meski tidak seakurat buret. Gelas ukur juga bisa menampung larutan sesuai volume yang ditandai.'
+  },
+
+  // Benar/Salah (BS)
+  {
+    id: 'ipa7',
+    tipe: 'bs',
+    tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang fungsi alat laboratorium:',
+    opsi: [
+      'Mikroskop digunakan untuk mengamati benda yang sangat kecil',
+      'Tabung reaksi digunakan untuk memanaskan cairan dalam jumlah besar',
+      'Pipet tetes digunakan untuk menambahkan larutan sedikit demi sedikit',
+      'Erlenmeyer digunakan untuk mengukur massa zat dengan teliti'
+    ],
+    kunci: [true,false,true,false],
+    bahas: 'Mikroskop benar untuk melihat objek kecil. Tabung reaksi untuk volume kecil, bukan besar. Pipet tetes benar untuk meneteskan larutan sedikit-sedikit. Erlenmeyer bukan untuk menimbang massa.'
+  },
+
+  // Isian
+  {
+    id: 'ipa8',
+    tipe: 'isian',
+    tanya: 'Alat laboratorium yang digunakan untuk memindahkan cairan dalam volume tertentu dengan ketelitian tinggi adalah ....',
+    kunciText: 'pipet ukur',
+    bahas: 'Pipet ukur dipakai untuk memindahkan larutan dengan volume tertentu secara teliti.'
+  },
+
+  // Pilihan Ganda (PG)
+  {
+    id: 'ipa9',
+    tipe: 'pg',
+    tanya: 'Cawan petri dalam laboratorium biasanya digunakan untuk ....',
+    opsi: [
+      'Menumbuhkan mikroorganisme',
+      'Mengukur suhu zat cair',
+      'Memanaskan larutan dengan api',
+      'Mengukur volume larutan'
+    ],
+    kunci: 0,
+    bahas: 'Cawan petri berfungsi sebagai wadah kultur mikroorganisme pada medium tertentu.'
+  },
+{
+    id: 'ipa10',
+    tipe: 'pg',
+    tanya: 'Langkah pertama dalam metode ilmiah yang harus dilakukan seorang peneliti adalah ....',
+    opsi: [
+      'Menyusun hipotesis',
+      'Melakukan observasi',
+      'Mengumpulkan data',
+      'Membuat kesimpulan'
+    ],
+    kunci: 1,
+    bahas: 'Metode ilmiah diawali dengan observasi (pengamatan) terhadap suatu fenomena.'
+  },
+
+  // Check Box (CB)
+  {
+    id: 'ipa11',
+    tipe: 'cb',
+    tanya: 'Manakah yang termasuk langkah dalam metode ilmiah?',
+    opsi: [
+      'Merumuskan masalah',
+      'Membuat hipotesis',
+      'Melakukan eksperimen',
+      'Menentukan harga jual produk'
+    ],
+    kunci: [0,1,2],
+    bahas: 'Langkah metode ilmiah meliputi: merumuskan masalah, membuat hipotesis, melakukan eksperimen, mengolah data, dan menyimpulkan.'
+  },
+
+  // Benar/Salah (BS)
+  {
+    id: 'ipa12',
+    tipe: 'bs',
+    tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang metode ilmiah:',
+    opsi: [
+      'Hipotesis adalah jawaban sementara atas rumusan masalah',
+      'Kesimpulan dibuat sebelum eksperimen dilakukan',
+      'Eksperimen dilakukan untuk menguji kebenaran hipotesis',
+      'Observasi bukan bagian dari metode ilmiah'
+    ],
+    kunci: [true,false,true,false],
+    bahas: 'Hipotesis memang jawaban sementara. Kesimpulan dibuat setelah eksperimen, bukan sebelumnya. Eksperimen untuk menguji hipotesis. Observasi adalah bagian awal metode ilmiah.'
+  },
+
+  // Isian
+  {
+    id: 'ipa13',
+    tipe: 'isian',
+    tanya: 'Jawaban sementara yang dibuat peneliti sebelum melakukan eksperimen disebut ....',
+    kunciText: 'hipotesis',
+    bahas: 'Hipotesis adalah dugaan sementara yang kebenarannya masih harus diuji melalui eksperimen.'
+  },
+
+  // Pilihan Ganda (PG)
+  {
+    id: 'ipa14',
+    tipe: 'pg',
+    tanya: 'Setelah melakukan eksperimen dan mengumpulkan data, langkah selanjutnya dalam metode ilmiah adalah ....',
+    opsi: [
+      'Membuat rumusan masalah',
+      'Menyusun hipotesis',
+      'Membuat kesimpulan',
+      'Melakukan observasi ulang'
+    ],
+    kunci: 2,
+    bahas: 'Setelah eksperimen selesai, peneliti membuat kesimpulan berdasarkan data yang diperoleh.'
+  },
+{
+    id: 'ipa15',
+    tipe: 'pg',
+    tanya: 'Sebuah benda diukur menggunakan jangka sorong. Skala utama menunjukkan 3,2 cm dan garis ke-6 pada skala nonius tepat berhimpit dengan garis skala utama. Berapakah hasil pengukurannya?',
+    opsi: [
+      '3,20 cm',
+      '3,26 cm',
+      '3,60 cm',
+      '3,80 cm'
+    ],
+    kunci: 1,
+    bahas: 'Skala utama = 3,2 cm. Skala nonius = 0,06 cm (6 × 0,01 cm). Hasil = 3,2 + 0,06 = 3,26 cm.'
+  },
+
+  // Check Box (CB)
+  {
+    id: 'ipa16',
+    tipe: 'cb',
+    tanya: 'Manakah pernyataan yang benar tentang cara membaca jangka sorong?',
+    opsi: [
+      'Skala utama menunjukkan nilai sebelum garis nol nonius',
+      'Skala nonius menunjukkan tambahan ketelitian pembacaan',
+      'Setiap garis skala nonius bernilai 0,01 cm',
+      'Hasil pengukuran hanya dilihat dari skala utama'
+    ],
+    kunci: [0,1,2],
+    bahas: 'Skala utama dibaca tepat sebelum garis nol nonius. Skala nonius memberikan ketelitian tambahan (0,01 cm per garis). Hasil pengukuran merupakan gabungan skala utama dan nonius.'
+  },
+
+  // Benar/Salah (BS)
+  {
+    id: 'ipa17',
+    tipe: 'bs',
+    tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait jangka sorong:',
+    opsi: [
+      'Ketelitian jangka sorong umumnya 0,01 cm',
+      'Pembacaan jangka sorong hanya menggunakan skala utama',
+      'Jika garis ke-5 nonius berhimpit, artinya tambahan pembacaan 0,05 cm',
+      'Jangka sorong hanya bisa digunakan untuk mengukur panjang benda berbentuk balok'
+    ],
+    kunci: [true,false,true,false],
+    bahas: 'Ketelitian jangka sorong 0,01 cm. Harus dibaca dari skala utama + nonius. Garis ke-5 = 0,05 cm tambahan. Jangka sorong bisa mengukur diameter luar, diameter dalam, dan kedalaman.'
+  },
+
+  // Isian
+  {
+    id: 'ipa18',
+    tipe: 'isian',
+    tanya: 'Jika skala utama menunjukkan 2,5 cm dan garis nonius ke-8 sejajar dengan garis utama, maka hasil pengukuran adalah .... cm',
+    kunciText: '2,58',
+    bahas: 'Skala utama = 2,5 cm. Skala nonius = 8 × 0,01 cm = 0,08 cm. Total = 2,58 cm.'
+  },
+
+  // Pilihan Ganda (PG)
+  {
+    id: 'ipa19',
+    tipe: 'pg',
+    tanya: 'Seorang siswa mengukur diameter luar kelereng dengan jangka sorong dan mendapatkan hasil 1,72 cm. Informasi yang benar tentang hasil pengukuran tersebut adalah ....',
+    opsi: [
+      'Skala utama 1,7 cm, nonius 0,02 cm',
+      'Skala utama 1,72 cm, nonius 0,00 cm',
+      'Skala utama 1,70 cm, nonius 0,20 cm',
+      'Skala utama 1,72 cm, nonius tidak diperlukan'
+    ],
+    kunci: 0,
+    bahas: 'Hasil 1,72 cm berarti skala utama menunjukkan 1,7 cm dan skala nonius menunjukkan 0,02 cm.'
+  },
+{
+    id: 'ipa20',
+    tipe: 'pg',
+    tanya: 'Seorang siswa mengukur panjang pensil dengan penggaris. Ujung pensil berada pada angka 0 cm dan ujung lainnya tepat di angka 14,3 cm. Panjang pensil tersebut adalah ....',
+    opsi: [
+      '14 cm',
+      '14,3 cm',
+      '15 cm',
+      '13,7 cm'
+    ],
+    kunci: 1,
+    bahas: 'Jika pengukuran tepat pada 14,3 cm maka panjang pensil adalah 14,3 cm.'
+  },
+
+  // Check Box (CB)
+  {
+    id: 'ipa21',
+    tipe: 'cb',
+    tanya: 'Perhatikan pernyataan berikut. Manakah yang benar tentang cara membaca penggaris?',
+    opsi: [
+      'Posisi mata harus tegak lurus dengan skala penggaris',
+      'Pengukuran dimulai dari angka 0 pada penggaris',
+      'Jika ujung benda berada di antara dua garis, gunakan perkiraan sepersepuluh skala',
+      'Hasil pengukuran tidak dipengaruhi oleh posisi mata'
+    ],
+    kunci: [0,1,2],
+    bahas: 'Mata harus sejajar untuk menghindari paralaks, pengukuran dimulai dari angka 0, dan jika berada di antara dua garis gunakan perkiraan. Posisi mata sangat berpengaruh.'
+  },
+
+  // Benar/Salah (BS)
+  {
+    id: 'ipa22',
+    tipe: 'bs',
+    tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang pembacaan penggaris:',
+    opsi: [
+      'Ketelitian penggaris umumnya 1 mm (0,1 cm)',
+      'Paralaks dapat menyebabkan hasil pengukuran lebih besar atau lebih kecil',
+      'Pengukuran selalu dimulai dari angka 1 cm pada penggaris',
+      'Penggaris hanya bisa mengukur benda yang panjangnya lebih dari 1 cm'
+    ],
+    kunci: [true,true,false,false],
+    bahas: 'Ketelitian penggaris 1 mm. Paralaks dapat menimbulkan kesalahan. Pengukuran harus dimulai dari angka 0, bukan 1 cm. Penggaris bisa digunakan untuk benda berukuran kecil maupun besar.'
+  },
+
+  // Isian
+  {
+    id: 'ipa23',
+    tipe: 'isian',
+    tanya: 'Jika sebuah kertas diukur dengan penggaris dan panjangnya berada di antara 21,4 cm dan 21,5 cm, maka hasil pengukurannya ditulis .... cm',
+    kunciText: '21,45',
+    bahas: 'Dengan ketelitian penggaris 0,1 cm, hasil bisa diperkirakan 21,45 cm.'
+  },
+
+  // Pilihan Ganda (PG)
+  {
+    id: 'ipa24',
+    tipe: 'pg',
+    tanya: 'Seorang siswa mengukur panjang meja dengan penggaris 1 meter. Ujung meja tepat di angka 95,7 cm. Pernyataan yang benar adalah ....',
+    opsi: [
+      'Panjang meja adalah 95 cm',
+      'Panjang meja adalah 95,7 cm',
+      'Panjang meja adalah 96 cm',
+      'Panjang meja adalah 95,07 cm'
+    ],
+    kunci: 1,
+    bahas: 'Jika pengukuran berhenti pada angka 95,7 cm maka panjang meja adalah 95,7 cm.'
+  },
+{
+  id: 'ipa25',
+  tipe: 'pg',
+  tanya: 'Seorang siswa mengatakan bahwa luas termasuk besaran pokok karena memiliki satuan meter persegi. Apakah pernyataan tersebut benar?',
+  opsi: [
+    'Benar, karena luas adalah hasil pengukuran panjang',
+    'Salah, karena luas merupakan besaran turunan dari panjang',
+    'Benar, karena satuan luas ada dalam SI',
+    'Salah, karena luas tidak memiliki satuan'
+  ],
+  kunci: 2,
+  bahas: 'Luas merupakan besaran turunan, karena didapat dari perkalian panjang × panjang. Jadi pernyataan siswa tersebut salah.'
+},
+{
+  id: 'ipa26',
+  tipe: 'pg',
+  tanya: 'Jika besaran pokok panjang memiliki satuan meter dan waktu memiliki satuan sekon, maka besaran turunan kecepatan memiliki satuan ....',
+  opsi: [
+    'Meter',
+    'Meter/sekon',
+    'Meter × sekon',
+    'Sekon/meter'
+  ],
+  kunci: 2,
+  bahas: 'Kecepatan merupakan hasil bagi jarak (meter) dengan waktu (sekon), sehingga satuannya adalah meter/sekon.'
+},
+{
+  id: 'ipa27',
+  tipe: 'pg',
+  tanya: 'Manakah pernyataan berikut yang benar tentang besaran pokok dan turunan?',
+  opsi: [
+    'Besaran turunan dapat diturunkan menjadi besaran pokok',
+    'Besaran pokok diperoleh dari kombinasi besaran turunan',
+    'Besaran pokok dan turunan tidak saling berhubungan',
+    'Besaran turunan berasal dari kombinasi besaran pokok'
+  ],
+  kunci: 4,
+  bahas: 'Besaran turunan diperoleh dari kombinasi besaran pokok, contohnya luas (m²), kecepatan (m/s), gaya (kg·m/s²).'
+},
+{
+  id: 'ipa28',
+  tipe: 'pg',
+  tanya: 'Manakah pasangan yang tepat antara besaran dan kategorinya?',
+  opsi: [
+    'Massa – Besaran turunan',
+    'Volume – Besaran pokok',
+    'Intensitas cahaya – Besaran pokok',
+    'Gaya – Besaran pokok'
+  ],
+  kunci: 3,
+  bahas: 'Intensitas cahaya adalah salah satu dari 7 besaran pokok dengan satuan candela. Volume dan gaya adalah besaran turunan, massa adalah besaran pokok.'
+},
+{
+  id: 'ipa29',
+  tipe: 'pg',
+  tanya: 'Alat yang digunakan untuk mengukur massa suatu benda adalah ....',
+  opsi: [
+    'Termometer',
+    'Neraca',
+    'Jangka sorong',
+    'Higrometer'
+  ],
+  kunci: 2,
+  bahas: 'Massa diukur menggunakan neraca, misalnya neraca tiga lengan atau neraca digital.'
+},
+{
+  id: 'ipa30',
+  tipe: 'pg',
+  tanya: 'Untuk mengukur suhu air panas dengan tepat, digunakan alat ukur ....',
+  opsi: [
+    'Termometer',
+    'Amperemeter',
+    'Barometer',
+    'Stopwatch'
+  ],
+  kunci: 1,
+  bahas: 'Suhu diukur menggunakan termometer.'
+},
+{
+  id: 'ipa31',
+  tipe: 'pg',
+  tanya: 'Alat ukur yang digunakan untuk mengukur waktu dalam kegiatan percobaan adalah ....',
+  opsi: [
+    'Stopwatch',
+    'Termometer',
+    'Barometer',
+    'Mistar'
+  ],
+  kunci: 1,
+  bahas: 'Waktu dalam percobaan biasanya diukur dengan stopwatch.'
+},
+{
+  id: 'ipa32',
+  tipe: 'pg',
+  tanya: 'Alat ukur yang tepat digunakan untuk mengukur kuat arus listrik adalah ....',
+  opsi: [
+    'Voltmeter',
+    'Amperemeter',
+    'Ohmmeter',
+    'Multimeter'
+  ],
+  kunci: 2,
+  bahas: 'Kuat arus listrik diukur menggunakan amperemeter. Multimeter bisa juga, tetapi khusus kuat arus namanya amperemeter.'
+},
+{
+  id: 'ipa33',
+  tipe: 'pg',
+  tanya: 'Yang termasuk satuan baku untuk panjang adalah ....',
+  opsi: [
+    'Jengkal',
+    'Depa',
+    'Meter',
+    'Hasta'
+  ],
+  kunci: 3,
+  bahas: 'Meter merupakan satuan baku panjang karena diakui secara internasional dalam SI. Sedangkan jengkal, hasta, dan depa adalah satuan tidak baku.'
+},
+{
+  id: 'ipa34',
+  tipe: 'pg',
+  tanya: 'Contoh satuan tidak baku dalam mengukur waktu adalah ....',
+  opsi: [
+    'Detik',
+    'Menit',
+    'Jam',
+    'Lama bayangan matahari'
+  ],
+  kunci: 4,
+  bahas: 'Lama bayangan matahari bukan satuan resmi, sehingga termasuk satuan tidak baku. Detik, menit, dan jam adalah satuan baku untuk waktu.'
+},
+{
+  id: 'ipa35',
+  tipe: 'pg',
+  tanya: 'Berikut ini manakah pasangan yang benar antara besaran dan satuan baku?',
+  opsi: [
+    'Massa – Kilogram',
+    'Panjang – Jengkal',
+    'Waktu – Lama lilin terbakar',
+    'Panjang – Depa'
+  ],
+  kunci: 1,
+  bahas: 'Massa memiliki satuan baku kilogram. Jengkal dan depa termasuk tidak baku, lama lilin terbakar juga tidak baku.'
+},
+{
+  id: 'ipa36',
+  tipe: 'pg',
+  tanya: 'Menggunakan langkah kaki untuk mengukur panjang kelas termasuk penggunaan satuan ....',
+  opsi: [
+    'Baku',
+    'Tidak baku',
+    'Standar internasional',
+    'SI'
+  ],
+  kunci: 2,
+  bahas: 'Langkah kaki berbeda pada setiap orang, sehingga hasilnya tidak sama. Itu termasuk satuan tidak baku.'
+},
+{
+  id: 'ipa37',
+  tipe: 'pg',
+  tanya: 'Besaran dalam fisika adalah ....',
+  opsi: [
+    'Segala sesuatu yang dapat dilihat',
+    'Segala sesuatu yang dapat diukur dan dinyatakan dengan angka',
+    'Alat untuk mengukur panjang',
+    'Nilai yang tidak dapat diukur'
+  ],
+  kunci: 2,
+  bahas: 'Besaran adalah segala sesuatu yang dapat diukur, memiliki nilai, dan dapat dinyatakan dengan angka serta satuan.'
+},
+{
+  id: 'ipa38',
+  tipe: 'pg',
+  tanya: 'Satuan adalah ....',
+  opsi: [
+    'Pembanding dalam pengukuran suatu besaran',
+    'Hasil akhir dari pengukuran',
+    'Alat yang digunakan untuk mengukur',
+    'Nilai dari suatu besaran'
+  ],
+  kunci: 1,
+  bahas: 'Satuan adalah pembanding yang digunakan dalam pengukuran suatu besaran, misalnya meter untuk panjang.'
+},
+{
+  id: 'ipa39',
+  tipe: 'pg',
+  tanya: 'Pernyataan berikut yang benar adalah ....',
+  opsi: [
+    'Besaran adalah alat ukur, satuan adalah hasil ukur',
+    'Besaran adalah sesuatu yang diukur, satuan adalah pembandingnya',
+    'Besaran dan satuan adalah hal yang sama',
+    'Satuan adalah benda fisik, besaran adalah nilainya'
+  ],
+  kunci: 2,
+  bahas: 'Besaran adalah sesuatu yang diukur, sedangkan satuan adalah pembanding yang digunakan untuk menyatakan besaran tersebut.'
+},
+{
+  id: 'ipa40',
+  tipe: 'pg',
+  tanya: 'Contoh pernyataan yang benar tentang besaran dan satuan adalah ....',
+  opsi: [
+    'Panjang adalah satuan, meter adalah besaran',
+    'Massa adalah besaran, kilogram adalah satuan',
+    'Waktu adalah satuan, detik adalah besaran',
+    'Suhu adalah satuan, celcius adalah besaran'
+  ],
+  kunci: 2,
+  bahas: 'Massa termasuk besaran pokok, sedangkan kilogram adalah satuannya. Jadi pernyataan yang benar adalah “Massa adalah besaran, kilogram adalah satuan”.'
+},
+{
+  id: 'ipa41',
+  tipe: 'pg',
+  tanya: 'Sebuah papan tulis memiliki panjang 2,5 meter. Jika panjang tersebut ingin dinyatakan dalam centimeter, berapakah hasilnya?',
+  opsi: [
+    '25 cm',
+    '250 cm',
+    '2500 cm',
+    '0,25 cm'
+  ],
+  kunci: 2,
+  bahas: '1 meter = 100 cm. Jadi 2,5 m = 2,5 × 100 = 250 cm.'
+},
+{
+  id: 'ipa42',
+  tipe: 'pg',
+  tanya: 'Andi mengukur lebar lapangan sekolah sebesar 1200 cm. Jika diubah ke dalam satuan meter, hasilnya adalah ....',
+  opsi: [
+    '120 m',
+    '12 m',
+    '1,2 m',
+    '0,12 m'
+  ],
+  kunci: 2,
+  bahas: '1 m = 100 cm. Maka 1200 cm ÷ 100 = 12 m.'
+},
+{
+  id: 'ipa43',
+  tipe: 'pg',
+  tanya: 'Sebuah kabel listrik panjangnya 0,045 km. Panjang kabel tersebut sama dengan .... meter.',
+  opsi: [
+    '4,5 m',
+    '45 m',
+    '450 m',
+    '4500 m'
+  ],
+  kunci: 2,
+  bahas: '1 km = 1000 m. Jadi 0,045 km × 1000 = 45 m.'
+},
+{
+  id: 'ipa44',
+  tipe: 'pg',
+  tanya: 'Seorang arsitek menggambar denah rumah dengan panjang dinding 3,6 m. Jika pada gambar digunakan skala 1 : 100, maka panjang dinding pada gambar adalah .... cm.',
+  opsi: [
+    '0,36 cm',
+    '3,6 cm',
+    '36 cm',
+    '360 cm'
+  ],
+  kunci: 2,
+  bahas: 'Panjang sebenarnya = 3,6 m = 360 cm. Dengan skala 1 : 100, maka panjang pada gambar = 360 ÷ 100 = 3,6 cm.'
+},
+  
+]
+
+},
+'Zat dan Perubahannya': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Zat dan Perubahannya</h2>
+<p>
+  Zat adalah segala sesuatu yang memiliki massa dan menempati ruang. Zat dapat berupa padat, cair, dan gas. 
+  Setiap zat memiliki sifat tertentu yang membedakannya dengan zat lain.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Sifat Zat</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Fisik</b>: dapat diamati tanpa mengubah zat (warna, bau, wujud, titik didih, titik leleh, massa jenis).</li>
+  <li><b>Kimia</b>: berhubungan dengan kemampuan zat untuk bereaksi (mudah terbakar, berkarat, bereaksi dengan asam).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Wujud Zat dan Perubahannya</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Padat</b>: bentuk dan volume tetap (contoh: batu, kayu).</li>
+  <li><b>Cair</b>: bentuk mengikuti wadah, volume tetap (contoh: air, minyak).</li>
+  <li><b>Gas</b>: bentuk dan volume mengikuti wadah (contoh: udara, uap air).</li>
+</ul>
+<p>Perubahan wujud zat dapat berupa: mencair, membeku, menguap, mengembun, menyublim, dan deposisi.</p>
+
+<h3 class="text-lg font-semibold mt-4">3. Jenis Perubahan Zat</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Perubahan Fisika</b>: tidak menghasilkan zat baru, hanya mengubah bentuk/wujud (contoh: es mencair, air menguap).</li>
+  <li><b>Perubahan Kimia</b>: menghasilkan zat baru dengan sifat berbeda (contoh: besi berkarat, kayu dibakar).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Es mencair menjadi air termasuk perubahan .... <i>Jawab: Fisika</i>.</p>
+<p><b>Contoh 2:</b> Proses berkaratnya besi merupakan perubahan .... <i>Jawab: Kimia</i>.</p>
+`,
+  video: ['7EnWxvmcNVs'], 
+
+  soal: [
+    // Pilihan Ganda (PG)
+{
+  id: 'zp1',
+  tipe: 'pg',
+  tanya: 'Zat yang memiliki bentuk tetap dan volume tetap adalah ....',
+  opsi: [
+    'Padat',
+    'Cair',
+    'Gas',
+    'Plasma'
+  ],
+  kunci: 0,
+  bahas: 'Zat padat memiliki bentuk dan volume tetap, berbeda dengan cair (volume tetap, bentuk berubah) dan gas (bentuk dan volume berubah).'
+},
+
+// Check Box (CB)
+{
+  id: 'zp2',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang ciri wujud zat cair?',
+  opsi: [
+    'Memiliki bentuk tetap',
+    'Memiliki volume tetap',
+    'Mengalir dan mengikuti bentuk wadah',
+    'Mudah dimampatkan'
+  ],
+  kunci: [1,2],
+  bahas: 'Zat cair memiliki volume tetap, bentuknya mengikuti wadah, dan sulit dimampatkan. Jadi pernyataan benar adalah nomor 2 dan 3.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp3',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang ciri-ciri wujud zat:',
+  opsi: [
+    'Gas memiliki bentuk dan volume tetap',
+    'Padat sukar dimampatkan',
+    'Cair mengikuti bentuk wadahnya',
+    'Gas mudah dimampatkan'
+  ],
+  kunci: [false,true,true,true],
+  bahas: 'Gas tidak memiliki bentuk dan volume tetap (salah). Padat sukar dimampatkan (benar). Cair mengikuti bentuk wadahnya (benar). Gas mudah dimampatkan (benar).'
+},
+
+// Isian
+{
+  id: 'zp4',
+  tipe: 'isian',
+  tanya: 'Zat padat memiliki sifat .... dan ....',
+  kunciText: 'bentuk tetap, volume tetap',
+  bahas: 'Ciri utama zat padat adalah bentuk tetap dan volume tetap.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp5',
+  tipe: 'pg',
+  tanya: 'Manakah yang termasuk contoh unsur logam?',
+  opsi: [
+    'Oksigen (O)',
+    'Hidrogen (H)',
+    'Besi (Fe)',
+    'Karbon (C)'
+  ],
+  kunci: 2,
+  bahas: 'Besi (Fe) termasuk logam. Oksigen, hidrogen, dan karbon adalah nonlogam.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp6',
+  tipe: 'cb',
+  tanya: 'Pilihlah yang merupakan contoh unsur nonlogam!',
+  opsi: [
+    'Tembaga (Cu)',
+    'Oksigen (O)',
+    'Karbon (C)',
+    'Natrium (Na)'
+  ],
+  kunci: [1,2],
+  bahas: 'Oksigen (O) dan Karbon (C) adalah nonlogam. Tembaga (Cu) dan Natrium (Na) termasuk logam.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang logam dan nonlogam:',
+  opsi: [
+    'Besi (Fe) termasuk unsur logam',
+    'Oksigen (O) termasuk unsur logam',
+    'Karbon (C) termasuk unsur nonlogam',
+    'Tembaga (Cu) termasuk unsur nonlogam'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Besi (Fe) logam (benar), Oksigen (O) nonlogam (jadi salah jika disebut logam), Karbon (C) nonlogam (benar), Tembaga (Cu) logam (jadi salah jika disebut nonlogam).'
+},
+
+// Isian
+{
+  id: 'zp8',
+  tipe: 'isian',
+  tanya: 'Sebutkan satu contoh unsur logam dan satu contoh unsur nonlogam!',
+  kunciText: 'logam: besi (Fe), nonlogam: oksigen (O)',
+  bahas: 'Contoh logam: besi (Fe), tembaga (Cu), emas (Au). Contoh nonlogam: oksigen (O), karbon (C), nitrogen (N).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp9',
+  tipe: 'pg',
+  tanya: 'Manakah yang termasuk senyawa?',
+  opsi: [
+    'Oksigen (O₂)',
+    'Air (H₂O)',
+    'Besi (Fe)',
+    'Emas (Au)'
+  ],
+  kunci: 1,
+  bahas: 'Air (H₂O) adalah senyawa karena tersusun dari dua unsur berbeda (hidrogen dan oksigen). O₂, Fe, dan Au adalah unsur.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp10',
+  tipe: 'cb',
+  tanya: 'Pilihlah yang merupakan contoh senyawa!',
+  opsi: [
+    'Garam dapur (NaCl)',
+    'Karbon dioksida (CO₂)',
+    'Hidrogen (H₂)',
+    'Ammonia (NH₃)'
+  ],
+  kunci: [0,1,3],
+  bahas: 'NaCl, CO₂, dan NH₃ adalah senyawa karena terdiri atas gabungan beberapa unsur. H₂ hanya terdiri dari 1 unsur, jadi bukan senyawa.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp11',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang senyawa:',
+  opsi: [
+    'Air (H₂O) merupakan senyawa',
+    'Oksigen (O₂) merupakan senyawa',
+    'Karbon dioksida (CO₂) merupakan senyawa',
+    'Natrium (Na) merupakan senyawa'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Air (H₂O) senyawa (benar). O₂ unsur (salah). CO₂ senyawa (benar). Na unsur (salah).'
+},
+
+// Isian
+{
+  id: 'zp12',
+  tipe: 'isian',
+  tanya: 'Sebutkan dua contoh senyawa yang sering digunakan dalam kehidupan sehari-hari!',
+  kunciText: 'air (H₂O), garam dapur (NaCl)',
+  bahas: 'Contoh senyawa dalam kehidupan sehari-hari adalah air (H₂O), garam dapur (NaCl), gula (C₆H₁₂O₆), karbon dioksida (CO₂), dan amonia (NH₃).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp13',
+  tipe: 'pg',
+  tanya: 'Apakah yang dimaksud dengan unsur?',
+  opsi: [
+    'Zat tunggal yang tidak dapat diuraikan lagi menjadi zat yang lebih sederhana',
+    'Gabungan dari dua zat atau lebih yang masih bisa dipisahkan secara fisika',
+    'Zat yang terdiri atas molekul sejenis maupun berbeda',
+    'Campuran homogen dari beberapa zat'
+  ],
+  kunci: 0,
+  bahas: 'Unsur adalah zat tunggal yang tidak dapat diuraikan menjadi zat lebih sederhana melalui reaksi kimia. Contoh: Oksigen (O₂), Besi (Fe).'
+},
+
+// Check Box (CB)
+{
+  id: 'zp14',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang unsur?',
+  opsi: [
+    'Unsur merupakan zat tunggal',
+    'Unsur dapat diuraikan lagi menjadi zat yang lebih sederhana',
+    'Unsur tersusun atas atom-atom sejenis',
+    'Unsur selalu berbentuk padat'
+  ],
+  kunci: [0,2],
+  bahas: 'Unsur adalah zat tunggal yang tersusun atas atom sejenis. Unsur tidak bisa diuraikan lagi. Wujud unsur bisa padat (Fe), cair (Hg), maupun gas (O₂).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp15',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang unsur:',
+  opsi: [
+    'Unsur tidak dapat diuraikan menjadi zat lain dengan reaksi kimia',
+    'Setiap unsur hanya terdiri dari satu macam atom',
+    'Air (H₂O) termasuk unsur',
+    'Oksigen (O₂) termasuk unsur'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Unsur tidak bisa diuraikan lagi (benar). Unsur tersusun atas atom sejenis (benar). Air (H₂O) senyawa (salah). Oksigen (O₂) unsur (benar).'
+},
+
+// Isian
+{
+  id: 'zp16',
+  tipe: 'isian',
+  tanya: 'Unsur adalah zat tunggal yang tersusun atas atom-atom ....',
+  kunciText: 'sejenis',
+  bahas: 'Unsur adalah zat tunggal yang tersusun atas atom-atom sejenis, contohnya oksigen (O₂), besi (Fe), emas (Au).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp17',
+  tipe: 'pg',
+  tanya: 'Manakah contoh campuran homogen?',
+  opsi: [
+    'Air garam',
+    'Pasir dan kerikil',
+    'Minyak dan air',
+    'Air dan pasir'
+  ],
+  kunci: 0,
+  bahas: 'Air garam adalah campuran homogen karena larutan tercampur merata dan sulit dibedakan komponennya.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp18',
+  tipe: 'cb',
+  tanya: 'Pilihlah contoh campuran heterogen!',
+  opsi: [
+    'Udara',
+    'Minyak dan air',
+    'Pasir dan kerikil',
+    'Larutan gula'
+  ],
+  kunci: [1,2],
+  bahas: 'Campuran heterogen memiliki komponen yang masih bisa dibedakan. Contoh: minyak dan air, pasir dan kerikil. Sedangkan udara dan larutan gula adalah homogen.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp19',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang campuran homogen dan heterogen:',
+  opsi: [
+    'Campuran homogen memiliki komposisi yang seragam',
+    'Air kopi adalah contoh campuran homogen',
+    'Minyak dan air termasuk campuran homogen',
+    'Pasir bercampur air adalah contoh campuran heterogen'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Campuran homogen = seragam (benar). Air kopi homogen (benar). Minyak dan air tidak menyatu (salah). Pasir-air heterogen (benar).'
+},
+
+// Isian
+{
+  id: 'zp20',
+  tipe: 'isian',
+  tanya: 'Campuran homogen disebut juga dengan istilah ....',
+  kunciText: 'larutan',
+  bahas: 'Campuran homogen disebut larutan, misalnya larutan gula, air garam, dan udara.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp21',
+  tipe: 'pg',
+  tanya: 'Air (H₂O) merupakan senyawa yang tersusun dari ....',
+  opsi: [
+    'Hidrogen dan oksigen',
+    'Hidrogen dan nitrogen',
+    'Oksigen dan karbon',
+    'Karbon dan hidrogen'
+  ],
+  kunci: 0,
+  bahas: 'Air adalah senyawa yang terbentuk dari 2 atom hidrogen dan 1 atom oksigen.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp22',
+  tipe: 'cb',
+  tanya: 'Manakah contoh penyusun senyawa yang benar?',
+  opsi: [
+    'Karbon dioksida tersusun dari karbon dan oksigen',
+    'Garam dapur tersusun dari natrium dan klor',
+    'Amonia tersusun dari nitrogen dan hidrogen',
+    'Oksigen tersusun dari 2 atom oksigen berbeda unsur'
+  ],
+  kunci: [0,1,2],
+  bahas: 'CO₂ = C + O₂, NaCl = Na + Cl, NH₃ = N + H. Sedangkan oksigen (O₂) bukan senyawa, melainkan unsur diatomik.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp23',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) tentang penyusun senyawa:',
+  opsi: [
+    'Gula (C₆H₁₂O₆) tersusun dari karbon, hidrogen, dan oksigen',
+    'Senyawa hanya dapat tersusun dari satu jenis atom',
+    'HCl tersusun dari hidrogen dan klor',
+    'CO₂ termasuk senyawa karena terdiri dari lebih dari satu jenis unsur'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Senyawa tersusun dari 2 atau lebih jenis unsur. Gula = C, H, O. HCl = H + Cl. CO₂ = C + O.'
+},
+
+// Isian
+{
+  id: 'zp24',
+  tipe: 'isian',
+  tanya: 'Garam dapur (NaCl) tersusun dari unsur .... dan ....',
+  kunciText: 'natrium dan klor',
+  bahas: 'NaCl tersusun dari logam natrium (Na) dan nonlogam klor (Cl).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp25',
+  tipe: 'pg',
+  tanya: 'Rumus kimia H₂O menyatakan ....',
+  opsi: [
+    'Air tersusun dari 1 atom hidrogen dan 2 atom oksigen',
+    'Air tersusun dari 2 atom hidrogen dan 1 atom oksigen',
+    'Air tersusun dari 2 molekul hidrogen',
+    'Air tersusun dari 1 molekul oksigen saja'
+  ],
+  kunci: 1,
+  bahas: 'Rumus H₂O menunjukkan air tersusun atas 2 atom hidrogen (H) dan 1 atom oksigen (O).'
+},
+
+// Check Box (CB)
+{
+  id: 'zp26',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan berikut yang benar tentang rumus kimia, molekul, dan rumus empiris?',
+  opsi: [
+    'Rumus kimia menunjukkan jenis dan jumlah atom dalam suatu zat',
+    'Molekul adalah gabungan dua atau lebih atom',
+    'Rumus empiris menyatakan perbandingan paling sederhana dari atom-atom penyusun senyawa',
+    'Rumus empiris sama dengan rumus molekul untuk semua senyawa'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Rumus kimia = jenis & jumlah atom. Molekul = gabungan atom. Rumus empiris = perbandingan paling sederhana. Tidak selalu sama dengan rumus molekul (contoh: C₆H₁₂O₆ → CH₂O).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp27',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'O₂ adalah contoh molekul unsur',
+    'CO₂ adalah contoh molekul senyawa',
+    'Rumus empiris glukosa (C₆H₁₂O₆) adalah CH₂O',
+    'Rumus kimia hanya dapat digunakan untuk unsur, tidak untuk senyawa'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'O₂ = molekul unsur, CO₂ = molekul senyawa, C₆H₁₂O₆ disederhanakan jadi CH₂O, dan rumus kimia berlaku untuk unsur maupun senyawa.'
+},
+
+// Isian
+{
+  id: 'zp28',
+  tipe: 'isian',
+  tanya: 'Rumus empiris dari senyawa H₂O₂ adalah ....',
+  kunciText: 'HO',
+  bahas: 'H₂O₂ (hidrogen peroksida) memiliki rasio atom 2:2 = 1:1, sehingga rumus empirisnya adalah HO.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp29',
+  tipe: 'pg',
+  tanya: 'Manakah yang termasuk perubahan fisika?',
+  opsi: [
+    'Air membeku menjadi es',
+    'Kertas dibakar menjadi abu',
+    'Besi berkarat',
+    'Nasi membusuk'
+  ],
+  kunci: 0,
+  bahas: 'Air membeku hanya berubah wujud, tanpa membentuk zat baru. Itu contoh perubahan fisika.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp30',
+  tipe: 'cb',
+  tanya: 'Pilihlah contoh perubahan kimia!',
+  opsi: [
+    'Kue dipanggang',
+    'Gula larut dalam air',
+    'Kertas terbakar',
+    'Air mendidih'
+  ],
+  kunci: [0,2],
+  bahas: 'Perubahan kimia menghasilkan zat baru: kue dipanggang → adonan jadi kue, kertas terbakar → abu + gas. Gula larut & air mendidih hanya perubahan fisika.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp31',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Es mencair adalah perubahan fisika',
+    'Perkaratan besi termasuk perubahan kimia',
+    'Membelah kayu termasuk perubahan kimia',
+    'Fermentasi tape adalah perubahan kimia'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Es mencair tidak menghasilkan zat baru (fisika). Perkaratan dan fermentasi menghasilkan zat baru (kimia). Membelah kayu hanya mengubah bentuk, bukan zatnya.'
+},
+
+// Isian
+{
+  id: 'zp32',
+  tipe: 'isian',
+  tanya: 'Perubahan zat yang menghasilkan zat baru disebut perubahan ....',
+  kunciText: 'kimia',
+  bahas: 'Perubahan kimia adalah perubahan yang menghasilkan zat baru, contohnya pembakaran, perkaratan, dan fermentasi.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp33',
+  tipe: 'pg',
+  tanya: 'Proses perubahan es menjadi air disebut ....',
+  opsi: [
+    'Menguap',
+    'Mencair',
+    'Membeku',
+    'Menyublim'
+  ],
+  kunci: 1,
+  bahas: 'Es yang padat berubah menjadi air cair melalui proses mencair (meleleh).'
+},
+
+// Check Box (CB)
+{
+  id: 'zp34',
+  tipe: 'cb',
+  tanya: 'Pilihlah proses perubahan wujud yang termasuk perubahan dari cair ke gas!',
+  opsi: [
+    'Menguap',
+    'Mendidih',
+    'Membeku',
+    'Kondensasi'
+  ],
+  kunci: [0,1],
+  bahas: 'Cair → gas melalui menguap (permukaan) atau mendidih (seluruh volume). Membeku = cair → padat, kondensasi = gas → cair.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp35',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Membeku adalah perubahan dari cair ke padat',
+    'Menguap adalah perubahan dari padat ke gas',
+    'Menyublim adalah perubahan dari padat langsung ke gas',
+    'Kondensasi adalah perubahan dari gas ke cair'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Membeku = cair → padat (benar). Menguap = cair → gas (salah). Menyublim = padat → gas (benar). Kondensasi = gas → cair (benar).'
+},
+
+// Isian
+{
+  id: 'zp36',
+  tipe: 'isian',
+  tanya: 'Proses perubahan wujud dari gas menjadi padat disebut ....',
+  kunciText: 'resublimasi',
+  bahas: 'Gas yang berubah langsung menjadi padat tanpa melalui wujud cair disebut resublimasi (contoh: terbentuknya es kering dari CO₂ gas).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp37',
+  tipe: 'pg',
+  tanya: 'Manakah sifat larutan asam?',
+  opsi: [
+    'Rasa pahit dan licin',
+    'Rasa asam dan korosif',
+    'Tidak berwarna dan tidak berbau',
+    'Dapat menghantarkan listrik tetapi netral'
+  ],
+  kunci: 1,
+  bahas: 'Larutan asam memiliki rasa asam, dapat bersifat korosif, dan menghantarkan listrik karena mengion.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp38',
+  tipe: 'cb',
+  tanya: 'Pilihlah ciri-ciri larutan basa!',
+  opsi: [
+    'Rasa pahit',
+    'Rasa asam',
+    'Bersifat licin',
+    'Menyebabkan korosi pada logam'
+  ],
+  kunci: [0,2],
+  bahas: 'Larutan basa memiliki rasa pahit, bersifat licin, dan dapat menghantarkan listrik. Tidak bersifat asam atau merusak logam seperti asam.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp39',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Larutan asam memiliki pH < 7',
+    'Larutan basa memiliki pH > 7',
+    'Campuran homogen memiliki sifat seragam',
+    'Larutan asam bersifat licin seperti larutan basa'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Asam: pH < 7, basa: pH > 7. Campuran homogen sifatnya seragam. Hanya larutan basa yang licin, larutan asam tidak licin.'
+},
+
+// Isian
+{
+  id: 'zp40',
+  tipe: 'isian',
+  tanya: 'Sebutkan satu contoh larutan asam, satu larutan basa, dan satu campuran homogen!',
+  kunciText: 'asam: cuka, basa: sabun, campuran homogen: air garam',
+  bahas: 'Contoh larutan asam: cuka (CH₃COOH), larutan basa: sabun/NaOH, campuran homogen: air garam, gula larut, udara.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'zp41',
+  tipe: 'pg',
+  tanya: 'Manakah metode pemisahan campuran yang tepat untuk memisahkan pasir dari air?',
+  opsi: [
+    'Penyaringan (filtrasi)',
+    'Distilasi',
+    'Kromatografi',
+    'Evaporasi'
+  ],
+  kunci: 0,
+  bahas: 'Pasir tidak larut dalam air sehingga dapat dipisahkan dengan penyaringan menggunakan saringan atau kertas saring.'
+},
+
+// Check Box (CB)
+{
+  id: 'zp42',
+  tipe: 'cb',
+  tanya: 'Pilihlah metode pemisahan campuran yang sesuai!',
+  opsi: [
+    'Distilasi untuk memisahkan air dan garam',
+    'Magnet untuk memisahkan besi dari pasir',
+    'Kromatografi untuk memisahkan zat warna dalam tinta',
+    'Filtrasi untuk memisahkan gula dari air'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Distilasi memisahkan zat terlarut dari pelarut (air-garam). Magnet memisahkan logam feromagnetik. Kromatografi memisahkan zat warna. Gula larut dalam air, jadi filtrasi tidak efektif.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'zp43',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+  opsi: [
+    'Evaporasi dapat digunakan untuk mendapatkan garam dari air laut',
+    'Filtrasi dapat memisahkan campuran homogen',
+    'Kromatografi berguna untuk memisahkan campuran kompleks berdasarkan daya serap',
+    'Magnet hanya efektif untuk memisahkan logam tertentu dari campuran'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Evaporasi menguapkan air dan meninggalkan garam (benar). Filtrasi hanya untuk campuran heterogen (salah). Kromatografi memisahkan zat berdasarkan daya serap (benar). Magnet hanya menarik logam tertentu (benar).'
+},
+
+// Isian
+{
+  id: 'zp44',
+  tipe: 'isian',
+  tanya: 'Metode pemisahan campuran yang digunakan untuk memisahkan tinta menjadi beberapa warna disebut ....',
+  kunciText: 'kromatografi',
+  bahas: 'Kromatografi memisahkan campuran kompleks berdasarkan perbedaan daya serap atau kelarutan, contohnya memisahkan pewarna dalam tinta.'
+},
+
+
+
+  ]
+},
+
+
 'Sistem Ekskresi': {
   materi: `
 <h2 class="text-xl font-bold mb-2">Sistem Ekskresi</h2>
@@ -3346,6 +4716,41 @@ if(q.bacaan){
     table.appendChild(tbody);
     body.appendChild(table);
   }
+// ====== TRUE / FALSE ======
+if(q.tipe === 'tf'){
+  const table = document.createElement('table');
+  table.className = 'w-full border border-gray-200 rounded-lg';
+
+  const thead = document.createElement('thead');
+  thead.innerHTML = `
+    <tr class="bg-gray-100 text-center">
+      <th class="p-2 border">Statement</th>
+      <th class="p-2 border w-20">True</th>
+      <th class="p-2 border w-20">False</th>
+    </tr>`;
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+  q.opsi.forEach((o,i)=>{
+    const idTrue = `${prefix}-${q.id}-tf-${i}-true`;
+    const idFalse = `${prefix}-${q.id}-tf-${i}-false`;
+
+    const row = document.createElement('tr');
+    row.className = 'border-t';
+    row.innerHTML = `
+      <td class="p-2 border">${o}</td>
+      <td class="p-2 text-center border">
+        <input type="radio" id="${idTrue}" name="${prefix}-${q.id}-tf-${i}" value="true" class="accent-emerald-600">
+      </td>
+      <td class="p-2 text-center border">
+        <input type="radio" id="${idFalse}" name="${prefix}-${q.id}-tf-${i}" value="false" class="accent-rose-600">
+      </td>`;
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+  body.appendChild(table);
+}
 
   // ====== BENAR / SALAH ======
   if(q.tipe === 'bs'){
@@ -3425,6 +4830,19 @@ if(q.bacaan){
       const kunci = Array.isArray(q.kunci) ? q.kunci.slice().sort() : [q.kunci];
       benar = checked.slice().sort().toString() === kunci.toString();
     }
+else if(q.tipe === 'tf'){
+  const jawabanUser = q.opsi.map((o,i)=>{
+    const el = document.querySelector(`input[name='${prefix}-${q.id}-tf-${i}']:checked`);
+    return el ? el.value === 'true' : null;
+  });
+
+  if(jawabanUser.includes(null)){
+    alert('Pilih jawaban True / False untuk semua pernyataan!');
+    return;
+  }
+  benar = jawabanUser.every((val,i)=> val === q.kunci[i]);
+}
+
     else if(q.tipe === 'bs'){
       const jawabanUser = q.opsi.map((o,i)=>{
         const el = document.querySelector(`input[name='${prefix}-${q.id}-bs-${i}']:checked`);
