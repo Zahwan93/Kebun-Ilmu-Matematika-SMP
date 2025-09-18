@@ -348,6 +348,151 @@
       bahas: "Riko can play the violin (music/art), draw (art), and play football. So the most suitable clubs are Art club and Football club."
     },
 {
+  id: "cap13",
+  tipe: "pg",
+  bacaan: "Text:\n\nTom is a young boy who loves to play football. He trains every day and can kick the ball very far.",
+  tanya: "Which sentence shows Tom's capability?",
+  opsi: [
+    "Tom cannot kick the ball far.",
+    "Tom can kick the ball very far.",
+    "Tom avoids playing football.",
+    "Tom is afraid of the ball."
+  ],
+  kunci: 1,
+  bahas: "The text states that Tom 'can kick the ball very far,' showing his capability."
+},
+{
+  id: "cap14",
+  tipe: "cb",
+  bacaan: "Text:\n\nLina is not good at swimming. She is afraid of deep water and avoids swimming in the pool.",
+  tanya: "Select the sentences that indicate Lina's incapability.",
+  opsi: [
+    "Lina is not good at swimming.",
+    "Lina enjoys swimming every day.",
+    "She avoids swimming in the pool.",
+    "She can swim very fast."
+  ],
+  kunci: [0,2],
+  bahas: "The text explicitly mentions Lina is not good at swimming and avoids swimming, indicating her incapability."
+},
+{
+  id: "cap15",
+  tipe: "tf",
+  bacaan: "Text:\n\nRiko can solve difficult math problems easily. He practices a lot and loves mathematics.",
+  tanya: "Decide True or False based on the text.",
+  opsi: [
+    "Riko has the ability to solve difficult math problems.",
+    "Riko cannot solve difficult math problems."
+  ],
+  kunci: [true, false],
+  bahas: "The text states that 'Riko can solve difficult math problems easily,' so the first statement is True and the second statement is False."
+},
+{
+  id: "cap16",
+  tipe: "isian",
+  bacaan: "Text:\n\nSara cannot play the guitar yet because she just started learning. She practices every day to improve her skill.",
+  tanya: "Sara ___ play the guitar well.",
+  kunciText: "cannot",
+  bahas: "The text mentions that Sara 'cannot play the guitar yet,' showing her current incapability."
+},
+{
+  id: "cap17",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nSita: Have you finished reading the book for history class?\nRina: Not yet. I only finished two chapters. How about you?\nSita: I finished it last night. It was really interesting, especially the part about ancient civilizations.",
+  tanya: "Which part of the book did Sita find most interesting?",
+  opsi: [
+    "The introduction",
+    "The summary",
+    "The part about ancient civilizations",
+    "The exercises at the end"
+  ],
+  kunci: 2,
+  bahas: "Sita explicitly mentions that she found 'the part about ancient civilizations' interesting, which is a detailed information in the dialog."
+},
+{
+  id: "cap18",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nTom: Did you bring the materials for science class?\nJerry: Yes, I brought the notebook, pen, and microscope slides.\nTom: Great! I only brought the notebook and pen.",
+  tanya: "Select all materials Jerry brought for science class.",
+  opsi: [
+    "Notebook",
+    "Pen",
+    "Microscope slides",
+    "Calculator"
+  ],
+  kunci: [0,1,2],
+  bahas: "Jerry clearly states that he brought the notebook, pen, and microscope slides."
+},
+{
+  id: "cap19",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nTeacher: Who has completed the math assignment?\nAli: I have completed it.\nMaya: I haven’t finished it yet.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Maya has completed the math assignment.",
+    "Ali has completed the math assignment."
+  ],
+  kunci: [false, true],
+  bahas: "Maya says 'I haven’t finished it yet,' so the first statement is False. Ali says 'I have completed it,' so the second statement is True."
+},
+{
+  id: "cap20",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nAnna: Where did you go last weekend?\nBeni: I went to the zoo and the botanical garden. I especially liked the orchid section.",
+  tanya: "Beni especially liked the ___ section at the botanical garden.",
+  kunciText: "orchid",
+  bahas: "Beni explicitly mentions that he especially liked the 'orchid' section."
+},
+{
+  id: "cap21",
+  tipe: "pg",
+  bacaan: "Jumble Words:\n\ncan / swim / I / very / well",
+  tanya: "Which is the correct sentence?",
+  opsi: [
+    "I can swim very well.",
+    "Can I swim very well?",
+    "Very well I can swim.",
+    "I swim can very well."
+  ],
+  kunci: 0,
+  bahas: "The correct order is 'I can swim very well,' which shows capability."
+},
+{
+  id: "cap22",
+  tipe: "cb",
+  bacaan: "Jumble Words:\n\ncannot / lift / heavy / the / box / John",
+  tanya: "Select all correct sentences that can be formed from the jumble words.",
+  opsi: [
+    "John cannot lift the heavy box.",
+    "John lift cannot the heavy box.",
+    "Cannot John lift the heavy box?",
+    "John cannot lift box heavy the."
+  ],
+  kunci: [0],
+  bahas: "The grammatically correct sentence showing incapability is 'John cannot lift the heavy box.'"
+},
+{
+  id: "cap23",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nRiko: I can solve math problems easily.\nTeacher: That's great, Riko!",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Riko can solve math problems easily.",
+    "Riko cannot solve math problems."
+  ],
+  kunci: [true, false],
+  bahas: "Riko says 'I can solve math problems easily,' so the first statement is True and the second statement is False."
+},
+{
+  id: "cap24",
+  tipe: "isian",
+  bacaan: "Jumble Words:\n\ncannot / play / guitar / Sara / yet",
+  tanya: "Arrange the words to form a correct sentence showing incapability.",
+  kunciText: "Sara cannot play guitar yet.",
+  bahas: "The correct sentence is 'Sara cannot play guitar yet,' which shows her current incapability."
+},
+
+{
       id: "will1",
       tipe: "pg",
       bacaan: "Dialog:\n\nAyu: Will you help me with my homework?\nRina: Yes, I ____ help you after dinner.",
@@ -584,7 +729,674 @@
       bahas: "Rudi mentions two explicit details: robot demo and solar system model."
     },
       ]
+    },
+'Descriptive Text': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Descriptive Text</h2>
+<p>
+  Descriptive text is a type of text that describes a person, place, animal, or thing in detail, so the reader can imagine it clearly.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Social Function</h3>
+<p>
+  The purpose of descriptive text is to describe a particular person, place, or thing.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">2. Generic Structure</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Identification</b>: introduces the object being described.</li>
+  <li><b>Description</b>: gives details such as characteristics, qualities, or parts of the object.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Language Features</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Using adjectives (beautiful, tall, friendly).</li>
+  <li>Using simple present tense (She is, They have).</li>
+  <li>Using specific participants (My cat, The school).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Example</h3>
+<p><b>My Cat</b><br>
+I have a cat. Its name is Kitty. Kitty has white fur and blue eyes. It likes to play with a ball. It is very cute and friendly.</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> What is the social function of descriptive text? (Jawab: To describe a person, place, or thing)</p>
+<p><b>Contoh 2:</b> Which tense is mostly used in descriptive text? (Jawab: Simple Present Tense)</p>
+  `,
+  video: ['tVlcKp3bWH8'], // contoh video Descriptive Text
+  soal: [
+    {
+  id: "desc1",
+  tipe: "pg",
+  bacaan: "Text:\n\nMy house is not very big, but it is comfortable. It has two bedrooms, a living room, a kitchen, and a bathroom. The walls are painted light blue, and the roof is red. In front of the house, there is a small garden with many colorful flowers. I usually spend my afternoon in the garden reading books or watering the plants. I really love my house because it is a peaceful place for me and my family.",
+  tanya: "What is the main topic of the text?",
+  opsi: [
+    "The garden in front of the house",
+    "The writer’s house",
+    "The color of the house",
+    "The writer’s hobby"
+  ],
+  kunci: 1,
+  bahas: "The text mainly describes the writer’s house, including its rooms, colors, and garden."
+},
+{
+  id: "desc2",
+  tipe: "cb",
+  bacaan: "Text:\n\nBorobudur Temple is one of the most famous tourist attractions in Indonesia. It is located in Central Java. The temple has many stupas and beautiful reliefs that tell stories from the past. Every year, thousands of tourists from around the world visit Borobudur to see its unique architecture and learn about Buddhist history. Besides being a tourist attraction, Borobudur is also used as a place for religious ceremonies.",
+  tanya: "What are the main topics of the text?",
+  opsi: [
+    "Borobudur as a tourist attraction",
+    "The architecture and reliefs of Borobudur",
+    "Tourists visiting Borobudur",
+    "The personal life of Buddhist monks"
+  ],
+  kunci: [0,1,2],
+  bahas: "The text focuses on Borobudur as a tourist attraction, its architecture and reliefs, and the fact that many tourists visit it."
+},
+{
+  id: "desc3",
+  tipe: "tf",
+  bacaan: "Text:\n\nMy best friend’s name is Sinta. She is 14 years old and studies in the same school as me. Sinta is very friendly and helpful. She always helps her friends when they have difficulties in studying. She also likes playing badminton and has won several competitions. Many students in our school like her because she is kind and talented. For me, she is not only my best friend but also like a sister.",
+  tanya: "Decide True or False based on the text.",
+  opsi: [
+    "The main topic of the text is about the writer’s best friend, Sinta.",
+    "The main topic of the text is about badminton competitions only."
+  ],
+  kunci: [true, false],
+  bahas: "The text mainly describes the writer’s best friend, Sinta, not only badminton."
+},
+{
+  id: "desc4",
+  tipe: "isian",
+  bacaan: "Text:\n\nThe National Monument, or Monas, is one of the most popular landmarks in Jakarta. It was built to commemorate the struggle for Indonesian independence. The monument is very tall and has a flame covered with gold on its top. Visitors can go up to the top of Monas and see a beautiful view of Jakarta. Around the monument, there is a large park where people can relax and enjoy the scenery.",
+  tanya: "What is the main topic of the text?",
+  kunciText: "The National Monument (Monas)",
+  bahas: "The text mainly describes Monas, its function, shape, and surrounding area."
+},
+{
+  id: "desc5",
+  tipe: "pg",
+  bacaan: "Text:\n\nToba Lake is the largest lake in Indonesia and Southeast Asia. It is located in North Sumatra. In the middle of the lake, there is a volcanic island called Samosir Island. Many tourists come to Lake Toba to enjoy the beautiful scenery, cool weather, and traditional Batak culture. The lake is also popular for activities like swimming, fishing, and taking a boat ride.",
+  tanya: "What is the goal of the text?",
+  opsi: [
+    "To tell a story about Batak culture",
+    "To describe Toba Lake and its attractions",
+    "To explain how to travel to North Sumatra",
+    "To persuade people to swim in the lake"
+  ],
+  kunci: 1,
+  bahas: "The text describes Toba Lake and its attractions, so the goal is to describe."
+},
+{
+  id: "desc6",
+  tipe: "cb",
+  bacaan: "Text:\n\nKomodo Island is one of the New Seven Wonders of Nature. It is famous for being the natural habitat of the Komodo dragon, the largest lizard in the world. The island also has beautiful beaches, clear sea water, and amazing underwater life. Many visitors come to see the Komodo dragons and enjoy snorkeling or diving in the sea around the island.",
+  tanya: "What are the goals of the text?",
+  opsi: [
+    "To describe Komodo Island and its uniqueness",
+    "To explain the history of Komodo Island",
+    "To show the natural beauty of Komodo Island",
+    "To persuade people to eat seafood on the island"
+  ],
+  kunci: [0,2],
+  bahas: "The goal of the text is to describe Komodo Island’s uniqueness and its natural beauty."
+},
+{
+  id: "desc7",
+  tipe: "tf",
+  bacaan: "Text:\n\nThe Taj Mahal is one of the most beautiful buildings in the world. It is located in Agra, India. It was built by Emperor Shah Jahan in memory of his beloved wife, Mumtaz Mahal. The building is made of white marble and is famous for its stunning architecture. Every year, millions of tourists visit the Taj Mahal to admire its beauty.",
+  tanya: "Decide True or False about the goal of the text.",
+  opsi: [
+    "The goal of the text is to describe the Taj Mahal.",
+    "The goal of the text is to tell a personal story about Mumtaz Mahal."
+  ],
+  kunci: [true, false],
+  bahas: "The text mainly describes the Taj Mahal, not a personal story."
+},
+{
+  id: "desc8",
+  tipe: "isian",
+  bacaan: "Text:\n\nRaja Ampat is a group of islands in Papua. It is famous for its underwater beauty and is often called a paradise for divers. There are more than a thousand species of fish and hundreds of types of coral reefs. Many tourists from around the world visit Raja Ampat to enjoy diving and snorkeling.",
+  tanya: "What is the goal of the text?",
+  kunciText: "To describe Raja Ampat",
+  bahas: "The text aims to describe Raja Ampat and its underwater beauty."
+},
+{
+  id: "desc9",
+  tipe: "pg",
+  bacaan: "Text:\n\nBorobudur Temple is the largest Buddhist temple in the world. It is located in Central Java, Indonesia. The temple was built in the 9th century and has many beautiful reliefs and stupas. Every year, thousands of tourists and Buddhists visit Borobudur, especially during Vesak Day.",
+  tanya: "Where is Borobudur Temple located?",
+  opsi: [
+    "In East Java",
+    "In Central Java",
+    "In Yogyakarta",
+    "In Bali"
+  ],
+  kunci: 1,
+  bahas: "The text clearly states that Borobudur Temple is located in Central Java."
+},
+{
+  id: "desc10",
+  tipe: "cb",
+  bacaan: "Text:\n\nBali is known as the Island of Gods. It is famous for its beautiful beaches, traditional dance, and unique culture. Tourists also love visiting temples, rice terraces, and enjoying Balinese food.",
+  tanya: "What things are mentioned in the text as attractions in Bali?",
+  opsi: [
+    "Beautiful beaches",
+    "Traditional dance",
+    "Snow mountains",
+    "Rice terraces"
+  ],
+  kunci: [0,1,3],
+  bahas: "The text mentions beautiful beaches, traditional dance, and rice terraces. Snow mountains are not mentioned."
+},
+{
+  id: "desc11",
+  tipe: "tf",
+  bacaan: "Text:\n\nMount Bromo is an active volcano in East Java. It is part of Bromo Tengger Semeru National Park. Many visitors come in the early morning to see the sunrise from the top of the mountain.",
+  tanya: "Decide True or False based on the explicit information in the text.",
+  opsi: [
+    "Mount Bromo is located in East Java.",
+    "People visit Mount Bromo at night to see the stars."
+  ],
+  kunci: [true, false],
+  bahas: "The text states Mount Bromo is in East Java (True). Visitors come in the morning for sunrise, not at night (False)."
+},
+{
+  id: "desc12",
+  tipe: "isian",
+  bacaan: "Text:\n\nPrambanan is the largest Hindu temple in Indonesia. It was built in the 9th century and is dedicated to the Trimurti: Brahma, Vishnu, and Shiva. The temple complex has tall and pointed architecture, making it very impressive.",
+  tanya: "Prambanan Temple was built in the ___ century.",
+  kunciText: "9th",
+  bahas: "The text explicitly states that Prambanan was built in the 9th century."
+},
+{
+  id: "desc13",
+  tipe: "pg",
+  bacaan: "Text:\n\nRaja Ampat is a group of islands in Papua. It is famous for its underwater beauty and is often called a paradise for divers. There are more than a thousand species of fish and hundreds of types of coral reefs. Many tourists from around the world visit Raja Ampat to enjoy diving and snorkeling.",
+  tanya: "What is the meaning of the word 'underwater' in the text?",
+  opsi: [
+    "Above the water",
+    "Under the water",
+    "Near the land",
+    "On the island"
+  ],
+  kunci: 1,
+  bahas: "The word 'underwater' means 'under the water', as the text talks about marine beauty."
+},
+{
+  id: "desc14",
+  tipe: "cb",
+  bacaan: "Text:\n\nMount Bromo is an active volcano in East Java. It is part of Bromo Tengger Semeru National Park. Many visitors come in the early morning to see the sunrise from the top of the mountain.",
+  tanya: "Which words have the same meaning as 'visitors' in the text?",
+  opsi: [
+    "Tourists",
+    "Locals",
+    "Students",
+    "Climbers"
+  ],
+  kunci: [0,3],
+  bahas: "'Visitors' refers to people who come to see Mount Bromo, including tourists and climbers."
+},
+{
+  id: "desc15",
+  tipe: "tf",
+  bacaan: "Text:\n\nBorobudur Temple is one of the most famous Buddhist temples in the world. It is located in Central Java, Indonesia. The temple has many beautiful reliefs and stupas.",
+  tanya: "Decide True or False based on the meaning of the word 'famous'.",
+  opsi: [
+    "The word 'famous' means well-known.",
+    "The word 'famous' means unknown."
+  ],
+  kunci: [true, false],
+  bahas: "The word 'famous' means 'well-known', so the first statement is True and the second statement is False."
+},
+{
+  id: "desc16",
+  tipe: "isian",
+  bacaan: "Text:\n\nKomodo Island is famous for being the natural habitat of the Komodo dragon. Many visitors come to see these giant lizards.",
+  tanya: "The word 'habitat' has the same meaning as ___.",
+  kunciText: "home",
+  bahas: "In this context, 'habitat' means 'home' or natural living place."
+},
+{
+  id: "desc17",
+  tipe: "pg",
+  bacaan: "Text:\n\nSweet Moments is a small bakery on a quiet street. It has large glass windows and a bright yellow door. Inside, there are three wooden shelves filled with bread, cakes, and pastries. Every morning, the owner wakes up at 4 a.m. to bake bread and decorate cakes. The bakery also sells a special chocolate croissant loved by children.",
+  tanya: "What time does the owner usually start baking?",
+  opsi: [
+    "5 a.m.",
+    "4 a.m.",
+    "6 a.m.",
+    "3 a.m."
+  ],
+  kunci: 1,
+  bahas: "The text states that the owner wakes up at 4 a.m. to bake bread and decorate cakes."
+},
+{
+  id: "desc18",
+  tipe: "cb",
+  bacaan: "Text:\n\nSweet Moments bakery has three wooden shelves filled with various bread, cakes, and pastries. There is a small corner with tables and chairs for customers to enjoy their snacks.",
+  tanya: "Which words describe the seating area in the bakery?",
+  opsi: [
+    "Big corner with benches",
+    "Small corner with tables and chairs",
+    "Outdoor garden",
+    "Large dining hall"
+  ],
+  kunci: [1],
+  bahas: "The text mentions a 'small corner with tables and chairs' as the seating area."
+},
+{ 
+  id: "desc19",
+  tipe: "tf",
+  bacaan: "Text:\n\nSweet Moments bakery sells pastries and bread. The smell of freshly baked bread greets customers at the entrance.",
+  tanya: "Decide True or False based on the statement about the bakery's smell.",
+  opsi: [
+    "The bakery has a strong smell of freshly baked bread.",
+    "The bakery does not have any smell of freshly baked bread."
+  ],
+  kunci: [true, false],
+  bahas: "The text states that 'the smell of freshly baked bread greets customers,' which makes the first statement True and the second statement False."
+},
+{
+  id: "desc20",
+  tipe: "isian",
+  bacaan: "Text:\n\nSweet Moments bakery is famous for its chocolate croissant, which is very popular among children. The bakery opens early every morning.",
+  tanya: "The bakery's chocolate croissant is very ___.",
+  kunciText: "popular",
+  bahas: "The text explicitly mentions that the chocolate croissant is 'very popular among children.'"
+},
+
+  ]
+},
+'Simple Present Tense': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Simple Present Tense</h2>
+<p>
+  The Simple Present Tense is used to express daily activities, habits, general truths, or repeated actions. 
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formula</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Positive</b>: S + V1 (add -s/-es for he, she, it)</li>
+  <li><b>Negative</b>: S + do/does + not + V1</li>
+  <li><b>Interrogative</b>: Do/Does + S + V1?</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Usage</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>To express daily activities (I go to school every day).</li>
+  <li>To express habits (She drinks coffee every morning).</li>
+  <li>To express general truth (The sun rises in the east).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Signal Words</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Always, usually, often, sometimes, never, every day, every week</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Example Sentences</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>I <b>study</b> English every day.</li>
+  <li>She <b>goes</b> to the market every Sunday.</li>
+  <li>The Earth <b>revolves</b> around the sun.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> He ___ (play) football every weekend. (Jawab: plays)</p>
+<p><b>Contoh 2:</b> They ___ (not go) to school on Sunday. (Jawab: do not go)</p>
+<p><b>Contoh 3:</b> ___ she read a book every night? (Jawab: Does)</p>
+  `,
+  video: ['9Nqye_yPNyI'], // contoh video Simple Present Tense
+  soal: [
+    {
+  id: "spt1",
+  tipe: "pg",
+  tanya: "Choose the correct sentence in simple present tense:",
+  opsi: [
+    "Rina go to school by bus every day.",
+    "Rina goes to school by bus every day.",
+    "Rina going to school by bus every day.",
+    "Rina has gone to school by bus."
+  ],
+  kunci: 1,
+  bahas: "'Rina goes to school by bus every day.' is correct for third person singular in simple present tense."
+},
+{
+  id: "spt2",
+  tipe: "pg",
+  tanya: "Choose the correct sentence:",
+  opsi: [
+    "Tom and Jerry plays football every weekend.",
+    "Tom and Jerry play football every weekend.",
+    "Tom and Jerry is playing football every weekend.",
+    "Tom and Jerry has played football every weekend."
+  ],
+  kunci: 1,
+  bahas: "'Tom and Jerry play football every weekend.' is correct because third person plural does not add -s."
+},
+{
+  id: "spt3",
+  tipe: "cb",
+  tanya: "Select all sentences that are correct in simple present tense:",
+  opsi: [
+    "She enjoys reading books.",
+    "She enjoy reading books.",
+    "They plays football on Sundays.",
+    "They play football on Sundays."
+  ],
+  kunci: [0,3],
+  bahas: "Correct sentences: 'She enjoys reading books.' and 'They play football on Sundays.'"
+},
+{
+  id: "spt4",
+  tipe: "cb",
+  tanya: "Select all sentences that are correct:",
+  opsi: [
+    "My father drink coffee every morning.",
+    "My father drinks coffee every morning.",
+    "We goes to school at 7 a.m.",
+    "We go to school at 7 a.m."
+  ],
+  kunci: [1,3],
+  bahas: "Correct forms: 'drinks' for third person singular, 'go' for plural subject 'we'."
+},
+{
+  id: "spt5",
+  tipe: "tf",
+  tanya: "Decide True or False for each sentence:",
+  opsi: [
+    "He wakes up at 6 a.m. every day.",
+    "He wake up at 6 a.m. every day.",
+    "They enjoys swimming on weekends.",
+    "They enjoy swimming on weekends."
+  ],
+  kunci: [true, false, false, true],
+  bahas: "Correct forms: 'wakes' for third person singular, 'enjoy' for plural 'they'."
+},
+{
+  id: "spt6",
+  tipe: "tf",
+  tanya: "Decide True or False for each sentence:",
+  opsi: [
+    "The sun rises in the east.",
+    "The sun set in the west.",
+    "Plants grows because of sunlight.",
+    "Plants grow because of sunlight."
+  ],
+  kunci: [true, false, false, true],
+  bahas: "Correct simple present: 'rises', 'sets', 'grow' without -s for plural subject 'plants'."
+},
+{
+  id: "spt7",
+  tipe: "pg",
+  tanya: "Choose the correct word to complete the sentence:\n\nRina usually ___ (wake) up at 6 a.m. every day.",
+  opsi: [
+    "wake",
+    "wakes",
+    "waking",
+    "waked"
+  ],
+  kunci: 1,
+  bahas: "Third person singular 'Rina' requires 'wakes' in simple present tense."
+},
+{
+  id: "spt8",
+  tipe: "pg",
+  tanya: "Complete the sentence with the correct form of the verb:\n\nTom and Jerry ___ (play) football on Sundays.",
+  opsi: [
+    "plays",
+    "play",
+    "playing",
+    "played"
+  ],
+  kunci: 1,
+  bahas: "'Tom and Jerry' is plural, so we use 'play' without -s."
+},
+{
+  id: "spt9",
+  tipe: "cb",
+  tanya: "Select all correct words to complete the sentences:\n\n1. She ___ (study) English every day.\n2. They ___ (watch) TV in the evening.",
+  opsi: [
+    "studies",
+    "study",
+    "watches",
+    "watch"
+  ],
+  kunci: [0,3],
+  bahas: "Third person singular 'She' uses 'studies'. Plural 'They' uses 'watch'."
+},
+{
+  id: "spt10",
+  tipe: "tf",
+  tanya: "Decide True or False for each sentence:",
+  opsi: [
+    "He drinks coffee in the morning.",
+    "He drink coffee in the morning.",
+    "We goes to school at 7 a.m.",
+    "We go to school at 7 a.m."
+  ],
+  kunci: [true, false, false, true],
+  bahas: "Correct forms: 'drinks' for third person singular, 'go' for plural 'we'."
+},
+{
+  id: "spt11",
+  tipe: "isian",
+  tanya: "Complete the sentence with the correct verb in simple present tense:\n\nMy father usually ___ (read) newspaper in the morning and ___ (drink) coffee before going to work.",
+  kunciText: "reads, drinks",
+  bahas: "Third person singular: 'reads' and 'drinks'."
+},
+{
+  id: "spt12",
+  tipe: "pg",
+  tanya: "Complete the sentence with the correct word:\n\nRina usually ___ (go) to school by bus.",
+  opsi: [
+    "go",
+    "goes",
+    "going",
+    "went"
+  ],
+  kunci: 1,
+  bahas: "Third person singular 'Rina' requires 'goes' in simple present tense."
+},
+{
+  id: "sp13",
+  tipe: "pg",
+  tanya: "Choose the correct positive sentence:\n\nHe (go) to school by bus every day.",
+  opsi: [
+    "He go to school by bus every day.",
+    "He goes to school by bus every day.",
+    "He going to school by bus every day.",
+    "He has gone to school by bus every day."
+  ],
+  kunci: 1,
+  bahas: "Third person singular 'He' requires 'goes' in positive simple present tense."
+},
+{
+  id: "sp14",
+  tipe: "pg",
+  tanya: "Choose the correct negative sentence:\n\nShe (not/like) ice cream.",
+  opsi: [
+    "She does not likes ice cream.",
+    "She do not like ice cream.",
+    "She does not like ice cream.",
+    "She not likes ice cream."
+  ],
+  kunci: 2,
+  bahas: "'She does not like ice cream.' is correct negative form for third person singular."
+},
+{
+  id: "sp15",
+  tipe: "pg",
+  tanya: "Choose the correct interrogative sentence:\n\nHe (play) tennis every weekend?",
+  opsi: [
+    "Do he play tennis?",
+    "Does he play tennis?",
+    "Does he plays tennis?",
+    "He does play tennis?"
+  ],
+  kunci: 1,
+  bahas: "'Does he play tennis?' is correct for yes/no question in third person singular."
+},
+{
+  id: "sp16",
+  tipe: "cb",
+  tanya: "Select all correct sentences:",
+  opsi: [
+    "I enjoy reading books every day.",
+    "I enjoys reading books every day.",
+    "They do not watch TV on weekdays.",
+    "They does not watch TV on weekdays."
+  ],
+  kunci: [0,2],
+  bahas: "Correct: 'I enjoy...' and 'They do not watch...' (plural subject)."
+},
+{
+  id: "sp17",
+  tipe: "tf",
+  tanya: "Decide True or False for each sentence:",
+  opsi: [
+    "She loves chocolate.",
+    "She love chocolate.",
+    "Does he go to school by bus?",
+    "Do he go to school by bus?"
+  ],
+  kunci: [true, false, true, false],
+  bahas: "Third person singular positive: 'loves'; interrogative: 'Does he go?'"
+},
+{
+  id: "sp18",
+  tipe: "isian",
+  tanya: "Rewrite the sentences in the correct form:\n\n1. He not/like playing football.\n2. Do she (study) English every day?",
+  kunciText: "He does not like playing football., Does she study English every day?",
+  bahas: "Negative: 'does not like'; Interrogative: 'Does she study English every day?'"
+},
+{
+  id: "sp19",
+  tipe: "pg",
+  tanya: "Choose the correct positive sentence:\n\nThey (have) a big garden at home.",
+  opsi: [
+    "They has a big garden at home.",
+    "They have a big garden at home.",
+    "They having a big garden at home.",
+    "They had a big garden at home."
+  ],
+  kunci: 1,
+  bahas: "Plural subject 'They' uses 'have' in positive simple present."
+},
+{
+  id: "sp20",
+  tipe: "pg",
+  tanya: "Choose the correct negative sentence:\n\nHe (not/watch) TV in the morning.",
+  opsi: [
+    "He does not watch TV in the morning.",
+    "He do not watch TV in the morning.",
+    "He not watches TV in the morning.",
+    "He does not watches TV in the morning."
+  ],
+  kunci: 0,
+  bahas: "Third person singular negative uses 'does not' + base verb: 'watch'."
+},
+{
+  id: "sp21",
+  tipe: "pg",
+  tanya: "Choose the correct interrogative sentence:\n\nThey (study) English every day?",
+  opsi: [
+    "Do they study English every day?",
+    "Does they study English every day?",
+    "Do they studies English every day?",
+    "They do study English every day?"
+  ],
+  kunci: 0,
+  bahas: "Plural subject 'They' uses 'Do' for interrogative, base verb 'study'."
+},
+
+  ]
+},
+
+'Simple Present Perfect Tense': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Simple Present Perfect Tense</h2>
+<p>
+  The Present Perfect Tense is used to express actions or events that started in the past and still continue, or that happened at an unspecified time in the past but are relevant now.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formula</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Positive</b>: S + has/have + V3</li>
+  <li><b>Negative</b>: S + has/have + not + V3</li>
+  <li><b>Interrogative</b>: Has/Have + S + V3?</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Usage</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>To express experience (I have visited Bali).</li>
+  <li>To express actions that just happened (She has just finished her homework).</li>
+  <li>To express actions that started in the past and continue until now (They have lived here for 5 years).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Signal Words</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Already, just, ever, never, yet, since, for</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Example Sentences</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>I <b>have eaten</b> lunch.</li>
+  <li>She <b>has visited</b> Paris twice.</li>
+  <li>We <b>have lived</b> in Jakarta since 2010.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> I ___ (visit) Bali twice. (Jawab: have visited)</p>
+<p><b>Contoh 2:</b> She ___ (not finish) her homework yet. (Jawab: has not finished)</p>
+  `,
+  video: ['CU4Yk7W_dCk'], // contoh video Present Perfect Tense
+  soal: [
+    {
+      id: "pp1",
+      tipe: "pg",
+      bacaan: "I ___ (see) that movie three times.",
+      tanya: "Choose the correct answer:",
+      opsi: [
+        "see",
+        "saw",
+        "have seen",
+        "has saw"
+      ],
+      kunci: 2,
+      bahas: "The correct form is 'have seen' in present perfect tense."
+    },
+    {
+      id: "pp2",
+      tipe: "cb",
+      bacaan: "Which are correct uses of present perfect tense?",
+      opsi: [
+        "I have never eaten sushi.",
+        "She has finished her homework just.",
+        "They have lived here since 2015.",
+        "He have gone to the market."
+      ],
+      kunci: [0,2],
+      bahas: "Sentences 1 and 3 are correct. Sentence 2 is wrong (position of 'just'), sentence 4 is wrong ('He has')."
+    },
+    {
+      id: "pp3",
+      tipe: "tf",
+      bacaan: "Present Perfect Tense uses V2 (past tense form) after has/have.",
+      tanya: "True or False?",
+      kunci: 1,
+      bahas: "False. Present perfect uses V3 (past participle), not V2."
+    },
+    {
+      id: "pp4",
+      tipe: "isian",
+      bacaan: "She ____ (finish) her homework.",
+      kunci: "has finished",
+      bahas: "The correct answer is 'has finished'."
     }
+  ]
+},
+
   }
 },
 
