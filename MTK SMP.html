@@ -145,6 +145,1849 @@
   const DB = {
 'English': {
   bab: {
+'Greeting': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Greeting</h2>
+<p>
+  In English, greetings are expressions we use to say hello, introduce ourselves, or start a conversation. Greetings can be formal or informal depending on the situation.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formal Greetings</h3>
+<p>
+  Formal greetings are used in polite situations, for example when meeting teachers, strangers, or in professional contexts.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Good morning</b> (Selamat pagi)</li>
+  <li><b>Good afternoon</b> (Selamat siang)</li>
+  <li><b>Good evening</b> (Selamat malam - saat bertemu, bukan berpamitan)</li>
+  <li><b>How do you do?</b> (Apa kabar? – sangat formal)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informal Greetings</h3>
+<p>
+  Informal greetings are used with friends, family, or people we know well.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Hello!</b> (Halo!)</li>
+  <li><b>Hi!</b> (Hai!)</li>
+  <li><b>Hey!</b> (Hai! – sangat santai)</li>
+  <li><b>What's up?</b> (Ada apa? / Apa kabar? – gaul)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Responses to Greetings</h3>
+<p>
+  When someone greets us, we respond politely:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>A: Good morning. <br>B: Good morning.</li>
+  <li>A: Hi, how are you? <br>B: I'm fine, thanks. And you?</li>
+  <li>A: What's up? <br>B: Not much, just relaxing.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples in Conversation</h3>
+<p>
+  A: Good afternoon, Mrs. Smith. <br>
+  B: Good afternoon, John. How are you today?
+</p>
+<p>
+  A: Hi, Mike! <br>
+  B: Hey, Sarah! Long time no see.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: Good morning, Mr. John. <br>B: .... (Jawab: Good morning)</p>
+<p><b>Contoh 2:</b> A: Hi, Lisa! How are you? <br>B: .... (Jawab: I’m fine, thanks. And you?)</p>
+<p><b>Contoh 3:</b> A: What’s up? <br>B: .... (Jawab: Not much.)</p>
+`,
+
+  video: ['tVlcKp3bWH8'], // contoh video greeting untuk anak sekolah
+
+  soal: [
+
+   {
+  id: "grt1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRina: ...., Sinta!\nSinta: Hi, Rina! How are you?\nRina: I’m fine, thanks.",
+  tanya: "What is the best expression to complete the dialog?",
+  opsi: [
+    "Good bye",
+    "Good morning",
+    "Good night",
+    "See you"
+  ],
+  kunci: 1,
+  bahas: "The correct answer is 'Good morning' because the dialog shows a greeting, not a farewell."
+},
+{
+  id: "grt2",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nAni: Hi, Budi!\nBudi: ....\nAni: How are you today?\nBudi: I’m fine, thanks.",
+  tanya: "Choose the correct responses Budi can say.",
+  opsi: [
+    "Hello, Ani!",
+    "Good evening, Ani!",
+    "Good bye, Ani!",
+    "Hi, Ani!"
+  ],
+  kunci: [0,1,3],
+  bahas: "Budi can respond with 'Hello, Ani!', 'Good evening, Ani!', or 'Hi, Ani!' because all are greetings. 'Good bye' is parting, not greeting."
+},
+{
+  id: "grt3",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nTono: Hi, Edo!\nEdo: Hello, Tono!\nTono: How are you?\nEdo: I’m fine, thank you.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "The dialog shows greetings.",
+    "Edo says 'Good bye' to Tono."
+  ],
+  kunci: [true, false],
+  bahas: "The dialog is a greeting exchange. Edo says 'Hello, Tono!', not 'Good bye'."
+},
+{
+  id: "grt4",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nRani: Good afternoon, Mr. Ali.\nMr. Ali: ....",
+  tanya: "Complete Mr. Ali’s response.",
+  kunciText: "Good afternoon, Rani.",
+  bahas: "The polite response to 'Good afternoon' is repeating the greeting: 'Good afternoon, Rani.'"
+},
+{
+  id: "grt5",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAndi: Good morning, Sir.\nTeacher: Good morning, Andi. How are you today?\nAndi: I’m fine, thank you. And you?\nTeacher: I’m fine too, thank you.",
+  tanya: "What is the main idea of the dialog?",
+  opsi: [
+    "Andi and his teacher are saying goodbye.",
+    "Andi and his teacher are greeting each other.",
+    "Andi is asking permission to leave.",
+    "Andi is introducing his friend."
+  ],
+  kunci: 1,
+  bahas: "The dialog shows greetings and asking about condition, so the answer is 'Andi and his teacher are greeting each other.'"
+},
+{
+  id: "grt6",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nSari: Hi, Maya! How are you?\nMaya: Hello, Sari. I’m great, thanks. How about you?\nSari: I’m fine, thank you.",
+  tanya: "From the dialog, we can conclude that ....",
+  opsi: [
+    "They are meeting each other.",
+    "They are greeting and asking condition.",
+    "They are saying farewell.",
+    "They are angry with each other."
+  ],
+  kunci: [0,1],
+  bahas: "The dialog shows Sari and Maya meeting, greeting, and asking about condition. It is not farewell or conflict."
+},
+{
+  id: "grt7",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nRudi: Good evening, Mom.\nMom: Good evening, Rudi. How was your day?\nRudi: It was good. Thank you.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "The dialog happens in the evening.",
+    "Rudi and Mom are quarreling."
+  ],
+  kunci: [true, false],
+  bahas: "The greeting shows 'Good evening,' so it is in the evening. They are not quarreling; they are greeting politely."
+},
+{
+  id: "grt8",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nLina: Hi, Dita! Long time no see. How are you?\nDita: ....",
+  tanya: "What can Dita say to show that she is fine?",
+  kunciText: "I’m fine, thanks.",
+  bahas: "The correct response is 'I’m fine, thanks.' to show her condition in a greeting conversation."
+},
+{
+  id: "grt9",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRina: ...., Mr. Joko.\nMr. Joko: Good morning, Rina. How are you?\nRina: I’m fine, thank you.",
+  tanya: "What is the best greeting to complete the dialog?",
+  opsi: [
+    "Good night",
+    "Good morning",
+    "Good bye",
+    "See you"
+  ],
+  kunci: 1,
+  bahas: "The best answer is 'Good morning' because Mr. Joko responds with 'Good morning, Rina.'"
+},
+{
+  id: "grt10",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nAndi: Hi, Budi! ....\nBudi: I’m fine, thanks. And you?\nAndi: I’m good, thanks.",
+  tanya: "Which greetings can correctly complete Andi’s first line?",
+  opsi: [
+    "How are you?",
+    "Good bye!",
+    "What’s up?",
+    "See you later!"
+  ],
+  kunci: [0,2],
+  bahas: "Andi can say 'How are you?' or 'What’s up?' because both are used to ask about someone’s condition. 'Good bye' and 'See you later' are farewells, not greetings."
+},
+{
+  id: "grt11",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nSinta: Hello, Dina!\nDina: ...., Sinta!",
+  tanya: "Choose True or False for the correct completion.",
+  opsi: [
+    "The correct response is 'Hello'.",
+    "The correct response is 'Good bye'."
+  ],
+  kunci: [true, false],
+  bahas: "The correct response to 'Hello' is 'Hello' back, not 'Good bye'."
+},
+{
+  id: "grt12",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nEka: Good afternoon, Sir.\nTeacher: ....",
+  tanya: "Complete the teacher’s response.",
+  kunciText: "Good afternoon, Eka.",
+  bahas: "The polite response is repeating the greeting: 'Good afternoon, Eka.'"
+},
+{
+  id: "grt13",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nIt was 7 a.m. when Rani arrived at school. She saw her teacher at the school gate and wanted to greet him politely.",
+  tanya: "Which greeting should Rani use?",
+  opsi: [
+    "Good night, Sir.",
+    "Good morning, Sir.",
+    "Good evening, Sir.",
+    "See you, Sir."
+  ],
+  kunci: 1,
+  bahas: "The correct answer is 'Good morning, Sir.' because it was 7 a.m., so the greeting must be 'Good morning'."
+},
+{
+  id: "grt14",
+  tipe: "cb",
+  bacaan: "Narrative:\n\nAfter class ended at 8 p.m., Arif met his friend in front of the library. They smiled and greeted each other.",
+  tanya: "Which greetings are suitable for the situation?",
+  opsi: [
+    "Good evening!",
+    "Hi!",
+    "Good afternoon!",
+    "Good night!"
+  ],
+  kunci: [0,1],
+  bahas: "At 8 p.m., both 'Good evening!' and 'Hi!' are correct. 'Good afternoon!' is for earlier in the day, and 'Good night!' is used when parting, not meeting."
+},
+{
+  id: "grt15",
+  tipe: "tf",
+  bacaan: "Narrative:\n\nIt was 9 p.m. when Siti met her neighbor in the park. She said, 'Good evening'.",
+  tanya: "Decide True or False based on the narrative.",
+  opsi: [
+    "Siti used the correct greeting for 9 p.m.",
+    "Siti should have said 'Good night' instead of 'Good evening'."
+  ],
+  kunci: [true, false],
+  bahas: "'Good evening' is correct for meeting someone at night. 'Good night' is only used for parting, not for greeting."
+},
+{
+  id: "grt16",
+  tipe: "isian",
+  bacaan: "Narrative:\n\nDina met her best friend at 3 p.m. in the park. She wanted to greet her in a polite way.",
+  tanya: "What greeting should Dina say?",
+  kunciText: "Good afternoon!",
+  bahas: "At 3 p.m., the correct greeting is 'Good afternoon!'."
+},
+  ]
+},
+'LeaveTaking': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Leave-taking</h2>
+<p>
+  Leave-taking adalah ungkapan yang digunakan ketika kita berpamitan atau mengakhiri percakapan. Sama seperti greeting, leave-taking bisa bersifat formal maupun informal tergantung pada situasinya.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formal Leave-taking</h3>
+<p>
+  Formal leave-taking digunakan dalam situasi sopan, misalnya kepada guru, orang tua, atau dalam pertemuan resmi.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Good bye</b> (Selamat tinggal)</li>
+  <li><b>Good night</b> (Selamat malam – saat berpisah, bukan bertemu)</li>
+  <li><b>See you tomorrow</b> (Sampai jumpa besok)</li>
+  <li><b>It was nice meeting you</b> (Senang bertemu dengan Anda)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informal Leave-taking</h3>
+<p>
+  Informal leave-taking digunakan bersama teman, keluarga, atau orang yang sudah akrab.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Bye!</b> (Daaah!)</li>
+  <li><b>See you!</b> (Sampai jumpa!)</li>
+  <li><b>Catch you later!</b> (Sampai ketemu lagi!)</li>
+  <li><b>Take care!</b> (Hati-hati ya!)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Responses to Leave-taking</h3>
+<p>
+  Saat seseorang berpamitan, kita juga merespons dengan ungkapan yang sopan:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>A: Good bye. <br>B: Good bye.</li>
+  <li>A: See you later. <br>B: See you.</li>
+  <li>A: Take care. <br>B: You too.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples in Conversation</h3>
+<p>
+  A: It was nice meeting you. <br>
+  B: Nice meeting you too. Goodbye!
+</p>
+<p>
+  A: See you later, John! <br>
+  B: Bye, Mike! Take care.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: See you tomorrow. <br>B: .... (Jawab: See you)</p>
+<p><b>Contoh 2:</b> A: Take care! <br>B: .... (Jawab: You too)</p>
+<p><b>Contoh 3:</b> A: Goodbye, Sir. <br>B: .... (Jawab: Goodbye)</p>
+`,
+
+  video: ['3Qv3YpGZlH8'], // contoh video leave-taking sederhana
+
+  soal: [
+
+   {
+  id: "lt1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRina: I have to go now. ....\nSinta: Bye, Rina. See you tomorrow!",
+  tanya: "What is the best expression to complete Rina’s sentence?",
+  opsi: [
+    "Good night!",
+    "See you!",
+    "Good bye!",
+    "Take care!"
+  ],
+  kunci: 2,
+  bahas: "The best answer is 'Good bye!' because Rina is leaving and saying farewell."
+},
+{
+  id: "lt2",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAdi: I’m going home now. ....\nBudi: Okay, see you later!",
+  tanya: "What is the best expression to complete Adi’s sentence?",
+  opsi: [
+    "See you!",
+    "Hello!",
+    "Good morning!",
+    "What’s up?"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'See you!' because it is a leave-taking expression."
+},
+{
+  id: "lt3",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nMother: It’s late at night. Time to sleep. ....\nDina: Good night, Mom.",
+  tanya: "What is the best expression to complete Mother’s sentence?",
+  opsi: [
+    "Good night.",
+    "Good morning.",
+    "See you later.",
+    "Good bye."
+  ],
+  kunci: 0,
+  bahas: "The best answer is 'Good night.' because it is used when parting at night."
+},
+{
+  id: "lt4",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nTeacher: Class is over. ....\nStudents: Thank you, Sir. See you tomorrow!",
+  tanya: "What is the best expression to complete Teacher’s sentence?",
+  opsi: [
+    "See you tomorrow.",
+    "Good bye, everyone.",
+    "Good morning, everyone.",
+    "Hello, class."
+  ],
+  kunci: 1,
+  bahas: "The correct answer is 'Good bye, everyone.' because the teacher is ending the class."
+},
+{
+  id: "lt5",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nAfter finishing the study group, Andi said to his friends, “See you tomorrow!” All of his friends smiled and waved their hands.",
+  tanya: "What is the best response to Andi’s leave-taking expression?",
+  opsi: [
+    "Good morning!",
+    "See you!",
+    "Hello!",
+    "Good luck!"
+  ],
+  kunci: 1,
+  bahas: "The correct response is 'See you!' because it matches Andi’s leave-taking expression."
+},
+{
+  id: "lt6",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nAt night, Dina went to her room. She said to her parents, “Good night, Mom and Dad.”",
+  tanya: "What should her parents reply?",
+  opsi: [
+    "Good bye, Dina.",
+    "Good morning, Dina.",
+    "Good night, Dina.",
+    "See you later, Dina."
+  ],
+  kunci: 2,
+  bahas: "The correct response is 'Good night, Dina.' because it is a common leave-taking expression at night."
+},
+{
+  id: "lt7",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nAfter the class was over, the teacher said, “Good bye, everyone.” The students replied politely.",
+  tanya: "What did the students most likely say?",
+  opsi: [
+    "Good bye, Sir.",
+    "Good night, Sir.",
+    "See you tomorrow, Sir.",
+    "Hello, Sir."
+  ],
+  kunci: 0,
+  bahas: "The best answer is 'Good bye, Sir.' because it is the polite response to the teacher’s leave-taking."
+},
+{
+  id: "lt8",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nRina visited her grandmother. After a long chat, Rina said, “I have to go now. Goodbye, Grandma.”",
+  tanya: "What is the best response from Grandma?",
+  opsi: [
+    "Goodbye, Rina.",
+    "Good morning, Rina.",
+    "Hello, Rina.",
+    "What’s up, Rina?"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'Goodbye, Rina.' because it is the natural response to Rina’s farewell."
+},
+{
+  id: "lt9",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: It’s getting late. I have to go now. ....\nB: Bye, Rani. See you tomorrow!",
+  tanya: "What is the best expression to complete A’s sentence?",
+  opsi: [
+    "Goodbye!",
+    "Good morning!",
+    "Hello!",
+    "What’s up?"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'Goodbye!' because A is leaving and saying farewell."
+},
+{
+  id: "lt10",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: I’m leaving now. See you later!\nB: ....",
+  tanya: "What is the best response from B?",
+  opsi: [
+    "See you!",
+    "Good morning!",
+    "Hello!",
+    "Good luck!"
+  ],
+  kunci: 0,
+  bahas: "The best answer is 'See you!' because it is the natural response to 'See you later!'."
+},
+{
+  id: "lt11",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: I’m sleepy. ....\nB: Good night, Riko.",
+  tanya: "What is the best expression to complete A’s sentence?",
+  opsi: [
+    "Good night!",
+    "Goodbye!",
+    "See you later!",
+    "Good evening!"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'Good night!' because it is used when parting at night before going to sleep."
+},
+{
+  id: "lt12",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: The class is over. ....\nB: Goodbye, Sir. See you tomorrow!",
+  tanya: "What is the best expression to complete A’s sentence?",
+  opsi: [
+    "Goodbye, everyone.",
+    "Good morning, everyone.",
+    "Hello, everyone.",
+    "What’s up, everyone."
+  ],
+  kunci: 0,
+  bahas: "The best answer is 'Goodbye, everyone.' because the teacher is dismissing the class."
+},
+{
+  id: "lt13",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nAfter playing football in the afternoon, Andi said to his friends, “See you tomorrow, guys!” Then he went home happily.",
+  tanya: "What can you conclude from the story?",
+  opsi: [
+    "Andi is arriving at the field.",
+    "Andi is saying goodbye to his friends.",
+    "Andi is asking about the game.",
+    "Andi is inviting his friends to play again."
+  ],
+  kunci: 1,
+  bahas: "From the narrative, Andi says 'See you tomorrow,' which shows he is saying goodbye to his friends."
+},
+{
+  id: "lt14",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nIt was 10 p.m. Dina was very sleepy. She said, “Good night, Mom and Dad.” Her parents smiled and replied, “Good night, Dina.”",
+  tanya: "What is the main idea of the story?",
+  opsi: [
+    "Dina is greeting her parents in the morning.",
+    "Dina is saying goodbye before going to bed.",
+    "Dina is leaving home to visit a friend.",
+    "Dina is inviting her parents to play a game."
+  ],
+  kunci: 1,
+  bahas: "From the narrative, Dina says 'Good night' before going to sleep, which means she is saying goodbye for the night."
+},
+{
+  id: "lt15",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nAfter the lesson ended, the teacher said, “Goodbye, class. See you tomorrow.” The students answered politely, “Goodbye, Sir.”",
+  tanya: "What can we conclude from the story?",
+  opsi: [
+    "The teacher is starting the class.",
+    "The teacher is teaching the lesson.",
+    "The teacher is ending the class.",
+    "The students are greeting the teacher."
+  ],
+  kunci: 2,
+  bahas: "The teacher says 'Goodbye, class,' which shows that the class has ended."
+},
+{
+  id: "lt16",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nRina visited her grandmother in the afternoon. After chatting, she said, “I have to go now. Goodbye, Grandma.” Her grandmother replied, “Goodbye, Rina. Take care.”",
+  tanya: "What is the best conclusion from the story?",
+  opsi: [
+    "Rina is coming to her grandmother’s house.",
+    "Rina is leaving her grandmother’s house.",
+    "Rina is inviting her grandmother to go out.",
+    "Rina is greeting her grandmother in the morning."
+  ],
+  kunci: 1,
+  bahas: "The narrative shows Rina says 'I have to go now,' which means she is leaving her grandmother’s house."
+},
+{
+  id: "lt17",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRina: Thanks for helping me with my homework, Sinta. It’s getting dark now.\nSinta: You’re welcome. ....",
+  tanya: "What is the best leave-taking expression for Sinta to say?",
+  opsi: [
+    "See you tomorrow, Rina.",
+    "Good morning, Rina.",
+    "Hello, Rina.",
+    "What’s up, Rina?"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'See you tomorrow, Rina.' because the situation shows evening time and they are leaving each other politely."
+},
+{
+  id: "lt18",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAfter the meeting, Mr. Ahmad said, “It was nice to work with all of you. ....”\nStudents: “Goodbye, Sir. See you next week.”",
+  tanya: "What is the most appropriate expression to complete Mr. Ahmad’s sentence?",
+  opsi: [
+    "Goodbye, everyone.",
+    "Good morning, everyone.",
+    "Hello, everyone.",
+    "What’s up, everyone."
+  ],
+  kunci: 0,
+  bahas: "The best choice is 'Goodbye, everyone.' because Mr. Ahmad is ending the meeting and leaving."
+},
+{
+  id: "lt19",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAndi: I’m so sleepy. It’s almost midnight.\nBudi: Okay, Andi. ....\nAndi: Thanks. Good night, Budi.",
+  tanya: "What is the most suitable leave-taking expression for Budi?",
+  opsi: [
+    "Good night, Andi.",
+    "See you next morning, Andi.",
+    "Hello, Andi.",
+    "Good evening, Andi."
+  ],
+  kunci: 0,
+  bahas: "The best answer is 'Good night, Andi.' because the context shows it is late at night and Andi is going to sleep."
+},
+{
+  id: "lt20",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nMira: The bell just rang. It’s time to go home.\nDina: Yes, you’re right. ....\nMira: See you tomorrow!",
+  tanya: "Which leave-taking expression should Dina say?",
+  opsi: [
+    "Goodbye!",
+    "Good morning!",
+    "Hello!",
+    "Good luck!"
+  ],
+  kunci: 0,
+  bahas: "The best option is 'Goodbye!' because they are leaving school after the bell rang."
+},
+
+  ]
+},
+'Thanking': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Thanking</h2>
+<p>
+  Thanking adalah ungkapan yang digunakan untuk menyatakan rasa terima kasih kepada seseorang. 
+  Sama seperti greeting dan leave-taking, ungkapan ini bisa bersifat formal maupun informal tergantung pada situasinya.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formal Thanking</h3>
+<p>
+  Formal thanking biasanya digunakan dalam situasi sopan, misalnya kepada guru, orang tua, atau dalam pertemuan resmi.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Thank you very much</b> (Terima kasih banyak)</li>
+  <li><b>Many thanks</b> (Banyak terima kasih)</li>
+  <li><b>I really appreciate it</b> (Saya sangat menghargainya)</li>
+  <li><b>Thanks a lot</b> (Terima kasih banyak)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informal Thanking</h3>
+<p>
+  Informal thanking digunakan bersama teman, keluarga, atau orang yang sudah akrab.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Thanks!</b> (Makasih!)</li>
+  <li><b>Thanks a bunch!</b> (Makasih banget!)</li>
+  <li><b>Thanks a million!</b> (Terima kasih banyak!)</li>
+  <li><b>Cheers!</b> (Makasih, ya!)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Responses to Thanking</h3>
+<p>
+  Saat seseorang mengucapkan terima kasih, kita juga merespons dengan ungkapan yang sopan:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>A: Thank you. <br>B: You’re welcome.</li>
+  <li>A: Thanks a lot. <br>B: No problem.</li>
+  <li>A: I really appreciate it. <br>B: Anytime.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples in Conversation</h3>
+<p>
+  A: Thanks for your help. <br>
+  B: You’re welcome.
+</p>
+<p>
+  A: Thank you very much, Sir. <br>
+  B: My pleasure.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: Thank you. <br>B: .... (Jawab: You’re welcome)</p>
+<p><b>Contoh 2:</b> A: Thanks a lot! <br>B: .... (Jawab: No problem)</p>
+<p><b>Contoh 3:</b> A: I really appreciate your help. <br>B: .... (Jawab: Anytime)</p>
+`,
+
+  video: ['R0g1Lx5B9Ss'], // contoh video thanking sederhana
+
+  soal: [
+
+    {
+  id: "th1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nLina: Thank you for helping me with the homework.\nRina: ....",
+  tanya: "What is the best response?",
+  opsi: [
+    "Good morning.",
+    "You’re welcome.",
+    "See you tomorrow.",
+    "Goodbye."
+  ],
+  kunci: 1,
+  bahas: "The correct response to 'Thank you for helping me with the homework' is 'You’re welcome.'"
+},
+{
+  id: "th2",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nAndi: Thanks a lot for your book.\nBudi: ....",
+  tanya: "Which of the following are correct responses?",
+  opsi: [
+    "No problem.",
+    "You’re welcome.",
+    "Good night.",
+    "Anytime."
+  ],
+  kunci: [0,1,3],
+  bahas: "Responses like 'No problem.', 'You’re welcome.', and 'Anytime.' are suitable replies to thanking."
+},
+{
+  id: "th3",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nMaya: Thanks for your help, Sinta.\nSinta: My pleasure.\nMaya: See you tomorrow!\nSinta: See you.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Sinta responds correctly to Maya’s thanking.",
+    "Maya does not thank Sinta at all."
+  ],
+  kunci: [true, false],
+  bahas: "Sinta replies 'My pleasure.' which is a correct response. Maya does say 'Thanks for your help,' so the second statement is false."
+},
+{
+  id: "th4",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nAli: Thank you very much for the gift.\nTono: ....",
+  tanya: "Fill in the blank with the correct response.",
+  kunciText: "You’re welcome.",
+  bahas: "The common response to 'Thank you very much' is 'You’re welcome.'"
+},
+{
+  id: "th5",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nTeacher: Here is your test result, you did very well.\nStudent: Thank you, Sir.\nTeacher: ....",
+  tanya: "What is the best response from the teacher?",
+  opsi: [
+    "See you tomorrow.",
+    "Good morning.",
+    "You’re welcome.",
+    "Goodbye."
+  ],
+  kunci: 2,
+  bahas: "The best response to 'Thank you, Sir.' is 'You’re welcome.'"
+},
+{
+  id: "th6",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nRani: Thanks for lending me your pen, Siti.\nSiti: ....",
+  tanya: "Which of the following are suitable responses from Siti?",
+  opsi: [
+    "No problem.",
+    "Don’t mention it.",
+    "Anytime.",
+    "Good night."
+  ],
+  kunci: [0,1,2],
+  bahas: "The correct responses to thanking are 'No problem.', 'Don’t mention it.', and 'Anytime.'"
+},
+{
+  id: "th7",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nArif: Thank you very much for your help.\nRiko: My pleasure.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Riko gives an appropriate response to thanking.",
+    "Arif does not say thank you."
+  ],
+  kunci: [true, false],
+  bahas: "Riko replies correctly with 'My pleasure.' and Arif clearly says 'Thank you very much.'"
+},
+{
+  id: "th8",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nMira: Thanks a lot for your support.\nNina: ....",
+  tanya: "Complete Nina’s response.",
+  kunciText: "You’re welcome.",
+  bahas: "The expected response is 'You’re welcome.'"
+},
+{
+  id: "th9",
+  tipe: "pg",
+  bacaan: "Dialog (Incomplete):\n\nDina: Here is the book you wanted.\nLina: Oh, thank you so much, Dina.\nDina: ....",
+  tanya: "What is the best way for Dina to complete the dialog?",
+  opsi: [
+    "See you tomorrow.",
+    "You’re welcome.",
+    "Good night.",
+    "Hello, Lina."
+  ],
+  kunci: 1,
+  bahas: "The best completion is 'You’re welcome.' because it matches Lina’s thanking expression."
+},
+{
+  id: "th10",
+  tipe: "cb",
+  bacaan: "Dialog (Incomplete):\n\nFajar: Thanks a lot for helping me with the project.\nBima: ....",
+  tanya: "Which sentences can complete Bima’s response correctly?",
+  opsi: [
+    "No problem.",
+    "Anytime.",
+    "Don’t mention it.",
+    "Good morning."
+  ],
+  kunci: [0,1,2],
+  bahas: "The appropriate responses to thanking are 'No problem.', 'Anytime.', and 'Don’t mention it.'"
+},
+{
+  id: "th11",
+  tipe: "tf",
+  bacaan: "Dialog (Incomplete):\n\nRani: Thank you very much for your kindness.\nTono: ....",
+  tanya: "Decide True or False based on the possible completion.\n\n1. If Tono replies 'My pleasure.', it is correct.\n2. If Tono replies 'See you later.', it is correct.",
+  opsi: [
+    "True",
+    "False"
+  ],
+  kunci: [true, false],
+  bahas: "The correct response is 'My pleasure.' while 'See you later.' is not suitable as a reply to thanking."
+},
+{
+  id: "th12",
+  tipe: "isian",
+  bacaan: "Dialog (Incomplete):\n\nSita: Thanks for your advice.\nAyu: ....",
+  tanya: "Complete Ayu’s response with the most appropriate phrase.",
+  kunciText: "You’re welcome.",
+  bahas: "The expected answer is 'You’re welcome.' because it is the proper response to thanking."
+},
+{
+  id: "th13",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAni: Thank you for carrying my bag, Rani.\nRani: No problem, Ani.\nAni: You are very kind.\nRani: Anytime.",
+  tanya: "What can you conclude from the dialog?",
+  opsi: [
+    "Ani helps Rani carry the bag.",
+    "Rani helps Ani carry the bag.",
+    "Ani and Rani say goodbye.",
+    "Rani gives Ani a gift."
+  ],
+  kunci: 1,
+  bahas: "From the dialog, Ani says 'Thank you for carrying my bag, Rani.' which means Rani helps Ani."
+},
+{
+  id: "th14",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nBudi: Thanks a lot for lending me your dictionary, Andi.\nAndi: You’re welcome, Budi.\nBudi: I really appreciate it.\nAndi: Don’t mention it.",
+  tanya: "What conclusions can be drawn from the dialog?",
+  opsi: [
+    "Andi lent Budi a dictionary.",
+    "Budi thanked Andi politely.",
+    "Andi did not accept Budi’s thanks.",
+    "Andi responded politely."
+  ],
+  kunci: [0,1,3],
+  bahas: "The dialog shows that Andi lent Budi a dictionary, Budi thanked politely, and Andi also responded politely."
+},
+{
+  id: "th15",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nLina: Thank you very much for your support, Sari.\nSari: My pleasure, Lina.",
+  tanya: "Decide True or False based on the conclusion from the dialog.",
+  opsi: [
+    "Sari supported Lina and responded politely.",
+    "Lina refused to say thanks."
+  ],
+  kunci: [true, false],
+  bahas: "The conclusion is that Sari gave support and replied politely. Lina clearly said thank you, so the second statement is false."
+},
+{
+  id: "th16",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nDika: Thanks for helping me finish the task, Riko.\nRiko: You’re welcome, Dika.",
+  tanya: "What can you conclude about Riko?",
+  kunciText: "He helped Dika finish the task.",
+  bahas: "From the dialog, Dika thanked Riko for helping, so we can conclude that Riko helped Dika."
+},
+
+  ]
+},
+'Apologizing': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Apologizing</h2>
+<p>
+  Apologizing adalah ungkapan yang digunakan untuk menyampaikan permintaan maaf kepada seseorang. 
+  Sama seperti thanking, greeting, dan leave-taking, ungkapan ini bisa bersifat formal maupun informal tergantung pada situasinya.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Formal Apologizing</h3>
+<p>
+  Formal apologizing biasanya digunakan dalam situasi resmi atau sopan, misalnya kepada guru, atasan, atau orang yang lebih tua.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>I’m sorry</b> (Saya minta maaf)</li>
+  <li><b>I do apologize</b> (Saya sungguh meminta maaf)</li>
+  <li><b>Please forgive me</b> (Tolong maafkan saya)</li>
+  <li><b>I beg your pardon</b> (Saya mohon maaf)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informal Apologizing</h3>
+<p>
+  Informal apologizing digunakan bersama teman, keluarga, atau orang yang sudah akrab.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Sorry!</b> (Maaf!)</li>
+  <li><b>Oops, my bad!</b> (Ups, salahku!)</li>
+  <li><b>Sorry about that!</b> (Maaf soal itu!)</li>
+  <li><b>My mistake!</b> (Kesalahanku!)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Responses to Apologizing</h3>
+<p>
+  Saat seseorang meminta maaf, biasanya kita merespons dengan ungkapan pemaafan:
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li>A: I’m sorry. <br>B: That’s okay.</li>
+  <li>A: Please forgive me. <br>B: Never mind.</li>
+  <li>A: Sorry about that. <br>B: It’s all right.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples in Conversation</h3>
+<p>
+  A: I’m sorry for being late. <br>
+  B: That’s okay.
+</p>
+<p>
+  A: Please forgive me, Sir. <br>
+  B: It’s all right.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: I’m sorry. <br>B: .... (Jawab: That’s okay)</p>
+<p><b>Contoh 2:</b> A: Please forgive me. <br>B: .... (Jawab: Never mind)</p>
+<p><b>Contoh 3:</b> A: Sorry about that. <br>B: .... (Jawab: It’s all right)</p>
+`,
+
+  video: ['Yw8kSmE_3Rw'], // contoh video apologizing sederhana
+
+  soal: [
+{
+  id: "ap1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRani: I accidentally broke your pencil. I’m really sorry.\nSinta: That’s okay, don’t worry.",
+  tanya: "Which sentence is the apologizing expression in the dialog?",
+  opsi: [
+    "I accidentally broke your pencil.",
+    "I’m really sorry.",
+    "That’s okay.",
+    "Don’t worry."
+  ],
+  kunci: 1,
+  bahas: "The apologizing expression is 'I’m really sorry.' because it directly shows asking for forgiveness."
+},
+{
+  id: "ap2",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nDoni: Sorry, I’m late for class.\nTeacher: It’s all right. Please sit down.",
+  tanya: "Which sentence shows apologizing?",
+  opsi: [
+    "Sorry, I’m late for class.",
+    "It’s all right.",
+    "Please sit down.",
+    "Teacher"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'Sorry, I’m late for class.' because Doni is apologizing for being late."
+},
+{
+  id: "ap3",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAndi: Please forgive me, I forgot to bring your book.\nBudi: Never mind, I can wait until tomorrow.",
+  tanya: "Which is the apologizing part of the dialog?",
+  opsi: [
+    "Please forgive me, I forgot to bring your book.",
+    "Never mind, I can wait until tomorrow.",
+    "I can wait until tomorrow.",
+    "Budi"
+  ],
+  kunci: 0,
+  bahas: "The sentence 'Please forgive me, I forgot to bring your book.' is the apologizing expression."
+},
+{
+  id: "ap4",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nLina: Oops, my bad! I stepped on your shoes.\nMaya: It’s okay.",
+  tanya: "Which sentence shows apologizing in this dialog?",
+  opsi: [
+    "Oops, my bad! I stepped on your shoes.",
+    "It’s okay.",
+    "Maya",
+    "Shoes"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'Oops, my bad! I stepped on your shoes.' because it is an informal apologizing expression."
+},
+{
+  id: "ap5",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAni: ...., I forgot to bring your dictionary.\nRika: That’s okay.",
+  tanya: "What is the correct expression to complete Ani’s sentence?",
+  opsi: [
+    "Thank you",
+    "I’m sorry",
+    "Good morning",
+    "See you"
+  ],
+  kunci: 1,
+  bahas: "The correct answer is 'I’m sorry' because Ani is apologizing for forgetting to bring the dictionary."
+},
+{
+  id: "ap6",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nBudi: ...., I didn’t hear what you said.\nTono: No problem, I’ll repeat it.",
+  tanya: "Which sentence best completes Budi’s line?",
+  opsi: [
+    "Excuse me",
+    "I’m sorry",
+    "Thank you",
+    "Goodbye"
+  ],
+  kunci: 1,
+  bahas: "The best expression is 'I’m sorry' because Budi is apologizing for not hearing."
+},
+{
+  id: "ap7",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nSari: ...., I stepped on your foot.\nMira: It’s all right.",
+  tanya: "What should Sari say to apologize?",
+  opsi: [
+    "I’m sorry",
+    "Good luck",
+    "Thank you",
+    "See you"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'I’m sorry' because Sari accidentally stepped on Mira’s foot."
+},
+{
+  id: "ap8",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRoni: ...., I forgot your birthday yesterday.\nDina: Never mind.",
+  tanya: "Which is the correct apologizing expression for Roni?",
+  opsi: [
+    "I’m sorry",
+    "Good night",
+    "Congratulations",
+    "Thank you"
+  ],
+  kunci: 0,
+  bahas: "The correct expression is 'I’m sorry' because Roni is apologizing for forgetting Dina’s birthday."
+},
+{
+  id: "ap9",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: ...., I came late to the meeting.\nB: That’s okay, please sit down.",
+  tanya: "What should A say to complete the dialog?",
+  opsi: [
+    "I’m sorry",
+    "Thank you",
+    "Good morning",
+    "See you"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'I’m sorry' because A is apologizing for being late."
+},
+{
+  id: "ap10",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: ...., I dropped your pen.\nB: Never mind, it’s not broken.",
+  tanya: "Which sentence is suitable for A?",
+  opsi: [
+    "Good night",
+    "I’m sorry",
+    "Thank you",
+    "See you later"
+  ],
+  kunci: 1,
+  bahas: "The best answer is 'I’m sorry' because A is apologizing for dropping the pen."
+},
+{
+  id: "ap11",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: ...., I forgot to call you last night.\nB: It’s all right.",
+  tanya: "What is the correct expression for A?",
+  opsi: [
+    "I’m sorry",
+    "Hello",
+    "Thank you",
+    "Goodbye"
+  ],
+  kunci: 0,
+  bahas: "The correct expression is 'I’m sorry' because A is apologizing for forgetting to call."
+},
+{
+  id: "ap12",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nA: ...., I spilled some water on your book.\nB: That’s okay, it can dry soon.",
+  tanya: "Which expression is the most suitable?",
+  opsi: [
+    "Good luck",
+    "I’m sorry",
+    "See you",
+    "Congratulations"
+  ],
+  kunci: 1,
+  bahas: "The suitable answer is 'I’m sorry' because A is apologizing for spilling water."
+},
+
+  ]
+},
+'Pronouns': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Pronouns</h2>
+<p>
+  Pronouns (kata ganti) adalah kata yang digunakan untuk menggantikan kata benda (noun) agar kalimat tidak berulang-ulang dan lebih mudah dipahami. 
+  Ada beberapa jenis pronouns yang sering digunakan dalam bahasa Inggris.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Subject Pronouns</h3>
+<p>
+  Digunakan sebagai subjek dalam kalimat.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>I</b> (saya)</li>
+  <li><b>You</b> (kamu/anda)</li>
+  <li><b>He</b> (dia laki-laki)</li>
+  <li><b>She</b> (dia perempuan)</li>
+  <li><b>It</b> (itu – untuk benda/hewan)</li>
+  <li><b>We</b> (kami/kita)</li>
+  <li><b>They</b> (mereka)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Object Pronouns</h3>
+<p>
+  Digunakan sebagai objek dalam kalimat.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Me</b> (saya)</li>
+  <li><b>You</b> (kamu/anda)</li>
+  <li><b>Him</b> (dia laki-laki)</li>
+  <li><b>Her</b> (dia perempuan)</li>
+  <li><b>It</b> (itu – benda/hewan)</li>
+  <li><b>Us</b> (kami/kita)</li>
+  <li><b>Them</b> (mereka)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Possessive Pronouns</h3>
+<p>
+  Menunjukkan kepemilikan.
+</p>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Mine</b> (milik saya)</li>
+  <li><b>Yours</b> (milikmu/milik Anda)</li>
+  <li><b>His</b> (milik dia laki-laki)</li>
+  <li><b>Hers</b> (milik dia perempuan)</li>
+  <li><b>Its</b> (miliknya – benda/hewan)</li>
+  <li><b>Ours</b> (milik kami/kita)</li>
+  <li><b>Theirs</b> (milik mereka)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">4. Examples in Sentences</h3>
+<p>
+  <b>Subject Pronouns:</b> <br>
+  - <i>She</i> is my teacher. <br>
+  - <i>They</i> are playing football. <br><br>
+
+  <b>Object Pronouns:</b> <br>
+  - Give this book to <i>me</i>. <br>
+  - I know <i>him</i>. <br><br>
+
+  <b>Possessive Pronouns:</b> <br>
+  - This bag is <i>mine</i>. <br>
+  - That house is <i>theirs</i>. <br>
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: Who is that man? <br>B: He is my brother. (<i>Subject Pronoun</i>)</p>
+<p><b>Contoh 2:</b> This is my book, not yours. (<i>Possessive Pronoun</i>)</p>
+<p><b>Contoh 3:</b> Can you help me? (<i>Object Pronoun</i>)</p>
+`,
+
+  video: ['7nYwJgVQp3M'], // contoh video pronouns sederhana
+
+  soal: [
+
+    {
+      id: "pr1",
+      tipe: "pg",
+      bacaan: "Narrative:\n\nThis is Rani. She is a student. She has a brother. His name is Budi. He likes playing football. Rani and Budi love their parents. They always help them at home.",
+      tanya: "Who does the pronoun 'She' refer to in the text?",
+      opsi: [
+        "Rani",
+        "Budi",
+        "Their parents",
+        "Them"
+      ],
+      kunci: 0,
+      bahas: "The pronoun 'She' refers to Rani because the text begins with 'This is Rani. She is a student.'"
+    },
+    {
+      id: "pr2",
+      tipe: "cb",
+      bacaan: "Narrative:\n\nThis is Andi. He is twelve years old. He has a sister. Her name is Sinta. She likes reading books. Andi and Sinta study together. Their parents always support them.",
+      tanya: "Which pronouns are used in the text?",
+      opsi: [
+        "He",
+        "Her",
+        "She",
+        "Their"
+      ],
+      kunci: [0,1,2,3],
+      bahas: "All pronouns in the options are found in the text: 'He' (Andi), 'Her' (Sinta), 'She' (Sinta), and 'Their' (parents)."
+    },
+    {
+      id: "pr3",
+      tipe: "tf",
+      bacaan: "Narrative:\n\nThis is Lani. She is my friend. She has a cat. Its name is Kitty. Lani loves her cat. She plays with it every day.",
+      tanya: "Decide True or False based on the text.",
+      opsi: [
+        "The pronoun 'Its' refers to the cat.",
+        "The pronoun 'She' refers to Kitty."
+      ],
+      kunci: [true, false],
+      bahas: "The pronoun 'Its' refers to the cat (Kitty). The pronoun 'She' refers to Lani, not the cat."
+    },
+    {
+      id: "pr4",
+      tipe: "isian",
+      bacaan: "Narrative:\n\nThis is Rudi. He has a dog. The dog is very clever. Rudi loves it very much. They often play in the park together.",
+      tanya: "Who does the pronoun 'They' refer to?",
+      kunciText: "Rudi and his dog",
+      bahas: "The pronoun 'They' refers to Rudi and his dog because the text says they often play in the park together."
+    },
+{
+      id: "pr5",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nAni: Who is that boy?\nBudi: That is Edo. ___ is my friend.",
+      tanya: "Fill in the blank with the correct pronoun.",
+      opsi: [
+        "He",
+        "She",
+        "They",
+        "It"
+      ],
+      kunci: 0,
+      bahas: "The correct pronoun is 'He' because Edo is a boy."
+    },
+    {
+      id: "pr6",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nLina: Where is my book?\nTono: Look, this book is ___.",
+      tanya: "Complete the sentence with the correct pronoun.",
+      kunciText: "yours",
+      bahas: "The correct answer is 'yours' because the book belongs to Lina."
+    },
+    {
+      id: "pr7",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nRina: Do you know these girls?\nSari: Yes, I know ___. ___ are my classmates.",
+      tanya: "Choose the correct pronouns to fill in the blanks.",
+      opsi: [
+        "them, They",
+        "her, She",
+        "him, He",
+        "us, We"
+      ],
+      kunci: [true, false, false, false],
+      bahas: "The correct pronouns are 'them' (object) and 'They' (subject) because the sentence refers to 'these girls'."
+    },
+    {
+      id: "pr8",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nTia: Where is Mr. Arman?\nFina: ___ is in the teacher’s room.",
+      tanya: "Fill in the blank with the correct pronoun. Decide whether the following statements are True or False.",
+      opsi: [
+        "The correct pronoun is 'He'.",
+        "The correct pronoun is 'She'."
+      ],
+      kunci: [true, false],
+      bahas: "The correct pronoun is 'He' because Mr. Arman is male."
+    },
+{
+      id: "pr9",
+      tipe: "pg",
+      bacaan: "Narrative:\n\nThis is Mr. Joko. He is a teacher. He teaches English at school. His students like him very much.",
+      tanya: "In the text, the pronoun 'He' refers to ....",
+      opsi: [
+        "The students",
+        "The school",
+        "Mr. Joko",
+        "English"
+      ],
+      kunci: 2,
+      bahas: "The pronoun 'He' refers to Mr. Joko, who is the teacher."
+    },
+    {
+      id: "pr10",
+      tipe: "cb",
+      bacaan: "Narrative:\n\nThis is Mrs. Sinta. She is a doctor. She helps sick people in the hospital. The patients love her because she is kind.",
+      tanya: "Which pronouns in the text refer to Mrs. Sinta?",
+      opsi: [
+        "She",
+        "Her",
+        "He",
+        "They"
+      ],
+      kunci: [0,1],
+      bahas: "'She' and 'Her' both refer to Mrs. Sinta in the text."
+    },
+    {
+      id: "pr11",
+      tipe: "tf",
+      bacaan: "Narrative:\n\nMr. Budi is a farmer. He works in the rice field every day. His wife helps him. They are very hardworking.",
+      tanya: "Decide True or False based on the text.",
+      opsi: [
+        "The pronoun 'He' refers to Mr. Budi.",
+        "The pronoun 'They' refers to Mr. Budi and his wife."
+      ],
+      kunci: [true, true],
+      bahas: "'He' refers to Mr. Budi, and 'They' refers to Mr. Budi and his wife."
+    },
+    {
+      id: "pr12",
+      tipe: "isian",
+      bacaan: "Narrative:\n\nThis is Mr. Arif. He is a pilot. He flies airplanes. People respect him because ___ is very brave.",
+      tanya: "Fill in the blank with the correct pronoun referring to Mr. Arif.",
+      kunciText: "he",
+      bahas: "The correct pronoun is 'he' because it still refers to Mr. Arif."
+    },
+{
+      id: "pr13",
+      tipe: "pg",
+      bacaan: "Dialog:\n\nAndi: Who is that woman?\nRani: She is my aunt. I love her very much.",
+      tanya: "Which word is a pronoun in the dialog?",
+      opsi: [
+        "woman",
+        "She",
+        "aunt",
+        "love"
+      ],
+      kunci: 1,
+      bahas: "The pronoun is 'She' because it replaces the noun 'aunt'."
+    },
+    {
+      id: "pr14",
+      tipe: "cb",
+      bacaan: "Dialog:\n\nSinta: Do you know Riko?\nBeni: Yes, I know him. He is my classmate.",
+      tanya: "Which pronouns are used in the dialog?",
+      opsi: [
+        "I",
+        "Him",
+        "He",
+        "Riko"
+      ],
+      kunci: [0,1,2],
+      bahas: "The pronouns are 'I', 'him', and 'He'. 'Riko' is not a pronoun, it is a proper noun."
+    },
+    {
+      id: "pr15",
+      tipe: "tf",
+      bacaan: "Dialog:\n\nLina: Where is Dina?\nMira: She is in the library. I saw her this morning.",
+      tanya: "Decide True or False based on the dialog.",
+      opsi: [
+        "The pronoun 'She' refers to Dina.",
+        "The pronoun 'Her' refers to Lina."
+      ],
+      kunci: [true, false],
+      bahas: "'She' refers to Dina because Lina asked about her. 'Her' also refers to Dina, not Lina."
+    },
+    {
+      id: "pr16",
+      tipe: "isian",
+      bacaan: "Dialog:\n\nTono: Do you like this dog?\nRudi: Yes, I like it. It is very cute.",
+      tanya: "Write down the pronoun that refers to 'the dog'.",
+      kunciText: "It",
+      bahas: "The pronoun 'It' is used to replace 'the dog'."
+    },
+
+  ]
+},
+'IntroducingSelf': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Introducing Self</h2>
+<p>
+  Introducing self (memperkenalkan diri) adalah cara kita menyampaikan informasi dasar tentang diri sendiri dalam bahasa Inggris.
+  Biasanya digunakan ketika pertama kali bertemu orang lain, di kelas, atau dalam pertemuan resmi maupun santai.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Ekspresi Dasar</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Hello, my name is ...</b> (Halo, nama saya ...)</li>
+  <li><b>Hi, I am ...</b> (Hai, saya ...)</li>
+  <li><b>Let me introduce myself.</b> (Izinkan saya memperkenalkan diri.)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informasi yang Bisa Disampaikan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Nama: <i>My name is Andi.</i></li>
+  <li>Asal: <i>I come from Brebes.</i></li>
+  <li>Umur: <i>I am sixteen years old.</i></li>
+  <li>Hobi: <i>My hobby is playing badminton.</i></li>
+  <li>Sekolah: <i>I study at SMA 1 Tegal.</i></li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh Dialog</h3>
+<p>
+  A: Hello, good morning. <br>
+  B: Good morning. Let me introduce myself. My name is Budi. I am from Tegal. <br>
+  A: Nice to meet you, Budi. I am Siti. <br>
+  B: Nice to meet you too.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Kalimat</h3>
+<p>
+  - Hello, my name is Lina. <br>
+  - I am from Brebes. <br>
+  - I study at SMA Negeri 1. <br>
+  - My hobby is reading books. <br>
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: Hello, my name is Anton. <br>B: Hi, Anton. Nice to meet you. (<i>Introduction</i>)</p>
+<p><b>Contoh 2:</b> A: Where are you from? <br>B: I am from Tegal. (<i>Introducing place of origin</i>)</p>
+<p><b>Contoh 3:</b> A: What is your hobby? <br>B: My hobby is playing football. (<i>Introducing hobby</i>)</p>
+`,
+  
+  video: ['OPU8r6YW7pU'], // contoh video "introducing self"
+
+  soal: [
+
+   {
+  id: "is1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAndi: Hello, ____ name is Andi.\nBudi: Hi Andi, I am Budi. Nice to meet you.\nAndi: Nice to meet you too.",
+  tanya: "Which word correctly completes the blank?",
+  opsi: [
+    "I",
+    "Me",
+    "My",
+    "Mine"
+  ],
+  kunci: 2,
+  bahas: "The correct answer is 'My' → 'Hello, my name is Andi.'"
+},
+{
+  id: "is2",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nSiti: Good morning. Let me introduce myself. I am Siti. I ____ from Tegal.\nLina: Good morning, Siti. I am from Brebes.",
+  tanya: "Which words can fill the blank?",
+  opsi: [
+    "is",
+    "am",
+    "are",
+    "come"
+  ],
+  kunci: [1,3],
+  bahas: "The correct answers are 'am' and 'come' → 'I am from Tegal' or 'I come from Tegal.'"
+},
+{
+  id: "is3",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nRina: Hello, my name is Rina. I am sixteen years old.\nDoni: Hi, I am Doni. I am fifteen years old.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Rina is sixteen years old.",
+    "Doni is sixteen years old."
+  ],
+  kunci: [true, false],
+  bahas: "Rina introduces herself as sixteen years old, and Doni introduces himself as fifteen years old."
+},
+{
+  id: "is4",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nAyu: Hello, I am Ayu. What is your name?\nRiko: Hello, ____ name is Riko.",
+  tanya: "Fill in the blank with the correct word.",
+  kunciText: "my",
+  bahas: "The correct answer is 'my' → 'Hello, my name is Riko.'"
+},
+{
+  id: "is5",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRina: Hello, my name is Rina. I am from Brebes.\nDoni: Hi, I am Doni. Nice to meet you.\n\nKalimat yang bergaris bawah: 'I am from Brebes.'",
+  tanya: "What does the underlined sentence mean?",
+  opsi: [
+    "Rina is from Brebes.",
+    "Rina’s name is Brebes.",
+    "Rina lives with Doni.",
+    "Rina is Doni’s friend."
+  ],
+  kunci: 0,
+  bahas: "The underlined sentence 'I am from Brebes' means that Rina comes from Brebes."
+},
+{
+  id: "is6",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAndi: Good morning. I am Andi. I study at SMA 1 Tegal.\nSinta: Good morning, Andi. I am Sinta.\n\nKalimat yang bergaris bawah: 'I study at SMA 1 Tegal.'",
+  tanya: "What can we conclude from the underlined sentence?",
+  opsi: [
+    "Andi is a student at SMA 1 Tegal.",
+    "Andi is a teacher at SMA 1 Tegal.",
+    "Andi lives in SMA 1 Tegal.",
+    "Andi’s hobby is studying."
+  ],
+  kunci: 0,
+  bahas: "The underlined sentence 'I study at SMA 1 Tegal' means Andi is a student there."
+},
+{
+  id: "is7",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nLina: Hello, my name is Lina. My hobby is reading books.\nBudi: Hi Lina, I like football.\n\nKalimat yang bergaris bawah: 'My hobby is reading books.'",
+  tanya: "What can we conclude from the underlined sentence?",
+  opsi: [
+    "Lina likes reading books.",
+    "Lina writes books.",
+    "Lina doesn’t like reading.",
+    "Lina buys many books."
+  ],
+  kunci: 0,
+  bahas: "The underlined sentence shows that Lina likes reading books."
+},
+{
+  id: "is8",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nSusi: Hi, I am Susi. I am fifteen years old.\nTono: Hello Susi, I am Tono.\n\nKalimat yang bergaris bawah: 'I am fifteen years old.'",
+  tanya: "What does the underlined sentence tell us about Susi?",
+  opsi: [
+    "She is 15 years old.",
+    "She is 50 years old.",
+    "She is in grade 5.",
+    "She has 15 books."
+  ],
+  kunci: 0,
+  bahas: "The underlined sentence means that Susi is 15 years old."
+},
+{
+  id: "is9",
+  tipe: "pg",
+  bacaan: "Narasi:\n\nHello, ____ name is Adi. I am from Semarang. I study at SMP 2 Semarang. My hobby is swimming.",
+  tanya: "Which word completes the blank correctly?",
+  opsi: [
+    "I",
+    "Me",
+    "My",
+    "Mine"
+  ],
+  kunci: 2,
+  bahas: "The correct answer is 'My' → 'Hello, my name is Adi.'"
+},
+{
+  id: "is10",
+  tipe: "pg",
+  bacaan: "Narasi:\n\nGood morning. Let me introduce myself. I am Rani. I am sixteen years old. I ____ from Brebes.",
+  tanya: "Which option completes the blank correctly?",
+  opsi: [
+    "am",
+    "is",
+    "are",
+    "be"
+  ],
+  kunci: 0,
+  bahas: "The correct answer is 'am' → 'I am from Brebes.'"
+},
+{
+  id: "is11",
+  tipe: "isian",
+  bacaan: "Narasi:\n\nHi, my name is Budi. I am fifteen years old. I come from Tegal. My hobby is ____.",
+  tanya: "Fill in the blank with a suitable hobby.",
+  kunciText: "playing football",
+  bahas: "One possible correct answer is 'playing football.' Any suitable hobby is acceptable."
+},
+{
+  id: "is12",
+  tipe: "isian",
+  bacaan: "Narasi:\n\nGood afternoon. Let me introduce myself. I am Sinta. I study at SMA 1 Tegal. My favorite subject is ____.",
+  tanya: "Fill in the blank with a suitable school subject.",
+  kunciText: "English",
+  bahas: "One possible correct answer is 'English.' Other suitable subjects are also acceptable (e.g., Math, Science)."
+},
+{
+  id: "is13",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAni: Hello, my name is Ani. I am from Tegal.\nBudi: Hi Ani, how are you today?\nAni: I am fine, thank you.\nBudi: Nice to meet you, Ani.",
+  tanya: "Which sentence in the dialog shows self-introduction?",
+  opsi: [
+    "Hello, my name is Ani. I am from Tegal.",
+    "Hi Ani, how are you today?",
+    "I am fine, thank you.",
+    "Nice to meet you, Ani."
+  ],
+  kunci: 0,
+  bahas: "The sentence 'Hello, my name is Ani. I am from Tegal.' is Ani’s self-introduction."
+},
+{
+  id: "is14",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nRina: Good morning. I am Rina. I study at SMA 1 Brebes.\nTono: Hello, I am Tono. I live in Tegal.\nRina: Nice to meet you, Tono.\nTono: Nice to meet you too.",
+  tanya: "Which sentences are self-introductions?",
+  opsi: [
+    "I am Rina. I study at SMA 1 Brebes.",
+    "Hello, I am Tono. I live in Tegal.",
+    "Nice to meet you, Tono.",
+    "Nice to meet you too."
+  ],
+  kunci: [0,1],
+  bahas: "The self-introductions are 'I am Rina. I study at SMA 1 Brebes.' and 'Hello, I am Tono. I live in Tegal.'"
+},
+{
+  id: "is15",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nLina: Hi, my name is Lina. I like reading books.\nAndi: Hello, Lina. I am Andi. I am from Pemalang.",
+  tanya: "Decide True or False for the following statements.",
+  opsi: [
+    "Lina introduces herself in the dialog.",
+    "Andi does not introduce himself in the dialog."
+  ],
+  kunci: [true, false],
+  bahas: "Lina says 'Hi, my name is Lina,' and Andi says 'I am Andi. I am from Pemalang.' → Both are introductions."
+},
+{
+  id: "is16",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nSusi: Hello, I am Susi. I am sixteen years old.\nDono: Hi Susi, nice to meet you. Where are you from?\nSusi: I am from Brebes.",
+  tanya: "Write down one sentence from the dialog that shows self-introduction.",
+  kunciText: "Hello, I am Susi. I am sixteen years old.",
+  bahas: "One correct answer is 'Hello, I am Susi. I am sixteen years old.' because it introduces Susi."
+},
+
+  ]
+},
+'IntroducingOthers': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Introducing Others</h2>
+<p>
+  Introducing others (memperkenalkan orang lain) adalah cara kita mengenalkan teman, keluarga, atau orang lain kepada seseorang dalam bahasa Inggris.
+  Biasanya digunakan ketika kita berada di situasi sosial, kelas, atau pertemuan resmi.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Ekspresi Dasar</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>This is my friend, ...</b> (Ini teman saya, ...)</li>
+  <li><b>Let me introduce my brother/sister.</b> (Izinkan saya memperkenalkan saudara saya.)</li>
+  <li><b>I’d like you to meet ...</b> (Saya ingin Anda bertemu dengan ...)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Informasi yang Bisa Disampaikan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Nama: <i>This is my friend, Rina.</i></li>
+  <li>Asal: <i>She comes from Tegal.</i></li>
+  <li>Umur: <i>He is fifteen years old.</i></li>
+  <li>Hobi: <i>His hobby is playing guitar.</i></li>
+  <li>Sekolah: <i>She studies at SMA 2 Brebes.</i></li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh Dialog</h3>
+<p>
+  A: Hi, Budi. This is my friend, Siti. She is from Brebes. <br>
+  B: Hello, Siti. Nice to meet you. <br>
+  Siti: Nice to meet you too, Budi. <br>
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Kalimat</h3>
+<p>
+  - This is my friend, Andi. <br>
+  - Let me introduce my teacher. His name is Mr. Joko. <br>
+  - I’d like you to meet my cousin, Rani. <br>
+  - She studies at SMA 1 Tegal. <br>
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> A: This is my friend, Sinta. <br>B: Hi, Sinta. Nice to meet you. (<i>Introducing others</i>)</p>
+<p><b>Contoh 2:</b> A: I’d like you to meet my brother. His name is Dika. <br>B: Hi, Dika. How are you? (<i>Introducing family member</i>)</p>
+<p><b>Contoh 3:</b> A: Let me introduce my teacher, Mr. Arif. <br>B: Hello, Mr. Arif. (<i>Introducing teacher</i>)</p>
+`,
+
+  video: ['ykW_4cR2uB8'], // contoh video "introducing others"
+
+  soal: [
+{
+  id: "io1",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nRani: Hi, Dika. ___ my friend, Lina. She is from Brebes.\nDika: Hello, Lina. Nice to meet you.\nLina: Nice to meet you too.",
+  tanya: "Which phrase completes the blank?",
+  opsi: [
+    "This is",
+    "I am",
+    "She is",
+    "My name is"
+  ],
+  kunci: 0,
+  bahas: "The correct phrase is 'This is' → 'Hi, Dika. This is my friend, Lina.'"
+},
+{
+  id: "io2",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nBudi: Let me introduce my cousin. ___ name is Rika. ___ comes from Tegal.\nAndi: Hello, Rika. Nice to meet you.",
+  tanya: "Which words are correct to fill in the blanks?",
+  opsi: [
+    "Her, She",
+    "His, He",
+    "Her, He",
+    "His, She"
+  ],
+  kunci: [0],
+  bahas: "The correct answer is 'Her' and 'She' → 'Her name is Rika. She comes from Tegal.'"
+},
+{
+  id: "io3",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nSiti: I’d like you to meet my teacher, Mr. Ahmad.\nTono: Hello, Mr. Ahmad.\nMr. Ahmad: Hello, nice to meet you.\n\nStatement:\n1. Siti introduces her friend.\n2. Siti introduces her teacher.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Statement 1: True, Statement 2: False",
+    "Statement 1: False, Statement 2: True"
+  ],
+  kunci: [false, true],
+  bahas: "Siti introduces her teacher, not her friend. So Statement 1 is False and Statement 2 is True."
+},
+{
+  id: "io4",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nAndi: This is my brother. His name is Bayu. He studies at SMA 1 Tegal.\nBeni: Hi, Bayu. Nice to meet you.\nBayu: Nice to meet you too.\n\nQuestion:",
+  tanya: "Who does Andi introduce?",
+  kunciText: "his brother Bayu",
+  bahas: "From the dialog, Andi introduces his brother, Bayu."
+},
+{
+  id: "io5",
+  tipe: "pg",
+  bacaan: "Narrative:\n\nLast Monday, I joined a new English club. I came with my friend, Edo. At the club, I met a new teacher. I said, 'This is my friend, Edo. He loves playing football.' The teacher smiled and said, 'Nice to meet you, Edo.'",
+  tanya: "Which sentence is the expression of introducing others?",
+  opsi: [
+    "Last Monday, I joined a new English club.",
+    "I came with my friend, Edo.",
+    "I said, 'This is my friend, Edo. He loves playing football.'",
+    "The teacher smiled and said, 'Nice to meet you, Edo.'"
+  ],
+  kunci: 2,
+  bahas: "The sentence 'This is my friend, Edo. He loves playing football.' shows introducing others."
+},
+{
+  id: "io6",
+  tipe: "cb",
+  bacaan: "Narrative:\n\nYesterday, Mira introduced her cousin to her classmates. She said, 'This is my cousin, Sari. She comes from Brebes.' Then Mira also said, 'I’d like you to meet my uncle, Mr. Ali.' Everyone greeted them warmly.",
+  tanya: "Which sentences are introducing others?",
+  opsi: [
+    "'This is my cousin, Sari. She comes from Brebes.'",
+    "'I’d like you to meet my uncle, Mr. Ali.'",
+    "Mira introduced her cousin to her classmates.",
+    "Everyone greeted them warmly."
+  ],
+  kunci: [0,1],
+  bahas: "The direct expressions are: 'This is my cousin, Sari. She comes from Brebes.' and 'I’d like you to meet my uncle, Mr. Ali.'"
+},
+{
+  id: "io7",
+  tipe: "tf",
+  bacaan: "Narrative:\n\nLast week, I attended my brother’s graduation party. There, my brother said, 'This is my teacher, Mr. Hasan.' Then he added, 'I’d like you to meet my best friend, Joko.'\n\nStatement:\n1. The brother introduces his teacher.\n2. The brother introduces his best friend.",
+  tanya: "Decide True or False based on the narrative.",
+  opsi: [
+    "Statement 1: True, Statement 2: False",
+    "Statement 1: True, Statement 2: True"
+  ],
+  kunci: [false, true],
+  bahas: "Both statements are True because the brother introduced his teacher and also his best friend."
+},
+{
+  id: "io8",
+  tipe: "isian",
+  bacaan: "Narrative:\n\nOne day, Tono met his neighbors at the park. He said, 'This is my sister, Lani. She likes drawing.' Then he continued, 'I’d like you to meet my friend, Riko. He is from Tegal.'",
+  tanya: "Write down one sentence from the narrative that shows introducing others.",
+  kunciText: "This is my sister, Lani. She likes drawing.",
+  bahas: "The narrative contains two introducing others sentences. One correct answer is 'This is my sister, Lani. She likes drawing.' Another possible correct answer is 'I’d like you to meet my friend, Riko. He is from Tegal.'"
+},
+{
+  id: "io9",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nAni: Hi, Rani. Let me introduce my brother. His name is Budi.\nRani: Hello, Budi. Nice to meet you.\nBudi: Nice to meet you too.",
+  tanya: "Which sentence is the expression of introducing others?",
+  opsi: [
+    "Hi, Rani.",
+    "Let me introduce my brother. His name is Budi.",
+    "Hello, Budi. Nice to meet you.",
+    "Nice to meet you too."
+  ],
+  kunci: 1,
+  bahas: "The sentence 'Let me introduce my brother. His name is Budi.' is the introducing others expression."
+},
+{
+  id: "io10",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nDina: This is my cousin, Sinta. She likes singing.\nLina: Hi, Sinta. Nice to meet you.\nSinta: Nice to meet you too.\nDina: I’d like you to meet my uncle, Mr. Joko.\nLina: Hello, Mr. Joko.",
+  tanya: "Which sentences are introducing others?",
+  opsi: [
+    "This is my cousin, Sinta. She likes singing.",
+    "Hi, Sinta. Nice to meet you.",
+    "I’d like you to meet my uncle, Mr. Joko.",
+    "Hello, Mr. Joko."
+  ],
+  kunci: [0,2],
+  bahas: "The introducing others expressions are: 'This is my cousin, Sinta. She likes singing.' and 'I’d like you to meet my uncle, Mr. Joko.'"
+},
+{
+  id: "io11",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nTono: Hello, Riko. This is my friend, Andi. He plays football.\nRiko: Hi, Andi. Nice to meet you.\nAndi: Nice to meet you too.\n\nStatement:\n1. Tono introduces his friend, Andi.\n2. Riko introduces his friend, Andi.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Statement 1: True, Statement 2: False",
+    "Statement 1: True, Statement 2: True"
+  ],
+  kunci: [true, false],
+  bahas: "Only Statement 1 is correct because Tono is the one who introduces his friend, Andi."
+},
+{
+  id: "io12",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nSari: Hello, Ani. This is my teacher, Mr. Ahmad.\nAni: Hello, Mr. Ahmad. Nice to meet you.\nMr. Ahmad: Nice to meet you too.\n\nQuestion:",
+  tanya: "Write the sentence that shows introducing others.",
+  kunciText: "This is my teacher, Mr. Ahmad.",
+  bahas: "The introducing others expression is 'This is my teacher, Mr. Ahmad.'"
+},
+{
+  id: "io13",
+  tipe: "pg",
+  bacaan: "Dialog:\n\nLina: Hello, Andi. This is my sister, Rani. She studies at SMA 2 Tegal.\nAndi: Hi, Rani. Nice to meet you.\nRani: Nice to meet you too.\n\nQuestion:",
+  tanya: "Who is introduced in the dialog?",
+  opsi: [
+    "Andi",
+    "Rani",
+    "Lina",
+    "SMA 2 Tegal"
+  ],
+  kunci: 1,
+  bahas: "Lina introduces her sister, Rani."
+},
+{
+  id: "io14",
+  tipe: "cb",
+  bacaan: "Dialog:\n\nBudi: Hi, Edo. I’d like you to meet my cousin, Sinta. She likes dancing.\nEdo: Hello, Sinta.\nSinta: Hi, nice to meet you.\nBudi: This is also my uncle, Mr. Danu.\n\nQuestion:",
+  tanya: "Who does Budi introduce in the dialog?",
+  opsi: [
+    "Sinta (his cousin)",
+    "Edo (his friend)",
+    "His uncle, Mr. Danu",
+    "Himself"
+  ],
+  kunci: [0,2],
+  bahas: "Budi introduces his cousin, Sinta, and his uncle, Mr. Danu."
+},
+{
+  id: "io15",
+  tipe: "tf",
+  bacaan: "Dialog:\n\nSiti: Hello, Ani. This is my friend, Wati. She comes from Brebes.\nAni: Hi, Wati. Nice to meet you.\nWati: Nice to meet you too.\n\nStatement:\n1. Siti introduces Ani to Wati.\n2. Siti introduces Wati to Ani.",
+  tanya: "Decide True or False based on the dialog.",
+  opsi: [
+    "Statement 1: True, Statement 2: False",
+    "Statement 1: False, Statement 2: True"
+  ],
+  kunci: [false, true],
+  bahas: "Siti introduces Wati to Ani, not Ani to Wati."
+},
+{
+  id: "io16",
+  tipe: "isian",
+  bacaan: "Dialog:\n\nTono: Good morning, everyone. Let me introduce my brother. His name is Dika.\nDewi: Hello, Dika. Nice to meet you.\nDika: Nice to meet you too.\n\nQuestion:",
+  tanya: "Who does Tono introduce?",
+  kunciText: "his brother Dika",
+  bahas: "From the dialog, Tono introduces his brother, Dika."
+},
+
+  ]
+},
+
     'Expression of Capability, Willingness, and Opinion': {
       materi: `
 <h2 class="text-xl font-bold mb-2">Expression of Capability, Willingness, and Opinion</h2>
