@@ -4088,6 +4088,1431 @@ I have a cat. Its name is Kitty. Kitty has white fur and blue eyes. It likes to 
 
 'IPA': {
 bab: {
+'Sistem Reproduksi': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Sistem Reproduksi Manusia</h2>
+<p>
+  Sistem reproduksi adalah sistem organ pada manusia yang berfungsi untuk berkembang biak dan melestarikan keturunan.
+  Pada manusia, sistem reproduksi dibedakan menjadi sistem reproduksi pria dan wanita, dengan organ serta fungsinya masing-masing.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Sistem Reproduksi Pria</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Testis</b>: menghasilkan sperma dan hormon testosteron.</li>
+  <li><b>Epididimis</b>: tempat pematangan sperma.</li>
+  <li><b>Vas deferens</b>: saluran sperma menuju uretra.</li>
+  <li><b>Kelenjar prostat dan vesikula seminalis</b>: menghasilkan cairan semen.</li>
+  <li><b>Penis</b>: organ kopulasi untuk menyalurkan sperma.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Sistem Reproduksi Wanita</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Ovarium</b>: menghasilkan sel telur (ovum) dan hormon estrogen serta progesteron.</li>
+  <li><b>Tuba falopi</b>: tempat terjadinya fertilisasi (pembuahan).</li>
+  <li><b>Uterus (rahim)</b>: tempat berkembangnya embrio.</li>
+  <li><b>Vagina</b>: saluran kelahiran dan tempat masuknya sperma.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Proses Reproduksi</h3>
+<ol class="list-decimal ml-6 mb-4">
+  <li><b>Ovulasi</b>: pelepasan sel telur dari ovarium.</li>
+  <li><b>Fertilisasi</b>: pertemuan sperma dan sel telur di tuba falopi.</li>
+  <li><b>Implantasi</b>: menempelnya zigot di dinding rahim.</li>
+  <li><b>Kehamilan</b>: perkembangan embrio dan janin di rahim.</li>
+  <li><b>Kelahiran</b>: keluarnya janin dari rahim.</li>
+</ol>
+
+<h3 class="text-lg font-semibold mt-4">4. Pentingnya Menjaga Kesehatan Reproduksi</h3>
+<p>
+  Kesehatan reproduksi penting dijaga dengan menjaga kebersihan organ intim, pola hidup sehat, menghindari pergaulan bebas,
+  serta melakukan pemeriksaan medis secara berkala untuk mencegah penyakit menular seksual.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Tempat bertemunya sperma dan sel telur pada manusia adalah .... <i>Jawab: Tuba falopi</i>.</p>
+<p><b>Contoh 2:</b> Hormon yang berperan dalam pembentukan karakter seksual sekunder pria adalah .... <i>Jawab: Testosteron</i>.</p>
+`,
+
+  video: ['VsEb1cFJjfs'],
+
+  soal: [
+    // Pilihan Ganda (PG)
+    {
+      id: 'rep1',
+      tipe: 'pg',
+      tanya: 'Tempat terjadinya pembuahan (fertilisasi) pada manusia adalah ....',
+      opsi: ['Ovarium', 'Uterus', 'Tuba falopi', 'Vagina'],
+      kunci: 2,
+      bahas: 'Fertilisasi pada manusia umumnya terjadi di tuba falopi.'
+    },
+
+    // Check Box (CB)
+    {
+      id: 'rep2',
+      tipe: 'cb',
+      tanya: 'Organ reproduksi wanita yang berperan dalam proses reproduksi adalah ....',
+      opsi: ['Ovarium', 'Ureter', 'Tuba falopi', 'Uterus'],
+      kunci: [0,2,3],
+      bahas: 'Ovarium menghasilkan sel telur, tuba falopi tempat fertilisasi, uterus tempat berkembangnya janin. Ureter bukan organ reproduksi, melainkan saluran kemih.'
+    },
+
+    // Benar/Salah (BS)
+    {
+      id: 'rep3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait sistem reproduksi:',
+      opsi: [
+        'Testis menghasilkan sperma dan hormon testosteron',
+        'Vagina merupakan tempat fertilisasi',
+        'Ovarium menghasilkan sel telur',
+        'Uterus adalah tempat berkembangnya embrio'
+      ],
+      kunci: [true,false,true,true],
+      bahas: 'Testis menghasilkan sperma dan hormon testosteron (benar), fertilisasi terjadi di tuba falopi bukan vagina (salah), ovarium menghasilkan sel telur (benar), uterus tempat berkembangnya embrio (benar).'
+    },
+
+    // Isian
+    {
+      id: 'rep4',
+      tipe: 'isian',
+      tanya: 'Hormon pada wanita yang berperan dalam mempersiapkan dinding rahim agar siap menerima embrio adalah ....',
+      kunciText: 'progesteron',
+      bahas: 'Progesteron berfungsi menebalkan dinding rahim sehingga siap menerima hasil pembuahan.'
+    },
+// Pilihan Ganda (PG)
+{
+  id: 'rep5',
+  tipe: 'pg',
+  tanya: 'Tahap perkembangan manusia yang ditandai dengan matangnya organ reproduksi disebut ....',
+  opsi: ['Balita', 'Pubertas', 'Dewasa', 'Lansia'],
+  kunci: 1,
+  bahas: 'Pubertas adalah masa ketika organ reproduksi mulai matang dan siap untuk bereproduksi.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep6',
+  tipe: 'cb',
+  tanya: 'Manakah ciri-ciri pubertas pada remaja perempuan?',
+  opsi: [
+    'Tumbuhnya jakun',
+    'Menstruasi pertama kali (menarche)',
+    'Payudara mulai membesar',
+    'Pinggul mulai melebar'
+  ],
+  kunci: [1,2,3],
+  bahas: 'Ciri pubertas pada perempuan adalah menstruasi pertama kali, payudara membesar, dan pinggul melebar. Tumbuh jakun adalah ciri pubertas pada laki-laki.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait perkembangan manusia:',
+  opsi: [
+    'Pertumbuhan bersifat kuantitatif, misalnya bertambah tinggi dan berat badan',
+    'Perkembangan bersifat kualitatif, misalnya kematangan organ reproduksi',
+    'Pertumbuhan berhenti setelah dewasa, sedangkan perkembangan berlangsung terus',
+    'Pubertas hanya dialami oleh anak laki-laki'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Pertumbuhan adalah perubahan fisik yang terukur (benar). Perkembangan bersifat kualitatif (benar). Pertumbuhan berhenti saat dewasa tapi perkembangan tetap berlangsung (benar). Pubertas dialami baik laki-laki maupun perempuan (salah).'
+},
+
+// Isian
+{
+  id: 'rep8',
+  tipe: 'isian',
+  tanya: 'Proses menstruasi pertama kali pada perempuan yang menandai pubertas disebut ....',
+  kunciText: 'menarche',
+  bahas: 'Menarche adalah istilah untuk menstruasi pertama kali pada remaja perempuan sebagai tanda awal pubertas.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep9',
+  tipe: 'pg',
+  tanya: 'Pada tumbuhan paku, fase sporofit dan gametofit terjadi secara bergantian. Fase yang dominan adalah ....',
+  opsi: ['Gametofit', 'Sporofit', 'Anteridium', 'Arkegonium'],
+  kunci: 1,
+  bahas: 'Pada tumbuhan paku, fase sporofit lebih dominan dibandingkan gametofit.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep10',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang metagenesis lumut?',
+  opsi: [
+    'Gametofit lebih dominan daripada sporofit',
+    'Sporofit menempel pada gametofit',
+    'Sporofit menghasilkan gamet',
+    'Gametofit menghasilkan gamet'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Pada lumut, gametofit lebih dominan. Sporofit menempel pada gametofit. Sporofit menghasilkan spora, bukan gamet. Gametofit menghasilkan gamet.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep11',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang metagenesis tumbuhan:',
+  opsi: [
+    'Metagenesis adalah pergiliran keturunan antara fase gametofit dan sporofit',
+    'Pada paku, sporofit dominan',
+    'Pada lumut, gametofit dominan',
+    'Sporofit menghasilkan gamet secara langsung'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Metagenesis adalah pergiliran fase (benar). Paku dominan sporofit (benar). Lumut dominan gametofit (benar). Sporofit menghasilkan spora, bukan gamet (salah).'
+},
+
+// Isian
+{
+  id: 'rep12',
+  tipe: 'isian',
+  tanya: 'Proses pergiliran keturunan antara fase gametofit dan sporofit pada tumbuhan disebut ....',
+  kunciText: 'metagenesis',
+  bahas: 'Metagenesis adalah pergiliran keturunan antara fase gametofit (haploid) dan sporofit (diploid) pada tumbuhan paku, lumut, dan beberapa alga.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep13',
+  tipe: 'pg',
+  tanya: 'Membran ekstraembrionik yang berfungsi sebagai tempat pertukaran gas dan pembuangan sisa metabolisme embrio adalah ....',
+  opsi: ['Amnion', 'Korion', 'Alantois', 'Yolk sac'],
+  kunci: 2,
+  bahas: 'Alantois berfungsi dalam pertukaran gas dan pembuangan sisa metabolisme embrio.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep14',
+  tipe: 'cb',
+  tanya: 'Manakah fungsi dari membran ekstraembrionik berikut yang benar?',
+  opsi: [
+    'Amnion melindungi embrio dengan cairan ketuban',
+    'Korion berperan dalam pembentukan plasenta',
+    'Yolk sac menghasilkan sel darah awal embrio',
+    'Alantois berfungsi menghasilkan hormon estrogen'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Amnion melindungi embrio dengan cairan ketuban (benar), korion berperan dalam pembentukan plasenta (benar), yolk sac menghasilkan sel darah awal (benar). Alantois tidak menghasilkan hormon, tapi berfungsi dalam respirasi embrio dan pembuangan sisa metabolisme.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep15',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang membran ekstraembrionik:',
+  opsi: [
+    'Amnion berfungsi menjaga embrio dari guncangan',
+    'Korion membantu membentuk plasenta',
+    'Yolk sac berfungsi sebagai cadangan makanan utama pada manusia',
+    'Alantois berperan dalam ekskresi embrio'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Amnion melindungi embrio (benar). Korion membentuk plasenta (benar). Yolk sac pada manusia hanya sementara dan bukan cadangan makanan utama (salah). Alantois berfungsi dalam ekskresi (benar).'
+},
+
+// Isian
+{
+  id: 'rep16',
+  tipe: 'isian',
+  tanya: 'Membran ekstraembrionik yang menghasilkan cairan ketuban untuk melindungi embrio adalah ....',
+  kunciText: 'amnion',
+  bahas: 'Amnion menghasilkan cairan ketuban yang berfungsi melindungi embrio dari benturan dan kekeringan.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep17',
+  tipe: 'pg',
+  tanya: 'Tahap perkembangan embrio yang ditandai dengan terbentuknya tiga lapisan embrional (ektoderm, mesoderm, dan endoderm) adalah ....',
+  opsi: ['Morula', 'Blastula', 'Gastrula', 'Organogenesis'],
+  kunci: 2,
+  bahas: 'Tahap gastrula ditandai dengan terbentuknya tiga lapisan embrional utama yang menjadi dasar pembentukan organ tubuh.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep18',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang sesuai dengan tahapan perkembangan embrio hewan?',
+  opsi: [
+    'Fase morula berupa kumpulan sel hasil pembelahan zigot',
+    'Blastula memiliki rongga berisi cairan yang disebut blastosol',
+    'Gastrula ditandai dengan terbentuknya lapisan ektoderm dan mesoderm saja',
+    'Organogenesis merupakan tahap pembentukan organ tubuh'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Morula adalah kumpulan sel hasil pembelahan (benar), blastula memiliki rongga blastosol (benar), gastrula terbentuk tiga lapisan (jadi pernyataan hanya dua lapisan salah), organogenesis tahap pembentukan organ (benar).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep19',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang fase embrionik:',
+  opsi: [
+    'Morula adalah tahap awal pembelahan zigot',
+    'Blastula ditandai adanya rongga blastosol',
+    'Gastrula menghasilkan lapisan ektoderm, mesoderm, dan endoderm',
+    'Organogenesis terjadi sebelum terbentuknya gastrula'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Morula adalah tahap awal (benar), blastula memiliki blastosol (benar), gastrula menghasilkan tiga lapisan (benar), organogenesis terjadi setelah gastrula (jadi salah bila disebut sebelumnya).'
+},
+
+// Isian
+{
+  id: 'rep20',
+  tipe: 'isian',
+  tanya: 'Tahap perkembangan embrio yang ditandai dengan terbentuknya organ-organ tubuh disebut ....',
+  kunciText: 'organogenesis',
+  bahas: 'Organogenesis adalah tahap ketika lapisan embrional berdiferensiasi menjadi organ tubuh.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep21',
+  tipe: 'pg',
+  tanya: 'Jika membran amnion pada embrio tidak terbentuk dengan baik, akibat yang paling mungkin terjadi adalah ....',
+  opsi: [
+    'Embrio tidak mendapat nutrisi',
+    'Embrio tidak terlindungi dari benturan',
+    'Tidak terjadi pertukaran gas',
+    'Pembentukan plasenta terganggu'
+  ],
+  kunci: 1,
+  bahas: 'Amnion berfungsi melindungi embrio dari benturan dan kekeringan dengan cairan amnion. Jika terganggu, embrio tidak terlindungi dengan baik.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep22',
+  tipe: 'cb',
+  tanya: 'Membran ekstra embrionik yang memiliki fungsi utama sebagai berikut: melindungi embrio, menyediakan makanan cadangan, pertukaran gas, dan membentuk bagian plasenta adalah ....',
+  opsi: ['Amnion', 'Korion', 'Yolk sac (kantung kuning telur)', 'Alantois'],
+  kunci: [0,1,2,3],
+  bahas: 'Amnion melindungi embrio dengan cairan, korion berperan dalam pembentukan plasenta, yolk sac menyediakan cadangan makanan, alantois berperan dalam pertukaran gas dan ekskresi.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep23',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang membran ekstra embrionik:',
+  opsi: [
+    'Amnion berisi cairan yang melindungi embrio dari benturan',
+    'Korion berperan dalam pertukaran gas dan pembentukan plasenta',
+    'Yolk sac menyediakan cadangan makanan bagi embrio',
+    'Alantois tidak memiliki fungsi pada embrio'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Amnion berisi cairan pelindung (benar), korion membantu pertukaran gas dan plasenta (benar), yolk sac memberi cadangan makanan (benar), alantois justru penting untuk ekskresi dan respirasi, jadi bukan tidak berfungsi (salah).'
+},
+
+// Isian
+{
+  id: 'rep24',
+  tipe: 'isian',
+  tanya: 'Membran ekstra embrionik yang berfungsi dalam pertukaran gas dan ekskresi pada embrio disebut ....',
+  kunciText: 'alantois',
+  bahas: 'Alantois berperan penting dalam pertukaran gas serta tempat pembuangan sisa metabolisme embrio.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep25',
+  tipe: 'pg',
+  tanya: 'Tahap pembelahan meiosis II dalam spermatogenesis menghasilkan sel spermatid yang jumlahnya adalah ....',
+  opsi: [
+    '1 spermatid',
+    '2 spermatid',
+    '3 spermatid',
+    '4 spermatid'
+  ],
+  kunci: 3,
+  bahas: 'Dari satu spermatogonium, setelah meiosis I dan II, akan terbentuk 4 sel spermatid haploid.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep26',
+  tipe: 'cb',
+  tanya: 'Urutan proses spermatogenesis yang benar adalah ....',
+  opsi: [
+    'Spermatogonium → spermatosit primer → spermatosit sekunder → spermatid → spermatozoa',
+    'Spermatogonium → spermatid → spermatosit primer → spermatosit sekunder → spermatozoa',
+    'Spermatogonium → spermatosit primer → spermatid → spermatosit sekunder → spermatozoa',
+    'Spermatogonium → spermatosit sekunder → spermatid → spermatosit primer → spermatozoa'
+  ],
+  kunci: [0],
+  bahas: 'Urutan yang benar: spermatogonium (diploid) → spermatosit primer (diploid) → spermatosit sekunder (haploid) → spermatid (haploid) → spermatozoa (haploid).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep27',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait spermatogenesis:',
+  opsi: [
+    'Spermatogonium mengalami pembelahan mitosis untuk menghasilkan spermatosit primer',
+    'Spermatosit primer membelah secara meiosis I menjadi dua spermatosit sekunder',
+    'Spermatosit sekunder membelah secara meiosis II menghasilkan spermatid',
+    'Spermatid sudah memiliki ekor dan dapat bergerak aktif'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Spermatid masih berbentuk bulat dan belum memiliki ekor, baru setelah proses diferensiasi (spermiogenesis) menjadi spermatozoa, sel tersebut dapat bergerak.'
+},
+
+// Isian
+{
+  id: 'rep28',
+  tipe: 'isian',
+  tanya: 'Proses perubahan spermatid menjadi spermatozoa yang memiliki ekor disebut ....',
+  kunciText: 'spermiogenesis',
+  bahas: 'Spermiogenesis adalah tahap akhir spermatogenesis, yaitu diferensiasi spermatid menjadi spermatozoa yang fungsional.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep29',
+  tipe: 'pg',
+  tanya: 'Oogenesis pada manusia terjadi di organ reproduksi wanita yaitu ....',
+  opsi: [
+    'Uterus',
+    'Ovarium',
+    'Tuba falopi',
+    'Vagina'
+  ],
+  kunci: 1,
+  bahas: 'Oogenesis terjadi di ovarium (indung telur), tempat sel telur dibentuk dan berkembang.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep30',
+  tipe: 'cb',
+  tanya: 'Tempat terjadinya oogenesis pada hewan mamalia termasuk manusia adalah ....',
+  opsi: [
+    'Ovarium',
+    'Testis',
+    'Tuba falopi',
+    'Indung telur'
+  ],
+  kunci: [0,3],
+  bahas: 'Oogenesis terjadi di ovarium atau indung telur. Testis adalah tempat spermatogenesis, sedangkan tuba falopi adalah tempat terjadinya fertilisasi.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep31',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait tempat oogenesis:',
+  opsi: [
+    'Oogenesis berlangsung di ovarium',
+    'Oogenesis berlangsung di tuba falopi',
+    'Oogenesis berlangsung di testis',
+    'Oogenesis berlangsung di indung telur'
+  ],
+  kunci: [true,false,false,true],
+  bahas: 'Oogenesis hanya terjadi di ovarium/indung telur, bukan di tuba falopi atau testis.'
+},
+
+// Isian
+{
+  id: 'rep32',
+  tipe: 'isian',
+  tanya: 'Oogenesis pada manusia berlangsung di organ yang disebut ....',
+  kunciText: 'ovarium',
+  bahas: 'Ovarium adalah tempat pembentukan dan pematangan sel telur melalui proses oogenesis.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep33',
+  tipe: 'pg',
+  tanya: 'Penyakit menular seksual yang disebabkan oleh bakteri Neisseria gonorrhoeae adalah ....',
+  opsi: [
+    'Sifilis',
+    'Gonore',
+    'Herpes genital',
+    'HIV/AIDS'
+  ],
+  kunci: 1,
+  bahas: 'Gonore (kencing nanah) disebabkan oleh bakteri Neisseria gonorrhoeae.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep34',
+  tipe: 'cb',
+  tanya: 'Manakah penyakit pada sistem reproduksi yang disebabkan oleh bakteri?',
+  opsi: [
+    'Gonore',
+    'Sifilis',
+    'Herpes genital',
+    'Klamidia'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Gonore disebabkan oleh Neisseria gonorrhoeae, sifilis oleh Treponema pallidum, dan klamidia oleh Chlamydia trachomatis. Herpes genital disebabkan oleh virus herpes simpleks.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep35',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait penyakit pada alat reproduksi:',
+  opsi: [
+    'Sifilis disebabkan oleh bakteri Treponema pallidum',
+    'Gonore disebabkan oleh virus',
+    'Klamidia merupakan penyakit akibat bakteri',
+    'Herpes genital disebabkan oleh bakteri'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Sifilis disebabkan oleh bakteri (benar), gonore disebabkan oleh bakteri bukan virus (jadi salah), klamidia disebabkan oleh bakteri (benar), herpes genital disebabkan oleh virus (jadi salah).'
+},
+
+// Isian
+{
+  id: 'rep36',
+  tipe: 'isian',
+  tanya: 'Penyakit menular seksual pada alat reproduksi yang disebabkan oleh bakteri Treponema pallidum adalah ....',
+  kunciText: 'sifilis',
+  bahas: 'Sifilis adalah penyakit menular seksual yang disebabkan oleh bakteri Treponema pallidum.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep37',
+  tipe: 'pg',
+  tanya: 'Organ reproduksi pria yang berfungsi sebagai tempat pematangan sperma adalah ....',
+  opsi: [
+    'Testis',
+    'Epididimis',
+    'Vas deferens',
+    'Prostat'
+  ],
+  kunci: 1,
+  bahas: 'Sperma yang dihasilkan testis akan disimpan dan dimatangkan di epididimis.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep38',
+  tipe: 'cb',
+  tanya: 'Fungsi epididimis dalam sistem reproduksi pria adalah ....',
+  opsi: [
+    'Tempat pematangan sperma',
+    'Tempat pembentukan sperma',
+    'Menyimpan sperma sementara',
+    'Menghasilkan hormon testosteron'
+  ],
+  kunci: [0,2],
+  bahas: 'Epididimis berfungsi sebagai tempat sperma disimpan sementara dan dimatangkan. Sperma dibentuk di testis, sedangkan testosteron dihasilkan oleh testis (sel Leydig).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep39',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait epididimis:',
+  opsi: [
+    'Epididimis adalah tempat pematangan sperma',
+    'Epididimis berada di atas testis',
+    'Epididimis berfungsi menghasilkan sperma',
+    'Sperma dari epididimis akan diteruskan ke vas deferens'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Epididimis adalah tempat pematangan sperma (benar), letaknya menempel di testis (benar), bukan tempat pembentukan sperma (salah, itu di testis), dan sperma selanjutnya diteruskan ke vas deferens (benar).'
+},
+
+// Isian
+{
+  id: 'rep40',
+  tipe: 'isian',
+  tanya: 'Tempat pematangan sperma pada organ reproduksi pria adalah ....',
+  kunciText: 'epididimis',
+  bahas: 'Epididimis merupakan saluran panjang yang menempel pada testis dan berfungsi sebagai tempat pematangan sperma.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep41',
+  tipe: 'pg',
+  tanya: 'Perhatikan gambar organ reproduksi wanita. Organ yang berfungsi menghasilkan sel telur adalah ....',
+  opsi: [
+    'Uterus',
+    'Ovarium',
+    'Tuba falopi',
+    'Vagina'
+  ],
+  kunci: 1,
+  bahas: 'Ovarium (indung telur) adalah tempat pembentukan dan pematangan sel telur (oogenesis).'
+},
+
+// Check Box (CB)
+{
+  id: 'rep42',
+  tipe: 'cb',
+  tanya: 'Berdasarkan gambar organ reproduksi wanita, organ beserta fungsinya yang benar adalah ....',
+  opsi: [
+    'Ovarium – menghasilkan sel telur',
+    'Tuba falopi – tempat terjadinya fertilisasi',
+    'Uterus – tempat berkembangnya janin',
+    'Vagina – menghasilkan sel telur'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Ovarium menghasilkan sel telur, tuba falopi adalah tempat fertilisasi, uterus tempat janin berkembang. Vagina bukan penghasil sel telur, melainkan saluran lahir.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep43',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut berdasarkan gambar organ reproduksi wanita:',
+  opsi: [
+    'Uterus berfungsi sebagai tempat berkembangnya embrio',
+    'Tuba falopi berfungsi menyalurkan sel telur dari ovarium ke uterus',
+    'Vagina merupakan tempat terjadinya fertilisasi',
+    'Ovarium berfungsi menghasilkan sperma'
+  ],
+  kunci: [true,true,false,false],
+  bahas: 'Uterus adalah tempat berkembangnya embrio (benar), tuba falopi menyalurkan ovum dan menjadi tempat fertilisasi (benar), fertilisasi tidak terjadi di vagina (salah), ovarium menghasilkan sel telur bukan sperma (salah).'
+},
+
+// Isian
+{
+  id: 'rep44',
+  tipe: 'isian',
+  tanya: 'Organ reproduksi wanita yang berfungsi sebagai tempat terjadinya pembuahan adalah ....',
+  kunciText: 'tuba falopi',
+  bahas: 'Tuba falopi merupakan saluran penghubung ovarium dengan uterus, sekaligus tempat terjadinya pembuahan (fertilisasi).'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep45',
+  tipe: 'pg',
+  tanya: 'Proses yang mengawali perkembangbiakan generatif pada tumbuhan berbunga adalah ....',
+  opsi: [
+    'Pembuahan',
+    'Penyerbukan',
+    'Perkecambahan',
+    'Pertumbuhan'
+  ],
+  kunci: 1,
+  bahas: 'Perkembangbiakan generatif pada tumbuhan diawali dengan penyerbukan, yaitu jatuhnya serbuk sari ke kepala putik.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep46',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang proses yang mengawali perkembangbiakan generatif pada tumbuhan?',
+  opsi: [
+    'Penyerbukan adalah menempelnya serbuk sari pada kepala putik',
+    'Pembuahan terjadi setelah penyerbukan',
+    'Perkecambahan terjadi sebelum penyerbukan',
+    'Penyerbukan mendahului pembuahan'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Penyerbukan merupakan awal perkembangbiakan generatif. Setelah penyerbukan baru terjadi pembuahan. Perkecambahan terjadi setelah biji terbentuk, bukan sebelum penyerbukan.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep47',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang perkembangbiakan generatif pada tumbuhan:',
+  opsi: [
+    'Perkembangbiakan generatif pada tumbuhan diawali dengan penyerbukan',
+    'Pembuahan terjadi sebelum penyerbukan',
+    'Penyerbukan adalah proses menempelnya serbuk sari pada kepala putik',
+    'Perkecambahan biji merupakan awal perkembangbiakan generatif'
+  ],
+  kunci: [true,false,true,false],
+  bahas: 'Perkembangbiakan generatif diawali penyerbukan (benar). Pembuahan terjadi setelah penyerbukan (jadi salah jika dikatakan sebelumnya). Penyerbukan = serbuk sari menempel pada putik (benar). Perkecambahan bukan awal, melainkan tahap akhir (salah).'
+},
+
+// Isian
+{
+  id: 'rep48',
+  tipe: 'isian',
+  tanya: 'Proses awal yang menandai perkembangbiakan generatif pada tumbuhan adalah ....',
+  kunciText: 'penyerbukan',
+  bahas: 'Penyerbukan merupakan proses awal dalam perkembangbiakan generatif, yaitu jatuhnya serbuk sari ke kepala putik.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep49',
+  tipe: 'pg',
+  tanya: 'Pada gambar bunga, bagian yang berfungsi sebagai alat kelamin jantan yang menghasilkan serbuk sari adalah ....',
+  opsi: [
+    'Putik',
+    'Benang sari',
+    'Mahkota',
+    'Kelopak'
+  ],
+  kunci: 1,
+  bahas: 'Benang sari terdiri atas kepala sari (antera) yang menghasilkan serbuk sari, dan tangkai sari.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep50',
+  tipe: 'cb',
+  tanya: 'Berdasarkan gambar bunga, bagian-bagian bunga beserta fungsinya yang benar adalah ....',
+  opsi: [
+    'Putik – tempat pembuahan',
+    'Benang sari – menghasilkan serbuk sari',
+    'Mahkota bunga – menarik serangga penyerbuk',
+    'Kelopak bunga – melindungi bunga saat kuncup'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Semua opsi benar: putik tempat pembuahan, benang sari menghasilkan serbuk sari, mahkota menarik serangga, dan kelopak melindungi kuncup.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep51',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang bagian bunga:',
+  opsi: [
+    'Putik berfungsi sebagai alat kelamin betina',
+    'Benang sari menghasilkan ovum',
+    'Mahkota bunga berfungsi menarik serangga',
+    'Kelopak bunga melindungi kuncup bunga'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Putik = alat kelamin betina (benar), benang sari menghasilkan serbuk sari bukan ovum (salah), mahkota menarik serangga (benar), kelopak melindungi kuncup (benar).'
+},
+
+// Isian
+{
+  id: 'rep52',
+  tipe: 'isian',
+  tanya: 'Bagian bunga yang berfungsi menarik serangga agar terjadi penyerbukan adalah ....',
+  kunciText: 'mahkota bunga',
+  bahas: 'Mahkota bunga biasanya berwarna mencolok untuk menarik serangga penyerbuk.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep53',
+  tipe: 'pg',
+  tanya: 'Penyerbukan yang terjadi apabila serbuk sari jatuh pada kepala putik bunga lain tetapi masih satu tumbuhan disebut ....',
+  opsi: [
+    'Penyerbukan sendiri',
+    'Penyerbukan silang',
+    'Penyerbukan tetangga',
+    'Penyerbukan bastar'
+  ],
+  kunci: 2,
+  bahas: 'Penyerbukan tetangga terjadi jika serbuk sari dari satu bunga jatuh ke kepala putik bunga lain tetapi masih dalam satu individu tumbuhan.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep54',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang macam-macam penyerbukan?',
+  opsi: [
+    'Penyerbukan sendiri: serbuk sari dan putik berasal dari bunga yang sama',
+    'Penyerbukan silang: serbuk sari berasal dari bunga tumbuhan lain yang sejenis',
+    'Penyerbukan tetangga: serbuk sari dari bunga lain dalam satu tumbuhan',
+    'Penyerbukan bastar: serbuk sari berasal dari bunga tumbuhan berbeda jenis tetapi masih satu keluarga'
+  ],
+  kunci: [0,1,2,3],
+  bahas: 'Semua benar: penyerbukan sendiri, silang, tetangga, dan bastar merupakan jenis penyerbukan berdasarkan asal serbuk sari.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep55',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut tentang macam penyerbukan:',
+  opsi: [
+    'Penyerbukan sendiri terjadi pada satu bunga yang sama',
+    'Penyerbukan silang menghasilkan variasi keturunan lebih banyak',
+    'Penyerbukan tetangga terjadi antar bunga dalam satu pohon',
+    'Penyerbukan bastar terjadi antara tumbuhan yang berbeda jenis dan berbeda keluarga'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Penyerbukan sendiri pada satu bunga (benar), silang menambah variasi genetik (benar), tetangga dalam satu pohon (benar), bastar tetap dalam satu keluarga meskipun beda jenis (jadi salah jika beda keluarga).'
+},
+
+// Isian
+{
+  id: 'rep56',
+  tipe: 'isian',
+  tanya: 'Penyerbukan yang terjadi antara bunga dari tumbuhan berbeda tetapi masih satu jenis disebut ....',
+  kunciText: 'penyerbukan silang',
+  bahas: 'Penyerbukan silang adalah proses penyerbukan yang melibatkan dua individu tumbuhan sejenis tetapi berbeda.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep57',
+  tipe: 'pg',
+  tanya: 'Mengapa pembuahan pada tumbuhan Angiospermae disebut pembuahan ganda?',
+  opsi: [
+    'Karena terjadi dua kali penyerbukan',
+    'Karena satu inti sperma membuahi sel telur dan inti sperma lainnya membuahi inti kandung lembaga sekunder',
+    'Karena terdapat dua putik dalam satu bunga',
+    'Karena terjadi pada dua bunga sekaligus'
+  ],
+  kunci: 1,
+  bahas: 'Disebut pembuahan ganda karena ada dua inti sperma yang berperan: satu membuahi sel telur (membentuk zigot), satu lagi membuahi inti kandung lembaga sekunder (membentuk endosperma).'
+},
+
+// Check Box (CB)
+{
+  id: 'rep58',
+  tipe: 'cb',
+  tanya: 'Pilihlah pernyataan yang benar tentang pembuahan ganda pada tumbuhan berbunga:',
+  opsi: [
+    'Satu inti sperma membuahi sel telur menghasilkan zigot',
+    'Satu inti sperma membuahi inti kandung lembaga sekunder menghasilkan endosperma',
+    'Pembuahan ganda hanya terjadi pada tumbuhan Gymnospermae',
+    'Endosperma berfungsi sebagai cadangan makanan bagi embrio'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Pernyataan benar: satu inti sperma membuahi sel telur (zigot), satu inti sperma membuahi inti kandung lembaga sekunder (endosperma), endosperma berfungsi sebagai cadangan makanan embrio. Pembuahan ganda hanya terjadi pada Angiospermae, bukan Gymnospermae.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep59',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait pembuahan ganda:',
+  opsi: [
+    'Zigot terbentuk dari peleburan sperma dengan sel telur',
+    'Endosperma terbentuk dari peleburan sperma dengan inti kandung lembaga sekunder',
+    'Pembuahan ganda hanya ditemukan pada tumbuhan Angiospermae',
+    'Proses ini menghasilkan tiga inti sperma yang semuanya aktif membuahi'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Zigot terbentuk dari sperma + sel telur (benar), endosperma dari sperma + inti kandung lembaga sekunder (benar), hanya terjadi pada Angiospermae (benar), dan hanya ada dua inti sperma yang aktif, bukan tiga (salah).'
+},
+
+// Isian
+{
+  id: 'rep60',
+  tipe: 'isian',
+  tanya: 'Pada pembuahan ganda, hasil peleburan antara inti sperma dengan inti kandung lembaga sekunder akan membentuk ....',
+  kunciText: 'endosperma',
+  bahas: 'Endosperma berfungsi sebagai cadangan makanan yang penting untuk perkembangan embrio.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep61',
+  tipe: 'pg',
+  tanya: 'Pada hewan, pembuahan internal memiliki kelebihan utama yaitu ....',
+  opsi: [
+    'Jumlah telur yang dihasilkan lebih banyak',
+    'Embrio lebih terlindungi karena berkembang dalam tubuh induk',
+    'Tidak membutuhkan pertemuan antara sel sperma dan sel telur',
+    'Lebih sedikit energi yang digunakan dalam perkembangbiakan'
+  ],
+  kunci: 1,
+  bahas: 'Keuntungan utama pembuahan internal adalah embrio terlindungi lebih baik karena berkembang di dalam tubuh induk.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep62',
+  tipe: 'cb',
+  tanya: 'Manakah dari hewan berikut yang mengalami pembuahan eksternal?',
+  opsi: [
+    'Katak',
+    'Ikan',
+    'Burung',
+    'Reptil'
+  ],
+  kunci: [0,1],
+  bahas: 'Katak dan ikan melakukan pembuahan eksternal di luar tubuh induk, sedangkan burung dan reptil melakukan pembuahan internal.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep63',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait pembuahan pada hewan:',
+  opsi: [
+    'Pembuahan eksternal biasanya terjadi di lingkungan perairan',
+    'Pembuahan internal banyak ditemukan pada hewan darat',
+    'Semua hewan vertebrata mengalami pembuahan eksternal',
+    'Pembuahan internal memungkinkan embrio mendapat perlindungan lebih baik'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Pembuahan eksternal umumnya terjadi di air (benar), pembuahan internal banyak pada hewan darat (benar), tidak semua vertebrata eksternal (salah), pembuahan internal memberi perlindungan embrio (benar).'
+},
+
+// Isian
+{
+  id: 'rep64',
+  tipe: 'isian',
+  tanya: 'Pembuahan yang terjadi di luar tubuh induk disebut pembuahan ....',
+  kunciText: 'eksternal',
+  bahas: 'Pembuahan eksternal adalah proses peleburan sperma dan ovum di luar tubuh induk, misalnya pada ikan dan amfibi.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep65',
+  tipe: 'pg',
+  tanya: 'Teknologi reproduksi tumbuhan yang dilakukan dengan menyambungkan batang bawah dan batang atas dari dua tanaman berbeda disebut ....',
+  opsi: [
+    'Stek',
+    'Cangkok',
+    'Okulasi',
+    'Grafting'
+  ],
+  kunci: 3,
+  bahas: 'Okulasi atau grafting adalah teknik menyambungkan batang bawah dan batang atas dari tanaman berbeda agar tumbuh menjadi satu tanaman baru.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep66',
+  tipe: 'cb',
+  tanya: 'Manakah contoh teknologi reproduksi tumbuhan vegetatif buatan?',
+  opsi: [
+    'Stek',
+    'Okulasi',
+    'Cangkok',
+    'Penyerbukan alami'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Stek, okulasi, dan cangkok adalah contoh perbanyakan vegetatif buatan. Penyerbukan alami termasuk generatif, bukan teknologi vegetatif buatan.'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep67',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait teknologi reproduksi tumbuhan:',
+  opsi: [
+    'Stek dilakukan dengan menanam potongan batang atau daun',
+    'Cangkok dilakukan dengan menimbun batang ke dalam tanah',
+    'Okulasi dilakukan dengan menyambung dua bagian tanaman',
+    'Kultur jaringan menggunakan bagian kecil sel tumbuhan untuk ditumbuhkan menjadi tanaman baru'
+  ],
+  kunci: [true,false,true,true],
+  bahas: 'Stek benar (menanam potongan batang/daun). Cangkok dilakukan dengan mengupas kulit batang lalu membungkusnya dengan tanah lembab, bukan menimbun batang (jadi salah). Okulasi benar (penyambungan dua tanaman). Kultur jaringan benar (menggunakan sel kecil untuk jadi tanaman baru).'
+},
+
+// Isian
+{
+  id: 'rep68',
+  tipe: 'isian',
+  tanya: 'Teknik reproduksi tumbuhan yang menggunakan bagian kecil jaringan tumbuhan dalam kondisi steril di laboratorium disebut ....',
+  kunciText: 'kultur jaringan',
+  bahas: 'Kultur jaringan adalah teknik perbanyakan tanaman dengan memanfaatkan jaringan atau sel tumbuhan dalam kondisi steril untuk menghasilkan individu baru.'
+},
+// Pilihan Ganda (PG)
+{
+  id: 'rep69',
+  tipe: 'pg',
+  tanya: 'Seorang peneliti menemukan seekor bintang laut yang dapat tumbuh kembali menjadi individu baru setelah lengannya terputus. Proses reproduksi aseksual yang terjadi pada bintang laut tersebut adalah ....',
+  opsi: [
+    'Fragmentasi',
+    'Partenogenesis',
+    'Tunas',
+    'Pembelahan biner'
+  ],
+  kunci: 0,
+  bahas: 'Bintang laut bereproduksi aseksual melalui fragmentasi, yaitu tubuhnya yang terpotong dapat tumbuh menjadi individu baru.'
+},
+
+// Check Box (CB)
+{
+  id: 'rep70',
+  tipe: 'cb',
+  tanya: 'Manakah contoh hewan yang dapat melakukan reproduksi aseksual?',
+  opsi: [
+    'Hydra',
+    'Bintang laut',
+    'Amoeba',
+    'Ayam'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Hydra bereproduksi dengan tunas, bintang laut dengan fragmentasi, dan Amoeba dengan pembelahan biner. Ayam bereproduksi secara generatif (seksual).'
+},
+
+// Benar/Salah (BS)
+{
+  id: 'rep71',
+  tipe: 'bs',
+  tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut terkait reproduksi aseksual pada hewan:',
+  opsi: [
+    'Amoeba berkembang biak dengan cara pembelahan biner',
+    'Hydra berkembang biak dengan cara tunas',
+    'Bintang laut berkembang biak dengan cara partenogenesis',
+    'Lebah dapat berkembang biak secara partenogenesis'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Amoeba benar dengan pembelahan biner. Hydra benar dengan tunas. Bintang laut salah, karena berkembang biak dengan fragmentasi, bukan partenogenesis. Lebah betina (dari sel telur tak dibuahi) benar dapat berkembang biak secara partenogenesis.'
+},
+
+// Isian
+{
+  id: 'rep72',
+  tipe: 'isian',
+  tanya: 'Proses reproduksi aseksual yang terjadi pada lebah, di mana individu baru dapat berkembang dari sel telur tanpa dibuahi sperma disebut ....',
+  kunciText: 'partenogenesis',
+  bahas: 'Partenogenesis adalah reproduksi aseksual pada hewan, misalnya lebah, semut, dan kutu daun, di mana individu baru berkembang dari sel telur yang tidak dibuahi.'
+},
+
+
+  ]
+},
+'Kelistrikan': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Kelistrikan</h2>
+<p>
+  Kelistrikan adalah ilmu yang mempelajari tentang muatan listrik, arus listrik, tegangan listrik, dan hubungan antar komponen listrik.
+  Dalam kehidupan sehari-hari, listrik digunakan untuk menyalakan lampu, peralatan elektronik, serta berbagai kebutuhan industri.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Besaran dalam Kelistrikan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Tegangan (V)</b>: Beda potensial listrik, satuan Volt (V).</li>
+  <li><b>Arus (I)</b>: Aliran muatan listrik per satuan waktu, satuan Ampere (A).</li>
+  <li><b>Hambatan (R)</b>: Besarnya tahanan terhadap aliran arus, satuan Ohm (Ω).</li>
+  <li><b>Daya listrik (P)</b>: Energi listrik per satuan waktu, satuan Watt (W).</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Rumus Penting</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Hukum Ohm: \\( V = I × R \\)</li>
+  <li>Daya listrik: \\( P = V × I \\)</li>
+  <li>Energi listrik: \\( E = P × t = V × I × t \\)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Hukum Ohm</h3>
+<p>
+  Hukum Ohm menyatakan bahwa besar arus listrik yang mengalir melalui suatu penghantar berbanding lurus dengan beda potensial (tegangan) 
+  dan berbanding terbalik dengan hambatan penghantar tersebut. Rumusnya:  
+  \\( I = \\frac{V}{R} \\).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Contoh Soal</h3>
+<p><b>Contoh 1:</b> Tentukan besar arus yang mengalir jika sebuah lampu dihubungkan ke sumber tegangan 12 V dan hambatan lampu 6 Ω.  
+\\( I = V / R = 12 / 6 = 2 \text{ A}\\)</p>
+
+<p><b>Contoh 2:</b> Hitung daya listrik pada setrika dengan tegangan 220 V dan arus 2 A.  
+\\( P = V × I = 220 × 2 = 440 \text{ W}\\)</p>
+
+<p><b>Contoh 3:</b> Sebuah kipas listrik bekerja dengan daya 100 W selama 2 jam. Hitung energi listrik yang digunakan.  
+\\( E = P × t = 100 × (2 × 3600) = 100 × 7200 = 720{,}000 \text{ J}\\)</p>
+`,
+  video: ['lmn121314xyz'], // ganti dengan ID video yang relevan
+
+  soal: [
+    {
+      id: 'kel1',
+      tipe: 'pg',
+      tanya: 'Jika tegangan 12 V dan hambatan 4 Ω, maka arus yang mengalir adalah...',
+      opsi: ['2 A', '3 A', '4 A', '48 A'],
+      kunci: 1,
+      bahas: 'I = V / R = 12 / 4 = 3 A'
+    },
+    {
+      id: 'kel2',
+      tipe: 'cb',
+      tanya: 'Manakah pernyataan yang benar tentang kelistrikan?',
+      opsi: [
+        'Hukum Ohm: V = I × R',
+        'Daya listrik: P = V × I',
+        'Energi listrik: E = V × I / t',
+        'Arus berbanding lurus dengan tegangan jika R tetap'
+      ],
+      kunci: [0,1,3],
+      bahas: 'V = I × R benar, P = V × I benar, E = V × I × t (bukan dibagi t), arus ∝ tegangan benar jika R tetap.'
+    },
+    {
+      id: 'kel3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar atau salah pernyataan berikut:',
+      opsi: [
+        'Satuan arus listrik adalah Ampere (A)',
+        'Satuan daya listrik adalah Joule',
+        'Hukum Ohm berbunyi V = I × R',
+        'Energi listrik dapat dihitung dengan E = P × t'
+      ],
+      kunci: [true,false,true,true],
+      bahas: 'Arus benar (Ampere), daya salah (Watt, bukan Joule), hukum Ohm benar, energi listrik benar (E = P × t).'
+    },
+    {
+      id: 'kel4',
+      tipe: 'isian',
+      tanya: 'Hitung energi listrik (dalam Joule) yang digunakan lampu 60 W selama 5 menit!',
+      kunciText: '18000',
+      bahas: 'E = P × t = 60 × (5×60) = 60 × 300 = 18.000 J'
+    },
+{
+  id: 'kel5',
+  tipe: 'pg',
+  tanya: 'Fenomena berikut yang menunjukkan gejala listrik statis adalah...',
+  opsi: [
+    'Lampu menyala saat dihubungkan ke stop kontak',
+    'Rambut berdiri saat menyisir dengan sisir plastik',
+    'Kipas angin berputar ketika dialiri arus listrik',
+    'Kompor listrik menjadi panas saat digunakan'
+  ],
+  kunci: 1,
+  bahas: 'Listrik statis terjadi karena adanya perpindahan elektron yang menyebabkan benda bermuatan. Contoh: rambut berdiri setelah disisir dengan sisir plastik.'
+},
+{
+  id: 'kel6',
+  tipe: 'cb',
+  tanya: 'Manakah contoh gejala listrik statis dalam kehidupan sehari-hari?',
+  opsi: [
+    'Pakaian menempel setelah dijemur',
+    'Petir yang menyambar saat hujan',
+    'Lampu pijar menyala karena arus listrik',
+    'Benda kecil menempel pada penggaris plastik setelah digosokkan ke rambut'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Pakaian menempel, petir, dan penggaris menarik benda kecil adalah contoh listrik statis. Lampu pijar menyala adalah listrik dinamis, bukan statis.'
+},
+{
+  id: 'kel7',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Listrik statis terjadi karena muatan listrik yang berpindah secara tetap/teratur',
+    'Petir merupakan contoh gejala listrik statis di alam',
+    'Pakaian menempel setelah dijemur karena adanya muatan listrik',
+    'Listrik statis dapat digunakan untuk menyalakan lampu di rumah secara terus-menerus'
+  ],
+  kunci: [false,true,true,false],
+  bahas: 'Listrik statis adalah muatan yang diam (bukan berpindah teratur), petir benar contoh listrik statis, pakaian menempel karena muatan benar, dan listrik statis tidak bisa digunakan terus-menerus untuk menyalakan lampu rumah.'
+},
+{
+  id: 'kel8',
+  tipe: 'isian',
+  tanya: 'Sebutkan satu contoh peristiwa listrik statis yang sering terjadi dalam kehidupan sehari-hari!',
+  kunciText: 'petir',
+  bahas: 'Salah satu contoh peristiwa listrik statis adalah petir yang terjadi akibat pelepasan muatan listrik antara awan dan bumi.'
+},
+{
+  id: 'kel9',
+  tipe: 'pg',
+  tanya: 'Salah satu penerapan listrik statis dalam kehidupan sehari-hari adalah...',
+  opsi: [
+    'Kompor listrik untuk memasak',
+    'Fotokopi yang bekerja dengan prinsip menarik toner ke kertas',
+    'Kipas angin yang berputar dengan listrik',
+    'Lampu LED menyala dihubungkan baterai'
+  ],
+  kunci: 1,
+  bahas: 'Mesin fotokopi bekerja dengan memanfaatkan listrik statis untuk menarik partikel toner agar menempel pada kertas.'
+},
+{
+  id: 'kel10',
+  tipe: 'cb',
+  tanya: 'Manakah yang merupakan penerapan listrik statis?',
+  opsi: [
+    'Mesin fotokopi',
+    'Cat semprot (spray painting)',
+    'Lampu neon',
+    'Pembersih udara (air purifier)'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Mesin fotokopi, cat semprot, dan pembersih udara memanfaatkan listrik statis. Lampu neon menggunakan listrik dinamis, bukan listrik statis.'
+},
+{
+  id: 'kel11',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Mesin fotokopi memanfaatkan listrik statis untuk menarik tinta ke kertas',
+    'Cat semprot memanfaatkan listrik statis agar partikel cat menempel rata pada permukaan',
+    'Lampu pijar memanfaatkan listrik statis untuk memancarkan cahaya',
+    'Pembersih udara memanfaatkan listrik statis untuk menarik debu'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Mesin fotokopi, cat semprot, dan pembersih udara benar memanfaatkan listrik statis. Lampu pijar menggunakan listrik dinamis, bukan listrik statis.'
+},
+{
+  id: 'kel12',
+  tipe: 'isian',
+  tanya: 'Sebutkan satu contoh penerapan listrik statis dalam teknologi!',
+  kunciText: 'mesin fotokopi',
+  bahas: 'Mesin fotokopi memanfaatkan listrik statis untuk menarik toner agar menempel pada kertas.'
+},
+{
+  id: 'kel13',
+  tipe: 'pg',
+  tanya: 'Sebuah penggaris plastik digosokkan ke rambut kering, kemudian dapat menarik potongan kertas kecil. Hal ini terjadi karena penggaris bermuatan...',
+  opsi: [
+    'Netral',
+    'Positif',
+    'Negatif',
+    'Tidak bermuatan'
+  ],
+  kunci: 2,
+  bahas: 'Saat digosok ke rambut, elektron berpindah ke penggaris sehingga penggaris bermuatan negatif.'
+},
+{
+  id: 'kel14',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang muatan listrik?',
+  opsi: [
+    'Benda bermuatan sejenis akan tolak-menolak',
+    'Benda bermuatan berbeda jenis akan tarik-menarik',
+    'Benda netral tidak memiliki muatan sama sekali',
+    'Elektron bermuatan negatif'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Muatan sejenis tolak-menolak, muatan berbeda tarik-menarik, elektron bermuatan negatif benar. Benda netral tetap memiliki muatan positif & negatif yang jumlahnya sama, jadi pernyataan itu salah.'
+},
+{
+  id: 'kel15',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Proton bermuatan positif',
+    'Elektron bermuatan negatif',
+    'Neutron bermuatan positif',
+    'Muatan sejenis saling tarik-menarik'
+  ],
+  kunci: [true,true,false,false],
+  bahas: 'Proton positif benar, elektron negatif benar, neutron tidak bermuatan (salah jika positif), muatan sejenis saling tolak-menolak (jadi salah jika disebut tarik-menarik).'
+},
+{
+  id: 'kel16',
+  tipe: 'isian',
+  tanya: 'Jika dua benda saling tarik-menarik, maka muatan keduanya adalah ....',
+  kunciText: 'berbeda',
+  bahas: 'Dua benda yang bermuatan berbeda jenis (positif dan negatif) akan saling tarik-menarik.'
+},
+{
+  id: 'kel17',
+  tipe: 'pg',
+  tanya: 'Dua muatan masing-masing \\(q_1 = 2 × 10^{-6} C\\) dan \\(q_2 = 3 × 10^{-6} C\\) dipisahkan sejauh 0,2 m. Besar gaya Coulomb antara kedua muatan adalah... (Gunakan k = 9 × 10^9 N·m²/C²)',
+  opsi: ['135 N', '270 N', '540 N', '1080 N'],
+  kunci: 2,
+  bahas: 'Rumus: F = k × q1 × q2 / r² = (9×10^9)(2×10^-6)(3×10^-6) / (0,2)² = 54×10^-3 / 0,04 = 540 N.'
+},
+{
+  id: 'kel18',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan yang benar tentang gaya Coulomb?',
+  opsi: [
+    'Besar gaya berbanding lurus dengan hasil kali muatan',
+    'Besar gaya berbanding terbalik dengan kuadrat jarak antar muatan',
+    'Gaya Coulomb selalu tolak-menolak',
+    'Konstanta k dalam hukum Coulomb bernilai 9 × 10^9 N·m²/C² di ruang hampa'
+  ],
+  kunci: [0,1,3],
+  bahas: 'F ∝ q1×q2 (benar), F ∝ 1/r² (benar), gaya bisa tarik-menarik atau tolak-menolak (jadi salah kalau selalu tolak-menolak), k = 9×10^9 N·m²/C² benar di ruang hampa.'
+},
+{
+  id: 'kel19',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Gaya Coulomb termasuk gaya listrik',
+    'Jika jarak diperbesar 2 kali, gaya akan menjadi seperempat kali semula',
+    'Muatan sejenis saling tarik-menarik',
+    'F = k × q1 × q2 / r² adalah rumus gaya Coulomb'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Gaya Coulomb adalah gaya listrik (benar), jarak diperbesar 2 kali → gaya jadi 1/4 (benar), muatan sejenis saling tolak-menolak (jadi salah), rumus F = kq1q2/r² benar.'
+},
+{
+  id: 'kel20',
+  tipe: 'isian',
+  tanya: 'Hitung besar gaya Coulomb antara dua muatan \\(q_1 = 4 × 10^{-6} C\\) dan \\(q_2 = 6 × 10^{-6} C\\) yang terpisah sejauh 0,3 m! (Gunakan k = 9 × 10^9 N·m²/C²)',
+  kunciText: '240',
+  bahas: 'F = k × q1 × q2 / r² = (9×10^9)(4×10^-6)(6×10^-6) / (0,3)² = 216×10^-3 / 0,09 = 240 N.'
+},
+{
+  id: 'kel21',
+  tipe: 'pg',
+  tanya: 'Bahaya yang dapat ditimbulkan oleh listrik statis dalam kehidupan sehari-hari adalah...',
+  opsi: [
+    'Rambut berdiri setelah disisir',
+    'Percikan api saat mengisi bahan bakar kendaraan',
+    'Pakaian menempel setelah dijemur',
+    'Balon menempel di dinding setelah digosok'
+  ],
+  kunci: 1,
+  bahas: 'Percikan api saat mengisi bahan bakar bisa berbahaya karena dapat memicu kebakaran akibat listrik statis.'
+},
+{
+  id: 'kel22',
+  tipe: 'cb',
+  tanya: 'Manakah contoh bahaya listrik statis dalam kehidupan sehari-hari?',
+  opsi: [
+    'Percikan api saat menuang bensin',
+    'Petir yang menyambar ketika hujan',
+    'Kertas menempel pada penggaris plastik',
+    'Ledakan di tempat dengan bahan mudah terbakar karena percikan listrik statis'
+  ],
+  kunci: [0,1,3],
+  bahas: 'Percikan api saat menuang bensin, petir, dan ledakan akibat percikan listrik statis adalah contoh bahaya. Kertas menempel pada penggaris hanya contoh gejala, bukan bahaya.'
+},
+{
+  id: 'kel23',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Listrik statis dapat memicu kebakaran di SPBU',
+    'Petir adalah salah satu bentuk bahaya listrik statis',
+    'Rambut berdiri karena sisir adalah contoh bahaya listrik statis',
+    'Percikan listrik statis bisa berbahaya di tempat dengan gas mudah terbakar'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Listrik statis bisa memicu kebakaran di SPBU (benar), petir merupakan bahaya (benar), rambut berdiri bukan bahaya (salah), percikan listrik statis bisa berbahaya di tempat dengan gas/ bahan mudah terbakar (benar).'
+},
+{
+  id: 'kel24',
+  tipe: 'isian',
+  tanya: 'Sebutkan salah satu contoh bahaya listrik statis dalam kehidupan sehari-hari!',
+  kunciText: 'petir',
+  bahas: 'Petir merupakan contoh bahaya listrik statis yang bisa menyebabkan kerusakan bahkan korban jiwa.'
+},
+{
+  id: 'kel25',
+  tipe: 'pg',
+  tanya: 'Sistem saraf pusat pada manusia terdiri atas...',
+  opsi: [
+    'Otak dan sumsum tulang belakang',
+    'Otak dan saraf tepi',
+    'Sumsum tulang belakang dan saraf tepi',
+    'Saraf sensorik dan motorik'
+  ],
+  kunci: 0,
+  bahas: 'Sistem saraf pusat manusia terdiri atas otak dan sumsum tulang belakang.'
+},
+{
+  id: 'kel26',
+  tipe: 'cb',
+  tanya: 'Manakah bagian yang termasuk ke dalam sistem saraf pusat?',
+  opsi: [
+    'Otak',
+    'Sumsum tulang belakang',
+    'Saraf tepi',
+    'Sistem saraf otonom'
+  ],
+  kunci: [0,1],
+  bahas: 'Sistem saraf pusat terdiri dari otak dan sumsum tulang belakang. Saraf tepi dan sistem saraf otonom termasuk sistem saraf tepi, bukan pusat.'
+},
+{
+  id: 'kel27',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut:',
+  opsi: [
+    'Otak termasuk bagian dari sistem saraf pusat',
+    'Sumsum tulang belakang berfungsi menyampaikan impuls saraf',
+    'Saraf tepi termasuk sistem saraf pusat',
+    'Sistem saraf pusat dilindungi oleh tulang tengkorak dan tulang belakang'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Otak benar bagian SSP, sumsum tulang belakang menyampaikan impuls benar, saraf tepi bukan SSP (salah), otak dilindungi tengkorak & sumsum tulang belakang dilindungi ruas tulang belakang (benar).'
+},
+{
+  id: 'kel28',
+  tipe: 'isian',
+  tanya: 'Sebutkan dua organ utama penyusun sistem saraf pusat pada manusia!',
+  kunciText: 'otak dan sumsum tulang belakang',
+  bahas: 'Sistem saraf pusat terdiri atas otak dan sumsum tulang belakang.'
+},
+{
+  id: 'kel29',
+  tipe: 'pg',
+gambar:'https://imgix2.ruangguru.com/assets/miscellaneous/png_2j9qzp_357.png',
+  tanya: 'Bagian yang ditunjuk nomor 1  berfungsi menerima rangsangan dari luar. Nama bagian tersebut adalah...',
+  opsi: [
+    'Akson',
+    'Dendrit',
+    'Badan sel',
+    'Inti sel'
+  ],
+  kunci: 1,
+  bahas: 'Bagian nomor 1  adalah dendrit. Fungsinya menerima rangsangan dan menghantarkan ke badan sel.'
+},
+{
+  id: 'kel30',
+  tipe: 'cb',
+gambar:'https://imgix2.ruangguru.com/assets/miscellaneous/png_2j9qzp_357.png',
+  tanya: 'Pada gambar sel saraf, manakah bagian yang berperan dalam menghantarkan impuls?',
+  opsi: [
+    'Dendrit',
+    'Akson',
+    'Badan sel',
+    'Inti sel'
+  ],
+  kunci: [0,1],
+  bahas: 'Dendrit menghantarkan impuls ke badan sel, sedangkan akson menghantarkan impuls keluar dari badan sel menuju sel saraf lain atau efektor.'
+},
+{
+  id: 'kel31',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut berdasarkan gambar sel saraf:',
+  opsi: [
+    'Dendrit berfungsi menerima rangsangan',
+    'Akson berfungsi menghantarkan impuls keluar dari badan sel',
+    'Badan sel tidak berperan dalam metabolisme sel saraf',
+    'Selubung mielin berfungsi mempercepat penghantaran impuls'
+  ],
+  kunci: [true,true,false,true],
+  bahas: 'Dendrit menerima rangsangan (benar), akson menghantarkan impuls keluar (benar), badan sel tetap penting dalam metabolisme (jadi salah jika tidak berperan), selubung mielin mempercepat impuls (benar).'
+},
+{
+  id: 'kel32',
+  tipe: 'isian',
+gambar:'https://imgix2.ruangguru.com/assets/miscellaneous/png_2j9qzp_357.png',
+  tanya: 'Pada gambar sel saraf, bagian panjang yang menghantarkan impuls dari badan sel menuju ujung saraf disebut ....',
+  kunciText: 'akson',
+  bahas: 'Bagian panjang itu adalah akson yang berfungsi menghantarkan impuls ke sel saraf lain atau efektor.'
+},
+{
+  id: 'kel33',
+  tipe: 'pg',
+  tanya: 'Seorang pasien tidak dapat merasakan rangsangan dari kulit akibat kerusakan saraf tertentu. Jenis sel saraf yang kemungkinan rusak adalah...',
+  opsi: [
+    'Saraf motorik',
+    'Saraf sensorik',
+    'Saraf konektor (interneuron)',
+    'Saraf otonom'
+  ],
+  kunci: 1,
+  bahas: 'Kerusakan terjadi pada saraf sensorik karena fungsinya menghantarkan impuls dari reseptor (kulit) menuju sistem saraf pusat.'
+},
+{
+  id: 'kel34',
+  tipe: 'cb',
+  tanya: 'Manakah pernyataan berikut yang sesuai dengan fungsi macam-macam sel saraf?',
+  opsi: [
+    'Saraf sensorik menghantarkan impuls dari indera ke otak',
+    'Saraf motorik menghantarkan impuls dari otak ke otot',
+    'Interneuron menghubungkan saraf sensorik dengan saraf motorik',
+    'Saraf sensorik berfungsi menggerakkan otot'
+  ],
+  kunci: [0,1,2],
+  bahas: 'Sensorik → reseptor ke otak, motorik → otak ke efektor (otot/kelenjar), interneuron sebagai penghubung. Opsi terakhir salah karena bukan sensorik yang menggerakkan otot.'
+},
+{
+  id: 'kel35',
+  tipe: 'bs',
+  tanya: 'Tentukan benar atau salah pernyataan berikut tentang jenis sel saraf:',
+  opsi: [
+    'Saraf sensorik menghantarkan rangsangan dari reseptor ke SSP',
+    'Saraf motorik menghantarkan rangsangan dari SSP ke efektor',
+    'Interneuron hanya ada di sumsum tulang belakang dan otak',
+    'Saraf motorik berfungsi menerima rangsangan dari lingkungan'
+  ],
+  kunci: [true,true,true,false],
+  bahas: 'Sensorik → reseptor ke SSP (benar), motorik → SSP ke efektor (benar), interneuron memang ada di otak/sumsum (benar), motorik tidak menerima rangsangan (salah).'
+},
+{
+  id: 'kel36',
+  tipe: 'isian',
+  tanya: 'Jelaskan urutan jalannya impuls pada gerak refleks mulai dari reseptor hingga efektor!',
+  kunciText: 'Reseptor → saraf sensorik → interneuron → saraf motorik → efektor',
+  bahas: 'Gerak refleks melibatkan alur impuls dari reseptor, diteruskan saraf sensorik ke interneuron di SSP, lalu ke saraf motorik, dan akhirnya ke efektor (otot/kelenjar).'
+},
+
+  ]
+},
+
 'Hakikat Sains': {
   materi: `
 <h2 class="text-xl font-bold mb-2">Hakikat Ilmu Sains dan Metode Ilmiah</h2>
