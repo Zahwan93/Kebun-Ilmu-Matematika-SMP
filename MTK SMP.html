@@ -4116,6 +4116,205 @@ I have a cat. Its name is Kitty. Kitty has white fur and blue eyes. It likes to 
 
 'IPA': {
 bab: {
+'Suhu': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Suhu</h2>
+<p>
+  Suhu adalah besaran yang menyatakan derajat panas atau dinginnya suatu benda. 
+  Alat untuk mengukur suhu adalah termometer. 
+  Skala suhu yang umum digunakan adalah Celcius, Fahrenheit, Kelvin, dan Reamur.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">Skala Suhu</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Celcius (°C)</li>
+  <li>Fahrenheit (°F)</li>
+  <li>Kelvin (K)</li>
+  <li>Reamur (°R)</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">Hubungan Skala Suhu</h3>
+<p>
+  Hubungan antar skala suhu dapat dituliskan:
+  <br> C/5 = R/4 = (F - 32)/9 = (K - 273)/5
+</p>
+`,
+
+  video: ['gxCSgiSclrw','nsKhINzbUPc'],
+
+  soal: [
+    {
+      id: 'suhu1',
+      tipe: 'pg',
+      tanya: 'Alat yang digunakan untuk mengukur suhu adalah ....',
+      opsi: ['Barometer', 'Termometer', 'Amperemeter', 'Voltmeter'],
+      kunci: 1,
+      bahas: 'Suhu diukur dengan termometer.'
+    },
+    {
+      id: 'suhu2',
+      tipe: 'cb',
+      tanya: 'Yang termasuk satuan suhu adalah ....',
+      opsi: ['Celcius', 'Kelvin', 'Fahrenheit', 'Joule'],
+      kunci: [0,1,2],
+      bahas: 'Joule adalah satuan energi, bukan suhu.'
+    },
+    {
+      id: 'suhu3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+      opsi: [
+        'Suhu menyatakan derajat panas atau dingin suatu benda',
+        'Kelvin adalah satuan suhu dalam SI',
+        'Joule adalah satuan suhu'
+      ],
+      kunci: [true,true,false],
+      bahas: 'Joule adalah satuan energi, bukan suhu.'
+    },
+    {
+      id: 'suhu4',
+      tipe: 'isian',
+      tanya: 'Hubungan antara Celcius (C) dan Reamur (R) adalah ....',
+      kunciText: 'C/5 = R/4',
+      bahas: 'Hubungan skala suhu Celcius dan Reamur: C/5 = R/4.'
+    }
+  ]
+},
+'Kalor': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Kalor</h2>
+<p>
+  Kalor adalah energi panas yang berpindah dari benda bersuhu tinggi ke benda bersuhu rendah. 
+  Satuan kalor dalam SI adalah Joule (J).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">Rumus Kalor</h3>
+<p>
+  Q = m × c × ΔT
+  <br>
+  Keterangan: Q = kalor (J), m = massa (kg), c = kalor jenis (J/kg°C), ΔT = perubahan suhu (°C).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">Jenis Kalor</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Kalor Sensibel</b>: kalor yang menyebabkan perubahan suhu.</li>
+  <li><b>Kalor Laten</b>: kalor yang menyebabkan perubahan wujud tanpa perubahan suhu.</li>
+</ul>
+`,
+
+  video: ['otox7jN_CXU','sTd0a-zrLkA','fpNtH4oZXDg','k-Y5L44_1AU','MLbem0WLTrQ','v1nOfMffc5k'],
+
+  soal: [
+    {
+      id: 'kalor1',
+      tipe: 'pg',
+      tanya: 'Satuan SI dari kalor adalah ....',
+      opsi: ['Kalori', 'Joule', 'Watt', 'Celcius'],
+      kunci: 1,
+      bahas: 'Kalor diukur dalam Joule (J).'
+    },
+    {
+      id: 'kalor2',
+      tipe: 'cb',
+      tanya: 'Yang termasuk jenis kalor adalah ....',
+      opsi: ['Kalor Sensibel', 'Kalor Laten', 'Kalor Panas', 'Kalor Dingin'],
+      kunci: [0,1],
+      bahas: 'Jenis kalor ada dua: kalor sensibel dan kalor laten.'
+    },
+    {
+      id: 'kalor3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+      opsi: [
+        'Kalor dapat menyebabkan perubahan suhu',
+        'Kalor dapat menyebabkan perubahan wujud',
+        'Kalor berpindah dari suhu rendah ke suhu tinggi'
+      ],
+      kunci: [true,true,false],
+      bahas: 'Kalor selalu berpindah dari benda bersuhu tinggi ke rendah.'
+    },
+    {
+      id: 'kalor4',
+      tipe: 'isian',
+      tanya: 'Rumus untuk menghitung kalor adalah ....',
+      kunciText: 'Q = m × c × ΔT',
+      bahas: 'Rumus kalor adalah Q = m × c × ΔT.'
+    }
+  ]
+},
+'Pemuaian': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Pemuaian</h2>
+<p>
+  Pemuaian adalah bertambahnya ukuran suatu benda akibat kenaikan suhu.
+</p>
+
+<h3 class="text-lg font-semibold mt-4">Jenis Pemuaian</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Pemuaian Panjang</b>: ΔL = L₀ × α × ΔT</li>
+  <li><b>Pemuaian Luas</b>: ΔA = A₀ × 2α × ΔT</li>
+  <li><b>Pemuaian Volume</b>: ΔV = V₀ × 3α × ΔT</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">Penerapan Pemuaian</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li>Rel kereta dibuat renggang.</li>
+  <li>Tutup botol logam dipanaskan agar mudah dibuka.</li>
+  <li>Termometer raksa memanfaatkan pemuaian zat cair.</li>
+</ul>
+`,
+
+  video: ['r8U9KrVfU9w','PjpfSegNFD0'],
+
+  soal: [
+    {
+      id: 'pm1',
+      tipe: 'pg',
+      tanya: 'Rumus pemuaian panjang adalah ....',
+      opsi: [
+        'ΔL = m × c × ΔT',
+        'ΔL = L₀ × α × ΔT',
+        'ΔL = V₀ × 3α × ΔT',
+        'ΔL = A₀ × 2α × ΔT'
+      ],
+      kunci: 1,
+      bahas: 'Pemuaian panjang: ΔL = L₀ × α × ΔT.'
+    },
+    {
+      id: 'pm2',
+      tipe: 'cb',
+      tanya: 'Contoh penerapan pemuaian dalam kehidupan sehari-hari adalah ....',
+      opsi: [
+        'Rel kereta dibuat renggang',
+        'Termometer raksa',
+        'Tutup botol logam dipanaskan',
+        'Balon udara bisa terbang'
+      ],
+      kunci: [0,1,2],
+      bahas: 'Balon udara terbang karena perbedaan massa jenis, bukan karena pemuaian logam.'
+    },
+    {
+      id: 'pm3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar (B) atau salah (S) pernyataan berikut:',
+      opsi: [
+        'Pemuaian bergantung pada massa benda',
+        'Koefisien muai panjang tiap zat berbeda',
+        'Pemuaian terjadi karena kenaikan suhu'
+      ],
+      kunci: [false,true,true],
+      bahas: 'Pemuaian bergantung pada panjang awal, bukan massa.'
+    },
+    {
+      id: 'pm4',
+      tipe: 'isian',
+      tanya: 'Jika panjang awal L₀ dipanaskan sehingga suhunya naik ΔT, maka pertambahan panjangnya adalah ....',
+      kunciText: 'ΔL = L₀ × α × ΔT',
+      bahas: 'Rumus pertambahan panjang adalah ΔL = L₀ × α × ΔT.'
+    }
+  ]
+},
+
 'Sistem Reproduksi': {
   materi: `
 <h2 class="text-xl font-bold mb-2">Sistem Reproduksi Manusia</h2>
@@ -13788,7 +13987,255 @@ bacaan:'Diketahui sudut pusat lingkaran ∠AOB = 120° dan sudut keliling yang m
           bahas: 'Tinggi membagi alas: \\(BD=10\\). Maka \\(AB=\\sqrt{10^2+12^2}=\\sqrt{100+144}=\\sqrt{244}=2\\sqrt{61}\\) ≈ 15.62 cm (opsi 3 salah tulis). Koreksi jawaban seharusnya \\(2\\sqrt{61}\\).'
         }
       ]
+    },
+'Persamaan Linear 1 Variabel': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Persamaan Linear Satu Variabel (PLSV)</h2>
+<p>
+  <b>Persamaan linear satu variabel</b> adalah persamaan yang hanya memiliki <b>satu variabel</b> dan pangkat tertinggi variabelnya adalah <b>1</b>.
+</p>
+<p>
+  Bentuk umum PLSV adalah:
+  \\( ax + b = 0 \\), dengan \\(a\\) dan \\(b\\) bilangan real, serta \\(a \\ne 0\\).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Unsur-unsur Persamaan Linear Satu Variabel</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>Koefisien</b>: angka yang mengalikan variabel (misal: pada \\(5x\\), koefisiennya 5)</li>
+  <li><b>Variabel</b>: huruf yang mewakili bilangan yang belum diketahui (misal: \\(x\\))</li>
+  <li><b>Konstanta</b>: bilangan tetap tanpa variabel</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Langkah-langkah Menyelesaikan PLSV</h3>
+<ul class="list-decimal ml-6 mb-4">
+  <li>Pindahkan semua variabel ke satu sisi persamaan.</li>
+  <li>Pindahkan konstanta ke sisi lain persamaan.</li>
+  <li>Sederhanakan dan selesaikan nilai variabel.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh</h3>
+<p><b>Contoh 1:</b> Selesaikan \\(3x + 5 = 14\\).</p>
+<p>Penyelesaian: \\(3x = 14 - 5 \\Rightarrow 3x = 9 \\Rightarrow x = 3\\)</p>
+
+<p><b>Contoh 2:</b> Selesaikan \\(7 - 2x = 1\\).</p>
+<p>Penyelesaian: \\(-2x = 1 - 7 = -6 \\Rightarrow x = 3\\)</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Aplikasi dalam Kehidupan Sehari-hari</h3>
+<p>
+  Contoh: Harga 3 buku dan 2 pensil adalah Rp25.000. Jika harga satu buku Rp7.000, tentukan harga satu pensil.<br>
+  \\(3(7000) + 2x = 25000 \\Rightarrow 21000 + 2x = 25000 \\Rightarrow 2x = 4000 \\Rightarrow x = 2000\\).<br>
+  Jadi harga satu pensil adalah Rp2.000.
+</p>
+`,
+  video: ['5ykuESdSgy4','Pk6IFyZ6Ptc','SHLdDRNws2A'], // ganti dengan ID video yang relevan
+
+  soal: [
+    {
+      id: 'plsv1',
+      tipe: 'pg',
+      tanya: 'Bentuk umum persamaan linear satu variabel adalah...',
+      opsi: [
+        '\\( ax + b = 0 \\)',
+        '\\( ax^2 + bx + c = 0 \\)',
+        '\\( axy + b = 0 \\)',
+        '\\( ax^3 + b = 0 \\)'
+      ],
+      kunci: 0,
+      bahas: 'PLSV hanya memiliki satu variabel dan pangkat tertinggi 1, yaitu \\( ax + b = 0 \\).'
+    },
+    {
+      id: 'plsv2',
+      tipe: 'cb',
+      tanya: 'Manakah yang merupakan persamaan linear satu variabel?',
+      opsi: [
+        '\\( 3x + 2 = 11 \\)',
+        '\\( 4x^2 - 5 = 0 \\)',
+        '\\( 2x + 3y = 10 \\)',
+        '\\( 7 - 5x = 2 \\)'
+      ],
+      kunci: [0,3],
+      bahas: 'Yang termasuk PLSV hanya yang memiliki satu variabel berpangkat satu: \\(3x+2=11\\) dan \\(7-5x=2\\).'
+    },
+    {
+      id: 'plsv3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar atau salah pernyataan berikut:',
+      opsi: [
+        'Persamaan \\(2x + 3 = 7\\) memiliki solusi \\(x = 2\\)',
+        'Persamaan \\(5x - 10 = 0\\) memiliki solusi \\(x = 2\\)',
+        'Persamaan \\(x^2 + 3x = 0\\) termasuk PLSV',
+        'Pada PLSV, pangkat variabel boleh lebih dari 1'
+      ],
+      kunci: [true,true,false,false],
+      bahas: 'Dua pertama benar, karena hasilnya x=2. Dua terakhir salah, karena pangkat harus 1 untuk PLSV.'
+    },
+    {
+      id: 'plsv4',
+      tipe: 'isian',
+      tanya: 'Selesaikan \\(4x - 6 = 10\\).',
+      kunciText: '4',
+      bahas: '\\(4x = 16 \\Rightarrow x = 4\\)'
+    },
+    {
+      id: 'plsv5',
+      tipe: 'pg',
+      tanya: 'Jika \\(3x + 5 = 17\\), maka nilai \\(x\\) adalah...',
+      opsi: ['3', '4', '5', '6'],
+      kunci: 1,
+      bahas: '\\(3x = 12 \\Rightarrow x = 4\\)'
+    },
+    {
+      id: 'plsv6',
+      tipe: 'cb',
+      tanya: 'Pilih semua langkah yang benar untuk menyelesaikan \\(5x - 7 = 18\\).',
+      opsi: [
+        'Pindahkan -7 ke ruas kanan menjadi +7',
+        'Jumlahkan kedua ruas dengan 7',
+        'Bagi kedua ruas dengan 5',
+        'Kurangi kedua ruas dengan 18'
+      ],
+      kunci: [0,1,2],
+      bahas: 'Langkah benar: tambah 7 di kedua sisi → \\(5x=25\\), lalu bagi 5 → \\(x=5\\).'
     }
+  ]
+},
+'Pertidaksamaan Linear 1 Variabel': {
+  materi: `
+<h2 class="text-xl font-bold mb-2">Pertidaksamaan Linear Satu Variabel (PtLSV)</h2>
+<p>
+  <b>Pertidaksamaan linear satu variabel</b> adalah kalimat terbuka yang hanya memiliki <b>satu variabel</b> dan pangkat tertinggi dari variabelnya adalah <b>1</b>, tetapi menggunakan tanda pertidaksamaan, bukan tanda sama dengan.
+</p>
+<p>
+  Bentuk umum PtLSV adalah:
+  \\( ax + b < 0 \\), \\( ax + b > 0 \\), \\( ax + b \\le 0 \\), atau \\( ax + b \\ge 0 \\),
+  dengan \\(a\\) dan \\(b\\) bilangan real serta \\(a \\ne 0\\).
+</p>
+
+<h3 class="text-lg font-semibold mt-4">1. Tanda Pertidaksamaan</h3>
+<ul class="list-disc ml-6 mb-4">
+  <li><b>&lt;</b> : kurang dari</li>
+  <li><b>&gt;</b> : lebih dari</li>
+  <li><b>&le;</b> : kurang dari atau sama dengan</li>
+  <li><b>&ge;</b> : lebih dari atau sama dengan</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">2. Aturan dalam Menyelesaikan Pertidaksamaan</h3>
+<ul class="list-decimal ml-6 mb-4">
+  <li>Jika menambah atau mengurang kedua ruas dengan bilangan yang sama, tanda pertidaksamaan <b>tidak berubah</b>.</li>
+  <li>Jika mengalikan atau membagi kedua ruas dengan <b>bilangan positif</b>, tanda pertidaksamaan <b>tetap</b>.</li>
+  <li>Jika mengalikan atau membagi kedua ruas dengan <b>bilangan negatif</b>, tanda pertidaksamaan <b>berubah arah</b>.</li>
+</ul>
+
+<h3 class="text-lg font-semibold mt-4">3. Contoh</h3>
+<p><b>Contoh 1:</b> Selesaikan \\(3x - 5 &lt; 7\\)</p>
+<p>
+  \\(3x &lt; 12 \\Rightarrow x &lt; 4\\)
+</p>
+
+<p><b>Contoh 2:</b> Selesaikan \\(-2x + 4 \\ge 10\\)</p>
+<p>
+  \\(-2x \\ge 6 \\Rightarrow x \\le -3\\) (tanda berubah karena dibagi -2)
+</p>
+
+<h3 class="text-lg font-semibold mt-4">4. Menyatakan Himpunan Penyelesaian</h3>
+<p>
+  Himpunan penyelesaian biasanya ditulis dalam bentuk interval atau himpunan bilangan real.<br>
+  Contoh: \\(x &lt; 4\\) berarti \\(H = \\{x | x &lt; 4\\}\\)
+</p>
+
+<h3 class="text-lg font-semibold mt-4">5. Aplikasi dalam Kehidupan Sehari-hari</h3>
+<p>
+  Contoh: Harga tiket bioskop Rp35.000. Uang Budi kurang dari Rp100.000. Berapa tiket maksimal yang bisa dibeli Budi?<br>
+  \\(35.000x &lt; 100.000 \\Rightarrow x &lt; \\tfrac{100.000}{35.000} \\Rightarrow x &lt; 2{,}85\\).<br>
+  Jadi, Budi hanya bisa membeli maksimal 2 tiket.
+</p>
+`,
+  video: ['aG-rVyIwoAQ','Su_ArXSCEvw'], // ganti dengan ID video yang relevan
+
+  soal: [
+    {
+      id: 'ptlsv1',
+      tipe: 'pg',
+      tanya: 'Bentuk umum pertidaksamaan linear satu variabel adalah...',
+      opsi: [
+        '\\( ax + b = 0 \\)',
+        '\\( ax + b < 0 \\)',
+        '\\( ax^2 + b = 0 \\)',
+        '\\( axy + b = 0 \\)'
+      ],
+      kunci: 1,
+      bahas: 'Pertidaksamaan linear satu variabel menggunakan tanda <, >, ≤, atau ≥ dengan satu variabel berpangkat satu.'
+    },
+    {
+      id: 'ptlsv2',
+      tipe: 'cb',
+      tanya: 'Manakah yang merupakan pertidaksamaan linear satu variabel?',
+      opsi: [
+        '\\( 3x - 7 > 5 \\)',
+        '\\( 2x + 3y < 10 \\)',
+        '\\( -4x + 1 \\le 9 \\)',
+        '\\( x^2 + 2x > 3 \\)'
+      ],
+      kunci: [0,2],
+      bahas: 'Pertidaksamaan linear hanya punya satu variabel berpangkat 1, yaitu \\(3x-7>5\\) dan \\(-4x+1\\le9\\).'
+    },
+    {
+      id: 'ptlsv3',
+      tipe: 'bs',
+      tanya: 'Tentukan benar atau salah pernyataan berikut:',
+      opsi: [
+        'Jika kedua ruas pertidaksamaan dikali bilangan negatif, arah tanda pertidaksamaan berubah.',
+        'Jika kedua ruas dikurangi bilangan yang sama, arah tanda pertidaksamaan berubah.',
+        'Pertidaksamaan \\(2x - 5 < 7\\) memiliki penyelesaian \\(x < 6\\).',
+        'Pertidaksamaan \\(-3x > 9\\) memiliki penyelesaian \\(x < -3\\).'
+      ],
+      kunci: [true,false,true,true],
+      bahas: 'Kali negatif ubah tanda benar; mengurangi tidak ubah tanda; dua hasil lainnya benar sesuai aturan operasi.'
+    },
+    {
+      id: 'ptlsv4',
+      tipe: 'isian',
+      tanya: 'Selesaikan pertidaksamaan \\(5x - 10 \\ge 15\\).',
+      kunciText: 'x ≥ 5',
+      bahas: '\\(5x \\ge 25 \\Rightarrow x \\ge 5\\).'
+    },
+    {
+      id: 'ptlsv5',
+      tipe: 'pg',
+      tanya: 'Selesaikan pertidaksamaan \\(-2x + 8 < 0\\).',
+      opsi: ['x > 4', 'x < 4', 'x > -4', 'x < -4'],
+      kunci: 0,
+      bahas: '\\(-2x < -8 \\Rightarrow x > 4\\) (ubah arah tanda karena dibagi -2).'
+    },
+    {
+      id: 'ptlsv6',
+      tipe: 'cb',
+      tanya: 'Langkah-langkah yang benar untuk menyelesaikan \\(-3x + 9 \\le 0\\) adalah...',
+      opsi: [
+        'Kurangi 9 dari kedua ruas',
+        'Dapatkan \\(-3x \\le -9\\)',
+        'Bagi kedua ruas dengan -3',
+        'Arah tanda pertidaksamaan tetap'
+      ],
+      kunci: [0,1,2],
+      bahas: 'Setelah membagi dengan -3, tanda berubah menjadi \\(x \\ge 3\\). Jadi langkah terakhir bukan "tetap".'
+    },
+    {
+      id: 'ptlsv7',
+      tipe: 'pg',
+      tanya: 'Ali menabung setiap minggu sebesar \\(x\\) rupiah. Ia ingin memiliki minimal Rp300.000 dalam 5 minggu. Pertidaksamaan yang sesuai adalah...',
+      opsi: [
+        '\\(5x > 300.000\\)',
+        '\\(5x < 300.000\\)',
+        '\\(5x \\ge 300.000\\)',
+        '\\(x \\le 300.000\\)'
+      ],
+      kunci: 2,
+      bahas: 'Karena Ali ingin minimal 300.000, maka tandanya \\(\\ge\\): \\(5x \\ge 300.000\\).'
+    }
+  ]
+},
+
   }
 },
 
