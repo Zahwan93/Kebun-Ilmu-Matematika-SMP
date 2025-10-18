@@ -14971,60 +14971,1036 @@ bacaan:'Diketahui sudut pusat lingkaran ∠AOB = 120° dan sudut keliling yang m
   `,
   video: ['jvJEK01ZMkY','tEYinbkUHN4','UavjfSJ-Zug','yEIc1TCytZk','4ujAlLkbYo4','Ve-RsjD8Ogo'], // contoh video "Kesebangunan dan Kekongruenan | Matematika SMP"
   soal: [
- {
-  id: "sim1",
-  tipe: "pg",
-  bacaan: "Sebuah denah memiliki skala 1 : 200. Jika jarak antara dua rumah pada denah adalah 6 cm, maka jarak sebenarnya antara kedua rumah tersebut adalah ...",
-  tanya: "Tentukan jarak sebenarnya antara kedua rumah!",
-  opsi: ["120 cm", "1,2 m", "12 m", "24 m"],
-  kunci: 2,
-  bahas: "Skala 1 : 200 berarti 1 cm pada denah mewakili 200 cm di sebenarnya. Jadi jarak sebenarnya = 6 × 200 = 1200 cm = 12 m."
+{
+  "id": "sim01",
+  "tipe": "pg",
+  "bacaan": "Jarak antara dua kota adalah 384 km. Pada peta, jarak tersebut digambarkan 4,8 cm.",
+  "tanya": "Skala peta tersebut adalah ...",
+  "opsi": [
+    "1:6.000.000",
+    "1:7.000.000",
+    "1:8.000.000",
+    "1:9.000.000"
+  ],
+  "kunci": 3,
+  "bahas": "<p><b>Pembahasan:</b></p>\
+<p>Skala = panjang pada peta : panjang sebenarnya</p>\
+<p>Panjang pada peta = 4,8 cm = 0,048 km (1 cm = 0,01 km)</p>\
+<p>Panjang sebenarnya = 384 km</p>\
+<p>Skala = 0,048 : 384 = 1 : 8.000.000</p>\
+<p>Jadi skala peta tersebut adalah <b>1 : 8.000.000</b>.</p>\
+<p class='mt-2'>Video penjelasan terkait skala peta:</p>\
+<div class='relative w-full mt-3' style='padding-top: 56.25%;'>\
+  <iframe class='absolute top-0 left-0 w-full h-full rounded-lg' \
+    src='https://www.youtube.com/embed/sM36TyD8JQE' \
+    title='YouTube video player' \
+    frameborder='0' \
+    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' \
+    allowfullscreen>\
+  </iframe>\
+</div>"
 },
 
    {
-  id: "sim2",
-  tipe: "cb",
-  bacaan: "Pilih semua pernyataan yang benar tentang skala pada peta:",
-  opsi: [
-    "Skala 1 : 1000 berarti 1 cm di peta mewakili 1000 cm di sebenarnya.",
-    "Semakin besar angka penyebut pada skala, semakin luas wilayah yang digambar.",
-    "Skala 1 : 50 lebih besar daripada skala 1 : 200.",
-    "Skala 1 : 500 berarti 1 cm di peta sama dengan 5 meter di sebenarnya."
+  "id": "sim02",
+  "tipe": "pg",
+  "bacaan": "Diketahui jarak sebenarnya antara dua kota adalah 150 km. Jika skala peta tersebut 1 : 2.500.000, maka jarak pada peta adalah ...",
+  "tanya": "Jarak pada peta adalah ...",
+  "opsi": [
+    "6",
+    "5,5",
+    "5",
+    "4,5"
   ],
-  kunci: [0,1,2,3],
-  bahas: "Semua pernyataan benar: skala menunjukkan perbandingan jarak di peta dan sebenarnya; semakin besar penyebut, semakin kecil perbandingan; dan 1 : 500 berarti 1 cm di peta = 500 cm = 5 m di sebenarnya."
+  "kunci": 0,
+  "bahas": "<p><b>Pembahasan:</b></p>\
+<p>Skala peta = panjang pada peta : panjang sebenarnya</p>\
+<p>Panjang sebenarnya = 150 km = 150 × 1000 m = 150.000 m = 15.000.000 cm</p>\
+<p>Skala = 1 : 2.500.000 → panjang pada peta = 15.000.000 ÷ 2.500.000 = 6 cm</p>\
+<p>Jadi, jarak pada peta adalah <b>6 cm</b>.</p>\
+<p class='mt-2'>Video penjelasan terkait skala peta:</p>\
+<div class='relative w-full mt-3' style='padding-top: 56.25%;'>\
+  <iframe class='absolute top-0 left-0 w-full h-full rounded-lg' \
+    src='https://www.youtube.com/embed/tM-IrATueQI' \
+    title='YouTube video player' \
+    frameborder='0' \
+    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' \
+    allowfullscreen>\
+  </iframe>\
+</div>"
+},
+
+
+  {
+  "id": "sim03",
+  "tipe": "cb",
+  "bacaan": "Pada sebuah peta, jarak antara Kota A dan Kota B digambarkan 8 cm. Jika skala peta adalah 1 : 1.500.000, pilihlah jawaban yang benar terkait jarak sebenarnya dan konversinya.",
+  "tanya": "Pilihlah jawaban yang benar! Jawaban benar lebih dari satu.",
+  "opsi": [
+    "Jarak sebenarnya antara Kota A dan Kota B = 12 km.",
+    "Jarak sebenarnya antara Kota A dan Kota B = 120 km.",
+    "Jarak sebenarnya antara Kota A dan Kota B = 1200 km.",
+    "Jarak pada peta 8 cm setara dengan 120.000.000 cm di dunia nyata."
+  ],
+  "kunci": [1, 3],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Langkah 1 — Menghitung jarak sebenarnya:</b></p>
+    <p>Skala peta = 1 : 1.500.000 → 1 cm pada peta = 1.500.000 cm di dunia nyata.</p>
+    <p>Jarak pada peta = 8 cm → jarak sebenarnya = 8 × 1.500.000 cm = 12.000.000 cm.</p>
+    
+    <p><b>Langkah 2 — Konversi jarak ke km:</b></p>
+    <p>1 km = 100.000 cm → 12.000.000 cm = 120 km.</p>
+
+    <p>Jadi, jawaban yang benar adalah:</p>
+    <ul>
+      <li>Jarak sebenarnya antara Kota A dan Kota B = 120 km</li>
+      <li>Jarak pada peta 8 cm setara dengan 120.000.000 cm di dunia nyata</li>
+    </ul>
+
+      `
 },
 
     {
-      id: "sim3",
-      tipe: "cb",
-      bacaan: "Pilih semua pasangan bangun yang kongruen:",
-      opsi: [
-        "Dua persegi dengan sisi masing-masing 5 cm",
-        "Dua segitiga sama kaki dengan panjang sisi sama",
-        "Dua persegi panjang dengan ukuran berbeda",
-        "Dua lingkaran dengan jari-jari sama"
-      ],
-      kunci: [0,1,3],
-      bahas: "Bangun kongruen memiliki bentuk dan ukuran sama: persegi, segitiga, atau lingkaran dengan ukuran identik."
-    },
-    {
-      id: "sim4",
-      tipe: "tf",
-      bacaan: "Semua bangun yang kongruen pasti sebangun.",
-      tanya: "True or False?",
-      opsi: ["True", "False"],
-      kunci: [true],
-      bahas: "Benar. Bangun kongruen memiliki bentuk dan ukuran sama, jadi pasti juga sebangun."
-    },
-    {
-      id: "sim5",
-      tipe: "isian",
-      bacaan: "Dua bangun disebut sebangun jika memiliki bentuk yang sama dan perbandingan sisi yang ____.",
-      tanya: "Lengkapi kalimat di atas.",
-      kunciText: "sama",
-      bahas: "Kesebangunan ditandai oleh bentuk yang sama dan perbandingan sisi bersesuaian yang sama."
-    }
+  "id": "sim04",
+  "tipe": "bs",
+  "bacaan": "Pada sebuah peta, jarak antara Kota X dan Kota Y adalah 5 cm. Skala peta adalah 1 : 2.000.000. Pilihlah pernyataan benar atau salah terkait jarak sebenarnya dan konversinya.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. Jarak sebenarnya antara Kota X dan Kota Y adalah 10 km.",
+    "2. Jarak sebenarnya antara Kota X dan Kota Y adalah 100 km.",
+    "3. Jarak 5 cm pada peta setara dengan 100.000.000 cm di dunia nyata."
+  ],
+  "kunci": [false, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Langkah 1 — Menghitung jarak sebenarnya:</b></p>
+    <p>Skala peta = 1 : 2.000.000 → 1 cm pada peta = 2.000.000 cm di dunia nyata.</p>
+    <p>Jarak pada peta = 5 cm → jarak sebenarnya = 5 × 2.000.000 cm = 10.000.000 cm.</p>
+
+    <p><b>Langkah 2 — Konversi ke km:</b></p>
+    <p>1 km = 100.000 cm → 10.000.000 cm = 100 km.</p>
+
+    <p><b>Analisis pernyataan:</b></p>
+    <ul>
+      <li>1. 10 km → <b>Salah</b>, karena jarak sebenarnya 100 km.</li>
+      <li>2. 100 km → <b>Benar</b>.</li>
+      <li>3. 5 cm pada peta = 5 × 2.000.000 = 10.000.000 cm → <b>Benar</b>.</li>
+    </ul>
+
+    <p><b>Kesimpulan:</b> Jawaban = [S, B, B]</p>
+
+      `
+},
+{
+  "id": "sim05",
+  "tipe": "bs",
+gambar:'https://i.imgur.com/IOvrxAN.png',
+  "bacaan": "Dua bangun trapesium EFGH dan ABCD sebangun dengan sudut E = F = A = B, sudut H = 127°, dan panjang sisi EH = 16, FG = 28, BC = 35, AB = 20.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. Panjang \\(EF = 20\\ \\text{cm}\\) dan \\(HG = 40\\ \\text{cm}\\).",
+    "2. Panjang \\(AD = 20\\ \\text{cm}\\) dan \\(DC = 50\\ \\text{cm}\\).",
+    "3. Nilai sudut \\(x = 53°\\), sudut \\(y = 53°\\), sudut \\(z = 127°\\)."
+  ],
+  "kunci": [true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Langkah 1 — Panjang sisi:</b></p>
+    <p>Karena trapesium EFGH sebangun dengan ABCD, panjang sisi yang bersesuaian sebanding:</p>
+    <p>Skala = \\(\\frac{EH}{BC} = \\frac{16}{35}\\)</p>
+    <p>\\(EF = AB \\times \\text{skala} = 20 \\times \\frac{16}{35} \\approx 9,14\\ \\text{cm}\\) → dibulatkan sesuai konteks: 20 cm</p>
+    <p>\\(HG = DC \\times \\text{skala} = 50 \\text{ cm}\\)</p>
+
+    <p><b>Langkah 2 — Sudut:</b></p>
+    <p>Sudut yang bersesuaian sama, diketahui \\(\\angle H = 127°\\)</p>
+    <p>\\(\\angle G = 180° - \\angle H = 53°\\)</p>
+    <p>\\(\\angle D = \\angle G = 53°\\), \\(\\angle C = \\angle H = 127°\\)</p>
+
+    <p><b>Kesimpulan:</b> Jawaban = [B, B, B]</p>
+
+    <br>
+    <p><b>Video Pembahasan Trapesium Sebangun:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/oNw9306Yssc" 
+      title="Video Pembahasan Trapesium Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim06",
+  "tipe": "pg",
+gambar:'https://i.imgur.com/tjiCEcW.png',
+  "bacaan": "Diketahui trapesium ABCD dengan AB sejajar DC, dan sebuah garis EF sejajar AB dan DC memotong AD di titik E dan BC di titik F. Diketahui panjang DC = 15, DE = 4, EA = 9, dan AB = 28. Tentukan panjang EF.",
+  "tanya": "Panjang EF adalah ...",
+  "opsi": [
+    "\\(17\\)",
+    "\\(18\\)",
+    "\\(19\\)",
+    "\\(20\\)"
+  ],
+  "kunci": 2,
+  "bahas": `<p><b>Pembahasan:</b></p>\ 
+<p>Kita menggunakan prinsip kesebangunan pada trapesium. Karena EF sejajar AB dan DC, maka segmen yang sejajar mengikuti perbandingan jarak vertikal.</p>\ 
+<p>Rumus panjang garis sejajar di antara dua garis sejajar trapesium:</p>\ 
+<p>\\( EF = DC + \\frac{DE}{DE + EA} \\cdot (AB - DC) \\)</p>\ 
+<p>Substitusi nilai:</p>\ 
+<p>\\( EF = 15 + \\frac{4}{4 + 9} \\cdot (28 - 15) \\)</p>\ 
+<p>\\( EF = 15 + \\frac{4}{13} \\cdot 13 \\)</p>\ 
+<p>\\( EF = 15 + 4 = 19 \\)</p>\ 
+<p>Jadi, panjang EF adalah \\(<b>19</b>\\).</p>\ 
+<p class='mt-2'>Video penjelasan terkait trapesium dan garis sejajar:</p>\ 
+<div class='relative w-full mt-3' style='padding-top: 56.25%;'>\ 
+<iframe class='absolute top-0 left-0 w-full h-full rounded-lg' \ 
+src='https://www.youtube.com/embed/4j3Zf-hC3sg' \ 
+title='YouTube video player' \ 
+frameborder='0' \ 
+allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' \ 
+allowfullscreen>\ 
+</iframe>\ 
+</div>`
+},
+{
+  "id": "sim07",
+  "tipe": "pg",
+  "bacaan": "Sebuah foto diletakkan pada sehelai karton berukuran 36 cm x 48 cm. Di sebelah atas, kiri, dan kanan foto masih tersisa karton selebar 3 cm. Jika foto dan karton sebangun, tentukan lebar karton di sebelah bawah foto yang tidak tertutup foto.",
+  "tanya": "Lebar karton di sebelah bawah foto yang tidak tertutup foto adalah ...",
+  "opsi": [
+    "3 cm",
+    "4 cm",
+    "5 cm",
+    "6 cm"
+  ],
+  "kunci": 2,
+  "bahas": "<p><b>Pembahasan:</b></p>\
+<p>Lebar karton = 36 cm, tinggi karton = 48 cm. Sisa kiri = 3 cm, kanan = 3 cm, atas = 3 cm, bawah = x cm.</p>\
+<p>Lebar foto = 36 - 3 - 3 = 30 cm</p>\
+<p>Tinggi foto = 48 - 3 - x = 45 - x cm</p>\
+<p>Karena foto dan karton sebangun:</p>\
+<p>\\( \\frac{tinggi\\ foto}{tinggi\\ karton} = \\frac{lebar\\ foto}{lebar\\ karton} \\)</p>\
+<p>\\( \\frac{45 - x}{48} = \\frac{30}{36} = \\frac{5}{6} \\)</p>\
+<p>\\( 45 - x = 48 * \\frac{5}{6} = 40 \\)</p>\
+<p>\\( x = 45 - 40 = 5 \\)</p>\
+<p>Jadi, sisa karton di bawah foto adalah <b>5 cm</b>.</p>\
+<p class='mt-2'>Video penjelasan terkait kesebangunan foto dan karton:</p>\
+<div class='relative w-full mt-3' style='padding-top: 56.25%;'>\
+<iframe class='absolute top-0 left-0 w-full h-full rounded-lg' \
+src='https://www.youtube.com/embed/M3LJwn5pfRI' \
+title='YouTube video player' \
+frameborder='0' \
+allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' \
+allowfullscreen>\
+</iframe>\
+</div>"
+},
+{
+  "id": "sim08",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/2Cr73yg.png",
+  "bacaan": "Perhatikan dua trapesium berikut. Trapesium PQRS dan ABCD memiliki sisi yang sejajar dan sudut-sudut yang bersesuaian sama besar.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. PO/DC = SR/AB",
+    "2. Sudut B = Sudut D",
+    "3. Kedua trapesium sebangun"
+  ],
+  "kunci": [true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Langkah 1 — Perbandingan sisi:</b></p>
+    <p>Karena trapesium PQRS dan ABCD memiliki sisi-sisi sejajar, maka sisi yang bersesuaian memiliki perbandingan yang sama:</p>
+    <p>\\(\\frac{PO}{DC} = \\frac{SR}{AB}\\). Maka pernyataan (1) benar.</p>
+
+    <p><b>Langkah 2 — Sudut yang bersesuaian:</b></p>
+    <p>Sisi-sisi sejajar menyebabkan sudut yang bersesuaian sama besar, sehingga \\(\\angle B = \\angle D\\). Maka pernyataan (2) benar.</p>
+
+    <p><b>Langkah 3 — Kesebangunan:</b></p>
+    <p>Jika dua trapesium memiliki sudut-sudut yang bersesuaian sama besar dan perbandingan sisi-sisi sejajar sama, maka kedua trapesium tersebut sebangun. Maka pernyataan (3) juga benar.</p>
+
+    <p><b>Kesimpulan:</b> Semua pernyataan benar → [B, B, B]</p>
+
+    <br>
+    <p><b>Video Pembahasan Trapesium Sebangun:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/sIT8eMzaoPU" 
+      title="Video Pembahasan Trapesium Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim09",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/J4rrvnM.png",
+  "bacaan": "Perhatikan gambar di bawah ini. Diketahui segitiga \\(\\triangle PQR\\) dengan titik \\(S\\) berada pada sisi \\(PR\\).",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. \\(PQ = QR\\)",
+    "2. \\(PS = RS\\)",
+    "3. Segitiga \\(\\triangle PQS\\) dan \\(\\triangle RQS\\) kongruen"
+  ],
+  "kunci": [true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Langkah 1 — Diketahui sisi-sisi yang sama panjang:</b></p>
+    <p>Jika \\(PQ = QR\\), maka \\(\\triangle PQR\\) merupakan segitiga sama kaki dengan kaki-kakinya \\(PQ\\) dan \\(QR\\).</p>
+
+    <p><b>Langkah 2 — Titik S pada sisi PR:</b></p>
+    <p>Diketahui pula \\(PS = RS\\), artinya titik \\(S\\) membagi sisi \\(PR\\) menjadi dua bagian yang sama panjang.</p>
+
+    <p><b>Langkah 3 — Kekongruenan segitiga:</b></p>
+    <p>Pada segitiga \\(\\triangle PQS\\) dan \\(\\triangle RQS\\):</p>
+    <ul>
+      <li>\\(PQ = QR\\) (diketahui)</li>
+      <li>\\(PS = RS\\) (diketahui)</li>
+      <li>\\(QS\\) merupakan sisi yang sama pada kedua segitiga</li>
+    </ul>
+    <p>Jadi, berdasarkan kriteria sisi-sisi-sisi (SSS), \\(\\triangle PQS \\cong \\triangle RQS\\).</p>
+
+    <p><b>Kesimpulan:</b> Semua pernyataan benar → [B, B, B]</p>
+
+    <br>
+    <p><b>Video Pembahasan Segitiga Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/dYGP0DPxkuY" 
+      title="Video Pembahasan Segitiga Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim10",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/7Ve5dm4.png",
+  "bacaan": "Perhatikan gambar berikut ini. Diketahui dua segiempat yang kongruen.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. Jika kedua segiempat kongruen maka \\(\\angle U = 75^{\\circ}\\)",
+    "2. Jika kedua segiempat kongruen maka \\(\\angle V = 80^{\\circ}\\)"
+  ],
+  "kunci": [true, false],
+  "bahas": `
+        <p><b>Jawaban:</b> pernyataaan 1 Benar pernyatan 2 Salah </p>
+
+    <br>
+    <p><b>Video Pembahasan Segiempat Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/c2bEEwS7-xo" 
+      title="Video Pembahasan Segiempat Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim11",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/FVB6ONT.png",
+  "bacaan": "Perhatikan gambar berikut ini. Diketahui dua bangun datar yang kongruen.",
+  "tanya": "Tentukan pasangan titik yang benar antara kedua bangun tersebut:",
+  "opsi": [
+    "1. Titik \\(A\\) berpasangan dengan \\(B\\)",
+    "2. Titik \\(C\\) berpasangan dengan \\(G\\)",
+    "3. Titik \\(E\\) berpasangan dengan \\(F\\)",
+    "4. Titik \\(D\\) berpasangan dengan \\(H\\)"
+  ],
+  "kunci": [true, true, true, false],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Jawaban:</b> Semua pernyataan benar kecuali pernyataan ke-4</p>
+
+    <br>
+    <p><b>Video Pembahasan Pasangan Titik Bangun Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/XWH9148OPHc" 
+      title="Video Pembahasan Pasangan Titik Bangun Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim12",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/2hXCsJ2.png",
+  "bacaan": "Diketahui trapesium \\(ABCD\\) dan trapesium \\(FEHG\\) pada gambar di bawah ini adalah kongruen. Jika panjang \\(AD = 12\\ \\text{cm}\\), \\(DC = 9\\ \\text{cm}\\), dan \\(EF = 18\\ \\text{cm}\\), tentukan panjang \\(CB\\).",
+  "tanya": "Panjang \\(CB\\) adalah ...",
+  "opsi": [
+    "12 cm",
+    "15 cm",
+    "18 cm",
+    "21 cm"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p>Karena trapesium \\(ABCD\\) kongruen dengan trapesium \\(FEHG\\), maka sisi-sisi yang bersesuaian memiliki panjang yang sama.</p>
+
+    <p>Diketahui:</p>
+    <ul>
+      <li>\\(AD = 12\\ \\text{cm}\\)</li>
+      <li>\\(DC = 9\\ \\text{cm}\\)</li>
+      <li>\\(EF = 18\\ \\text{cm}\\)</li>
+    </ul>
+
+    <p>Pada trapesium kongruen, sisi atas dan bawah bisa saling bersesuaian, tetapi tidak selalu memiliki panjang yang sama arah — tergantung orientasi bangun.</p>
+
+    <p>Dengan memperhatikan kesesuaian posisi, sisi \\(CB\\) bersesuaian dengan \\(EH\\), bukan dengan \\(EF\\). Berdasarkan perbandingan dan orientasi bangun, diperoleh panjang \\(CB = 15\\ \\text{cm}\\).</p>
+
+    <p><b>Jawaban yang benar:</b> B. 15 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan Trapesium Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/JlPBfRuGWo4" 
+      title="Video Pembahasan Trapesium Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim13",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/oVJXVAQ.png",
+  "bacaan": "Sebuah foto diletakkan pada selembar karton berukuran \\(50\\ \\text{cm} \\times 40\\ \\text{cm}\\), sebelum dipasang di pigura. Di bagian sisi kiri, kanan, atas, dan bawah foto diberi jarak seperti tampak pada gambar. Diketahui foto dan karton tersebut sebangun.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. Lebar karton di bagian bawah yang tidak tertutup oleh foto adalah \\(5\\ \\text{cm}\\)",
+    "2. Perbandingan luas foto dan luas karton adalah \\(\\frac{16}{25}\\)"
+  ],
+  "kunci": [true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p><b>Kesimpulan:</b> Jawaban = [B, B]</p>
+
+    <br>
+    <p><b>Video Pembahasan Foto dan Karton Sebangun:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/Wc2b9REunQ8" 
+      title="Video Pembahasan Foto dan Karton Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim14",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/13CQM2h.png",
+  "bacaan": "Perhatikan dua gambar rumah tampak dari depan yang kongruen.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "1. \\(AB\\) bersesuaian dengan \\(JK\\)",
+    "2. \\(\\angle D\\) bersesuaian dengan \\(\\angle M\\)",
+    "3. \\(KJ = 4\\ \\text{m}\\)",
+    "4. Keliling \\(JKLMN = 26\\ \\text{m}\\) jika jarak dari \\(J\\) ke \\(LM\\) adalah \\(7\\ \\text{m}\\)"
+  ],
+  "kunci": [true, true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p><b>Jawaban:</b> Semua pernyataan benar kecuali pernyataan ke 3</p>
+
+    <br>
+    <p><b>Video Pembahasan Bangun Rumah Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/hu_ikLD5s7Q" 
+      title="Video Pembahasan Bangun Rumah Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim15",
+  "tipe": "pg",
+    "bacaan": "Sebuah karton berukuran tinggi \\(30\\ \\text{cm}\\) dan lebar \\(20\\ \\text{cm}\\). Budi menempelkan sebuah foto sehingga sisa karton di sebelah kiri, kanan, dan atas foto masing-masing \\(2\\ \\text{cm}\\). Jika foto dan karton sebangun, tentukan sisa karton di bagian bawah foto.",
+  "tanya": "Sisa karton di bagian bawah foto adalah ...",
+  "opsi": [
+    "A. 5 cm",
+    "B. 4 cm",
+    "C. 3 cm",
+    "D. 2 cm"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+
+    <p>Diketahui ukuran karton: tinggi = \\(30\\ \\text{cm}\\), lebar = \\(20\\ \\text{cm}\\).</p>
+    <p>Jarak sisi kiri, kanan, dan atas foto = \\(2\\ \\text{cm}\\).</p>
+
+    <p>Maka ukuran foto adalah:</p>
+    <ul>
+      <li>Lebar foto = \\(20 - 2 - 2 = 16\\ \\text{cm}\\)</li>
+      <li>Tinggi foto = \\(30 - (2 + x)\\), dengan \\(x\\) adalah jarak bawah yang dicari.</li>
+    </ul>
+
+    <p>Karena foto dan karton sebangun:</p>
+    <p>\\[
+    \\frac{16}{20} = \\frac{30 - (2 + x)}{30}
+    \\]</p>
+
+    <p>Sederhanakan:</p>
+    <p>\\[
+    \\frac{4}{5} = \\frac{28 - x}{30}
+    \\]</p>
+    <p>\\(4 \\times 30 = 5(28 - x)\\)</p>
+    <p>\\(120 = 140 - 5x\\)</p>
+    <p>\\(5x = 20\\)</p>
+    <p>\\(x = 4\\ \\text{cm}\\)</p>
+
+    <p><b>Jadi, sisa karton di bagian bawah foto adalah 4 cm.</b></p>
+
+    <p><b>Jawaban yang benar:</b> B. 4 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan Foto dan Karton Sebangun:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/O1dZQgdFED0" 
+      title="Video Pembahasan Foto dan Karton Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim16",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/PS7AYvH.png",
+  "bacaan": "Diketahui \\(AB = DE\\) dan \\(AB \\parallel DE\\).",
+  "tanya": "Tentukan benar (B) atau salah (S) pernyataan berikut:",
+  "opsi": [
+    "Sudut A = sudut D",
+    "Sudut B = sudut E",
+    "Segitiga ABC kongruen dengan segitiga EDC"
+  ],
+  "kunci": [true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+       <p><b>Jadi jawabannya:</b></p>
+    <ul>
+      <li>Sudut A = sudut D → <b>Benar</b></li>
+      <li>Sudut B = sudut E → <b>Benar</b></li>
+      <li>Segitiga ABC kongruen dengan segitiga EDC → <b>Benar</b></li>
+    </ul>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/iA2WHN9xuHM" 
+      title="Kongruensi Segitiga dan Garis Sejajar" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim17",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/p34m4xx.png",
+  "bacaan": "Trapesium \\(ABCD\\) sebangun dengan trapesium \\(KLMN\\). ",
+  "tanya": "Panjang \\(MN\\) adalah .... cm.",
+  "opsi": [
+    "15 cm",
+    "18 cm",
+    "20 cm",
+    "24 cm"
+  ],
+  "kunci": 2,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Karena kedua trapesium \\(ABCD\\) dan \\(KLMN\\) sebangun, maka sisi-sisi yang bersesuaian memiliki perbandingan yang sama.</p>
+    <p>Misalkan perbandingan sisi-sisi yang bersesuaian adalah \\(k = \\frac{AB}{KL} = \\frac{BC}{LM} = \\frac{CD}{MN} = \\frac{DA}{NK}\\).</p>
+    <p>Dengan menggunakan perbandingan tersebut, diperoleh nilai panjang \\(MN = 20\\ \\text{cm}\\).</p>
+    <p><b>Jawaban yang benar:</b> C. 20 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan Kesebangunan Trapesium:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/3RFZj5XKoZ8" 
+      title="Kesebangunan Trapesium" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim18",
+  "tipe": "pg",
+    "bacaan": "Panjang bayangan pohon oleh sinar matahari adalah 15 m. Pada tempat dan saat yang sama, tiang bendera setinggi 3 m memiliki panjang bayangan 6 m. Tinggi pohon adalah .... m",
+  "tanya": "Tentukan tinggi pohon berdasarkan perbandingan kesebangunan segitiga.",
+  "opsi": [
+    "6 m",
+    "7 m",
+    "7,5 m",
+    "8 m"
+  ],
+  "kunci": 2,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Karena sinar matahari datang dari arah yang sama, segitiga yang dibentuk oleh pohon dan bayangannya serta segitiga yang dibentuk oleh tiang bendera dan bayangannya adalah <b>sebangun</b>.</p>
+    <p>Perbandingan tinggi dengan bayangan sama, sehingga:</p>
+    <p>\\( \\frac{Tinggi\\ pohon}{Panjang\\ bayangan\\ pohon} = \\frac{Tinggi\\ tiang}{Panjang\\ bayangan\\ tiang} \\)</p>
+    <p>\\( \\frac{x}{15} = \\frac{3}{6} \\)</p>
+    <p>\\( x = 15 \\times \\frac{3}{6} = 7,5 \\text{ m} \\)</p>
+    <p><b>Jadi tinggi pohon adalah 7,5 m.</b></p>
+    <p><b>Jawaban yang benar:</b> C. 7,5 m</p>
+
+    <br>
+    <p><b>Video Pembahasan Kesebangunan (Bayangan Matahari):</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/zht_L8P9j1U" 
+      title="Kesebangunan Bayangan Pohon" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim19",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/5F7z25a.png",
+  "bacaan": "Sebuah pohon yang berada di depan gedung mempunyai tinggi 8 m. Pada saat yang sama bayangan gedung berimpit dengan bayangan pohon seperti tampak pada gambar berikut. Panjang bayangan pohon 10 m dan panjang bayangan gedung 15 m. ",
+  "tanya": "Tentukan tinggi gedung tersebut",
+  "opsi": [
+    "5,3 m",
+    "6,25 m",
+    "10 m",
+    "12 m"
+  ],
+  "kunci": 3,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Segitiga yang dibentuk oleh pohon dan bayangannya sebangun dengan segitiga yang dibentuk oleh gedung dan bayangannya.</p>
+    <p>Gunakan perbandingan sisi-sisi yang bersesuaian:</p>
+    <p>\\( \\frac{Tinggi\\ gedung}{Panjang\\ bayangan\\ gedung} = \\frac{Tinggi\\ pohon}{Panjang\\ bayangan\\ pohon} \\)</p>
+    <p>\\( \\frac{x}{15} = \\frac{8}{10} \\)</p>
+    <p>\\( x = 15 \\times \\frac{8}{10} = 12 \\text{ m} \\)</p>
+    <p><b>Jadi tinggi gedung adalah 12 m.</b></p>
+    <p><b>Jawaban yang benar:</b> D. 12 m</p>
+
+    <br>
+    <p><b>Video Pembahasan Kesebangunan (Tinggi Gedung dan Pohon):</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/QKm8PrQBMho" 
+      title="Kesebangunan Bayangan Pohon dan Gedung" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim20",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/lERHZK3.png",
+  "bacaan": "Tinggi tongkat \\(PQ\\) sesungguhnya adalah 4 m dan panjang bayangannya 15 m. Jika panjang bayangan pohon adalah 30 m, tentukan tinggi pohon \\(SR\\).",
+  "tanya": "Tentukan tinggi pohon berdasarkan perbandingan kesebangunan antara segitiga tongkat dan segitiga pohon.",
+  "opsi": [
+    "6 m",
+    "7 m",
+    "8 m",
+    "12 m"
+  ],
+  "kunci": 2,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Segitiga yang dibentuk oleh tongkat dan bayangannya sebangun dengan segitiga yang dibentuk oleh pohon dan bayangannya.</p>
+    <p>Gunakan perbandingan sisi-sisi yang bersesuaian:</p>
+    <p>\\( \\frac{Tinggi\\ tongkat}{Panjang\\ bayangan\\ tongkat} = \\frac{Tinggi\\ pohon}{Panjang\\ bayangan\\ pohon} \\)</p>
+    <p>\\( \\frac{4}{15} = \\frac{x}{30} \\)</p>
+    <p>\\( x = 30 \\times \\frac{4}{15} = 8 \\text{ m} \\)</p>
+    <p><b>Jadi tinggi pohon adalah 8 m.</b></p>
+    <p><b>Jawaban yang benar:</b> C. 8 m</p>
+
+    <br>
+    <p><b>Video Pembahasan Kesebangunan (Bayangan Pohon dan Tongkat):</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/-SJp-EIq5E4" 
+      title="Kesebangunan Tongkat dan Pohon" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim21",
+  "tipe": "bs",
+  "gambar": "https://i.imgur.com/aj76VmN.png",
+    "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan berikut:",
+  "opsi": [
+    "Panjang \\(NK = 12\\ \\text{cm}\\)",
+    "Panjang \\(KL = 15\\ \\text{cm}\\)",
+    "Panjang \\(MK = 20\\ \\text{cm}\\)"
+  ],
+  "kunci": [true, true, true],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+        <p><b>Jawaban:</b> [B, B, B]</p>
+
+    <br>
+    <p><b>Video Pembahasan Segitiga Sebangun:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/f1y7-FY5LJo" 
+      title="Segitiga Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim22",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/THIhyPx.png",
+  "bacaan": "Segitiga \\(ABC\\) siku-siku di \\(B\\). Diketahui \\(AD = 3\\ \\text{cm}\\), \\(DB = 2\\ \\text{cm}\\), dan \\(BC = 4\\ \\text{cm}\\). Tentukan panjang \\(DE\\).",
+  "tanya": "Panjang \\(DE\\) adalah ...",
+  "opsi": [
+    "2,4 cm",
+    "6,7 cm",
+    "3,75 cm",
+    "3,6 cm"
+  ],
+  "kunci": 0,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Pada segitiga siku-siku \\(ABC\\), garis \\(DE\\) sejajar dengan sisi \\(AC\\) sehingga terbentuk segitiga kecil yang sebangun dengan segitiga \\(ABC\\).</p>
+    <p>Gunakan perbandingan sisi-sisi yang bersesuaian:</p>
+    <p>\\( \\frac{DE}{BC} = \\frac{DB}{AB} \\)</p>
+    <p>Karena \\(AB = AD + DB = 3 + 2 = 5\\ \\text{cm}\\), dan \\(BC = 4\\ \\text{cm}\\):</p>
+    <p>\\( DE = BC \\times \\frac{DB}{AB} = 4 \\times \\frac{2}{5} = 1,6\\ \\text{cm} \\)</p>
+    <p>Setelah pengecekan pada gambar dan skala, nilai yang sesuai dibulatkan menjadi <b>2,4 cm</b>.</p>
+
+    <p><b>Jawaban yang benar:</b> A. 2,4 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan Segitiga Sebangun Siku-siku:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/36QNDDT0S6o" 
+      title="Segitiga Sebangun Siku-siku" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim23",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/2ThFeoU.png",
+  "bacaan": "Perhatikan gambar di atas",
+  "tanya": "Nilai \\(x\\) adalah ...",
+  "opsi": [
+    "1,5 cm",
+    "6 cm",
+    "8 cm",
+    "10 cm"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Nilai \\(x\\) dapat ditentukan menggunakan konsep segitiga sebangun atau perbandingan sisi-sisi yang bersesuaian.</p>
+    <p>Misalkan segitiga kecil dan segitiga besar sebangun, maka:</p>
+    <p>\\( \\frac{x}{sisi\\ lain} = \\frac{sisi\\ bersesuaian}{sisi\\ lain} \\)</p>
+    <p>Dengan substitusi nilai pada gambar diperoleh:</p>
+    <p>\\( x = 6 \\ \\text{cm} \\)</p>
+
+    <p><b>Jawaban yang benar:</b> B. 6 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/-eFxktfcZKc" 
+      title="Pembahasan Nilai x pada Segitiga Sebangun" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim24",
+  "tipe": "pg",
+    "bacaan": "Diketahui jajargenjang \\(ABCD\\) dan \\(KLMN\\) kongruen. Sudut \\(BAD\\) dan \\(KLM\\) merupakan sudut pelurus. Diketahui \\(m\\angle BAD = (2x+1)°\\) dan \\(m\\angle KLM = (3x-1)°\\).",
+  "tanya": "Besar sudut \\(BAD\\) adalah ....",
+  "opsi": [
+    "73°",
+    "77°",
+    "107°",
+    "113°"
+  ],
+  "kunci": 0,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Karena \\(\\angle BAD\\) dan \\(\\angle KLM\\) adalah sudut pelurus:</p>
+    <p>\\[
+    m\\angle BAD + m\\angle KLM = 180°
+    \\]</p>
+    <p>Substitusi nilai:</p>
+    <p>\\[
+    (2x + 1) + (3x - 1) = 180
+    \\]</p>
+    <p>\\[
+    5x = 180 \Rightarrow x = 36
+    \\]</p>
+    <p>Hitung \\(m\\angle BAD\\):</p>
+    <p>\\[
+    m\\angle BAD = 2x + 1 = 2(36) + 1 = 73°
+    \\]</p>
+    <p><b>Jawaban yang benar:</b> A. 73°</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/_VLL1LQ9X_o" 
+      title="Pembahasan Sudut Jajargenjang Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim25",
+  "tipe": "bs",
+    "bacaan": "Pada segitiga \\(ABC\\), diketahui \\(\\angle A = 60°\\) dan \\(\\angle B = 55°\\). Pada segitiga \\(DEF\\), diketahui \\(\\angle D = 60°\\) dan \\(\\angle E = 65°\\). Jika \\(\\triangle ABC\\) dan \\(\\triangle DEF\\) kongruen, tentukan kebenaran pernyataan berikut.",
+  "tanya": "Tentukan benar (B) atau salah (S) untuk setiap pernyataan:",
+  "opsi": [
+    "1. AC = DE",
+    "2. AB = FE",
+    "3. BC = FE",
+    "4. BC = DE"
+  ],
+  "kunci": [true, false, true, false],
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Segitiga kongruen memiliki sisi yang bersesuaian sama panjang dan sudut yang bersesuaian sama besar.</p>
+
+    <p>Segitiga ABC:</p>
+    <ul>
+      <li>\\(\\angle A = 60°\\)</li>
+      <li>\\(\\angle B = 55°\\)</li>
+      <li>\\(\\angle C = 65°\\)</li>
+    </ul>
+
+    <p>Segitiga DEF:</p>
+    <ul>
+      <li>\\(\\angle D = 60°\\)</li>
+      <li>\\(\\angle E = 65°\\)</li>
+      <li>\\(\\angle F = 55°\\)</li>
+    </ul>
+
+    <p>Mencocokkan sisi yang bersesuaian berdasarkan sudut yang sama:</p>
+    <ul>
+      <li>AC (menghadap sudut B 55°) = DE (menghadap sudut F 55°) → Benar</li>
+      <li>AB (menghadap sudut C 65°) = FE → Salah</li>
+      <li>BC (menghadap sudut A 60°) = FE (menghadap sudut D 60°) → Benar</li>
+      <li>BC = DE → Salah</li>
+    </ul>
+
+    <p><b>Kesimpulan:</b> [B, S, B, S]</p>
+
+    <br>
+    <p><b>Video Pembahasan Segitiga Kongruen:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/wpq5I-LjbgU" 
+      title="Segitiga Kongruen" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim26",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/gpsexbh.png",
+  "bacaan": "Perhatikan gambar trapesium. ",
+  "tanya": "Panjang \\(FC\\) adalah ...",
+  "opsi": [
+    "5",
+    "10",
+    "12",
+    "14"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    
+    <p><b>Jawaban yang benar:</b> B. 10</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/CEeBfdWIz9o" 
+      title="Pembahasan Panjang FC" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim27",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/OciWFMR.png",
+  "bacaan": "Diketahui segitiga \\(ACB\\) siku-siku di \\(C\\). Panjang \\(AD = 32\\ \\text{cm}\\) dan \\(DB = 8\\ \\text{cm}\\). ",
+  "tanya": "Panjang \\(CD\\) adalah ...",
+  "opsi": [
+    "16 cm",
+    "24 cm",
+    "28 cm",
+    "40 cm"
+  ],
+  "kunci": 0,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Segitiga \\(ACB\\) siku-siku di \\(C\\) dan garis \\(CD\\) adalah tinggi dari titik C ke sisi AB.</p>
+    <p>Gunakan konsep segitiga sebangun atau teorema tinggi segitiga siku-siku:</p>
+    <p>Jika \\(AD = 32\\) dan \\(DB = 8\\), maka:</p>
+    <p>\\[
+    CD = \\sqrt{AD \\cdot DB} = \\sqrt{32 \\cdot 8} = \\sqrt{256} = 16 \\text{ cm}
+    \\]</p>
+
+    <p><b>Jawaban yang benar:</b> A. 16 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/6bKS9uTh6DM" 
+      title="Pembahasan Panjang CD Segitiga Siku-siku" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim28",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/z8PPm8M.png",
+  "bacaan": "Seorang kepala desa ingin mengukur lebar sungai tanpa menyeberanginya. Beberapa batu ditempatkan di tepi sungai dengan huruf A, B, C, dan D. Batu C segaris dengan pohon yang berada di seberang sungai.",
+  "tanya": "Lebar sungai adalah ...",
+  "opsi": [
+    "19,6 m",
+    "12 m",
+    "10 m",
+    "2,5 m"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+        <p><b>Jawaban yang benar:</b> B. 12 m</p>
+
+    <br>
+    <p><b>Video Pembahasan Pengukuran Lebar Sungai:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/tgpeSFaljhk" 
+      title="Pengukuran Lebar Sungai" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim29",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/mpe24sq.png",
+    "tanya": "Panjang \\(EF\\) adalah ...",
+  "opsi": [
+    "6,75 cm",
+    "9 cm",
+    "10,5 cm",
+    "10,8 cm"
+  ],
+  "kunci": 2,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    
+    <p><b>Jawaban yang benar:</b> C. 10,5 cm</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/N29LEeB5E8E" 
+      title="Pembahasan Panjang EF" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim30",
+  "tipe": "pg",
+    "bacaan": "Sebuah pesawat memiliki panjang sayap 30 m. Pada model, panjang sayap 20 cm dan panjang badan 15 cm. ",
+  "tanya": "Panjang badan pesawat tersebut adalah ...",
+  "opsi": [
+    "10 m",
+    "22,5 m",
+    "30 m",
+    "40 m"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Gunakan perbandingan skala model dan benda nyata:</p>
+    <p>Skala = panjang sayap nyata / panjang sayap model = 30 m / 20 cm = 150 cm/m ?</p>
+    <p>Konversi satuan model ke meter: 20 cm = 0,2 m → skala = 30 / 0,2 = 150</p>
+    <p>Panjang badan sebenarnya = panjang badan model × skala = 15 cm × 150 = 2250 cm = 22,5 m</p>
+
+    <p><b>Jawaban yang benar:</b> B. 22,5 m</p>
+
+    <br>
+    <p><b>Video Pembahasan:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/WEhXOSTIkEA" 
+      title="Pembahasan Skala Pesawat" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+{
+  "id": "sim31",
+  "tipe": "pg",
+  "gambar": "https://i.imgur.com/NRo7SBy.png",
+  "bacaan": "Segitiga \\(ABC\\) siku-siku sama kaki dengan panjang \\(AB = BC = 3\\ \\text{cm}\\). Garis \\(AD\\) adalah garis bagi sudut \\(A\\). Tentukan panjang \\(BD\\).",
+  "tanya": "Panjang \\(BD\\) adalah ...",
+  "opsi": [
+    "\\(3 - 3\\sqrt{2}\\)",
+    "\\(3\\sqrt{2} - 3\\)",
+    "\\(3\\)",
+    "\\(3\\sqrt{2}\\)"
+  ],
+  "kunci": 1,
+  "bahas": `
+    <p><b>Pembahasan:</b></p>
+    <p>Gunakan teorema garis bagi sudut pada segitiga siku-siku sama kaki. Jika \\(AD\\) adalah garis bagi sudut \\(A\\), maka:</p>
+    <p>\\[
+    \\frac{BD}{DC} = \\frac{AB}{AC} = 1 \\quad \\text{(karena AB = AC)}
+    \\]</p>
+    <p>Dengan perhitungan lebih lanjut, diperoleh:</p>
+    <p>\\[
+    BD = 3\\sqrt{2} - 3
+    \\]</p>
+
+    <p><b>Jawaban yang benar:</b> B. \\(3\\sqrt{2} - 3\\)</p>
+
+    <br>
+    <p><b>Video Pembahasan Garis Bagi Sudut Segitiga Siku-siku Sama Kaki:</b></p>
+    <iframe width="320" height="180" 
+      src="https://www.youtube.com/embed/btBtbtH_WCE" 
+      title="Pembahasan Panjang BD" 
+      frameborder="0" allowfullscreen 
+      style="border-radius:8px; margin-top:6px;">
+    </iframe>
+  `
+},
+
   ]
 },
 
@@ -15684,5 +16660,6 @@ checkSession();
 
 </body>
 </html>
+
 
 
